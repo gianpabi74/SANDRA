@@ -1,0 +1,11 @@
+*.tar.gz
+*.sha256
+*.log
+*.tmp
+*.swp
+.DS_Store
+secrets.env
+config/
+artifacts/
+state/
+tmp/
