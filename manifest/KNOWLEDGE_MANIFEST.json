@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "knowledge_root": "/opt/sandra/knowledge",
+  "generated_index": "START_HERE.md",
+  "root_documents": [
+    {
+      "path": "README.md",
+      "title": "Repository Overview",
+      "owner": "knowledge",
+      "order": 10
+    },
+    {
+      "path": "PROJECT_CHARTER.md",
+      "title": "Project Charter",
+      "owner": "governance",
+      "order": 20
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "title": "Current Architecture",
+      "owner": "architecture",
+      "order": 30
+    },
+    {
+      "path": "CURRENT_STATE.md",
+      "title": "Current State",
+      "owner": "remember",
+      "order": 40
+    },
+    {
+      "path": "NEXT_TASK.md",
+      "title": "Next Task",
+      "owner": "governance",
+      "order": 50
+    },
+    {
+      "path": "ROADMAP.md",
+      "title": "Project Roadmap",
+      "owner": "governance",
+      "order": 60
+    }
+  ],
+  "sections": [
+    {
+      "id": "constitution",
+      "title": "Constitution",
+      "root": "docs/constitution",
+      "owner": "governance",
+      "order": 100
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture",
+      "root": "docs/architecture",
+      "owner": "architecture",
+      "order": 200
+    },
+    {
+      "id": "engineering",
+      "title": "Engineering Standards",
+      "root": "docs/engineering",
+      "owner": "engineering",
+      "order": 300
+    },
+    {
+      "id": "specifications",
+      "title": "Specifications",
+      "root": "docs/specs",
+      "owner": "architecture",
+      "order": 400
+    },
+    {
+      "id": "adr",
+      "title": "Architecture Decisions",
+      "root": "docs/adr",
+      "owner": "governance",
+      "order": 500
+    },
+    {
+      "id": "decisions",
+      "title": "Design Decisions",
+      "root": "docs/decisions",
+      "owner": "architecture",
+      "order": 600
+    },
+    {
+      "id": "roadmap",
+      "title": "Strategic Roadmap",
+      "root": "docs/roadmap",
+      "owner": "governance",
+      "order": 700
+    },
+    {
+      "id": "glossary",
+      "title": "Official Glossary",
+      "root": "docs/glossary",
+      "owner": "governance",
+      "order": 800
+    }
+  ],
+  "source_roots": [
+    {
+      "id": "core",
+      "root": "src/core",
+      "owner": "core"
+    },
+    {
+      "id": "knowledge",
+      "root": "src/knowledge",
+      "owner": "knowledge"
+    },
+    {
+      "id": "providers",
+      "root": "src/providers",
+      "owner": "providers"
+    },
+    {
+      "id": "runbooks",
+      "root": "src/runbooks",
+      "owner": "runbooks"
+    }
+  ],
+  "journal_root": "journal",
+  "forbidden_names": [
+    ".env",
+    "secrets.env",
+    "authorized_keys",
+    "id_rsa",
+    "id_ed25519"
+  ],
+  "forbidden_suffixes": [
+    ".key",
+    ".pem",
+    ".p12",
+    ".pfx",
+    ".tar.gz"
+  ]
+}

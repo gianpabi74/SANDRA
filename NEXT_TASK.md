@@ -1,9 +1,13 @@
 # Next Task
 
-## RB-000010 — Hypervisor Provider Bootstrap
+## RB-000010B — Knowledge Canonical Module
 
-Creare il primo provider reale di SANDRA per l'implementazione
-Proxmox VE dell'astrazione Hypervisor.
+Installare `/opt/sandra/knowledge/knowledge.sh`.
 
-La prima versione sarà esclusivamente in lettura e produrrà Facts
-strutturati tramite interfacce ufficiali Proxmox.
+Il modulo dovrà:
+
+- leggere il manifest canonico;
+- validare struttura e contenuti vietati;
+- generare automaticamente `START_HERE.md`;
+- eseguire commit, push e verifica remota;
+- non conoscere i nomi dei singoli documenti nelle sezioni.
