@@ -23,3 +23,20 @@ Mantenere l'equilibrio dell'Habitat.
 - chi esegue non verifica;
 - chi verifica non modifica;
 - chi ricorda non reinventa la verità.
+
+## Definition of Done dei Runbook
+
+Un Runbook SANDRA è concluso esclusivamente quando:
+
+- la modifica tecnica è stata eseguita;
+- il risultato reale è stato verificato;
+- la Knowledge pertinente è stata aggiornata;
+- il Journal del run è stato scritto;
+- `CURRENT_STATE.md` riflette lo stato reale, quando applicabile;
+- `NEXT_TASK.md` identifica un solo tassello successivo;
+- le modifiche sono state committate;
+- il push verso il remoto è stato eseguito e verificato;
+- l'artefatto `.tar.gz` è stato creato, esportato e verificato.
+
+La documentazione non è un'attività successiva al Runbook: è parte
+obbligatoria della stessa transazione ingegneristica.
