@@ -9,7 +9,7 @@ Aggiornato: 2026-07-20T21:09:44Z
 - Knowledge: `READY`
 - GitHub synchronization: `VERIFIED`
 - Policy documentale: `ENFORCED`
-- Timer retry Knowledge: `IN_VERIFICATION`
+- Timer retry Knowledge: `VERIFIED`
 - Intervallo timer: `5 minuti`
 - Export artefatti Mac: `VERIFIED`
 - Provider: `NOT_STARTED`
