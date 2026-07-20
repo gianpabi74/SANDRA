@@ -9,5 +9,5 @@ Aggiornato: 2026-07-20T19:59:00Z
 - Git locale: `READY`
 - Git remote: `git@github.com:gianpabi74/SANDRA.git`
 - GitHub SSH: `VERIFIED`
-- Primo push: `IN_PROGRESS`
+- Primo push: `VERIFIED`
 - Export artefatti verso Mac: `VERIFIED`
