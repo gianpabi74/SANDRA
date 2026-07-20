@@ -1,13 +1,14 @@
 # Next Task
 
-## RB-000010B — Knowledge Canonical Module
+## RB-000011 — Constitution Content
 
-Installare `/opt/sandra/knowledge/knowledge.sh`.
+Scrivere i documenti costituzionali iniziali:
 
-Il modulo dovrà:
+- `docs/constitution/PREAMBLE.md`
+- `docs/constitution/LAWS.md`
+- `docs/constitution/PRINCIPLES.md`
+- `docs/constitution/PHILOSOPHY.md`
+- `docs/constitution/GOVERNANCE.md`
 
-- leggere il manifest canonico;
-- validare struttura e contenuti vietati;
-- generare automaticamente `START_HERE.md`;
-- eseguire commit, push e verifica remota;
-- non conoscere i nomi dei singoli documenti nelle sezioni.
+I documenti saranno scoperti automaticamente dal manifest e inseriti
+nell'indice `START_HERE.md`.
