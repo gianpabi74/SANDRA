@@ -6,8 +6,8 @@ Certified PASS.
 
 ## Output canonici
 
-- `/opt/sandra/habitat/proxmox/habitat.json`
-- `/opt/sandra/habitat/proxmox/habitat.txt`
+- `/opt/sandra/habitat/hypervisor/proxmoxve/habitat.json`
+- `/opt/sandra/habitat/hypervisor/proxmoxve/habitat.txt`
 
 ## Provider richiesto
 

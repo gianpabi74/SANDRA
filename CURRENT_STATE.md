@@ -1,29 +1,81 @@
-# Current State
+# SANDRA — Current State
 
-Aggiornato: 2026-07-21T09:37:35Z
+Aggiornato: 2026-07-21T11:58:43Z
 
-## Foundation
+## Struttura canonica
 
-- Core: `1.1.0`
-- Knowledge: `1.0.0`
+Lo scheletro top-level approvato e presente è:
 
-## Execute
+- cli
+- core
+- config
+- decision
+- policy
+- execute
+- provider
+- verify
+- remember
+- knowledge
+- habitat
+- report
+- docker
+- artifacts
 
-- Percorso: `/opt/sandra/execute/execute.sh`
-- Versione: `1.0.0`
-- Stato: `CERTIFIED_PASS`
-- Specifico per dominio: `NO`
-- Provider isolati: `YES`
-- Provider certificati: `pve`
+La struttura è congelata dalla Costituzione:
+`/opt/sandra/knowledge/docs/constitution/CANONICAL-SKELETON.md`
 
-## PVE
+## Componenti operativi
 
-- Provider canonico: `/opt/sandra/providers/pve/provider.sh`
-- Versione: `1.7.0`
-- Adapter runtime Proxmox: `REMOVED`
-- Execute specifico Proxmox: `REMOVED`
-- Modifiche su PVE durante RB-000025: `NESSUNA`
+### Core
+- `/opt/sandra/core/core.sh`
+- obbligatorio in ogni Bash SANDRA tramite `source`
 
-## Prossimo tassello
+### Knowledge
+- `/opt/sandra/knowledge/knowledge.sh`
+- repository Git attivo
+- obbligatorio in ogni Bash SANDRA tramite `source`
 
-`RB-000026 — Preflight provider PBS`
+### Execute
+- `/opt/sandra/execute/execute.sh`
+- operativo
+- non decisionale
+
+### Provider PVE
+- `/opt/sandra/provider/pve/provider.sh`
+- versione `1.7.0`
+- connessione SSH certificata
+- versione, nodi, risorse, VM, container e storage osservabili
+- start safe-path certificato
+
+### Policy PVE
+- `/opt/sandra/policy/pve-policy.json`
+- `/opt/sandra/policy/pve_validate.py`
+- operativa
+
+### Habitat PVE
+- `/opt/sandra/habitat/hypervisor/proxmoxve/`
+- `habitat.json` presente
+
+## PBS
+
+- host `192.168.1.194`
+- utente SSH `root`
+- chiave `/root/.ssh/sandra_pbs_ed25519`
+- accesso SSH senza password certificato
+- `proxmox-backup-manager` certificato
+- provider PBS non ancora implementato
+
+## Componenti non ancora certificati
+
+- cli
+- config
+- decision
+- verify
+- remember
+- report
+- docker
+
+## Residuo osservato
+
+`/opt/sandra/docs` è ancora presente ma non appartiene allo scheletro costituzionale.
+Non viene modificata da questo aggiornamento.

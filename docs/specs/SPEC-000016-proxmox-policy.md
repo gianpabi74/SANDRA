@@ -6,7 +6,7 @@ Certified PASS.
 
 ## Percorso canonico
 
-`/opt/sandra/policy/proxmox-policy.json`
+`/opt/sandra/policy/pve-policy.json`
 
 ## Provider richiesto
 

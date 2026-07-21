@@ -2,7 +2,7 @@
 
 Indice generato automaticamente dal modulo Knowledge.
 
-Generato UTC: 2026-07-21T09:41:39Z
+Generato UTC: 2026-07-21T11:58:44Z
 
 ## Ordine di lettura
 
@@ -20,14 +20,14 @@ Generato UTC: 2026-07-21T09:41:39Z
 Owner: `governance`  
 Path: `docs/constitution`
 
-_Nessun documento pubblicato._
+- [Costituzione — Scheletro canonico SANDRA](docs/constitution/CANONICAL-SKELETON.md)
 
 ### Architecture
 
 Owner: `architecture`  
 Path: `docs/architecture`
 
-_Nessun documento pubblicato._
+- [SANDRA — Architettura corrente](docs/architecture/CURRENT-ARCHITECTURE.md)
 
 ### Engineering Standards
 
@@ -80,7 +80,7 @@ _Nessun documento pubblicato._
 Owner: `governance`  
 Path: `docs/roadmap`
 
-_Nessun documento pubblicato._
+- [SANDRA — Roadmap](docs/roadmap/ROADMAP.md)
 
 ### Official Glossary
 

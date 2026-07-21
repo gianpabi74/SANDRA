@@ -6,7 +6,7 @@ Certified PASS.
 
 ## Percorso
 
-`/opt/sandra/policy/proxmox_validate.py`
+`/opt/sandra/policy/pve_validate.py`
 
 ## Input
 

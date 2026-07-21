@@ -1,15 +1,22 @@
 # Next Task
 
-## RB-000026 — Preflight provider PBS
+## Provider PBS
 
-Verificare oggettivamente:
+Creare il provider PBS nel percorso canonico:
 
-- indirizzo e identità del server PBS;
-- metodo di autenticazione;
-- versione PBS;
-- datastore;
-- job di backup;
-- job di verifica;
-- attività attualmente in esecuzione.
+`/opt/sandra/provider/pbs/`
 
-Nessun provider PBS verrà creato prima del completamento del preflight.
+Prerequisiti certificati:
+
+- host `192.168.1.194`
+- utente SSH `root`
+- chiave `/root/.ssh/sandra_pbs_ed25519`
+- CLI locale `proxmox-backup-manager`
+
+Vincoli:
+
+- nessuna nuova directory top-level
+- nessuna modifica a Execute non necessaria
+- uso della documentazione ufficiale PBS
+- capability verificate prima dell implementazione
+- ogni Bash importa Core e Knowledge

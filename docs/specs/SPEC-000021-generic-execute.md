@@ -74,8 +74,8 @@ interfaccia `provider_*`.
 ## Componenti rimossi
 
 - `/opt/sandra/execute/proxmox_execute.sh`
-- `/opt/sandra/providers/proxmox/`
+- `/opt/sandra/provider/proxmox/`
 
 Il provider canonico PVE resta:
 
-`/opt/sandra/providers/pve/provider.sh`
+`/opt/sandra/provider/pve/provider.sh`

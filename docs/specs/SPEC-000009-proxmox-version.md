@@ -6,7 +6,7 @@ Certified PASS.
 
 ## Provider
 
-`/opt/sandra/providers/proxmox/provider.sh`
+`/opt/sandra/provider/proxmox/provider.sh`
 
 ## Versione provider
 

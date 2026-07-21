@@ -6,7 +6,7 @@ Certified PASS.
 
 ## Percorso canonico
 
-`/opt/sandra/providers/pve/provider.sh`
+`/opt/sandra/provider/pve/provider.sh`
 
 ## Versione
 
@@ -35,7 +35,7 @@ Il provider:
 
 Il vecchio percorso:
 
-`/opt/sandra/providers/proxmox/provider.sh`
+`/opt/sandra/provider/proxmox/provider.sh`
 
 è un adapter temporaneo.
 
@@ -46,7 +46,7 @@ componente `execute` generico.
 
 La directory:
 
-`/opt/sandra/providers/hypervisor/proxmox/`
+`/opt/sandra/provider/hypervisor/proxmox/`
 
 era già presente prima della migrazione e non è stata modificata da
 RB-000024. Sarà valutata separatamente.
