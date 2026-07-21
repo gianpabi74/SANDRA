@@ -88,6 +88,7 @@ La struttura è congelata dalla Costituzione:
 - evidenze acquisite per AD DS, replica, DNS, DHCP, IIS, AD CS, servizi e condivisioni
 - contratto Windows Microsoft DSC Get/Test/Set approvato
 - SPEC-000023 presente
+- profili Desired State Windows certificati
 - provider Windows non ancora implementato
 
 ## Componenti non ancora certificati

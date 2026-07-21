@@ -1,15 +1,16 @@
 # Next Task
 
-## Windows Desired State
+## Windows
 
-Il contratto Microsoft DSC Get/Test/Set è approvato.
+Eseguire provider TEST.
 
-Prossimo passo:
+Confrontare:
 
-- definire il Desired State per WINSRV01 e WINSRV02;
-- definire il Desired State per SERVICESRV;
-- usare esclusivamente feature, moduli e servizi Microsoft;
-- eseguire Test per calcolare le non conformità;
-- applicare Set soltanto alle non conformità approvate;
-- riparare il modulo DHCP sui Domain Controller;
-- non registrare credenziali nella Knowledge.
+- Current State
+- Desired State
+
+Generare il delta.
+
+Non modificare ancora Windows.
+
+Il primo provider SET sarà limitato alla riparazione del modulo DHCP osservato in RB-000039.
