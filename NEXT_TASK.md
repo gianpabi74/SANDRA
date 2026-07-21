@@ -1,14 +1,11 @@
 # Next Task
 
-## RB-000015 — Aggiunta certificata proxmox_resources
+## RB-000016 — Aggiunta certificata proxmox_vms
 
 Estendere il provider con una sola capability:
 
-`proxmox_resources`
+`proxmox_vms`
 
-Prima della modifica devono essere verificati:
-
-- hash del provider 1.2.0;
-- endpoint `/cluster/resources`;
-- validità JSON;
-- presenza di risorse appartenenti al nodo `pve`.
+Il preflight dovrà verificare il comando `qm list` e osservare
+oggettivamente struttura e contenuto dell'ambiente reale, senza
+hardcodare VMID o nomi specifici come requisito generale.
