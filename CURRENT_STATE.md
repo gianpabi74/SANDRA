@@ -1,6 +1,6 @@
 # SANDRA — Current State
 
-Aggiornato: 2026-07-21T19:15:37Z
+Aggiornato: 2026-07-21T21:38:29Z
 
 ## Struttura canonica
 
@@ -112,3 +112,15 @@ La struttura è congelata dalla Costituzione:
 
 `/opt/sandra/docs` è ancora presente ma non appartiene allo scheletro costituzionale.
 Non viene modificata da questo aggiornamento.
+
+## RB-000045A — Provider Windows 1.1.0
+
+- refactoring Base64 completato;
+- `get.py` e `test.py` separati dal provider Bash;
+- locale PyPSRP `it-IT` certificata;
+- `ProviderVersion` coerente a `1.1.0` in Get e Test;
+- la non conformità è registrata come risultato di Test e non come errore del provider;
+- modifiche alle VM Windows: nessuna.
+- WINSRV01: Desired State `FALSE`, delta `1`
+- WINSRV02: Desired State `FALSE`, delta `1`
+- SERVICESRV: Desired State `FALSE`, delta `1`

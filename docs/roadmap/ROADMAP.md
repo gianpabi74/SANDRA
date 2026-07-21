@@ -63,3 +63,14 @@
 - nessun mega-refactoring
 - una responsabilità per ogni cambiamento
 - Core e Knowledge importati in ogni Bash
+
+## RB-000045A — Provider Windows
+
+- provider Windows 1.1.0 corretto e ricertificato;
+- sorgenti Python separati e leggibili;
+- locale remota `it-IT` esplicita;
+- Get e Test completati sulle tre VM;
+- eventuali delta conservati come risultato operativo.
+- WINSRV01: Desired State `FALSE`, delta `1`
+- WINSRV02: Desired State `FALSE`, delta `1`
+- SERVICESRV: Desired State `FALSE`, delta `1`

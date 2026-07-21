@@ -1,19 +1,15 @@
 # Next Task
 
-## Windows DSC Set
+## Windows Provider
 
-Il provider Windows 1.0.0 implementa Get e Test.
+Il provider Windows 1.1.0 implementa Get e Test.
 
-Stato osservato:
-
-- WINSRV01: modulo DhcpServer presente ma non importabile;
-- WINSRV02: modulo DhcpServer presente ma non importabile;
-- SERVICESRV: conforme al Desired State corrente.
+Il provider considera la non conformità un risultato, non un errore.
 
 Prossimo passo:
 
-- verificare con documentazione Microsoft la remediation del modulo DhcpServer;
-- implementare Set esclusivamente per il delta certificato;
-- eseguire Test prima di Set;
-- ricertificare Get e Test dopo Set;
+- analizzare gli eventuali delta prodotti;
+- verificare ogni delta rispetto alla documentazione Microsoft;
+- definire Set soltanto per risorse documentate e approvate;
+- eseguire sempre Test prima di Set;
 - non registrare credenziali nella Knowledge.
