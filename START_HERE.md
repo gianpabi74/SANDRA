@@ -2,7 +2,7 @@
 
 Indice generato automaticamente dal modulo Knowledge.
 
-Generato UTC: 2026-07-21T07:30:23Z
+Generato UTC: 2026-07-21T07:36:47Z
 
 ## Ordine di lettura
 
@@ -50,6 +50,7 @@ Path: `docs/specs`
 - [SPEC-000009 — Proxmox Version Capability](docs/specs/SPEC-000009-proxmox-version.md)
 - [SPEC-000010 — Proxmox Nodes Capability](docs/specs/SPEC-000010-proxmox-nodes.md)
 - [SPEC-000011 — Proxmox Resources Capability](docs/specs/SPEC-000011-proxmox-resources.md)
+- [SPEC-000012 — Proxmox QEMU VM Capability](docs/specs/SPEC-000012-proxmox-vms.md)
 
 ### Architecture Decisions
 
