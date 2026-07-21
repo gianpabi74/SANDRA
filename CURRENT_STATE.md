@@ -124,3 +124,10 @@ Non viene modificata da questo aggiornamento.
 - WINSRV01: Desired State `FALSE`, delta `1`
 - WINSRV02: Desired State `FALSE`, delta `1`
 - SERVICESRV: Desired State `FALSE`, delta `1`
+## RB-000046 — Baseline Provider Windows
+
+- baseline provider Windows certificata;
+- refactoring confermato;
+- runtime/source coerenti;
+- nessun codice Base64 residuo;
+- prossimo RB: introduzione della selezione deterministica della cultura per modulo Microsoft (DhcpServer → it-IT, SmbShare → en-US).

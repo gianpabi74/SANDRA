@@ -1,15 +1,15 @@
 # Next Task
 
-## Windows Provider
+## RB-000047
 
-Il provider Windows 1.1.0 implementa Get e Test.
+Introdurre la selezione deterministica della cultura WinRM per modulo.
 
-Il provider considera la non conformità un risultato, non un errore.
+Regole:
 
-Prossimo passo:
+- DhcpServer -> it-IT
+- SmbShare -> en-US
+- Default -> it-IT
 
-- analizzare gli eventuali delta prodotti;
-- verificare ogni delta rispetto alla documentazione Microsoft;
-- definire Set soltanto per risorse documentate e approvate;
-- eseguire sempre Test prima di Set;
-- non registrare credenziali nella Knowledge.
+La scelta della cultura deve essere dichiarativa e non codificata in logica applicativa.
+
+Aggiornare la Knowledge e ricertificare Get/Test sulle tre VM.

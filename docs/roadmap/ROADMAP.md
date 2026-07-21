@@ -74,3 +74,7 @@
 - WINSRV01: Desired State `FALSE`, delta `1`
 - WINSRV02: Desired State `FALSE`, delta `1`
 - SERVICESRV: Desired State `FALSE`, delta `1`
+## RB-000046
+
+- baseline certificata completata;
+- prossimo obiettivo: cultura per modulo.
