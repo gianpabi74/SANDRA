@@ -1,18 +1,19 @@
 # Next Task
 
-## RB-000020 — Prima capability operativa PVE
+## RB-000021 — Validatore policy Proxmox
 
-Estendere lo stesso provider con una prima azione reversibile e
-verificabile.
+Implementare una capability deterministica che, dato:
 
-La capability sarà scelta soltanto dopo:
+- oggetto;
+- operazione richiesta;
+- stato dell'Habitat;
+- condizioni runtime;
 
-- selezione esplicita di un guest non critico;
-- osservazione dello stato iniziale;
-- documentazione ufficiale del comando;
-- definizione della verifica post-azione;
-- definizione dell'eventuale ritorno allo stato iniziale.
+restituisca esclusivamente:
 
-Ciclo obbligatorio:
+- `ALLOW`;
+- `DENY`;
+- motivazione;
+- regola applicata.
 
-`OBSERVE → PLAN → EXECUTE → VERIFY → REMEMBER`
+Il validatore non eseguirà ancora modifiche su PVE.

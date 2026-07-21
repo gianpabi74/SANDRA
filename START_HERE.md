@@ -2,7 +2,7 @@
 
 Indice generato automaticamente dal modulo Knowledge.
 
-Generato UTC: 2026-07-21T08:03:04Z
+Generato UTC: 2026-07-21T08:24:38Z
 
 ## Ordine di lettura
 
@@ -54,6 +54,7 @@ Path: `docs/specs`
 - [SPEC-000013 — Proxmox LXC Containers Capability](docs/specs/SPEC-000013-proxmox-containers.md)
 - [SPEC-000014 — Proxmox Storage Capability](docs/specs/SPEC-000014-proxmox-storage.md)
 - [SPEC-000015 — Proxmox Habitat](docs/specs/SPEC-000015-proxmox-habitat.md)
+- [SPEC-000016 — Proxmox Operational Policy](docs/specs/SPEC-000016-proxmox-policy.md)
 
 ### Architecture Decisions
 
