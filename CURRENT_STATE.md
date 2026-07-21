@@ -1,20 +1,19 @@
 # Current State
 
-Aggiornato: 2026-07-20T22:07:03Z
+Aggiornato: 2026-07-21T06:58:11Z
 
 ## Foundation
 
-- Core installato: `1.1.0`
-- Manifest Knowledge: `READY`
-- Modulo Knowledge: `1.0.0`
-- Secret scan: `VERIFIED`
-- Indice automatico: `READY`
-- Validazione Knowledge: `READY`
-- GitHub synchronization: `VERIFIED`
-- Timer retry Knowledge: `VERIFIED`
-- Export artefatti Mac: `VERIFIED`
-- Provider: `NOT_STARTED`
+- Core: `1.1.0`
+- Knowledge: `1.0.0`
+
+## Proxmox
+
+- Provider base: `1.0.0`
+- Funzione `proxmox_connect`: `CERTIFIED_PASS`
+- Connessione SSH: `VERIFIED`
+- Host remoto: `pve`
 
 ## Prossimo tassello
 
-`RB-000011 — Constitution Content`
+`RB-000013 — Aggiunta lettura versione PVE`

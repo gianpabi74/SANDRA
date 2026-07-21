@@ -1,14 +1,11 @@
 # Next Task
 
-## RB-000011 — Constitution Content
+## RB-000013 — Aggiunta lettura versione PVE
 
-Scrivere i documenti costituzionali iniziali:
+Estendere il provider esistente con la sola funzione:
 
-- `docs/constitution/PREAMBLE.md`
-- `docs/constitution/LAWS.md`
-- `docs/constitution/PRINCIPLES.md`
-- `docs/constitution/PHILOSOPHY.md`
-- `docs/constitution/GOVERNANCE.md`
+`proxmox_version`
 
-I documenti saranno scoperti automaticamente dal manifest e inseriti
-nell'indice `START_HERE.md`.
+Il comando remoto è già stato verificato nel preflight:
+
+`pvesh get /version --output-format json`
