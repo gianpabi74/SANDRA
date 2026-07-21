@@ -1,10 +1,9 @@
 # Next Task
 
-## RB-000018 — Aggiunta certificata proxmox_storage
+## RB-000019 — Habitat Proxmox strutturato
 
-Estendere il provider con una sola capability:
+Usare esclusivamente le funzioni certificate del provider 1.6.0 per
+generare una rappresentazione degli oggetti PVE e delle loro risorse.
 
-`proxmox_storage`
-
-Il preflight dovrà verificare `pvesm status` osservando la struttura
-reale dell'output, senza hardcodare nomi, tipi o capacità specifiche.
+Nessun accesso diretto a SSH, pvesh, qm, pct o pvesm sarà ammesso fuori
+dal provider.
