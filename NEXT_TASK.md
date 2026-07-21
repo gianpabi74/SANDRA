@@ -1,21 +1,17 @@
 # Next Task
 
-## Windows Provider Set
+## Windows Provider Set — Prima risorsa
 
-Il provider Windows 1.2.0 implementa Get e Test.
+Il provider Windows 1.3.0 contiene il contratto Set certificato.
 
-Locale moduli certificata:
-
-- default: it-IT;
-- DhcpServer: it-IT;
-- SMBShare: en-US.
-
-WINSRV01, WINSRV02 e SERVICESRV sono conformi al Desired State corrente.
+Nessuna risorsa modificativa è ancora supportata.
 
 Prossimo passo:
 
-- definire Microsoft DSC Set;
-- Set deve ricevere esclusivamente un delta approvato;
-- Test deve precedere sempre Set;
-- nessuna decisione deve risiedere nel provider;
-- ogni modifica deve essere documentata e certificata.
+- scegliere una sola risorsa Microsoft DSC;
+- consultare la documentazione ufficiale Microsoft;
+- implementare una sola capability modificativa;
+- eseguire sempre Test prima di Set;
+- applicare esclusivamente il delta approvato;
+- ricertificare Get e Test dopo Set;
+- aggiornare Knowledge e GitHub.

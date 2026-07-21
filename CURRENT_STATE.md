@@ -145,3 +145,18 @@ Non viene modificata da questo aggiornamento.
 - delta complessivo: `0`;
 - nessuna modifica alle VM Windows;
 - root cause RB-000047: differenza maiuscole/minuscole tra `SmbShare` e `SMBShare`.
+
+## RB-000048C — Windows provider Set
+
+- provider Windows `1.3.0` certificato;
+- funzione `provider_set` installata;
+- contratto Set documentato;
+- approvazione del delta obbligatoria;
+- target e profilo devono coincidere;
+- il delta approvato deve coincidere esattamente con il Test;
+- delta vuoto: `NO_CHANGES_REQUIRED`;
+- risorsa non implementata: `NOT_IMPLEMENTED`;
+- approvazione incoerente: rifiutata;
+- risorse modificative supportate: nessuna;
+- connessioni Windows: nessuna;
+- modifiche Windows: nessuna.

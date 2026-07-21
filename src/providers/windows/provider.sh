@@ -3,11 +3,12 @@
 source /opt/sandra/core/core.sh
 source /opt/sandra/knowledge/knowledge.sh
 
-SANDRA_WINDOWS_PROVIDER_VERSION="1.2.0"
+SANDRA_WINDOWS_PROVIDER_VERSION="1.3.0"
 SANDRA_WINDOWS_PROVIDER_ROOT="/opt/sandra/provider/windows"
 SANDRA_WINDOWS_PYTHON="${SANDRA_WINDOWS_PROVIDER_ROOT}/.venv/bin/python"
 SANDRA_WINDOWS_GET="${SANDRA_WINDOWS_PROVIDER_ROOT}/get.py"
 SANDRA_WINDOWS_TEST="${SANDRA_WINDOWS_PROVIDER_ROOT}/test.py"
+SANDRA_WINDOWS_SET="${SANDRA_WINDOWS_PROVIDER_ROOT}/set.py"
 SANDRA_WINDOWS_USER="${SANDRA_WINDOWS_USER:-BIONDRA\\administrator}"
 SANDRA_WINDOWS_PROFILE_ROOT="/opt/sandra/knowledge/docs/providers/windows"
 
@@ -71,4 +72,11 @@ provider_test() {
         "$profile" \
         "$common_profile" \
         "$role_profile"
+}
+
+provider_set() {
+    local test_result_file="${1:?File Test obbligatorio}"
+    local approved_delta_file="${2:?File approvazione obbligatorio}"
+
+    "$SANDRA_WINDOWS_PYTHON"         "$SANDRA_WINDOWS_SET"         "$test_result_file"         "$approved_delta_file"
 }

@@ -5,7 +5,7 @@ import sys
 from pypsrp.client import Client
 
 
-PROVIDER_VERSION = "1.2.0"
+PROVIDER_VERSION = "1.3.0"
 
 MODULE_LOCALES = {
     "SMBShare": "en-US",

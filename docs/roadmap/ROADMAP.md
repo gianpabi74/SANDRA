@@ -86,3 +86,12 @@
 - `DhcpServer` gestito con locale `it-IT`;
 - Get e Test conformi sulle tre VM;
 - nessuna modifica ai sistemi Windows.
+
+## RB-000048C — Windows Set contract
+
+- provider Windows 1.3.0 certificato;
+- scheletro Set installato;
+- validazione del delta certificata;
+- validazione dell'approvazione certificata;
+- nessuna capability modificativa ancora attiva;
+- prossima fase: una singola risorsa Set per RB.
