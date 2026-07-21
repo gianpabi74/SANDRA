@@ -1,16 +1,19 @@
 # Next Task
 
-## Windows
+## Windows DSC Set
 
-Eseguire provider TEST.
+Il provider Windows 1.0.0 implementa Get e Test.
 
-Confrontare:
+Stato osservato:
 
-- Current State
-- Desired State
+- WINSRV01: modulo DhcpServer presente ma non importabile;
+- WINSRV02: modulo DhcpServer presente ma non importabile;
+- SERVICESRV: conforme al Desired State corrente.
 
-Generare il delta.
+Prossimo passo:
 
-Non modificare ancora Windows.
-
-Il primo provider SET sarà limitato alla riparazione del modulo DHCP osservato in RB-000039.
+- verificare con documentazione Microsoft la remediation del modulo DhcpServer;
+- implementare Set esclusivamente per il delta certificato;
+- eseguire Test prima di Set;
+- ricertificare Get e Test dopo Set;
+- non registrare credenziali nella Knowledge.

@@ -1,6 +1,6 @@
 # SANDRA — Current State
 
-Aggiornato: 2026-07-21T18:46:25Z
+Aggiornato: 2026-07-21T19:15:37Z
 
 ## Struttura canonica
 
@@ -89,7 +89,14 @@ La struttura è congelata dalla Costituzione:
 - contratto Windows Microsoft DSC Get/Test/Set approvato
 - SPEC-000023 presente
 - profili Desired State Windows certificati
-- provider Windows non ancora implementato
+- provider Windows `/opt/sandra/provider/windows/provider.sh`
+- versione provider `1.0.0`
+- operazione Microsoft DSC Get certificata
+- operazione Microsoft DSC Test certificata
+- WINSRV01 non conforme: modulo DhcpServer presente ma non importabile
+- WINSRV02 non conforme: modulo DhcpServer presente ma non importabile
+- SERVICESRV conforme al Desired State corrente
+- operazione Microsoft DSC Set non ancora implementata
 
 ## Componenti non ancora certificati
 

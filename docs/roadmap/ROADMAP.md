@@ -41,6 +41,10 @@
 - IIS, AD CS, servizi e condivisioni osservati su SERVICESRV
 - contratto Microsoft DSC Get/Test/Set approvato e versionato
 - Desired State Windows definito
+- provider Windows 1.0.0 installato
+- operazioni Microsoft DSC Get e Test certificate
+- SERVICESRV conforme al profilo corrente
+- delta DhcpServer acquisito per WINSRV01 e WINSRV02
 
 ## Ordine di sviluppo
 
