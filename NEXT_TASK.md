@@ -1,10 +1,10 @@
 # Next Task
 
-## RB-000017 — Aggiunta certificata proxmox_containers
+## RB-000018 — Aggiunta certificata proxmox_storage
 
 Estendere il provider con una sola capability:
 
-`proxmox_containers`
+`proxmox_storage`
 
-Il preflight dovrà verificare `pct list` osservando la struttura reale
-dell'output, senza hardcodare VMID, hostname o stato dei container.
+Il preflight dovrà verificare `pvesm status` osservando la struttura
+reale dell'output, senza hardcodare nomi, tipi o capacità specifiche.

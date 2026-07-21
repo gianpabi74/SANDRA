@@ -2,7 +2,7 @@
 
 Indice generato automaticamente dal modulo Knowledge.
 
-Generato UTC: 2026-07-21T07:36:47Z
+Generato UTC: 2026-07-21T07:44:32Z
 
 ## Ordine di lettura
 
@@ -51,6 +51,7 @@ Path: `docs/specs`
 - [SPEC-000010 — Proxmox Nodes Capability](docs/specs/SPEC-000010-proxmox-nodes.md)
 - [SPEC-000011 — Proxmox Resources Capability](docs/specs/SPEC-000011-proxmox-resources.md)
 - [SPEC-000012 — Proxmox QEMU VM Capability](docs/specs/SPEC-000012-proxmox-vms.md)
+- [SPEC-000013 — Proxmox LXC Containers Capability](docs/specs/SPEC-000013-proxmox-containers.md)
 
 ### Architecture Decisions
 

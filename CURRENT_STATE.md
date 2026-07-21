@@ -1,6 +1,6 @@
 # Current State
 
-Aggiornato: 2026-07-21T07:36:46Z
+Aggiornato: 2026-07-21T07:44:31Z
 
 ## Foundation
 
@@ -9,14 +9,15 @@ Aggiornato: 2026-07-21T07:36:46Z
 
 ## Proxmox
 
-- Provider: `1.4.0`
+- Provider: `1.5.0`
 - `proxmox_connect`: `CERTIFIED_PASS`
 - `proxmox_version`: `CERTIFIED_PASS`
 - `proxmox_nodes`: `CERTIFIED_PASS`
 - `proxmox_resources`: `CERTIFIED_PASS`
 - `proxmox_vms`: `CERTIFIED_PASS`
-- Modifiche su PVE durante RB-000016: `NESSUNA`
+- `proxmox_containers`: `CERTIFIED_PASS`
+- Modifiche su PVE durante RB-000017: `NESSUNA`
 
 ## Prossimo tassello
 
-`RB-000017 — Aggiunta certificata proxmox_containers`
+`RB-000018 — Aggiunta certificata proxmox_storage`
