@@ -2,7 +2,7 @@
 
 Indice generato automaticamente dal modulo Knowledge.
 
-Generato UTC: 2026-07-21T09:28:44Z
+Generato UTC: 2026-07-21T09:37:35Z
 
 ## Ordine di lettura
 
@@ -59,6 +59,7 @@ Path: `docs/specs`
 - [SPEC-000018 — Proxmox Start Capability](docs/specs/SPEC-000018-proxmox-start.md)
 - [SPEC-000019 — Proxmox Execute](docs/specs/SPEC-000019-proxmox-execute.md)
 - [SPEC-000020 — Provider PVE](docs/specs/SPEC-000020-pve-provider.md)
+- [SPEC-000021 — Execute generico](docs/specs/SPEC-000021-generic-execute.md)
 
 ### Architecture Decisions
 

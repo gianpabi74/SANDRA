@@ -1,29 +1,15 @@
 # Next Task
 
-## RB-000025 — Execute generico
+## RB-000026 — Preflight provider PBS
 
-Sostituire:
+Verificare oggettivamente:
 
-`/opt/sandra/execute/proxmox_execute.sh`
+- indirizzo e identità del server PBS;
+- metodo di autenticazione;
+- versione PBS;
+- datastore;
+- job di backup;
+- job di verifica;
+- attività attualmente in esecuzione.
 
-con:
-
-`/opt/sandra/execute/execute.sh`
-
-La richiesta dovrà contenere:
-
-- provider;
-- operation;
-- object_id;
-- decision.
-
-`execute` dovrà:
-
-1. validare la richiesta;
-2. accettare esclusivamente `ALLOW`;
-3. caricare il provider richiesto;
-4. invocare l'interfaccia comune;
-5. restituire l'esito tecnico;
-6. non produrre decisioni.
-
-La prima strategia certificata sarà `pve`.
+Nessun provider PBS verrà creato prima del completamento del preflight.
