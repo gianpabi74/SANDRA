@@ -32,6 +32,10 @@
 - ambiente Python isolato installato
 - PyPSRP installato e certificato
 - requisiti e dipendenze versionati
+- WinRM certificato su WINSRV01
+- WinRM certificato su WINSRV02
+- WinRM certificato su SERVICESRV
+- identità, sistema operativo, dominio, ruoli e feature osservabili
 
 ## Ordine di sviluppo
 

@@ -2,14 +2,13 @@
 
 ## Windows
 
-Il runtime locale PyPSRP è installato e certificato.
+WinRM è certificato su WINSRV01, WINSRV02 e SERVICESRV.
 
 Prossimo passo:
 
-- certificare WinRM su WINSRV01;
-- certificare WinRM su WINSRV02;
-- certificare WinRM su SERVICESRV;
-- osservare identità, sistema operativo, ruoli e configurazione;
-- non modificare le VM durante l audit;
-- non registrare credenziali nella Knowledge;
-- definire il contratto del provider solo dopo le osservazioni reali.
+- analizzare gli inventari acquisiti;
+- identificare ruoli e responsabilità reali di ogni server;
+- definire il contratto completo del provider Windows;
+- includere capability profonde senza logica decisionale;
+- non modificare le VM prima dell approvazione del contratto;
+- non registrare credenziali nella Knowledge.

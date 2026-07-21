@@ -22,5 +22,19 @@ Non contiene credenziali e non prende decisioni.
 
 ## Stato delle connessioni
 
-Le connessioni a WINSRV01, WINSRV02 e SERVICESRV non sono ancora certificate.
-La certificazione del trasporto remoto è il prossimo passo.
+Certificate in sola lettura:
+
+- WINSRV01 — `192.168.1.251`
+- WINSRV02 — `192.168.1.203`
+- SERVICESRV — `192.168.1.204`
+
+Configurazione certificata:
+
+- trasporto WinRM HTTP
+- porta `5985`
+- autenticazione NTLM
+- cifratura messaggio `always`
+- identità remota verificata
+- servizio WinRM in esecuzione
+
+Le credenziali non sono registrate nella Knowledge.

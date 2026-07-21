@@ -1,6 +1,6 @@
 # SANDRA — Current State
 
-Aggiornato: 2026-07-21T18:15:03Z
+Aggiornato: 2026-07-21T18:22:51Z
 
 ## Struttura canonica
 
@@ -79,7 +79,11 @@ La struttura è congelata dalla Costituzione:
 - Python `3.13.7`
 - PyPSRP `0.9.1`
 - ambiente virtuale isolato e certificato
-- connessioni WinRM non ancora certificate
+- WinRM certificato su WINSRV01 (`192.168.1.251`)
+- WinRM certificato su WINSRV02 (`192.168.1.203`)
+- WinRM certificato su SERVICESRV (`192.168.1.204`)
+- autenticazione NTLM e cifratura messaggio obbligatoria
+- inventario iniziale di sistema operativo, dominio, ruoli e feature acquisito
 - provider Windows non ancora implementato
 
 ## Componenti non ancora certificati
