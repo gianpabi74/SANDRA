@@ -1,6 +1,6 @@
 # Current State
 
-Aggiornato: 2026-07-21T08:34:30Z
+Aggiornato: 2026-07-21T08:47:04Z
 
 ## Foundation
 
@@ -9,13 +9,15 @@ Aggiornato: 2026-07-21T08:34:30Z
 
 ## Proxmox
 
-- Provider: `1.6.0`
+- Provider: `1.7.0`
 - OBSERVE: `COMPLETE`
 - Habitat: `CERTIFIED_PASS`
-- Policy operativa: `CERTIFIED_PASS`
-- Validatore policy: `CERTIFIED_PASS`
-- Modifiche su PVE durante RB-000021: `NESSUNA`
+- Policy: `CERTIFIED_PASS`
+- Policy validator: `CERTIFIED_PASS`
+- `proxmox_start` safe path: `CERTIFIED_PASS`
+- Transizione stopped → running: `PENDING_REAL_OCCURRENCE`
+- Modifiche su PVE durante RB-000022: `NESSUNA`
 
 ## Prossimo tassello
 
-`RB-000022 — Capability start protetta dalla policy`
+`RB-000023 — Esecutore start policy-gated`
