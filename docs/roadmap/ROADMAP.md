@@ -39,6 +39,7 @@
 - audit approfondito read-only completato
 - AD DS, replica, DNS e DHCP osservati sui Domain Controller
 - IIS, AD CS, servizi e condivisioni osservati su SERVICESRV
+- contratto Microsoft DSC Get/Test/Set approvato e versionato
 
 ## Ordine di sviluppo
 

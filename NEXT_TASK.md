@@ -1,13 +1,15 @@
 # Next Task
 
-## Windows
+## Windows Desired State
 
-Il trasporto WinRM e l audit approfondito read-only sono completati.
+Il contratto Microsoft DSC Get/Test/Set è approvato.
 
 Prossimo passo:
 
-- analizzare le sezioni PASS ed ERROR dell artefatto RB-000039;
-- definire il contratto del provider Windows sulle capability osservate;
-- implementare il provider Windows completo senza logica decisionale;
-- mantenere separate le capability comuni e quelle specifiche dei ruoli;
+- definire il Desired State per WINSRV01 e WINSRV02;
+- definire il Desired State per SERVICESRV;
+- usare esclusivamente feature, moduli e servizi Microsoft;
+- eseguire Test per calcolare le non conformità;
+- applicare Set soltanto alle non conformità approvate;
+- riparare il modulo DHCP sui Domain Controller;
 - non registrare credenziali nella Knowledge.

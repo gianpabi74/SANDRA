@@ -2,7 +2,7 @@
 
 Indice generato automaticamente dal modulo Knowledge.
 
-Generato UTC: 2026-07-21T18:30:02Z
+Generato UTC: 2026-07-21T18:46:26Z
 
 ## Ordine di lettura
 
@@ -61,6 +61,7 @@ Path: `docs/specs`
 - [SPEC-000020 — PVE](docs/specs/SPEC-000020-pve-provider.md)
 - [SPEC-000021 — Execute generico](docs/specs/SPEC-000021-generic-execute.md)
 - [SPEC-000022 — PBS](docs/specs/SPEC-000022-pbs-provider.md)
+- [SPEC-000023 — Windows DSC Contract](docs/specs/SPEC-000023-windows-dsc-contract.md)
 
 ### Architecture Decisions
 

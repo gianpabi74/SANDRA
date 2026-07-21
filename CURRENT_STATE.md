@@ -1,6 +1,6 @@
 # SANDRA — Current State
 
-Aggiornato: 2026-07-21T18:30:01Z
+Aggiornato: 2026-07-21T18:46:25Z
 
 ## Struttura canonica
 
@@ -86,6 +86,8 @@ La struttura è congelata dalla Costituzione:
 - inventario iniziale di sistema operativo, dominio, ruoli e feature acquisito
 - audit approfondito read-only completato su WINSRV01, WINSRV02 e SERVICESRV
 - evidenze acquisite per AD DS, replica, DNS, DHCP, IIS, AD CS, servizi e condivisioni
+- contratto Windows Microsoft DSC Get/Test/Set approvato
+- SPEC-000023 presente
 - provider Windows non ancora implementato
 
 ## Componenti non ancora certificati
