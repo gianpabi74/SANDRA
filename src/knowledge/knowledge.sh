@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-readonly SANDRA_KNOWLEDGE_VERSION="1.0.0"
-readonly SANDRA_KNOWLEDGE_ROOT="/opt/sandra/knowledge"
-readonly SANDRA_KNOWLEDGE_MANIFEST="${SANDRA_KNOWLEDGE_ROOT}/manifest/KNOWLEDGE_MANIFEST.json"
+SANDRA_KNOWLEDGE_VERSION="1.0.0"
+SANDRA_KNOWLEDGE_ROOT="/opt/sandra/knowledge"
+SANDRA_KNOWLEDGE_MANIFEST="${SANDRA_KNOWLEDGE_ROOT}/manifest/KNOWLEDGE_MANIFEST.json"
 
 knowledge_log() {
     local level="$1"

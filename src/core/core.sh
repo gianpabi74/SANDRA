@@ -3,8 +3,8 @@
 set -Eeuo pipefail
 umask 077
 
-readonly SANDRA_CORE_VERSION="1.1.0"
-readonly SANDRA_CORE_CONFIG="/opt/sandra/config/habitat.conf"
+SANDRA_CORE_VERSION="1.1.0"
+SANDRA_CORE_CONFIG="/opt/sandra/config/habitat.conf"
 
 SANDRA_FINALIZED="NO"
 SANDRA_STATUS="FAIL"
