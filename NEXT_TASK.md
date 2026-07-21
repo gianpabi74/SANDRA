@@ -1,25 +1,17 @@
 # Next Task
 
-## Provider PBS
+## Verify
 
-Creare il provider PBS nel percorso canonico:
+Il provider PBS read-only è operativo e certificato.
 
-`/opt/sandra/provider/pbs/`
+Prossimo componente secondo la roadmap:
 
-Prerequisiti certificati:
+`verify`
 
-- host `192.168.1.194`
-- utente SSH `root`
-- chiave `/root/.ssh/sandra_pbs_ed25519`
-- CLI locale `proxmox-backup-manager`
+Prima dell implementazione:
 
-Vincoli:
-
-- nessuna nuova directory top-level
-- nessuna modifica a Execute non necessaria
-- uso della documentazione ufficiale PBS
-- capability verificate prima dell implementazione
-- audit capability read-only completato con RB-000031
-- implementazione limitata alle capability certificate
-- ogni Bash importa Core e Knowledge
-- ogni modifica aggiorna Knowledge, journal, stato e roadmap pertinenti
+- leggere la documentazione canonica;
+- verificare lo stato runtime reale;
+- definire un contratto minimo;
+- non modificare sistemi durante la verifica;
+- aggiornare Knowledge, journal, stato e roadmap.

@@ -19,23 +19,24 @@
 - start safe-path certificato
 - habitat PVE nel percorso canonico
 
-### PBS — accesso
+### PBS
 - host identificato
 - chiave SSH dedicata installata
 - accesso root senza password certificato
 - CLI locale PBS certificata
-- capability read-only del provider PBS verificate
+- capability read-only verificate
+- provider PBS read-only operativo
+- sorgente provider PBS versionata
 
 ## Ordine di sviluppo
 
-1. Provider PBS
-2. Verify
-3. Remember
-4. Decision
-5. Report
-6. Provider Linux
-7. Provider Windows
-8. Docker
+1. Verify
+2. Remember
+3. Decision
+4. Report
+5. Provider Linux
+6. Provider Windows
+7. Docker
 
 ## Vincoli permanenti
 

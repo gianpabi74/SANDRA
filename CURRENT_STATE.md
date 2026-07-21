@@ -1,6 +1,6 @@
 # SANDRA — Current State
 
-Aggiornato: 2026-07-21T16:37:02Z
+Aggiornato: 2026-07-21T16:47:00Z
 
 ## Struttura canonica
 
@@ -66,7 +66,10 @@ La struttura è congelata dalla Costituzione:
 - audit capability read-only completato
 - versione osservata: `proxmox-backup-server 4.2.3-1 running version: 4.2.2`
 - datastore, garbage collection, verify job, prune job, sync job, remote, ACL e utenti osservabili in JSON
-- provider PBS non ancora implementato
+- provider PBS `/opt/sandra/provider/pbs/provider.sh`
+- versione provider `1.0.0`
+- provider PBS read-only operativo e certificato
+- sorgente versionata in `src/providers/pbs/`
 
 ## Componenti non ancora certificati
 
