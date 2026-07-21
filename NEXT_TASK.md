@@ -1,11 +1,14 @@
 # Next Task
 
-## RB-000013 — Aggiunta lettura versione PVE
+## RB-000014 — Aggiunta certificata proxmox_nodes
 
-Estendere il provider esistente con la sola funzione:
+Estendere il provider esistente con una sola capability:
 
-`proxmox_version`
+`proxmox_nodes`
 
-Il comando remoto è già stato verificato nel preflight:
+Prima della modifica dovranno essere verificati:
 
-`pvesh get /version --output-format json`
+- hash del provider 1.1.0;
+- endpoint `/nodes`;
+- validità JSON;
+- presenza del nodo `pve`.

@@ -1,6 +1,6 @@
 # Current State
 
-Aggiornato: 2026-07-21T06:58:11Z
+Aggiornato: 2026-07-21T07:09:47Z
 
 ## Foundation
 
@@ -9,11 +9,11 @@ Aggiornato: 2026-07-21T06:58:11Z
 
 ## Proxmox
 
-- Provider base: `1.0.0`
-- Funzione `proxmox_connect`: `CERTIFIED_PASS`
-- Connessione SSH: `VERIFIED`
-- Host remoto: `pve`
+- Provider: `1.1.0`
+- `proxmox_connect`: `CERTIFIED_PASS`
+- `proxmox_version`: `CERTIFIED_PASS`
+- Azioni su PVE durante RB-000013: `NESSUNA`
 
 ## Prossimo tassello
 
-`RB-000013 — Aggiunta lettura versione PVE`
+`RB-000014 — Aggiunta certificata proxmox_nodes`
