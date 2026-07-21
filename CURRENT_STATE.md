@@ -1,6 +1,6 @@
 # SANDRA — Current State
 
-Aggiornato: 2026-07-21T18:22:51Z
+Aggiornato: 2026-07-21T18:30:01Z
 
 ## Struttura canonica
 
@@ -84,6 +84,8 @@ La struttura è congelata dalla Costituzione:
 - WinRM certificato su SERVICESRV (`192.168.1.204`)
 - autenticazione NTLM e cifratura messaggio obbligatoria
 - inventario iniziale di sistema operativo, dominio, ruoli e feature acquisito
+- audit approfondito read-only completato su WINSRV01, WINSRV02 e SERVICESRV
+- evidenze acquisite per AD DS, replica, DNS, DHCP, IIS, AD CS, servizi e condivisioni
 - provider Windows non ancora implementato
 
 ## Componenti non ancora certificati

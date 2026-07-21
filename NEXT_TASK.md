@@ -2,13 +2,12 @@
 
 ## Windows
 
-WinRM è certificato su WINSRV01, WINSRV02 e SERVICESRV.
+Il trasporto WinRM e l audit approfondito read-only sono completati.
 
 Prossimo passo:
 
-- analizzare gli inventari acquisiti;
-- identificare ruoli e responsabilità reali di ogni server;
-- definire il contratto completo del provider Windows;
-- includere capability profonde senza logica decisionale;
-- non modificare le VM prima dell approvazione del contratto;
+- analizzare le sezioni PASS ed ERROR dell artefatto RB-000039;
+- definire il contratto del provider Windows sulle capability osservate;
+- implementare il provider Windows completo senza logica decisionale;
+- mantenere separate le capability comuni e quelle specifiche dei ruoli;
 - non registrare credenziali nella Knowledge.

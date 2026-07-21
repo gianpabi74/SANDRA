@@ -36,6 +36,9 @@
 - WinRM certificato su WINSRV02
 - WinRM certificato su SERVICESRV
 - identità, sistema operativo, dominio, ruoli e feature osservabili
+- audit approfondito read-only completato
+- AD DS, replica, DNS e DHCP osservati sui Domain Controller
+- IIS, AD CS, servizi e condivisioni osservati su SERVICESRV
 
 ## Ordine di sviluppo
 
