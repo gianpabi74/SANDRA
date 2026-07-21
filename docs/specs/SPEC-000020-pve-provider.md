@@ -1,4 +1,4 @@
-# SPEC-000020 — Provider PVE
+# SPEC-000020 — PVE
 
 ## Stato
 

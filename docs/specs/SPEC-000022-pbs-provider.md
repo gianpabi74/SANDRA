@@ -1,4 +1,4 @@
-# SPEC-000022 — Provider PBS
+# SPEC-000022 — PBS
 
 ## Stato
 

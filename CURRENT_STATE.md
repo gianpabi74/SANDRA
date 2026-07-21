@@ -42,7 +42,7 @@ La struttura è congelata dalla Costituzione:
 - operativo
 - non decisionale
 
-### Provider PVE
+### PVE
 - `/opt/sandra/provider/pve/provider.sh`
 - versione `1.7.0`
 - connessione SSH certificata
