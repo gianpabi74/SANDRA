@@ -1,19 +1,16 @@
 # Next Task
 
-## RB-000021 — Validatore policy Proxmox
+## RB-000022 — Capability start protetta dalla policy
 
-Implementare una capability deterministica che, dato:
+Estendere il provider con una prima capability operativa:
 
-- oggetto;
-- operazione richiesta;
-- stato dell'Habitat;
-- condizioni runtime;
+`proxmox_start`
 
-restituisca esclusivamente:
+Requisiti obbligatori:
 
-- `ALLOW`;
-- `DENY`;
-- motivazione;
-- regola applicata.
-
-Il validatore non eseguirà ancora modifiche su PVE.
+- decisione `ALLOW` del validatore;
+- oggetto esistente nell'Habitat;
+- massimo tre tentativi;
+- verifica dello stato dopo ogni tentativo;
+- risultato `CRITICAL` dopo il terzo fallimento;
+- Journal ed evidenze complete.

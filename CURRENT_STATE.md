@@ -1,6 +1,6 @@
 # Current State
 
-Aggiornato: 2026-07-21T08:24:37Z
+Aggiornato: 2026-07-21T08:34:30Z
 
 ## Foundation
 
@@ -13,11 +13,9 @@ Aggiornato: 2026-07-21T08:24:37Z
 - OBSERVE: `COMPLETE`
 - Habitat: `CERTIFIED_PASS`
 - Policy operativa: `CERTIFIED_PASS`
-- Recupero automatico: `DEFINED`
-- Gruppi ridondanti: `DEFINED`
-- Protezioni runtime: `DEFINED`
-- Modifiche su PVE durante RB-000020: `NESSUNA`
+- Validatore policy: `CERTIFIED_PASS`
+- Modifiche su PVE durante RB-000021: `NESSUNA`
 
 ## Prossimo tassello
 
-`RB-000021 — Validatore policy Proxmox`
+`RB-000022 — Capability start protetta dalla policy`
