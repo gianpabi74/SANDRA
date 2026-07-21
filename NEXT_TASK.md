@@ -1,11 +1,29 @@
 # Next Task
 
-## RB-000024 — Registrazione RA-000001
+## RB-000025 — Execute generico
 
-Registrare la pipeline funzionale canonica:
+Sostituire:
 
-`intent → decision → policy → execute → provider → verify → remember`
+`/opt/sandra/execute/proxmox_execute.sh`
 
-I nomi dei componenti devono essere generici e funzionali.
+con:
 
-`execute` non può produrre o modificare decisioni.
+`/opt/sandra/execute/execute.sh`
+
+La richiesta dovrà contenere:
+
+- provider;
+- operation;
+- object_id;
+- decision.
+
+`execute` dovrà:
+
+1. validare la richiesta;
+2. accettare esclusivamente `ALLOW`;
+3. caricare il provider richiesto;
+4. invocare l'interfaccia comune;
+5. restituire l'esito tecnico;
+6. non produrre decisioni.
+
+La prima strategia certificata sarà `pve`.
