@@ -1,6 +1,6 @@
 # SANDRA — Current State
 
-Aggiornato: 2026-07-21T16:47:00Z
+Aggiornato: 2026-07-21T16:50:29Z
 
 ## Struttura canonica
 
@@ -28,7 +28,9 @@ La struttura è congelata dalla Costituzione:
 
 ### Core
 - `/opt/sandra/core/core.sh`
+- versione `1.1.1`
 - obbligatorio in ogni Bash SANDRA tramite `source`
+- source ripetuto preserva lo stato del Run Bundle attivo
 
 ### Knowledge
 - `/opt/sandra/knowledge/knowledge.sh`
