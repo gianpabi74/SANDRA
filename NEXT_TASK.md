@@ -19,4 +19,7 @@ Vincoli:
 - nessuna modifica a Execute non necessaria
 - uso della documentazione ufficiale PBS
 - capability verificate prima dell implementazione
+- audit capability read-only completato con RB-000031
+- implementazione limitata alle capability certificate
 - ogni Bash importa Core e Knowledge
+- ogni modifica aggiorna Knowledge, journal, stato e roadmap pertinenti

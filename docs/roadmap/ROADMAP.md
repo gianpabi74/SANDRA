@@ -24,6 +24,7 @@
 - chiave SSH dedicata installata
 - accesso root senza password certificato
 - CLI locale PBS certificata
+- capability read-only del provider PBS verificate
 
 ## Ordine di sviluppo
 

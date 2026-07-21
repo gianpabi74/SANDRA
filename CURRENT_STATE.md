@@ -1,6 +1,6 @@
 # SANDRA — Current State
 
-Aggiornato: 2026-07-21T11:58:43Z
+Aggiornato: 2026-07-21T16:37:02Z
 
 ## Struttura canonica
 
@@ -63,6 +63,9 @@ La struttura è congelata dalla Costituzione:
 - chiave `/root/.ssh/sandra_pbs_ed25519`
 - accesso SSH senza password certificato
 - `proxmox-backup-manager` certificato
+- audit capability read-only completato
+- versione osservata: `proxmox-backup-server 4.2.3-1 running version: 4.2.2`
+- datastore, garbage collection, verify job, prune job, sync job, remote, ACL e utenti osservabili in JSON
 - provider PBS non ancora implementato
 
 ## Componenti non ancora certificati
