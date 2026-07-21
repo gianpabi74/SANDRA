@@ -78,3 +78,11 @@
 
 - baseline certificata completata;
 - prossimo obiettivo: cultura per modulo.
+
+## RB-000047R — Windows module locale
+
+- provider Windows 1.2.0 certificato;
+- `SMBShare` gestito con locale `en-US`;
+- `DhcpServer` gestito con locale `it-IT`;
+- Get e Test conformi sulle tre VM;
+- nessuna modifica ai sistemi Windows.

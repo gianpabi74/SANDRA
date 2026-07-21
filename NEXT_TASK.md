@@ -1,15 +1,21 @@
 # Next Task
 
-## RB-000047
+## Windows Provider Set
 
-Introdurre la selezione deterministica della cultura WinRM per modulo.
+Il provider Windows 1.2.0 implementa Get e Test.
 
-Regole:
+Locale moduli certificata:
 
-- DhcpServer -> it-IT
-- SmbShare -> en-US
-- Default -> it-IT
+- default: it-IT;
+- DhcpServer: it-IT;
+- SMBShare: en-US.
 
-La scelta della cultura deve essere dichiarativa e non codificata in logica applicativa.
+WINSRV01, WINSRV02 e SERVICESRV sono conformi al Desired State corrente.
 
-Aggiornare la Knowledge e ricertificare Get/Test sulle tre VM.
+Prossimo passo:
+
+- definire Microsoft DSC Set;
+- Set deve ricevere esclusivamente un delta approvato;
+- Test deve precedere sempre Set;
+- nessuna decisione deve risiedere nel provider;
+- ogni modifica deve essere documentata e certificata.

@@ -3,7 +3,7 @@
 source /opt/sandra/core/core.sh
 source /opt/sandra/knowledge/knowledge.sh
 
-SANDRA_WINDOWS_PROVIDER_VERSION="1.1.0"
+SANDRA_WINDOWS_PROVIDER_VERSION="1.2.0"
 SANDRA_WINDOWS_PROVIDER_ROOT="/opt/sandra/provider/windows"
 SANDRA_WINDOWS_PYTHON="${SANDRA_WINDOWS_PROVIDER_ROOT}/.venv/bin/python"
 SANDRA_WINDOWS_GET="${SANDRA_WINDOWS_PROVIDER_ROOT}/get.py"

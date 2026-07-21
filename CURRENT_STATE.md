@@ -1,6 +1,6 @@
 # SANDRA — Current State
 
-Aggiornato: 2026-07-21T21:38:29Z
+Aggiornato: 2026-07-21T22:14:59Z
 
 ## Struttura canonica
 
@@ -131,3 +131,17 @@ Non viene modificata da questo aggiornamento.
 - runtime/source coerenti;
 - nessun codice Base64 residuo;
 - prossimo RB: introduzione della selezione deterministica della cultura per modulo Microsoft (DhcpServer → it-IT, SmbShare → en-US).
+
+## RB-000047R — Locale deterministica moduli Windows
+
+- provider Windows `1.2.0` certificato;
+- locale predefinita: `it-IT`;
+- override dichiarativo esatto: `SMBShare -> en-US`;
+- `DhcpServer` importabile in `it-IT`;
+- `SMBShare` importabile in `en-US`;
+- WINSRV01 conforme;
+- WINSRV02 conforme;
+- SERVICESRV conforme;
+- delta complessivo: `0`;
+- nessuna modifica alle VM Windows;
+- root cause RB-000047: differenza maiuscole/minuscole tra `SmbShare` e `SMBShare`.
