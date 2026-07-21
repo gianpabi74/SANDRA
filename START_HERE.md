@@ -2,7 +2,7 @@
 
 Indice generato automaticamente dal modulo Knowledge.
 
-Generato UTC: 2026-07-21T09:01:38Z
+Generato UTC: 2026-07-21T09:08:11Z
 
 ## Ordine di lettura
 
@@ -57,6 +57,7 @@ Path: `docs/specs`
 - [SPEC-000016 — Proxmox Operational Policy](docs/specs/SPEC-000016-proxmox-policy.md)
 - [SPEC-000017 — Proxmox Policy Validator](docs/specs/SPEC-000017-proxmox-policy-validator.md)
 - [SPEC-000018 — Proxmox Start Capability](docs/specs/SPEC-000018-proxmox-start.md)
+- [SPEC-000019 — Proxmox Execute](docs/specs/SPEC-000019-proxmox-execute.md)
 
 ### Architecture Decisions
 

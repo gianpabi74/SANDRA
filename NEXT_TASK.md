@@ -1,14 +1,11 @@
 # Next Task
 
-## RB-000023 — Esecutore start policy-gated
+## RB-000024 — Registrazione RA-000001
 
-Creare un comando SANDRA che:
+Registrare la pipeline funzionale canonica:
 
-1. aggiorna l'Habitat;
-2. individua VM e LXC in stato `stopped`;
-3. richiede `ALLOW` al validatore;
-4. invoca `proxmox_start`;
-5. registra `STARTED`, `ALREADY_RUNNING` o `CRITICAL`;
-6. non interviene su oggetti non autorizzati.
+`intent → decision → policy → execute → provider → verify → remember`
 
-Nessun oggetto sarà spento artificialmente per eseguire il test.
+I nomi dei componenti devono essere generici e funzionali.
+
+`execute` non può produrre o modificare decisioni.
