@@ -1,6 +1,6 @@
 # SANDRA — Current State
 
-Aggiornato: 2026-07-21T16:50:29Z
+Aggiornato: 2026-07-21T18:15:03Z
 
 ## Struttura canonica
 
@@ -72,6 +72,15 @@ La struttura è congelata dalla Costituzione:
 - versione provider `1.0.0`
 - provider PBS read-only operativo e certificato
 - sorgente versionata in `src/providers/pbs/`
+
+## Windows
+
+- runtime locale `/opt/sandra/provider/windows/.venv`
+- Python `3.13.7`
+- PyPSRP `0.9.1`
+- ambiente virtuale isolato e certificato
+- connessioni WinRM non ancora certificate
+- provider Windows non ancora implementato
 
 ## Componenti non ancora certificati
 

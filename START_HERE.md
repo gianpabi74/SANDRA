@@ -2,7 +2,7 @@
 
 Indice generato automaticamente dal modulo Knowledge.
 
-Generato UTC: 2026-07-21T16:59:09Z
+Generato UTC: 2026-07-21T18:15:05Z
 
 ## Ordine di lettura
 
@@ -34,7 +34,7 @@ Path: `docs/architecture`
 Owner: `engineering`  
 Path: `docs/engineering`
 
-_Nessun documento pubblicato._
+- [Trasporto Windows](docs/engineering/WINDOWS-TRANSPORT.md)
 
 ### Specifications
 

@@ -28,15 +28,20 @@
 - provider PBS read-only operativo
 - sorgente provider PBS versionata
 
+### Windows — trasporto
+- ambiente Python isolato installato
+- PyPSRP installato e certificato
+- requisiti e dipendenze versionati
+
 ## Ordine di sviluppo
 
-1. Verify
-2. Remember
-3. Decision
-4. Report
-5. Provider Linux
-6. Provider Windows
-7. Docker
+1. Windows
+2. Linux
+3. Docker
+4. Verify
+5. Remember
+6. Decision
+7. Report
 
 ## Vincoli permanenti
 

@@ -1,17 +1,15 @@
 # Next Task
 
-## Verify
+## Windows
 
-Il provider PBS read-only è operativo e certificato.
+Il runtime locale PyPSRP è installato e certificato.
 
-Prossimo componente secondo la roadmap:
+Prossimo passo:
 
-`verify`
-
-Prima dell implementazione:
-
-- leggere la documentazione canonica;
-- verificare lo stato runtime reale;
-- definire un contratto minimo;
-- non modificare sistemi durante la verifica;
-- aggiornare Knowledge, journal, stato e roadmap.
+- certificare WinRM su WINSRV01;
+- certificare WinRM su WINSRV02;
+- certificare WinRM su SERVICESRV;
+- osservare identità, sistema operativo, ruoli e configurazione;
+- non modificare le VM durante l audit;
+- non registrare credenziali nella Knowledge;
+- definire il contratto del provider solo dopo le osservazioni reali.
