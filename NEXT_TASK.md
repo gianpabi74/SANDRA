@@ -1,9 +1,18 @@
 # Next Task
 
-## RB-000019 — Habitat Proxmox strutturato
+## RB-000020 — Prima capability operativa PVE
 
-Usare esclusivamente le funzioni certificate del provider 1.6.0 per
-generare una rappresentazione degli oggetti PVE e delle loro risorse.
+Estendere lo stesso provider con una prima azione reversibile e
+verificabile.
 
-Nessun accesso diretto a SSH, pvesh, qm, pct o pvesm sarà ammesso fuori
-dal provider.
+La capability sarà scelta soltanto dopo:
+
+- selezione esplicita di un guest non critico;
+- osservazione dello stato iniziale;
+- documentazione ufficiale del comando;
+- definizione della verifica post-azione;
+- definizione dell'eventuale ritorno allo stato iniziale.
+
+Ciclo obbligatorio:
+
+`OBSERVE → PLAN → EXECUTE → VERIFY → REMEMBER`

@@ -1,6 +1,6 @@
 # Current State
 
-Aggiornato: 2026-07-21T07:53:44Z
+Aggiornato: 2026-07-21T08:03:03Z
 
 ## Foundation
 
@@ -10,15 +10,12 @@ Aggiornato: 2026-07-21T07:53:44Z
 ## Proxmox
 
 - Provider: `1.6.0`
-- `proxmox_connect`: `CERTIFIED_PASS`
-- `proxmox_version`: `CERTIFIED_PASS`
-- `proxmox_nodes`: `CERTIFIED_PASS`
-- `proxmox_resources`: `CERTIFIED_PASS`
-- `proxmox_vms`: `CERTIFIED_PASS`
-- `proxmox_containers`: `CERTIFIED_PASS`
-- `proxmox_storage`: `CERTIFIED_PASS`
-- Modifiche su PVE durante RB-000018: `NESSUNA`
+- OBSERVE base: `COMPLETE`
+- Habitat JSON: `CERTIFIED_PASS`
+- Habitat report: `CERTIFIED_PASS`
+- Oggetti e risorse: `VISIBLE`
+- Modifiche su PVE durante RB-000019: `NESSUNA`
 
 ## Prossimo tassello
 
-`RB-000019 — Habitat Proxmox strutturato`
+`RB-000020 — Prima capability operativa PVE`
