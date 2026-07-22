@@ -243,7 +243,7 @@ knowledge_verify_remote() {
     knowledge_log INFO "Remote verificato: ${local_head}"
 }
 
-knowledge_sync() {
+_knowledge_sync_impl() {
     local message="$1"
 
     knowledge_validate
@@ -261,3 +261,5 @@ knowledge_journal_path() {
         "$(date -u +%m)" \
         "${SANDRA_RUN_ID}"
 }
+
+source "${SANDRA_KNOWLEDGE_ROOT:-/opt/sandra/knowledge}/continuity.sh"

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "project": "SANDRA",
+  "repository": "https://github.com/gianpabi74/SANDRA",
+  "branch": "main",
+  "updated_utc": "2026-07-22T14:08:59Z",
+  "current_certification": {
+    "runbook": "RB-000061AR",
+    "journal": "journal/2026/07/RB-000061AR-20260722T140859Z-b9afd4ec.md"
+  },
+  "core": {
+    "status": "stable",
+    "version": "1.1.1"
+  },
+  "providers": {
+    "pve": {
+      "version": "1.7.0",
+      "status": "operational",
+      "scope": "inventory_and_topology"
+    },
+    "pbs": {
+      "version": "1.0.0",
+      "status": "read_only_operational"
+    },
+    "windows": {
+      "version": "1.7.0",
+      "status": "frozen_maintenance",
+      "capabilities": [
+        "Get",
+        "Test",
+        "Approval",
+        "Set",
+        "WindowsService",
+        "WindowsFeature"
+      ]
+    },
+    "linux": {
+      "version": "1.1.0",
+      "status": "capability_development",
+      "transport": "OpenSSH_public_key",
+      "get": "certified",
+      "test": "certified_offline",
+      "set": "absent",
+      "targets": [
+        "PBS",
+        "TRANSMISSION",
+        "PIHOLE",
+        "PIHOLE2",
+        "PLEX",
+        "NAVIDROME",
+        "SERVARR",
+        "PASSBOLT",
+        "NGINX"
+      ],
+      "excluded_targets": [
+        "PVE",
+        "SANDRA",
+        "Windows"
+      ]
+    }
+  },
+  "next_gate": {
+    "runbook": "RB-000062",
+    "title": "Baseline certificata dei servizi Linux",
+    "mode": "read_only",
+    "code_changes_authorized": false
+  }
+}

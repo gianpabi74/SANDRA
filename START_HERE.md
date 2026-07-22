@@ -2,7 +2,7 @@
 
 Indice generato automaticamente dal modulo Knowledge.
 
-Generato UTC: 2026-07-22T12:48:54Z
+Generato UTC: 2026-07-22T14:09:01Z
 
 ## Ordine di lettura
 
@@ -21,6 +21,7 @@ Owner: `governance`
 Path: `docs/constitution`
 
 - [Costituzione — Scheletro canonico SANDRA](docs/constitution/CANONICAL-SKELETON.md)
+- [Costituzione della continuità della Knowledge](docs/constitution/KNOWLEDGE-CONTINUITY.md)
 
 ### Architecture
 
@@ -83,7 +84,7 @@ _Nessun documento pubblicato._
 Owner: `governance`  
 Path: `docs/roadmap`
 
-- [SANDRA — Roadmap](docs/roadmap/ROADMAP.md)
+- [SANDRA — Roadmap corrente](docs/roadmap/ROADMAP.md)
 
 ### Official Glossary
 

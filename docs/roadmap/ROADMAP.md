@@ -1,165 +1,42 @@
-# SANDRA — Roadmap
+# SANDRA — Roadmap corrente
+
+Aggiornato: `2026-07-22T14:08:59Z`
+
+La cronologia completa è nei Journal. Questa roadmap mostra soltanto stato e
+gate correnti.
 
 ## Completato
 
-### Foundation
-- Core operativo
-- Knowledge versionata con Git
-- evidenze e artefatti esportati
-- scheletro top-level canonico creato
-- Costituzione presente
+- Core stabile e Knowledge/Git operativi.
+- Provider PVE `1.7.0`: inventario e topologia.
+- Provider PBS `1.0.0`: read-only operativo.
+- Provider Windows `1.7.0`: congelato e in manutenzione.
+- Provider Linux `1.1.0`: trust SSH, Get e Test certificati.
+- Continuità GitHub: `STATE.json`, documenti vivi e validazione obbligatoria.
 
-### PVE
-- accesso SSH certificato
-- provider PVE operativo
-- versione, nodi, risorse, VM, container e storage osservabili
-- policy PVE presente
-- validator PVE presente
-- execute generico presente
-- start safe-path certificato
-- habitat PVE nel percorso canonico
+## In corso
 
-### PBS
-- host identificato
-- chiave SSH dedicata installata
-- accesso root senza password certificato
-- CLI locale PBS certificata
-- capability read-only verificate
-- provider PBS read-only operativo
-- sorgente provider PBS versionata
+1. `RB-000062` — baseline read-only dei servizi systemd.
+2. `RB-000063` — LinuxService Get/Test sui servizi approvati.
+3. `RB-000064` — LinuxService Set con approvazione e verifica finale.
+4. `RB-000065` — ricertificazione e congelamento baseline Linux.
 
-### Windows — trasporto
-- ambiente Python isolato installato
-- PyPSRP installato e certificato
-- requisiti e dipendenze versionati
-- WinRM certificato su WINSRV01
-- WinRM certificato su WINSRV02
-- WinRM certificato su SERVICESRV
-- identità, sistema operativo, dominio, ruoli e feature osservabili
-- audit approfondito read-only completato
-- AD DS, replica, DNS e DHCP osservati sui Domain Controller
-- IIS, AD CS, servizi e condivisioni osservati su SERVICESRV
-- contratto Microsoft DSC Get/Test/Set approvato e versionato
-- Desired State Windows definito
-- provider Windows 1.0.0 installato
-- operazioni Microsoft DSC Get e Test certificate
-- SERVICESRV conforme al profilo corrente
-- delta DhcpServer acquisito per WINSRV01 e WINSRV02
+## Fuori perimetro corrente
 
-## Ordine di sviluppo
-
-1. Windows
-2. Linux
-3. Docker
-4. Verify
-5. Remember
-6. Decision
-7. Report
+- Package management;
+- File management;
+- utenti e gruppi;
+- firewall;
+- cron;
+- gestione generica fstab;
+- nuove capability Windows;
+- Secret Manager trasversale.
 
 ## Vincoli permanenti
 
-- nessuna nuova directory top-level
-- nessuna assunzione non verificata
-- nessun mega-refactoring
-- una responsabilità per ogni cambiamento
-- Core e Knowledge importati in ogni Bash
-
-## RB-000045A — Provider Windows
-
-- provider Windows 1.1.0 corretto e ricertificato;
-- sorgenti Python separati e leggibili;
-- locale remota `it-IT` esplicita;
-- Get e Test completati sulle tre VM;
-- eventuali delta conservati come risultato operativo.
-- WINSRV01: Desired State `FALSE`, delta `1`
-- WINSRV02: Desired State `FALSE`, delta `1`
-- SERVICESRV: Desired State `FALSE`, delta `1`
-## RB-000046
-
-- baseline certificata completata;
-- prossimo obiettivo: cultura per modulo.
-
-## RB-000047R — Windows module locale
-
-- provider Windows 1.2.0 certificato;
-- `SMBShare` gestito con locale `en-US`;
-- `DhcpServer` gestito con locale `it-IT`;
-- Get e Test conformi sulle tre VM;
-- nessuna modifica ai sistemi Windows.
-
-## RB-000048C — Windows Set contract
-
-- provider Windows 1.3.0 certificato;
-- scheletro Set installato;
-- validazione del delta certificata;
-- validazione dell'approvazione certificata;
-- nessuna capability modificativa ancora attiva;
-- prossima fase: una singola risorsa Set per RB.
-
-## RB-000049 — WindowsService Set
-
-- contratto WindowsService implementato;
-- mapping alla risorsa Microsoft DSC Service certificato;
-- applicazione remota ancora disabilitata;
-- prossimo passo: invocazione DSC controllata e ricertificazione.
-
-## RB-000049R — Provider Windows 1.4.0
-
-- incoerenza delle versioni corretta;
-- tutti i componenti del provider dichiarano `1.4.0`;
-- baseline pronta per l’implementazione remota DSC `Test → Set → Test`.
-
-## RB-000051 — Windows transport
-
-- trasporto PSRP estratto da `get.py`;
-- `transport.py` interno al provider Windows;
-- nessun executor condiviso prematuro;
-- ADR-003 implementata;
-- prossima fase: riuso del trasporto nel Set DSC operativo.
-
-## RB-000052R2 — WindowsService DSC Set
-
-- capability WindowsService certificata;
-- normalizzazione DSC Test corretta;
-- risultato autorevole: `InDesiredState`;
-- nessuna modifica con delta vuoto.
-
-## RB-000053 — WindowsFeature Set
-
-- provider Windows 1.7.0 installato;
-- capability WindowsFeature completata;
-- mapping DSC e ciclo Test/Set/Test certificati;
-- nessuna modifica applicata con delta vuoto;
-- provider Windows pronto per la certificazione finale.
-
-## RB-000054 — Chiusura provider Windows
-
-- provider Windows 1.7.0 ricertificato integralmente;
-- WindowsService completato;
-- WindowsFeature completato;
-- baseline documentata e congelata;
-- provider Windows posto in manutenzione;
-- nuove capability solo su requisito concreto.
-
-## RB-000059 — Fondazione provider Linux
-
-- provider Linux 1.0.0 creato;
-- Get e Test implementati;
-- trasporto SSH isolato;
-- profili minimi creati;
-- Set rinviato alla certificazione remota di Get/Test.
-
-## RB-000060R — Trust SSH target Linux
-
-- trust limitata ai soli nove oggetti Linux gestiti;
-- PVE, SANDRA e Windows esclusi;
-- autenticazione root tramite chiave certificata;
-- prossimo passo: migrazione del provider Linux alla chiave SSH.
-
-## RB-000061 — Provider Linux con chiave SSH
-
-- provider Linux 1.1.0 installato;
-- autenticazione a password eliminata dai flussi normali;
-- Get e Test certificati sui nove target;
-- host key validation obbligatoria;
-- prossimo passo: contratto e capability LinuxService.
+- nessuna assunzione non verificata;
+- nessun mega-refactoring;
+- provider indipendenti;
+- documenti vivi riscritti integralmente;
+- Journal immutabili;
+- GitHub sincronizzato prima della chiusura della RB.
