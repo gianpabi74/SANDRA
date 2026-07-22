@@ -102,3 +102,9 @@
 - mapping alla risorsa Microsoft DSC Service certificato;
 - applicazione remota ancora disabilitata;
 - prossimo passo: invocazione DSC controllata e ricertificazione.
+
+## RB-000049R — Provider Windows 1.4.0
+
+- incoerenza delle versioni corretta;
+- tutti i componenti del provider dichiarano `1.4.0`;
+- baseline pronta per l’implementazione remota DSC `Test → Set → Test`.

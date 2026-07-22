@@ -66,7 +66,7 @@ for name in desired["services"]:
 
 print(json.dumps({
     "Provider":"Windows",
-    "ProviderVersion":"1.3.0",
+    "ProviderVersion":"1.4.0",
     "Operation":"Test",
     "Target":doc["Target"],
     "Profile":profile_name,

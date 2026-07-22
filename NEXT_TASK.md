@@ -1,15 +1,23 @@
 # Next Task
 
-## WindowsService Set — Applicazione DSC
+## WindowsService — Applicazione remota DSC
 
-Il provider Windows 1.4.0 valida un delta WindowsService e lo traduce
-nella risorsa Microsoft DSC `PSDesiredStateConfiguration/Service`.
+Il provider Windows 1.4.0 è coerente in tutti i componenti.
+
+Sono certificati:
+
+- risorsa DSC `Service`;
+- modulo `PSDesiredStateConfiguration` 1.1;
+- `Invoke-DscResource Get`;
+- `Invoke-DscResource Test`;
+- forma del risultato `InDesiredState`;
+- LCM in `RefreshMode=Push`.
 
 Prossimo passo:
 
-- verificare localmente la disponibilità della risorsa DSC Service;
-- implementare l'invocazione remota con `Invoke-DscResource`;
-- eseguire Test immediatamente prima di Set;
-- applicare soltanto il delta approvato;
-- ricertificare Get e Test immediatamente dopo Set;
-- non eseguire modifiche se il delta è vuoto.
+- integrare in `provider_set` la connessione WinRM;
+- eseguire DSC Test immediatamente prima di Set;
+- eseguire Set solo con `InDesiredState=False`;
+- ripetere DSC Test dopo Set;
+- applicare esclusivamente un delta WindowsService approvato;
+- non cambiare il RefreshMode dell’LCM.

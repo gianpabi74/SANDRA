@@ -171,3 +171,12 @@ Non viene modificata da questo aggiornamento.
 - applicazione remota non ancora abilitata;
 - connessioni Windows: nessuna;
 - modifiche Windows: nessuna.
+
+## RB-000049R — Allineamento provider Windows 1.4.0
+
+- versione dichiarata uniformemente a `1.4.0`;
+- `provider.sh`, `get.py`, `test.py`, `set.py` e `VERSION` coerenti;
+- source e runtime allineati;
+- capability `WindowsService` invariata;
+- connessioni Windows: nessuna;
+- modifiche Windows: nessuna.
