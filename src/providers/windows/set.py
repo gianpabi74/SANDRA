@@ -2,7 +2,7 @@ import json
 import pathlib
 import sys
 
-PROVIDER_VERSION = "1.4.0"
+PROVIDER_VERSION = "1.5.0"
 SUPPORTED_RESOURCES: set[str] = {"WindowsService"}
 
 

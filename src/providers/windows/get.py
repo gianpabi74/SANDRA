@@ -2,10 +2,10 @@ import json
 import pathlib
 import sys
 
-from pypsrp.client import Client
+from transport import execute_ps
 
 
-PROVIDER_VERSION = "1.4.0"
+PROVIDER_VERSION = "1.5.0"
 
 MODULE_LOCALES = {
     "SMBShare": "en-US",
@@ -76,30 +76,6 @@ def ps_array(values: list[str]) -> str:
     return "@(" + ",".join(json.dumps(value) for value in values) + ")"
 
 
-def execute_ps(locale: str, script: str) -> dict:
-    with Client(
-        target_ip,
-        username=username,
-        password=password,
-        ssl=False,
-        port=5985,
-        auth="ntlm",
-        encryption="always",
-        no_proxy=True,
-        locale=locale,
-        data_locale=locale,
-        connection_timeout=10,
-        read_timeout=90,
-    ) as client:
-        output, streams, had_errors = client.execute_ps(script)
-
-    if had_errors:
-        errors = "; ".join(str(item) for item in streams.error)
-        raise RuntimeError(errors or "REMOTE_POWERSHELL_ERROR")
-
-    return json.loads(output.strip())
-
-
 def inspect_modules(locale: str, module_names: list[str]) -> list[dict]:
     if not module_names:
         return []
@@ -152,7 +128,13 @@ $result = @(
 }} | ConvertTo-Json -Depth 8 -Compress
 """
 
-    document = execute_ps(locale, script)
+    document = execute_ps(
+        target_ip,
+        username,
+        password,
+        locale,
+        script,
+    )
 
     if document["ComputerName"].upper() != target_name.upper():
         raise RuntimeError(
@@ -235,7 +217,13 @@ $services = @(
 
 
 try:
-    current = execute_ps(DEFAULT_LOCALE, base_script)
+    current = execute_ps(
+        target_ip,
+        username,
+        password,
+        DEFAULT_LOCALE,
+        base_script,
+    )
 
     if current["ComputerName"].upper() != target_name.upper():
         raise RuntimeError(

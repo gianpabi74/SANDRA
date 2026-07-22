@@ -180,3 +180,18 @@ Non viene modificata da questo aggiornamento.
 - capability `WindowsService` invariata;
 - connessioni Windows: nessuna;
 - modifiche Windows: nessuna.
+
+## RB-000051 — Trasporto PSRP provider Windows
+
+- provider Windows aggiornato a `1.5.0`;
+- creato `src/providers/windows/transport.py`;
+- PyPSRP e WinRM isolati nel trasporto Windows;
+- `get.py` non importa più direttamente PyPSRP;
+- Get e Test ricertificati sulle tre VM;
+- contratto esterno del provider invariato;
+- executor condiviso nel Core: non creato;
+- modifiche alle VM Windows: nessuna.
+
+WINSRV01|GET=PASS|TEST=PASS|DESIRED_STATE=TRUE|DELTA=0
+WINSRV02|GET=PASS|TEST=PASS|DESIRED_STATE=TRUE|DELTA=0
+SERVICESRV|GET=PASS|TEST=PASS|DESIRED_STATE=TRUE|DELTA=0

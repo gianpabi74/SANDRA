@@ -108,3 +108,11 @@
 - incoerenza delle versioni corretta;
 - tutti i componenti del provider dichiarano `1.4.0`;
 - baseline pronta per l’implementazione remota DSC `Test → Set → Test`.
+
+## RB-000051 — Windows transport
+
+- trasporto PSRP estratto da `get.py`;
+- `transport.py` interno al provider Windows;
+- nessun executor condiviso prematuro;
+- ADR-003 implementata;
+- prossima fase: riuso del trasporto nel Set DSC operativo.

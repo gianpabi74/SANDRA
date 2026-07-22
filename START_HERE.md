@@ -2,7 +2,7 @@
 
 Indice generato automaticamente dal modulo Knowledge.
 
-Generato UTC: 2026-07-22T07:19:58Z
+Generato UTC: 2026-07-22T07:51:18Z
 
 ## Ordine di lettura
 
@@ -27,6 +27,7 @@ Path: `docs/constitution`
 Owner: `architecture`  
 Path: `docs/architecture`
 
+- [ADR-003 — Trasporto interno al provider Windows](docs/architecture/ADR-003-WINDOWS-TRANSPORT.md)
 - [SANDRA — Architettura corrente](docs/architecture/CURRENT-ARCHITECTURE.md)
 
 ### Engineering Standards

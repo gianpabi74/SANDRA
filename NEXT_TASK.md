@@ -1,23 +1,16 @@
 # Next Task
 
-## WindowsService — Applicazione remota DSC
+## WindowsService — Set remoto DSC
 
-Il provider Windows 1.4.0 è coerente in tutti i componenti.
-
-Sono certificati:
-
-- risorsa DSC `Service`;
-- modulo `PSDesiredStateConfiguration` 1.1;
-- `Invoke-DscResource Get`;
-- `Invoke-DscResource Test`;
-- forma del risultato `InDesiredState`;
-- LCM in `RefreshMode=Push`.
+Il provider Windows 1.5.0 dispone di un trasporto PSRP interno e
+certificato.
 
 Prossimo passo:
 
-- integrare in `provider_set` la connessione WinRM;
-- eseguire DSC Test immediatamente prima di Set;
-- eseguire Set solo con `InDesiredState=False`;
-- ripetere DSC Test dopo Set;
-- applicare esclusivamente un delta WindowsService approvato;
-- non cambiare il RefreshMode dell’LCM.
+- usare `transport.py` nel percorso Set;
+- ricevere esclusivamente operazioni validate da `set.py`;
+- eseguire `Invoke-DscResource -Method Test`;
+- chiamare `Set` soltanto con `InDesiredState=False`;
+- ripetere `Test` dopo Set;
+- non modificare il RefreshMode dell'LCM;
+- applicare esclusivamente delta approvati.
