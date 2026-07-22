@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-22T14:53:46Z`
+Aggiornato: `2026-07-22T15:20:57Z`
 
 ## Fase corrente
 
@@ -11,7 +11,7 @@ Aggiornato: `2026-07-22T14:53:46Z`
 
 ## Gate
 
-1. **RB-000062** — Baseline certificata dei servizi Linux (`next`, `read_only`)
+1. **RB-000062** — Baseline certificata dei servizi Linux (`awaiting_human_approval`, `read_only`)
 2. **RB-000063** — LinuxService Get/Test (`blocked`)
 3. **RB-000064** — LinuxService Set (`blocked`)
 4. **RB-000065** — Ricertificazione e baseline Linux (`blocked`)

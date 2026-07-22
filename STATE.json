@@ -4,10 +4,10 @@
     "name": "SANDRA",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
-    "updated_utc": "2026-07-22T14:53:46Z",
+    "updated_utc": "2026-07-22T15:20:57Z",
     "current_certification": {
-      "runbook": "RB-000061C1",
-      "journal": "journal/2026/07/RB-000061C1-20260722T145345Z-4d2a9e3a.md"
+      "runbook": "RB-000062",
+      "journal": "journal/2026/07/RB-000062-20260722T152004Z-ec5f3393.md"
     }
   },
   "principles": [
@@ -139,6 +139,20 @@
             "motd-news.service"
           ]
         }
+      },
+      "service_baseline_audit": {
+        "runbook": "RB-000062",
+        "run_id": "RB-000062-20260722T152004Z-ec5f3393",
+        "status": "awaiting_human_approval",
+        "mode": "remote_read_only_audit",
+        "host_count": 9,
+        "unit_count": 1095,
+        "failed_unit_count": 2,
+        "candidate_count": 9,
+        "collection_error_count": 0,
+        "candidate_document": "docs/providers/linux/SERVICE-BASELINE-CANDIDATES-RB-000062.md",
+        "artifact_local_path": "/opt/sandra/artifacts/sandra-RB-000062-20260722T152004Z-ec5f3393.tar.gz",
+        "remote_modifications": "none"
       }
     }
   },
@@ -148,7 +162,7 @@
       {
         "runbook": "RB-000062",
         "title": "Baseline certificata dei servizi Linux",
-        "status": "next",
+        "status": "awaiting_human_approval",
         "mode": "read_only"
       },
       {
@@ -215,7 +229,8 @@
       "nessuna modifica ai profili",
       "nessuna implementazione LinuxService"
     ],
-    "next_gate_after_approval": "RB-000063"
+    "next_gate_after_approval": "RB-000063",
+    "status": "awaiting_human_approval"
   },
   "knowledge": {
     "canonical_state": "STATE.json",
