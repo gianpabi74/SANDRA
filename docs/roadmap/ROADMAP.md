@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-22T14:20:36Z`
+Aggiornato: `2026-07-22T14:53:46Z`
 
 ## Fase corrente
 

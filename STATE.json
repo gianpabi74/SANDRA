@@ -4,10 +4,10 @@
     "name": "SANDRA",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
-    "updated_utc": "2026-07-22T14:20:36Z",
+    "updated_utc": "2026-07-22T14:53:46Z",
     "current_certification": {
-      "runbook": "RB-000061B",
-      "journal": "journal/2026/07/RB-000061B-20260722T142036Z-6309938c.md"
+      "runbook": "RB-000061C1",
+      "journal": "journal/2026/07/RB-000061C1-20260722T145345Z-4d2a9e3a.md"
     }
   },
   "principles": [
@@ -230,5 +230,27 @@
     ],
     "immutable_history": "journal/",
     "manual_editing_generated_views": false
+  },
+  "runbook_contract": {
+    "status": "constitutional_mandatory",
+    "scope": "all_operational_bash",
+    "required_preamble": [
+      "source /opt/sandra/core/core.sh",
+      "source /opt/sandra/knowledge/knowledge.sh",
+      "",
+      "set -Eeuo pipefail"
+    ],
+    "required_order": [
+      "core_source",
+      "knowledge_source",
+      "strict_shell_mode",
+      "operational_commands"
+    ],
+    "exceptions": {
+      "read_only": false,
+      "brevity": false,
+      "already_loaded_in_shell": false
+    },
+    "validator": "knowledge_validate_runbook_file"
   }
 }

@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-22T14:20:36Z`
+Aggiornato: `2026-07-22T14:53:46Z`
 
 ## Repository
 
@@ -76,8 +76,8 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `RB-000061B`
-- Journal: `journal/2026/07/RB-000061B-20260722T142036Z-6309938c.md`
+- RunBook: `RB-000061C1`
+- Journal: `journal/2026/07/RB-000061C1-20260722T145345Z-4d2a9e3a.md`
 
 ## Prossimo gate
 

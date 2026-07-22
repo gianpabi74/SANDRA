@@ -7,7 +7,7 @@ Repository ufficiale: https://github.com/gianpabi74/SANDRA
 
 Branch autorevole: `main`
 
-Stato aggiornato: `2026-07-22T14:20:36Z`
+Stato aggiornato: `2026-07-22T14:53:46Z`
 
 ## Ordine di lettura
 
@@ -16,7 +16,7 @@ Stato aggiornato: `2026-07-22T14:20:36Z`
 3. [Stato corrente](CURRENT_STATE.md)
 4. [Prossimo task](NEXT_TASK.md)
 5. [Roadmap corrente](docs/roadmap/ROADMAP.md)
-6. Journal corrente: `journal/2026/07/RB-000061B-20260722T142036Z-6309938c.md`
+6. Journal corrente: `journal/2026/07/RB-000061C1-20260722T145345Z-4d2a9e3a.md`
 
 ## Regole operative
 
