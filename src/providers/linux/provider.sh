@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SANDRA_LINUX_PROVIDER_VERSION="1.1.0"
+SANDRA_LINUX_PROVIDER_VERSION="1.1.1"
 
 SANDRA_LINUX_PROVIDER_ROOT="$(
     cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
@@ -10,6 +10,7 @@ SANDRA_LINUX_PROVIDER_ROOT="$(
 SANDRA_LINUX_PYTHON="${SANDRA_LINUX_PYTHON:-/usr/bin/python3}"
 SANDRA_LINUX_GET="${SANDRA_LINUX_PROVIDER_ROOT}/get.py"
 SANDRA_LINUX_TEST="${SANDRA_LINUX_PROVIDER_ROOT}/test.py"
+SANDRA_LINUX_SERVICE_INVENTORY="${SANDRA_LINUX_PROVIDER_ROOT}/service_inventory.py"
 SANDRA_LINUX_USER="${SANDRA_LINUX_USER:-root}"
 SANDRA_LINUX_PROFILES="${SANDRA_LINUX_PROVIDER_ROOT}/profiles"
 
@@ -69,4 +70,36 @@ provider_test() {
         "$profile" \
         "$common_profile" \
         "$role_profile"
+}
+
+provider_service_inventory() {
+    local target_name="${1:?Nome Linux obbligatorio}"
+    local target_ip="${2:?IP Linux obbligatorio}"
+    local output_file="${3:?File output obbligatorio}"
+    local target_user="${4:-$SANDRA_LINUX_USER}"
+
+    "$SANDRA_LINUX_PYTHON" \
+        "$SANDRA_LINUX_SERVICE_INVENTORY" \
+        host \
+        "$target_name" \
+        "$target_ip" \
+        "$target_user" \
+        "$output_file"
+}
+
+provider_service_inventory_summary() {
+    local inventory_root="${1:?Directory inventari obbligatoria}"
+    local output_json="${2:?File riepilogo JSON obbligatorio}"
+    local output_text="${3:?File riepilogo testo obbligatorio}"
+    local runbook="${4:?RunBook obbligatoria}"
+    local run_id="${5:?Run ID obbligatorio}"
+
+    "$SANDRA_LINUX_PYTHON" \
+        "$SANDRA_LINUX_SERVICE_INVENTORY" \
+        summary \
+        "$inventory_root" \
+        "$output_json" \
+        "$output_text" \
+        "$runbook" \
+        "$run_id"
 }

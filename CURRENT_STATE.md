@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-22T15:20:57Z`
+Aggiornato: `2026-07-22T15:31:53Z`
 
 ## Repository
 
@@ -41,7 +41,7 @@ Aggiornato: `2026-07-22T15:20:57Z`
 
 ## Provider Linux
 
-- versione: `1.1.0`
+- versione: `1.1.1`
 - stato: `capability_development`
 - trasporto: `OpenSSH`
 - autenticazione: `PublicKey`
@@ -76,8 +76,8 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `RB-000062`
-- Journal: `journal/2026/07/RB-000062-20260722T152004Z-ec5f3393.md`
+- RunBook: `RB-000062C1`
+- Journal: `journal/2026/07/RB-000062C1-20260722T153101Z-ee08a426.md`
 
 ## Prossimo gate
 

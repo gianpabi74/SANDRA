@@ -4,10 +4,10 @@
     "name": "SANDRA",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
-    "updated_utc": "2026-07-22T15:20:57Z",
+    "updated_utc": "2026-07-22T15:31:53Z",
     "current_certification": {
-      "runbook": "RB-000062",
-      "journal": "journal/2026/07/RB-000062-20260722T152004Z-ec5f3393.md"
+      "runbook": "RB-000062C1",
+      "journal": "journal/2026/07/RB-000062C1-20260722T153101Z-ee08a426.md"
     }
   },
   "principles": [
@@ -71,7 +71,7 @@
       ]
     },
     "linux": {
-      "version": "1.1.0",
+      "version": "1.1.1",
       "status": "capability_development",
       "transport": {
         "protocol": "OpenSSH",
@@ -152,6 +152,18 @@
         "collection_error_count": 0,
         "candidate_document": "docs/providers/linux/SERVICE-BASELINE-CANDIDATES-RB-000062.md",
         "artifact_local_path": "/opt/sandra/artifacts/sandra-RB-000062-20260722T152004Z-ec5f3393.tar.gz",
+        "remote_modifications": "none"
+      },
+      "service_inventory": {
+        "implementation": "src/providers/linux/service_inventory.py",
+        "status": "certified",
+        "operation": "remote_read_only_audit",
+        "semantic_reference": "RB-000062",
+        "host_count": 9,
+        "unit_count": 1095,
+        "failed_unit_count": 2,
+        "candidate_count": 9,
+        "collection_error_count": 0,
         "remote_modifications": "none"
       }
     }

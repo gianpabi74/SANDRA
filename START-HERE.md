@@ -7,7 +7,7 @@ Repository ufficiale: https://github.com/gianpabi74/SANDRA
 
 Branch autorevole: `main`
 
-Stato aggiornato: `2026-07-22T15:20:57Z`
+Stato aggiornato: `2026-07-22T15:31:53Z`
 
 ## Ordine di lettura
 
@@ -16,7 +16,7 @@ Stato aggiornato: `2026-07-22T15:20:57Z`
 3. [Stato corrente](CURRENT_STATE.md)
 4. [Prossimo task](NEXT_TASK.md)
 5. [Roadmap corrente](docs/roadmap/ROADMAP.md)
-6. Journal corrente: `journal/2026/07/RB-000062-20260722T152004Z-ec5f3393.md`
+6. Journal corrente: `journal/2026/07/RB-000062C1-20260722T153101Z-ee08a426.md`
 
 ## Regole operative
 
@@ -35,5 +35,5 @@ Stato aggiornato: `2026-07-22T15:20:57Z`
 - PVE: operational, inventario e topologia.
 - PBS: read_only_operational, versione `1.0.0`.
 - Windows: `1.7.0`, stato `frozen_maintenance`.
-- Linux: `1.1.0`, stato `capability_development`.
+- Linux: `1.1.1`, stato `capability_development`.
 - Prossimo gate: `RB-000062` — Baseline certificata dei servizi Linux.

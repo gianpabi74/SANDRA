@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-22T15:20:57Z`
+Aggiornato: `2026-07-22T15:31:53Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `RB-000062`
+RunBook corrente: `RB-000062C1`
 
-Journal corrente: `journal/2026/07/RB-000062-20260722T152004Z-ec5f3393.md`
+Journal corrente: `journal/2026/07/RB-000062C1-20260722T153101Z-ee08a426.md`
 
 ## Principi permanenti
 
@@ -68,7 +68,7 @@ Journal corrente: `journal/2026/07/RB-000062-20260722T152004Z-ec5f3393.md`
 
 ## Provider Linux
 
-- versione: `1.1.0`;
+- versione: `1.1.1`;
 - stato: `capability_development`;
 - trasporto: `OpenSSH`;
 - autenticazione: `PublicKey`;
