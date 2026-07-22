@@ -1,68 +1,77 @@
 #!/usr/bin/env bash
 
+knowledge_generate_views() {
+    local root="${SANDRA_KNOWLEDGE_ROOT:-/opt/sandra/knowledge}"
+
+    python3 \
+        "${root}/generate_views.py"
+}
+
+knowledge_generated_views_check() {
+    local root="${SANDRA_KNOWLEDGE_ROOT:-/opt/sandra/knowledge}"
+
+    python3 \
+        "${root}/generate_views.py" \
+        --check
+}
+
 knowledge_continuity_validate() {
     local root="${SANDRA_KNOWLEDGE_ROOT:-/opt/sandra/knowledge}"
     local state="${root}/STATE.json"
-    local start="${root}/START-HERE.md"
-    local baseline="${root}/BASELINE.md"
-    local current="${root}/CURRENT_STATE.md"
-    local next="${root}/NEXT_TASK.md"
-    local roadmap="${root}/docs/roadmap/ROADMAP.md"
-    local handoff="${root}/CHAT-HANDOFF.md"
     local constitution="${root}/docs/constitution/KNOWLEDGE-CONTINUITY.md"
     local windows_version_file="${root}/src/providers/windows/VERSION"
     local linux_version_file="${root}/src/providers/linux/VERSION"
 
+    for file in \
+        "$state" \
+        "$constitution" \
+        "$windows_version_file" \
+        "$linux_version_file" \
+        "${root}/generate_views.py"; do
+
+        test -s "$file" || {
+            printf 'CONTINUITY_FILE_INVALID=%s\n' \
+                "$file" >&2
+            return 1
+        }
+    done
+
     python3 - \
         "$state" \
-        "$start" \
-        "$baseline" \
-        "$current" \
-        "$next" \
-        "$roadmap" \
-        "$handoff" \
-        "$constitution" \
+        "$root" \
         "$windows_version_file" \
         "$linux_version_file" <<'PY'
 import json
 import pathlib
 import sys
 
-(
-    state_path,
-    start_path,
-    baseline_path,
-    current_path,
-    next_path,
-    roadmap_path,
-    handoff_path,
-    constitution_path,
-    windows_version_path,
-    linux_version_path,
-) = [pathlib.Path(value) for value in sys.argv[1:11]]
-
-required = (
-    state_path,
-    start_path,
-    baseline_path,
-    current_path,
-    next_path,
-    roadmap_path,
-    handoff_path,
-    constitution_path,
-    windows_version_path,
-    linux_version_path,
-)
-
-for path in required:
-    if not path.is_file() or path.stat().st_size == 0:
-        raise SystemExit(
-            f"CONTINUITY_FILE_INVALID:{path}"
-        )
+state_path = pathlib.Path(sys.argv[1])
+root = pathlib.Path(sys.argv[2])
+windows_version_path = pathlib.Path(sys.argv[3])
+linux_version_path = pathlib.Path(sys.argv[4])
 
 state = json.loads(
     state_path.read_text(encoding="utf-8")
 )
+
+if state.get("schema_version") != 2:
+    raise SystemExit(
+        "CONTINUITY_SCHEMA_VERSION_INVALID"
+    )
+
+project = state.get("project", {})
+
+if project.get("repository") != (
+    "https://github.com/gianpabi74/SANDRA"
+):
+    raise SystemExit(
+        "CONTINUITY_REPOSITORY_INVALID"
+    )
+
+if project.get("branch") != "main":
+    raise SystemExit(
+        "CONTINUITY_BRANCH_INVALID"
+    )
 
 windows_version = windows_version_path.read_text(
     encoding="utf-8"
@@ -72,55 +81,37 @@ linux_version = linux_version_path.read_text(
     encoding="utf-8"
 ).strip()
 
-if state.get("repository") != (
-    "https://github.com/gianpabi74/SANDRA"
-):
-    raise SystemExit("CONTINUITY_REPOSITORY_INVALID")
-
-if state.get("branch") != "main":
-    raise SystemExit("CONTINUITY_BRANCH_INVALID")
+providers = state.get("providers", {})
 
 if (
-    state.get("providers", {})
-    .get("windows", {})
-    .get("version")
+    providers.get("windows", {}).get("version")
     != windows_version
 ):
     raise SystemExit(
-        "CONTINUITY_WINDOWS_VERSION_INVALID"
+        "CONTINUITY_WINDOWS_VERSION_MISMATCH"
     )
 
 if (
-    state.get("providers", {})
-    .get("linux", {})
-    .get("version")
+    providers.get("linux", {}).get("version")
     != linux_version
 ):
     raise SystemExit(
-        "CONTINUITY_LINUX_VERSION_INVALID"
+        "CONTINUITY_LINUX_VERSION_MISMATCH"
     )
 
-current_rb = (
-    state.get("current_certification", {})
-    .get("runbook")
+certification = project.get(
+    "current_certification",
+    {},
 )
 
-journal = (
-    state.get("current_certification", {})
-    .get("journal")
-)
+journal = certification.get("journal")
+runbook = certification.get("runbook")
 
-next_rb = (
-    state.get("next_gate", {})
-    .get("runbook")
-)
-
-if not current_rb or not journal or not next_rb:
+if not journal or not runbook:
     raise SystemExit(
-        "CONTINUITY_STATE_KEYS_MISSING"
+        "CONTINUITY_CERTIFICATION_INVALID"
     )
 
-root = state_path.parent
 journal_path = root / journal
 
 if (
@@ -128,73 +119,54 @@ if (
     or journal_path.stat().st_size == 0
 ):
     raise SystemExit(
-        f"CONTINUITY_JOURNAL_INVALID:{journal}"
+        "CONTINUITY_JOURNAL_INVALID:"
+        + str(journal)
     )
 
-texts = {
-    "start": start_path.read_text(encoding="utf-8"),
-    "baseline": baseline_path.read_text(encoding="utf-8"),
-    "current": current_path.read_text(encoding="utf-8"),
-    "next": next_path.read_text(encoding="utf-8"),
-    "roadmap": roadmap_path.read_text(encoding="utf-8"),
-    "handoff": handoff_path.read_text(encoding="utf-8"),
-}
+next_task = state.get("next_task", {})
 
-for name, text in texts.items():
-    if (
-        name in {"start", "handoff"}
-        and "https://github.com/gianpabi74/SANDRA"
-        not in text
-    ):
-        raise SystemExit(
-            f"CONTINUITY_REPOSITORY_LINK_MISSING:{name}"
-        )
-
-for name in ("baseline", "current"):
-    text = texts[name]
-
-    if current_rb not in text or journal not in text:
-        raise SystemExit(
-            "CONTINUITY_CURRENT_CERTIFICATION_MISSING:"
-            + name
-        )
-
-    if (
-        windows_version not in text
-        or linux_version not in text
-    ):
-        raise SystemExit(
-            f"CONTINUITY_VERSION_MISSING:{name}"
-        )
-
-if next_rb not in texts["next"]:
+if next_task.get("runbook") != "RB-000062":
     raise SystemExit(
-        "CONTINUITY_NEXT_TASK_MISMATCH"
+        "CONTINUITY_NEXT_RUNBOOK_INVALID"
     )
 
-if next_rb not in texts["roadmap"]:
+if (
+    state.get("roadmap", {})
+    .get("gates", [{}])[0]
+    .get("runbook")
+    != next_task.get("runbook")
+):
     raise SystemExit(
-        "CONTINUITY_ROADMAP_MISMATCH"
+        "CONTINUITY_ROADMAP_NEXT_MISMATCH"
     )
 
-stale_patterns = (
-    "versione provider `1.0.0`",
-    "Set non ancora implementata",
-    "provider Windows 1.0.0 installato",
+generated = (
+    state.get("knowledge", {})
+    .get("generated_views", [])
 )
 
-for pattern in stale_patterns:
-    if pattern in texts["current"]:
-        raise SystemExit(
-            "CONTINUITY_STALE_CURRENT_STATE:"
-            + pattern
-        )
+required_views = {
+    "START-HERE.md",
+    "BASELINE.md",
+    "CURRENT_STATE.md",
+    "NEXT_TASK.md",
+    "docs/roadmap/ROADMAP.md",
+    "CHAT-HANDOFF.md",
+}
 
-print("KNOWLEDGE_CONTINUITY=PASS")
+if set(generated) != required_views:
+    raise SystemExit(
+        "CONTINUITY_GENERATED_VIEWS_INVALID"
+    )
+
+print("KNOWLEDGE_STATE_VALIDATION=PASS")
 PY
+
+    knowledge_generated_views_check
 }
 
 knowledge_sync() {
+    knowledge_generate_views
     knowledge_continuity_validate
     _knowledge_sync_impl "$@"
 }

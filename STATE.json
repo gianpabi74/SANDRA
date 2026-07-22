@@ -1,30 +1,61 @@
 {
-  "schema_version": 1,
-  "project": "SANDRA",
-  "repository": "https://github.com/gianpabi74/SANDRA",
-  "branch": "main",
-  "updated_utc": "2026-07-22T14:08:59Z",
-  "current_certification": {
-    "runbook": "RB-000061AR",
-    "journal": "journal/2026/07/RB-000061AR-20260722T140859Z-b9afd4ec.md"
+  "schema_version": 2,
+  "project": {
+    "name": "SANDRA",
+    "repository": "https://github.com/gianpabi74/SANDRA",
+    "branch": "main",
+    "updated_utc": "2026-07-22T14:20:36Z",
+    "current_certification": {
+      "runbook": "RB-000061B",
+      "journal": "journal/2026/07/RB-000061B-20260722T142036Z-6309938c.md"
+    }
   },
+  "principles": [
+    "motore deterministico",
+    "nessuna AI decisionale",
+    "un solo owner per responsabilità",
+    "provider indipendenti",
+    "nessun secret nel repository",
+    "nessuna complessità senza valore operativo",
+    "audit prima dell'implementazione",
+    "nessun cambio di architettura senza requisito concreto"
+  ],
   "core": {
+    "version": "1.1.1",
     "status": "stable",
-    "version": "1.1.1"
+    "capabilities": [
+      "Run Bundle",
+      "evidence",
+      "journaling",
+      "Knowledge",
+      "Git synchronization"
+    ]
   },
   "providers": {
     "pve": {
       "version": "1.7.0",
       "status": "operational",
-      "scope": "inventory_and_topology"
+      "scope": [
+        "inventory",
+        "topology",
+        "VMID",
+        "VM",
+        "LXC",
+        "resource state"
+      ],
+      "exclusions": [
+        "internal Linux configuration"
+      ]
     },
     "pbs": {
       "version": "1.0.0",
-      "status": "read_only_operational"
+      "status": "read_only_operational",
+      "target": "192.168.1.194"
     },
     "windows": {
       "version": "1.7.0",
       "status": "frozen_maintenance",
+      "baseline": "docs/providers/windows/BASELINE-1.7.0.md",
       "capabilities": [
         "Get",
         "Test",
@@ -32,37 +63,172 @@
         "Set",
         "WindowsService",
         "WindowsFeature"
+      ],
+      "targets": [
+        "WINSRV01",
+        "WINSRV02",
+        "SERVICESRV"
       ]
     },
     "linux": {
       "version": "1.1.0",
       "status": "capability_development",
-      "transport": "OpenSSH_public_key",
-      "get": "certified",
-      "test": "certified_offline",
-      "set": "absent",
+      "transport": {
+        "protocol": "OpenSSH",
+        "authentication": "PublicKey",
+        "strict_host_key_checking": true
+      },
+      "capabilities": {
+        "Get": "certified",
+        "Test": "certified_offline",
+        "Set": "absent"
+      },
       "targets": [
-        "PBS",
-        "TRANSMISSION",
-        "PIHOLE",
-        "PIHOLE2",
-        "PLEX",
-        "NAVIDROME",
-        "SERVARR",
-        "PASSBOLT",
-        "NGINX"
+        {
+          "name": "PBS",
+          "ip": "192.168.1.194"
+        },
+        {
+          "name": "TRANSMISSION",
+          "ip": "192.168.1.192"
+        },
+        {
+          "name": "PIHOLE",
+          "ip": "192.168.1.254"
+        },
+        {
+          "name": "PIHOLE2",
+          "ip": "192.168.1.253"
+        },
+        {
+          "name": "PLEX",
+          "ip": "192.168.1.199"
+        },
+        {
+          "name": "NAVIDROME",
+          "ip": "192.168.1.198"
+        },
+        {
+          "name": "SERVARR",
+          "ip": "192.168.1.195"
+        },
+        {
+          "name": "PASSBOLT",
+          "ip": "192.168.1.196"
+        },
+        {
+          "name": "NGINX",
+          "ip": "192.168.1.193"
+        }
       ],
       "excluded_targets": [
         "PVE",
         "SANDRA",
-        "Windows"
-      ]
+        "Windows systems"
+      ],
+      "observed_state": {
+        "invariant_delta": 0,
+        "systemd_degraded": {
+          "PLEX": [
+            "motd-news.service"
+          ],
+          "NAVIDROME": [
+            "motd-news.service"
+          ],
+          "SERVARR": [
+            "motd-news.service"
+          ]
+        }
+      }
     }
   },
-  "next_gate": {
+  "roadmap": {
+    "phase": "Linux provider closure",
+    "gates": [
+      {
+        "runbook": "RB-000062",
+        "title": "Baseline certificata dei servizi Linux",
+        "status": "next",
+        "mode": "read_only"
+      },
+      {
+        "runbook": "RB-000063",
+        "title": "LinuxService Get/Test",
+        "status": "blocked"
+      },
+      {
+        "runbook": "RB-000064",
+        "title": "LinuxService Set",
+        "status": "blocked"
+      },
+      {
+        "runbook": "RB-000065",
+        "title": "Ricertificazione e baseline Linux",
+        "status": "blocked"
+      }
+    ],
+    "out_of_scope": [
+      "Package management",
+      "File management",
+      "User and group management",
+      "Firewall",
+      "Cron",
+      "Generic fstab management",
+      "New Windows capabilities",
+      "Cross-provider Secret Manager"
+    ]
+  },
+  "next_task": {
     "runbook": "RB-000062",
     "title": "Baseline certificata dei servizi Linux",
-    "mode": "read_only",
-    "code_changes_authorized": false
+    "type": "remote_read_only_audit",
+    "targets": [
+      "PBS",
+      "TRANSMISSION",
+      "PIHOLE",
+      "PIHOLE2",
+      "PLEX",
+      "NAVIDROME",
+      "SERVARR",
+      "PASSBOLT",
+      "NGINX"
+    ],
+    "excluded_targets": [
+      "PVE",
+      "SANDRA",
+      "Windows systems"
+    ],
+    "objectives": [
+      "raccogliere le unita systemd in formato strutturato",
+      "acquisire Name, Description, LoadState, ActiveState, SubState, UnitFileState e FragmentPath",
+      "classificare servizi applicativi, infrastrutturali e del sistema operativo",
+      "produrre un inventario JSON per host",
+      "proporre esclusivamente i servizi candidati alla gestione",
+      "attendere approvazione umana della baseline"
+    ],
+    "prohibitions": [
+      "nessuna modifica ai target",
+      "nessun systemctl start",
+      "nessun systemctl stop",
+      "nessun systemctl enable",
+      "nessun systemctl disable",
+      "nessuna modifica ai profili",
+      "nessuna implementazione LinuxService"
+    ],
+    "next_gate_after_approval": "RB-000063"
+  },
+  "knowledge": {
+    "canonical_state": "STATE.json",
+    "generator": "generate_views.py",
+    "generated_views": [
+      "START-HERE.md",
+      "BASELINE.md",
+      "CURRENT_STATE.md",
+      "NEXT_TASK.md",
+      "docs/roadmap/ROADMAP.md",
+      "CHAT-HANDOFF.md"
+    ],
+    "immutable_history": "journal/",
+    "manual_editing_generated_views": false
   }
 }

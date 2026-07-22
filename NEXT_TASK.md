@@ -1,10 +1,13 @@
 # Next Task
 
+> GENERATED FILE — DO NOT EDIT MANUALLY  
+> Source: `STATE.json`
+
 ## RB-000062 — Baseline certificata dei servizi Linux
 
 ### Tipo
 
-Audit remoto read-only.
+`remote_read_only_audit`
 
 ### Target
 
@@ -18,26 +21,33 @@ Audit remoto read-only.
 - PASSBOLT
 - NGINX
 
-Sono esclusi PVE, SANDRA e i sistemi Windows.
+### Target esclusi
 
-### Obiettivo
+- PVE
+- SANDRA
+- Windows systems
 
-1. raccogliere le unità systemd in formato strutturato;
-2. acquisire nome, descrizione, LoadState, ActiveState, SubState,
-   UnitFileState e FragmentPath;
-3. distinguere servizi applicativi, infrastrutturali e del sistema operativo;
-4. produrre un inventario JSON per host;
-5. proporre esclusivamente i servizi candidati alla gestione;
-6. attendere approvazione umana della baseline.
+### Obiettivi
+
+- raccogliere le unita systemd in formato strutturato
+- acquisire Name, Description, LoadState, ActiveState, SubState, UnitFileState e FragmentPath
+- classificare servizi applicativi, infrastrutturali e del sistema operativo
+- produrre un inventario JSON per host
+- proporre esclusivamente i servizi candidati alla gestione
+- attendere approvazione umana della baseline
 
 ### Divieti
 
-- nessuna modifica ai target;
-- nessun start, stop, enable o disable;
-- nessuna modifica ai profili;
-- nessuna implementazione LinuxService;
-- nessun coinvolgimento di PVE, SANDRA o Windows.
+- nessuna modifica ai target
+- nessun systemctl start
+- nessun systemctl stop
+- nessun systemctl enable
+- nessun systemctl disable
+- nessuna modifica ai profili
+- nessuna implementazione LinuxService
 
 ### Gate successivo
 
-Solo dopo approvazione: `RB-000063 — LinuxService Get/Test`.
+Solo dopo approvazione:
+
+`RB-000063`

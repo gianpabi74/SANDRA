@@ -2,11 +2,11 @@
 
 ## Requisito
 
-Una nuova chat deve poter riprendere SANDRA fornendo il solo link al
-repository ufficiale e poche istruzioni operative. Tutte le informazioni
-vere, correnti e certificate devono essere versionate su GitHub.
+Una nuova chat deve poter riprendere SANDRA fornendo il link al
+repository ufficiale e poche istruzioni.
 
-Repository ufficiale:
+Tutte le informazioni vere, correnti e certificate devono essere
+versionate nel repository:
 
 `https://github.com/gianpabi74/SANDRA`
 
@@ -14,12 +14,28 @@ Branch autorevole:
 
 `main`
 
-## Fonte di verità
+## Sorgente viva canonica
 
-`STATE.json` è lo stato vivo canonico e machine-readable del progetto.
+`STATE.json` è l’unica sorgente viva canonica dello stato del
+progetto.
 
-I seguenti documenti sono viste umane derivate e devono essere coerenti con
-`STATE.json`:
+Contiene in forma machine-readable:
+
+- stato del Core;
+- versioni e stato dei provider;
+- capability certificate;
+- target;
+- esclusioni;
+- osservazioni operative correnti;
+- roadmap;
+- prossimo task;
+- certificazione corrente;
+- Journal corrente.
+
+## Viste generate
+
+I seguenti file sono generati esclusivamente da `STATE.json`
+tramite `generate_views.py`:
 
 - `START-HERE.md`;
 - `BASELINE.md`;
@@ -28,31 +44,50 @@ I seguenti documenti sono viste umane derivate e devono essere coerenti con
 - `docs/roadmap/ROADMAP.md`;
 - `CHAT-HANDOFF.md`.
 
-I Journal sotto `journal/` sono la cronologia certificata e immutabile.
+Questi file:
 
-## Regola di aggiornamento
+- non sono sorgenti indipendenti;
+- non devono essere modificati manualmente;
+- non devono essere aggiornati tramite append;
+- devono essere rigenerati integralmente;
+- devono contenere l’avviso `GENERATED FILE`.
 
-I documenti vivi non sono diari e non devono essere aggiornati tramite
-append incrementale. A ogni RunBook che cambia stato, codice, contratti o
-roadmap devono essere riscritti integralmente.
+Qualunque differenza rispetto alla generazione deterministica è
+considerata drift e deve bloccare la sincronizzazione.
 
-Una RunBook è conclusa soltanto quando:
+## Storia immutabile
 
-1. il Journal della RunBook esiste;
-2. `STATE.json` descrive la RunBook corrente e il prossimo gate;
-3. tutte le viste umane sono coerenti con `STATE.json`;
-4. la validazione ordinaria e quella di continuità passano;
-5. indice, commit, push e verifica del remoto sono completati;
-6. HEAD locale e `origin/main` coincidono.
+I Journal sotto `journal/` costituiscono la cronologia certificata.
 
-## Gate obbligatorio
+Un Journal concluso non viene modificato.
 
-`knowledge_sync` deve rifiutare commit e push quando la validazione di
-continuità fallisce.
+Le baseline congelate dei provider sono anch’esse immutabili.
+
+## Ciclo obbligatorio di ogni RunBook
+
+Una RunBook che modifica stato, codice, contratti o roadmap deve:
+
+1. aggiornare `STATE.json`;
+2. creare il proprio Journal;
+3. eseguire `knowledge_generate_views`;
+4. eseguire `knowledge_continuity_validate`;
+5. eseguire `knowledge_validate`;
+6. rigenerare l’indice;
+7. eseguire `knowledge_sync`;
+8. verificare che HEAD locale e `origin/main` coincidano.
+
+## Protezione della sincronizzazione
+
+`knowledge_sync` deve sempre:
+
+1. rigenerare le viste;
+2. validare `STATE.json`;
+3. verificare che le viste generate non abbiano drift;
+4. rifiutare commit e push in caso di incoerenza.
 
 ## Avvio di una nuova chat
 
-La nuova sessione deve leggere nell'ordine:
+La nuova sessione deve leggere:
 
 1. `START-HERE.md`;
 2. `STATE.json`;
@@ -60,15 +95,15 @@ La nuova sessione deve leggere nell'ordine:
 4. `CURRENT_STATE.md`;
 5. `NEXT_TASK.md`;
 6. `docs/roadmap/ROADMAP.md`;
-7. il Journal indicato da `STATE.json`;
-8. i contratti richiamati dal prossimo task.
+7. il Journal indicato in `STATE.json`.
 
-La sessione non deve ricostruire lo stato interpretando la cronologia.
+La sessione non deve ricostruire lo stato interpretando tutta la
+cronologia.
 
-## Separazione fra stato e storia
+## Regola permanente
 
-- Stato corrente: `STATE.json` e documenti vivi.
-- Storia: Journal immutabili e baseline congelate dei provider.
-- Codice e contratti: file versionati nel repository.
+Lo stato si modifica esclusivamente aggiornando `STATE.json`.
 
-Questa separazione è un requisito costituzionale permanente di SANDRA.
+La storia si conserva esclusivamente nei Journal.
+
+Questa separazione è congelata costituzionalmente.

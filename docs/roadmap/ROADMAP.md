@@ -1,42 +1,44 @@
 # SANDRA — Roadmap corrente
 
-Aggiornato: `2026-07-22T14:08:59Z`
+> GENERATED FILE — DO NOT EDIT MANUALLY  
+> Source: `STATE.json`
 
-La cronologia completa è nei Journal. Questa roadmap mostra soltanto stato e
-gate correnti.
+Aggiornato: `2026-07-22T14:20:36Z`
 
-## Completato
+## Fase corrente
 
-- Core stabile e Knowledge/Git operativi.
-- Provider PVE `1.7.0`: inventario e topologia.
-- Provider PBS `1.0.0`: read-only operativo.
-- Provider Windows `1.7.0`: congelato e in manutenzione.
-- Provider Linux `1.1.0`: trust SSH, Get e Test certificati.
-- Continuità GitHub: `STATE.json`, documenti vivi e validazione obbligatoria.
+`Linux provider closure`
 
-## In corso
+## Gate
 
-1. `RB-000062` — baseline read-only dei servizi systemd.
-2. `RB-000063` — LinuxService Get/Test sui servizi approvati.
-3. `RB-000064` — LinuxService Set con approvazione e verifica finale.
-4. `RB-000065` — ricertificazione e congelamento baseline Linux.
+1. **RB-000062** — Baseline certificata dei servizi Linux (`next`, `read_only`)
+2. **RB-000063** — LinuxService Get/Test (`blocked`)
+3. **RB-000064** — LinuxService Set (`blocked`)
+4. **RB-000065** — Ricertificazione e baseline Linux (`blocked`)
 
 ## Fuori perimetro corrente
 
-- Package management;
-- File management;
-- utenti e gruppi;
-- firewall;
-- cron;
-- gestione generica fstab;
-- nuove capability Windows;
-- Secret Manager trasversale.
+- Package management
+- File management
+- User and group management
+- Firewall
+- Cron
+- Generic fstab management
+- New Windows capabilities
+- Cross-provider Secret Manager
 
 ## Vincoli permanenti
 
-- nessuna assunzione non verificata;
-- nessun mega-refactoring;
-- provider indipendenti;
-- documenti vivi riscritti integralmente;
-- Journal immutabili;
-- GitHub sincronizzato prima della chiusura della RB.
+- motore deterministico
+- nessuna AI decisionale
+- un solo owner per responsabilità
+- provider indipendenti
+- nessun secret nel repository
+- nessuna complessità senza valore operativo
+- audit prima dell'implementazione
+- nessun cambio di architettura senza requisito concreto
+
+- `STATE.json` è la sorgente viva canonica.
+- Le viste Markdown sono generate.
+- I Journal sono immutabili.
+- GitHub deve essere sincronizzato prima della chiusura della RB.

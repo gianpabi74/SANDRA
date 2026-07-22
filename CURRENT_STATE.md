@@ -1,9 +1,9 @@
 # SANDRA — Current State
 
-Aggiornato: `2026-07-22T14:08:59Z`
+> GENERATED FILE — DO NOT EDIT MANUALLY  
+> Source: `STATE.json`
 
-Questo documento rappresenta soltanto lo stato certificato corrente.
-La cronologia è sotto `journal/`.
+Aggiornato: `2026-07-22T14:20:36Z`
 
 ## Repository
 
@@ -14,39 +14,41 @@ La cronologia è sotto `journal/`.
 ## Core
 
 - versione: `1.1.1`
-- stato: stabile
-- Run Bundle, evidence, journaling e Knowledge/Git: operativi
+- stato: `stable`
 
 ## Provider PVE
 
 - versione: `1.7.0`
-- stato: operativo
+- stato: `operational`
 - responsabilità: inventario e topologia
 
 ## Provider PBS
 
 - versione: `1.0.0`
-- stato: read-only operativo
+- stato: `read_only_operational`
 
 ## Provider Windows
 
 - versione: `1.7.0`
-- stato: congelato e in manutenzione
-- Get/Test/Approval/Set: certificati
-- WindowsService: certificato
-- WindowsFeature: certificato
+- stato: `frozen_maintenance`
+- capability:
+- Get
+- Test
+- Approval
+- Set
+- WindowsService
+- WindowsFeature
 
 ## Provider Linux
 
 - versione: `1.1.0`
-- trasporto SSH con chiave pubblica
-- StrictHostKeyChecking obbligatorio
-- Get remoto: certificato
-- Test offline: certificato
-- Set: assente
-- target certificati: 9
-- delta invarianti: 0
-- modifiche remote durante la certificazione: nessuna
+- stato: `capability_development`
+- trasporto: `OpenSSH`
+- autenticazione: `PublicKey`
+- Get: `certified`
+- Test: `certified_offline`
+- Set: `absent`
+- delta invarianti: `0`
 
 ## Target Linux
 
@@ -60,20 +62,23 @@ La cronologia è sotto `journal/`.
 - PASSBOLT — `192.168.1.196`
 - NGINX — `192.168.1.193`
 
-PVE, SANDRA e i server Windows sono esclusi dal provider Linux.
+Esclusi:
+
+- PVE
+- SANDRA
+- Windows systems
 
 ## Stato systemd noto
 
-- PLEX: degraded, `motd-news.service` fallita
-- NAVIDROME: degraded, `motd-news.service` fallita
-- SERVARR: degraded, `motd-news.service` fallita
-- altri target: stato operativo osservato
+- PLEX: degraded — `motd-news.service`
+- NAVIDROME: degraded — `motd-news.service`
+- SERVARR: degraded — `motd-news.service`
 
 ## Certificazione corrente
 
-- RunBook: `RB-000061AR`
-- Journal: `journal/2026/07/RB-000061AR-20260722T140859Z-b9afd4ec.md`
+- RunBook: `RB-000061B`
+- Journal: `journal/2026/07/RB-000061B-20260722T142036Z-6309938c.md`
 
 ## Prossimo gate
 
-`RB-000062 — Baseline certificata dei servizi Linux`
+`RB-000062` — Baseline certificata dei servizi Linux
