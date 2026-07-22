@@ -1,14 +1,15 @@
 # Next Task
 
-## Provider Linux — Certificazione remota Get/Test
+## Provider Linux — Trasporto SSH con chiave
 
-Il provider Linux 1.0.0 è installato.
+La trust SSH è certificata sui nove target Linux.
 
 Prossimo passo:
 
-- eseguire Get e Test sui target Linux censiti;
-- incrociare identità e indirizzi con il provider PVE;
-- verificare VM, LXC e host Proxmox con lo stesso contratto;
-- classificare le unità systemd fallite come stato osservato;
-- non applicare modifiche;
-- definire successivamente la capability LinuxService.
+- aggiornare `transport.py`;
+- usare `/opt/sandra/secrets/ssh/id_ed25519`;
+- usare `/opt/sandra/secrets/ssh/known_hosts`;
+- imporre `StrictHostKeyChecking=yes`;
+- rimuovere la password dai normali flussi Get;
+- ricertificare Get/Test sui nove target;
+- non coinvolgere PVE, SANDRA o Windows.

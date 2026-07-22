@@ -148,3 +148,10 @@
 - trasporto SSH isolato;
 - profili minimi creati;
 - Set rinviato alla certificazione remota di Get/Test.
+
+## RB-000060R — Trust SSH target Linux
+
+- trust limitata ai soli nove oggetti Linux gestiti;
+- PVE, SANDRA e Windows esclusi;
+- autenticazione root tramite chiave certificata;
+- prossimo passo: migrazione del provider Linux alla chiave SSH.
