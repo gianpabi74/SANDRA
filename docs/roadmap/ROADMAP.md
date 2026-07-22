@@ -131,3 +131,12 @@
 - mapping DSC e ciclo Test/Set/Test certificati;
 - nessuna modifica applicata con delta vuoto;
 - provider Windows pronto per la certificazione finale.
+
+## RB-000054 — Chiusura provider Windows
+
+- provider Windows 1.7.0 ricertificato integralmente;
+- WindowsService completato;
+- WindowsFeature completato;
+- baseline documentata e congelata;
+- provider Windows posto in manutenzione;
+- nuove capability solo su requisito concreto.

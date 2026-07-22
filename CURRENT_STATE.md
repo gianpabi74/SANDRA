@@ -228,3 +228,24 @@ SERVICESRV|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DSC_TEST=PASS|DELTA=0
 WINSRV01|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DELTA=0
 WINSRV02|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DELTA=0
 SERVICESRV|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DELTA=0
+
+## RB-000054 — Ricertificazione finale provider Windows
+
+- baseline provider Windows: `1.7.0`;
+- architettura ricertificata;
+- source e runtime identici;
+- isolamento WinRM/PyPSRP in `transport.py`: PASS;
+- capability `WindowsService`: PASS;
+- capability `WindowsFeature`: PASS;
+- fixture combinata Test/Set/Test: PASS;
+- Get, Test e Set ricertificati sulle tre VM;
+- tutte le VM in desired state;
+- delta complessivo: `0`;
+- Set remoto invocato: no;
+- modifiche Windows: nessuna;
+- baseline Windows congelata;
+- stato provider: manutenzione.
+
+WINSRV01|PROFILE=DOMAIN_CONTROLLER|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DESIRED_STATE=TRUE|DELTA=0
+WINSRV02|PROFILE=DOMAIN_CONTROLLER|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DESIRED_STATE=TRUE|DELTA=0
+SERVICESRV|PROFILE=SERVICES_SERVER|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DESIRED_STATE=TRUE|DELTA=0

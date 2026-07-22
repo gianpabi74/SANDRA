@@ -1,27 +1,22 @@
 # Next Task
 
-## Chiusura provider Windows
+## Secret management SANDRA
 
-Il provider Windows 1.7.0 supporta:
+Il provider Windows 1.7.0 è ricertificato e congelato.
 
-- WindowsService:
-  - Get;
-  - Test;
-  - approvazione;
-  - DSC Test/Set/Test.
+Capability completate:
 
-- WindowsFeature:
-  - Get;
-  - Test;
-  - approvazione;
-  - DSC Test/Set/Test.
+- WindowsService;
+- WindowsFeature.
 
-Le tre VM sono conformi e non hanno richiesto modifiche.
+Le tre VM Windows risultano conformi.
 
-Prossimo passo:
+Prossimo passo trasversale:
 
-- ricertificazione finale del provider Windows;
-- verifica integrità Knowledge;
-- congelamento della baseline Windows;
-- successiva integrazione del secret store;
-- poi avvio del provider Linux.
+- progettare e integrare la gestione centralizzata dei secret;
+- eliminare la richiesta ripetuta della password;
+- non inserire credenziali nei provider;
+- rendere il secret manager riutilizzabile anche dal futuro provider Linux.
+
+Il provider Linux verrà affrontato dopo la decisione sul secret
+management.
