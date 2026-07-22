@@ -4,10 +4,10 @@
     "name": "SANDRA",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
-    "updated_utc": "2026-07-22T15:31:53Z",
+    "updated_utc": "2026-07-22T15:34:53Z",
     "current_certification": {
-      "runbook": "RB-000062C1",
-      "journal": "journal/2026/07/RB-000062C1-20260722T153101Z-ee08a426.md"
+      "runbook": "RB-000062C2",
+      "journal": "journal/2026/07/RB-000062C2-20260722T153452Z-7ae8d783.md"
     }
   },
   "principles": [
@@ -165,6 +165,20 @@
         "candidate_count": 9,
         "collection_error_count": 0,
         "remote_modifications": "none"
+      },
+      "local_maintenance": {
+        "runbook": "RB-000062C2",
+        "run_id": "RB-000062C2-20260722T153452Z-7ae8d783",
+        "status": "certified",
+        "scope": "python_bytecode_cleanup",
+        "removed_item_count": 4,
+        "gitignore_rules": [
+          "__pycache__/",
+          "*.py[cod]"
+        ],
+        "remote_connections": 0,
+        "remote_modifications": "none",
+        "provider_version_changed": false
       }
     }
   },

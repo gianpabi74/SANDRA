@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-22T15:31:53Z`
+Aggiornato: `2026-07-22T15:34:53Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `RB-000062C1`
+RunBook corrente: `RB-000062C2`
 
-Journal corrente: `journal/2026/07/RB-000062C1-20260722T153101Z-ee08a426.md`
+Journal corrente: `journal/2026/07/RB-000062C2-20260722T153452Z-7ae8d783.md`
 
 ## Principi permanenti
 
