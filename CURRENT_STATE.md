@@ -210,3 +210,21 @@ SERVICESRV|GET=PASS|TEST=PASS|DESIRED_STATE=TRUE|DELTA=0
 WINSRV01|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DSC_TEST=PASS|DELTA=0
 WINSRV02|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DSC_TEST=PASS|DELTA=0
 SERVICESRV|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DSC_TEST=PASS|DELTA=0
+
+## RB-000053 — WindowsFeature Set
+
+- provider Windows aggiornato a `1.7.0`;
+- capability `WindowsFeature` implementata;
+- mapping DSC: `WindowsFeature/PSDesiredStateConfiguration`;
+- stato desiderato supportato: `Present`;
+- rimozione feature non supportata;
+- riavvio automatico non consentito;
+- fixture locale Test/Set/Test: PASS;
+- Get, Test e Set ricertificati sulle tre VM;
+- delta reale complessivo: `0`;
+- Set remoto invocato sulle VM: no;
+- modifiche Windows: nessuna.
+
+WINSRV01|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DELTA=0
+WINSRV02|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DELTA=0
+SERVICESRV|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DELTA=0

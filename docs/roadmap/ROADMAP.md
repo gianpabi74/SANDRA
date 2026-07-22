@@ -123,3 +123,11 @@
 - normalizzazione DSC Test corretta;
 - risultato autorevole: `InDesiredState`;
 - nessuna modifica con delta vuoto.
+
+## RB-000053 — WindowsFeature Set
+
+- provider Windows 1.7.0 installato;
+- capability WindowsFeature completata;
+- mapping DSC e ciclo Test/Set/Test certificati;
+- nessuna modifica applicata con delta vuoto;
+- provider Windows pronto per la certificazione finale.

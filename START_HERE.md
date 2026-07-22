@@ -2,7 +2,7 @@
 
 Indice generato automaticamente dal modulo Knowledge.
 
-Generato UTC: 2026-07-22T09:06:20Z
+Generato UTC: 2026-07-22T10:15:40Z
 
 ## Ordine di lettura
 

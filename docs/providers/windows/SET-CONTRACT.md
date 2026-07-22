@@ -87,3 +87,37 @@ Vincoli:
 - servizio protetto: `WinRM`;
 - LCM non modificato;
 - nessuna modifica con delta vuoto.
+
+## WindowsFeature
+
+Implementata nel provider Windows 1.7.0.
+
+Contratto supportato:
+
+- `Resource`: `WindowsFeature`;
+- `Name`: nome restituito da `Get-WindowsFeature`;
+- `Actual`: `Absent`;
+- `Desired`: `Present`.
+
+Mapping Microsoft DSC:
+
+- risorsa: `WindowsFeature`;
+- modulo: `PSDesiredStateConfiguration`;
+- proprietà:
+  - `Name`;
+  - `Ensure = Present`.
+
+Sequenza operativa:
+
+1. DSC Test;
+2. DSC Set solo se `InDesiredState = false`;
+3. DSC Test finale;
+4. successo solo se il Test finale è conforme.
+
+Vincoli:
+
+- nessuna rimozione di feature;
+- nessun `Ensure = Absent`;
+- nessun riavvio automatico;
+- nessuna modifica con delta vuoto;
+- il delta deve coincidere esattamente con l’approvazione.

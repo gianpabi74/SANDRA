@@ -5,8 +5,8 @@ import sys
 from transport import invoke_dsc_resource
 
 
-PROVIDER_VERSION = "1.6.0"
-SUPPORTED_RESOURCES: set[str] = {"WindowsService"}
+PROVIDER_VERSION = "1.7.0"
+SUPPORTED_RESOURCES: set[str] = {"WindowsFeature", "WindowsService"}
 DEFAULT_LOCALE = "it-IT"
 PROTECTED_SERVICES = {"winrm"}
 
@@ -75,6 +75,39 @@ def validate_windows_service(item: dict) -> dict:
         "DscProperties": {
             "Name": name,
             "State": "Running",
+        },
+    }
+
+
+def validate_windows_feature(item: dict) -> dict:
+    if item.get("Resource") != "WindowsFeature":
+        fail("WINDOWS_FEATURE_RESOURCE_INVALID")
+
+    name = item.get("Name")
+    actual = item.get("Actual")
+    desired = item.get("Desired")
+
+    if not isinstance(name, str) or not name.strip():
+        fail("WINDOWS_FEATURE_NAME_INVALID")
+
+    name = name.strip()
+
+    if actual != "Absent":
+        fail("WINDOWS_FEATURE_ACTUAL_INVALID")
+
+    if desired != "Present":
+        fail("WINDOWS_FEATURE_DESIRED_INVALID")
+
+    return {
+        "Resource": "WindowsFeature",
+        "Name": name,
+        "Actual": actual,
+        "Desired": desired,
+        "DscResource": "WindowsFeature",
+        "DscModule": "PSDesiredStateConfiguration",
+        "DscProperties": {
+            "Name": name,
+            "Ensure": "Present",
         },
     }
 
@@ -175,10 +208,19 @@ if unsupported_resources:
 
     raise SystemExit(3)
 
-validated_operations = [
-    validate_windows_service(item)
-    for item in approved_delta
-]
+validated_operations = []
+
+for item in approved_delta:
+    resource = item.get("Resource")
+
+    if resource == "WindowsService":
+        validated_operations.append(
+            validate_windows_service(item)
+        )
+    elif resource == "WindowsFeature":
+        validated_operations.append(
+            validate_windows_feature(item)
+        )
 
 if not validated_operations:
     result = {

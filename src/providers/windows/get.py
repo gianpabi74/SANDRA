@@ -5,7 +5,7 @@ import sys
 from transport import execute_ps
 
 
-PROVIDER_VERSION = "1.6.0"
+PROVIDER_VERSION = "1.7.0"
 
 MODULE_LOCALES = {
     "SMBShare": "en-US",

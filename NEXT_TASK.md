@@ -1,21 +1,27 @@
 # Next Task
 
-## WindowsService — Primo delta reale
+## Chiusura provider Windows
 
-Il provider Windows 1.6.0 supporta:
+Il provider Windows 1.7.0 supporta:
 
-- Get;
-- Test;
-- approvazione esatta del delta;
-- DSC Test;
-- eventuale DSC Set;
-- DSC Test finale.
+- WindowsService:
+  - Get;
+  - Test;
+  - approvazione;
+  - DSC Test/Set/Test.
 
-Il risultato DSC Test autorevole è `InDesiredState`.
+- WindowsFeature:
+  - Get;
+  - Test;
+  - approvazione;
+  - DSC Test/Set/Test.
 
-Le tre VM sono attualmente conformi.
+Le tre VM sono conformi e non hanno richiesto modifiche.
 
 Prossimo passo:
 
-- applicare la capability al primo delta reale approvato;
-- integrare successivamente il secret store SANDRA.
+- ricertificazione finale del provider Windows;
+- verifica integrità Knowledge;
+- congelamento della baseline Windows;
+- successiva integrazione del secret store;
+- poi avvio del provider Linux.
