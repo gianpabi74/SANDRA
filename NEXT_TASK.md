@@ -1,22 +1,14 @@
 # Next Task
 
-## Secret management SANDRA
+## Provider Linux — Certificazione remota Get/Test
 
-Il provider Windows 1.7.0 è ricertificato e congelato.
+Il provider Linux 1.0.0 è installato.
 
-Capability completate:
+Prossimo passo:
 
-- WindowsService;
-- WindowsFeature.
-
-Le tre VM Windows risultano conformi.
-
-Prossimo passo trasversale:
-
-- progettare e integrare la gestione centralizzata dei secret;
-- eliminare la richiesta ripetuta della password;
-- non inserire credenziali nei provider;
-- rendere il secret manager riutilizzabile anche dal futuro provider Linux.
-
-Il provider Linux verrà affrontato dopo la decisione sul secret
-management.
+- eseguire Get e Test sui target Linux censiti;
+- incrociare identità e indirizzi con il provider PVE;
+- verificare VM, LXC e host Proxmox con lo stesso contratto;
+- classificare le unità systemd fallite come stato osservato;
+- non applicare modifiche;
+- definire successivamente la capability LinuxService.

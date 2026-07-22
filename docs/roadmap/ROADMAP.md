@@ -140,3 +140,11 @@
 - baseline documentata e congelata;
 - provider Windows posto in manutenzione;
 - nuove capability solo su requisito concreto.
+
+## RB-000059 — Fondazione provider Linux
+
+- provider Linux 1.0.0 creato;
+- Get e Test implementati;
+- trasporto SSH isolato;
+- profili minimi creati;
+- Set rinviato alla certificazione remota di Get/Test.

@@ -249,3 +249,17 @@ SERVICESRV|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DELTA=0
 WINSRV01|PROFILE=DOMAIN_CONTROLLER|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DESIRED_STATE=TRUE|DELTA=0
 WINSRV02|PROFILE=DOMAIN_CONTROLLER|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DESIRED_STATE=TRUE|DELTA=0
 SERVICESRV|PROFILE=SERVICES_SERVER|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DESIRED_STATE=TRUE|DELTA=0
+
+## RB-000059 — Provider Linux 1.0.0
+
+- creato provider Linux minimale;
+- trasporto: OpenSSH tramite `transport.py`;
+- autenticazione corrente: password da standard input;
+- dipendenze Python esterne: nessuna;
+- `provider_get`: implementato;
+- `provider_test`: implementato e offline;
+- `provider_set`: non implementato;
+- inventario e topologia delegati al provider PVE;
+- interrogazione systemd tramite JSON e proprietà `show`;
+- source/runtime: allineati;
+- modifiche ai target Linux: nessuna.

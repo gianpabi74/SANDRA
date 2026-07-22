@@ -1,0 +1,1 @@
+# Provider Linux 1.0.0 usa esclusivamente la libreria standard Python.
