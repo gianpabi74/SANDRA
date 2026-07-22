@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SANDRA_LINUX_PROVIDER_VERSION="1.0.0"
+SANDRA_LINUX_PROVIDER_VERSION="1.1.0"
 
 SANDRA_LINUX_PROVIDER_ROOT="$(
     cd -- "$(dirname -- "${BASH_SOURCE[0]}")"

@@ -53,3 +53,22 @@ Non implementato nella versione 1.0.0.
 - nessun parsing di tabelle destinate all’operatore;
 - trasporto SSH isolato in `transport.py`;
 - nessuna dipendenza Python esterna.
+
+## Autenticazione SSH con chiave — versione 1.1.0
+
+Il provider Linux usa esclusivamente:
+
+- chiave privata:
+  `/opt/sandra/secrets/ssh/id_ed25519`;
+- known_hosts:
+  `/opt/sandra/secrets/ssh/known_hosts`;
+- autenticazione `publickey`;
+- `StrictHostKeyChecking=yes`;
+- `IdentitiesOnly=yes`;
+- `PasswordAuthentication=no`;
+- `KbdInteractiveAuthentication=no`.
+
+`provider_get` non riceve e non legge password.
+
+Il trasporto fallisce se la chiave privata o il known_hosts
+persistente non sono disponibili.

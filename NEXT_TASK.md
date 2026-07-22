@@ -1,15 +1,19 @@
 # Next Task
 
-## Provider Linux — Trasporto SSH con chiave
+## Provider Linux — Capability LinuxService
 
-La trust SSH è certificata sui nove target Linux.
+Il provider Linux 1.1.0 dispone di:
+
+- trasporto SSH con chiave;
+- host key validation;
+- Get remoto;
+- Test offline;
+- nove target certificati.
 
 Prossimo passo:
 
-- aggiornare `transport.py`;
-- usare `/opt/sandra/secrets/ssh/id_ed25519`;
-- usare `/opt/sandra/secrets/ssh/known_hosts`;
-- imporre `StrictHostKeyChecking=yes`;
-- rimuovere la password dai normali flussi Get;
-- ricertificare Get/Test sui nove target;
+- definire i servizi desiderati per ciascun profilo;
+- estendere Get con stato strutturato delle unità dichiarate;
+- estendere Test con delta `LinuxService`;
+- mantenere Set assente fino alla ricertificazione Get/Test;
 - non coinvolgere PVE, SANDRA o Windows.

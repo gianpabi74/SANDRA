@@ -3,7 +3,7 @@ import pathlib
 import sys
 
 
-PROVIDER_VERSION = "1.0.0"
+PROVIDER_VERSION = "1.1.0"
 
 
 if len(sys.argv) != 5:

@@ -1,11 +1,10 @@
 import json
-import pathlib
 import sys
 
 from transport import execute_ssh
 
 
-PROVIDER_VERSION = "1.0.0"
+PROVIDER_VERSION = "1.1.0"
 
 
 if len(sys.argv) != 5:
@@ -16,10 +15,6 @@ if len(sys.argv) != 5:
 
 
 target_name, target_ip, profile_name, username = sys.argv[1:5]
-password = sys.stdin.read()
-
-if not password:
-    raise SystemExit("PASSWORD_EMPTY")
 
 
 remote_script = r'''
@@ -132,6 +127,13 @@ def failed_units():
             "Units": [],
         }
 
+    if not isinstance(records, list):
+        return {
+            "Supported": False,
+            "Error": "JSON_DOCUMENT_NOT_LIST",
+            "Units": [],
+        }
+
     units = []
 
     for record in records:
@@ -140,7 +142,7 @@ def failed_units():
 
         unit_name = record.get("unit")
 
-        if not unit_name:
+        if not isinstance(unit_name, str) or not unit_name:
             continue
 
         show_result = run(
@@ -169,6 +171,9 @@ def failed_units():
 
             key, value = line.split("=", 1)
             properties[key] = value
+
+        if properties.get("Id") != unit_name:
+            continue
 
         units.append(
             {
@@ -234,7 +239,6 @@ try:
     output = execute_ssh(
         target_ip,
         username,
-        password,
         ["python3", "-"],
         stdin_text=remote_script,
         command_timeout=180,
@@ -261,6 +265,11 @@ try:
         "Target": target_name,
         "TargetIP": target_ip,
         "Profile": profile_name,
+        "Transport": {
+            "Protocol": "SSH",
+            "Authentication": "PublicKey",
+            "StrictHostKeyChecking": True,
+        },
         "CurrentState": current,
     }
 
@@ -273,11 +282,6 @@ try:
     )
 
 except Exception as exc:
-    message = str(exc).replace(
-        password,
-        "<REDACTED>",
-    )
-
     print(
         json.dumps(
             {
@@ -287,8 +291,13 @@ except Exception as exc:
                 "Target": target_name,
                 "TargetIP": target_ip,
                 "Profile": profile_name,
+                "Transport": {
+                    "Protocol": "SSH",
+                    "Authentication": "PublicKey",
+                    "StrictHostKeyChecking": True,
+                },
                 "ErrorType": type(exc).__name__,
-                "Error": message,
+                "Error": str(exc),
             },
             indent=2,
             ensure_ascii=False,

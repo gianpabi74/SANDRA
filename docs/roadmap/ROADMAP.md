@@ -155,3 +155,11 @@
 - PVE, SANDRA e Windows esclusi;
 - autenticazione root tramite chiave certificata;
 - prossimo passo: migrazione del provider Linux alla chiave SSH.
+
+## RB-000061 — Provider Linux con chiave SSH
+
+- provider Linux 1.1.0 installato;
+- autenticazione a password eliminata dai flussi normali;
+- Get e Test certificati sui nove target;
+- host key validation obbligatoria;
+- prossimo passo: contratto e capability LinuxService.
