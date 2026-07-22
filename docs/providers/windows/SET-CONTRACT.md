@@ -36,3 +36,31 @@ Il documento di approvazione deve contenere:
 Nessuna.
 
 Ogni risorsa modificativa sarà aggiunta e certificata separatamente.
+
+## WindowsService
+
+Prima risorsa accettata dal contratto Set.
+
+Schema approvato:
+
+- `Resource`: `WindowsService`
+- `Name`: nome non vuoto del servizio
+- `Actual`: stato osservato non Running
+- `Desired`: esclusivamente `Running`
+
+Mapping Microsoft DSC:
+
+- risorsa: `Service`
+- modulo: `PSDesiredStateConfiguration`
+- proprietà:
+  - `Name`
+  - `State = Running`
+
+Stato capability:
+
+- validazione e mapping: certificati;
+- applicazione remota: non ancora abilitata;
+- modifiche Windows: nessuna.
+
+L'applicazione sarà abilitata soltanto dopo una RB separata che
+certifichi `Invoke-DscResource` e la ricertificazione post-Set.

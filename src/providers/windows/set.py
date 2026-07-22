@@ -2,8 +2,8 @@ import json
 import pathlib
 import sys
 
-PROVIDER_VERSION = "1.3.0"
-SUPPORTED_RESOURCES: set[str] = set()
+PROVIDER_VERSION = "1.4.0"
+SUPPORTED_RESOURCES: set[str] = {"WindowsService"}
 
 
 def fail(message: str) -> None:
@@ -52,6 +52,56 @@ if not isinstance(approved_delta, list):
 if approved_delta != test_delta:
     fail("APPROVAL_DELTA_MISMATCH")
 
+def validate_windows_service(item: dict) -> dict:
+    if item.get("Resource") != "WindowsService":
+        raise SystemExit("WINDOWS_SERVICE_RESOURCE_INVALID")
+
+    name = item.get("Name")
+    actual = item.get("Actual")
+    desired = item.get("Desired")
+
+    if not isinstance(name, str) or not name.strip():
+        raise SystemExit("WINDOWS_SERVICE_NAME_INVALID")
+
+    if desired != "Running":
+        raise SystemExit("WINDOWS_SERVICE_DESIRED_INVALID")
+
+    if actual not in {
+        "Stopped",
+        "Stop Pending",
+        "Paused",
+        "Pause Pending",
+        "Continue Pending",
+        "Start Pending",
+    }:
+        raise SystemExit("WINDOWS_SERVICE_ACTUAL_INVALID")
+
+    return {
+        "Resource": "WindowsService",
+        "Name": name,
+        "Actual": actual,
+        "Desired": desired,
+        "DscResource": "Service",
+        "DscModule": "PSDesiredStateConfiguration",
+        "DscProperties": {
+            "Name": name,
+            "State": "Running",
+        },
+    }
+
+
+validated_operations = []
+
+for item in approved_delta:
+    if not isinstance(item, dict):
+        raise SystemExit("APPROVAL_DELTA_ITEM_INVALID")
+
+    if item.get("Resource") == "WindowsService":
+        validated_operations.append(
+            validate_windows_service(item)
+        )
+
+
 unsupported_resources = sorted(
     {
         item.get("Resource")
@@ -79,6 +129,7 @@ result = {
     "Status": status,
     "SupportedResources": sorted(SUPPORTED_RESOURCES),
     "UnsupportedResources": unsupported_resources,
+    "ValidatedOperations": validated_operations,
     "Delta": approved_delta,
 }
 

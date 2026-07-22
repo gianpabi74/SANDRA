@@ -95,3 +95,10 @@
 - validazione dell'approvazione certificata;
 - nessuna capability modificativa ancora attiva;
 - prossima fase: una singola risorsa Set per RB.
+
+## RB-000049 — WindowsService Set
+
+- contratto WindowsService implementato;
+- mapping alla risorsa Microsoft DSC Service certificato;
+- applicazione remota ancora disabilitata;
+- prossimo passo: invocazione DSC controllata e ricertificazione.

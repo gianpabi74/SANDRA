@@ -1,17 +1,15 @@
 # Next Task
 
-## Windows Provider Set — Prima risorsa
+## WindowsService Set — Applicazione DSC
 
-Il provider Windows 1.3.0 contiene il contratto Set certificato.
-
-Nessuna risorsa modificativa è ancora supportata.
+Il provider Windows 1.4.0 valida un delta WindowsService e lo traduce
+nella risorsa Microsoft DSC `PSDesiredStateConfiguration/Service`.
 
 Prossimo passo:
 
-- scegliere una sola risorsa Microsoft DSC;
-- consultare la documentazione ufficiale Microsoft;
-- implementare una sola capability modificativa;
-- eseguire sempre Test prima di Set;
-- applicare esclusivamente il delta approvato;
-- ricertificare Get e Test dopo Set;
-- aggiornare Knowledge e GitHub.
+- verificare localmente la disponibilità della risorsa DSC Service;
+- implementare l'invocazione remota con `Invoke-DscResource`;
+- eseguire Test immediatamente prima di Set;
+- applicare soltanto il delta approvato;
+- ricertificare Get e Test immediatamente dopo Set;
+- non eseguire modifiche se il delta è vuoto.

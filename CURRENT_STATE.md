@@ -160,3 +160,14 @@ Non viene modificata da questo aggiornamento.
 - risorse modificative supportate: nessuna;
 - connessioni Windows: nessuna;
 - modifiche Windows: nessuna.
+
+## RB-000049 — WindowsService Set
+
+- provider Windows aggiornato a `1.4.0`;
+- prima risorsa Set riconosciuta: `WindowsService`;
+- mapping Microsoft DSC: `PSDesiredStateConfiguration/Service`;
+- proprietà ammesse: nome servizio e stato desiderato `Running`;
+- validazione del delta approvato certificata;
+- applicazione remota non ancora abilitata;
+- connessioni Windows: nessuna;
+- modifiche Windows: nessuna.
