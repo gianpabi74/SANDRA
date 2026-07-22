@@ -3,11 +3,11 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## RB-000062 — Baseline certificata dei servizi Linux
+## RB-000062 — Risoluzione deterministica oggetto-servizio Linux
 
 ### Tipo
 
-`remote_read_only_audit`
+`remote_read_only_resolution`
 
 ### Target
 
@@ -29,25 +29,27 @@
 
 ### Obiettivi
 
-- raccogliere le unita systemd in formato strutturato
-- acquisire Name, Description, LoadState, ActiveState, SubState, UnitFileState e FragmentPath
-- classificare servizi applicativi, infrastrutturali e del sistema operativo
-- produrre un inventario JSON per host
-- proporre esclusivamente i servizi candidati alla gestione
-- attendere approvazione umana della baseline
+- associare deterministicamente ogni oggetto applicativo alla relativa unita systemd
+- usare il nome oggetto, il profilo e l'inventario systemd certificato
+- produrre esclusivamente RESOLVED, NOT_FOUND o AMBIGUOUS
+- proseguire esclusivamente quando tutti gli oggetti applicativi risultano RESOLVED
+- registrare la mappa oggetto-servizio come evidenza machine-readable
 
 ### Divieti
 
+- nessuna approvazione manuale dei servizi
 - nessuna modifica ai target
 - nessun systemctl start
 - nessun systemctl stop
+- nessun systemctl restart
 - nessun systemctl enable
 - nessun systemctl disable
 - nessuna modifica ai profili
 - nessuna implementazione LinuxService
+- nessuna scelta in caso di ambiguita
 
 ### Gate successivo
 
-Solo dopo approvazione:
+Solo dopo il completamento deterministico del gate corrente:
 
 `RB-000063`

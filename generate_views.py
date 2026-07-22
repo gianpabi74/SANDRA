@@ -286,7 +286,7 @@ def render_next_task(state: dict) -> str:
 
 ### Gate successivo
 
-Solo dopo approvazione:
+Solo dopo il completamento deterministico del gate corrente:
 
 `{task["next_gate_after_approval"]}`
 """

@@ -4,10 +4,10 @@
     "name": "SANDRA",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
-    "updated_utc": "2026-07-22T15:34:53Z",
+    "updated_utc": "2026-07-22T16:04:53Z",
     "current_certification": {
-      "runbook": "RB-000062C2",
-      "journal": "journal/2026/07/RB-000062C2-20260722T153452Z-7ae8d783.md"
+      "runbook": "RB-000062R3",
+      "journal": "journal/2026/07/RB-000062R3-20260722T160452Z-796958a1.md"
     }
   },
   "principles": [
@@ -143,7 +143,7 @@
       "service_baseline_audit": {
         "runbook": "RB-000062",
         "run_id": "RB-000062-20260722T152004Z-ec5f3393",
-        "status": "awaiting_human_approval",
+        "status": "inventory_certified",
         "mode": "remote_read_only_audit",
         "host_count": 9,
         "unit_count": 1095,
@@ -152,7 +152,9 @@
         "collection_error_count": 0,
         "candidate_document": "docs/providers/linux/SERVICE-BASELINE-CANDIDATES-RB-000062.md",
         "artifact_local_path": "/opt/sandra/artifacts/sandra-RB-000062-20260722T152004Z-ec5f3393.tar.gz",
-        "remote_modifications": "none"
+        "remote_modifications": "none",
+        "human_approval_required": false,
+        "next_operation": "deterministic_object_service_resolution"
       },
       "service_inventory": {
         "implementation": "src/providers/linux/service_inventory.py",
@@ -179,6 +181,23 @@
         "remote_connections": 0,
         "remote_modifications": "none",
         "provider_version_changed": false
+      },
+      "service_resolution_contract": {
+        "status": "next",
+        "decision_mode": "deterministic",
+        "human_approval_required": false,
+        "inputs": [
+          "target object name",
+          "target profile",
+          "observed systemd service inventory"
+        ],
+        "allowed_results": [
+          "RESOLVED",
+          "NOT_FOUND",
+          "AMBIGUOUS"
+        ],
+        "progression_rule": "all application objects must be RESOLVED",
+        "failure_rule": "NOT_FOUND or AMBIGUOUS stops without modification"
       }
     }
   },
@@ -187,8 +206,8 @@
     "gates": [
       {
         "runbook": "RB-000062",
-        "title": "Baseline certificata dei servizi Linux",
-        "status": "awaiting_human_approval",
+        "title": "Inventario e risoluzione deterministica dei servizi Linux",
+        "status": "next",
         "mode": "read_only"
       },
       {
@@ -220,8 +239,9 @@
   },
   "next_task": {
     "runbook": "RB-000062",
-    "title": "Baseline certificata dei servizi Linux",
-    "type": "remote_read_only_audit",
+    "title": "Risoluzione deterministica oggetto-servizio Linux",
+    "type": "remote_read_only_resolution",
+    "status": "next",
     "targets": [
       "PBS",
       "TRANSMISSION",
@@ -239,24 +259,25 @@
       "Windows systems"
     ],
     "objectives": [
-      "raccogliere le unita systemd in formato strutturato",
-      "acquisire Name, Description, LoadState, ActiveState, SubState, UnitFileState e FragmentPath",
-      "classificare servizi applicativi, infrastrutturali e del sistema operativo",
-      "produrre un inventario JSON per host",
-      "proporre esclusivamente i servizi candidati alla gestione",
-      "attendere approvazione umana della baseline"
+      "associare deterministicamente ogni oggetto applicativo alla relativa unita systemd",
+      "usare il nome oggetto, il profilo e l'inventario systemd certificato",
+      "produrre esclusivamente RESOLVED, NOT_FOUND o AMBIGUOUS",
+      "proseguire esclusivamente quando tutti gli oggetti applicativi risultano RESOLVED",
+      "registrare la mappa oggetto-servizio come evidenza machine-readable"
     ],
     "prohibitions": [
+      "nessuna approvazione manuale dei servizi",
       "nessuna modifica ai target",
       "nessun systemctl start",
       "nessun systemctl stop",
+      "nessun systemctl restart",
       "nessun systemctl enable",
       "nessun systemctl disable",
       "nessuna modifica ai profili",
-      "nessuna implementazione LinuxService"
+      "nessuna implementazione LinuxService",
+      "nessuna scelta in caso di ambiguita"
     ],
-    "next_gate_after_approval": "RB-000063",
-    "status": "awaiting_human_approval"
+    "next_gate_after_approval": "RB-000063"
   },
   "knowledge": {
     "canonical_state": "STATE.json",

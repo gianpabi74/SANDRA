@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-22T15:34:53Z`
+Aggiornato: `2026-07-22T16:04:53Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `RB-000062C2`
+RunBook corrente: `RB-000062R3`
 
-Journal corrente: `journal/2026/07/RB-000062C2-20260722T153452Z-7ae8d783.md`
+Journal corrente: `journal/2026/07/RB-000062R3-20260722T160452Z-796958a1.md`
 
 ## Principi permanenti
 
@@ -89,6 +89,6 @@ Journal corrente: `journal/2026/07/RB-000062C2-20260722T153452Z-7ae8d783.md`
 
 ## Prossimo gate
 
-`RB-000062` — Baseline certificata dei servizi Linux
+`RB-000062` — Risoluzione deterministica oggetto-servizio Linux
 
-Tipo: `remote_read_only_audit`.
+Tipo: `remote_read_only_resolution`.
