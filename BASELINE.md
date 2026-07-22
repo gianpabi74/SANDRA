@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-22T16:04:53Z`
+Aggiornato: `2026-07-22T19:04:58Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `RB-000062R3`
+RunBook corrente: `RB-000062K1`
 
-Journal corrente: `journal/2026/07/RB-000062R3-20260722T160452Z-796958a1.md`
+Journal corrente: `journal/2026/07/RB-000062K1-20260722T190456Z-bec1e432.md`
 
 ## Principi permanenti
 
@@ -23,6 +23,9 @@ Journal corrente: `journal/2026/07/RB-000062R3-20260722T160452Z-796958a1.md`
 - nessuna complessità senza valore operativo
 - audit prima dell'implementazione
 - nessun cambio di architettura senza requisito concreto
+- ogni proposta supera il Gate di Necessita Ingegneristica
+- identita degli oggetti basata su evidenze osservabili
+- Knowledge aggiornata nella stessa transazione tecnologica
 
 ## Core
 

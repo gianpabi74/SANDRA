@@ -46,3 +46,10 @@ decision → policy → execute → provider → verify → remember → knowled
 8. Password e chiavi private non entrano in Knowledge.
 9. I moduli Bash non usano variabili top-level readonly.
 10. Lo scheletro top-level è congelato.
+11. Ogni modifica deve superare il Gate di Necessità
+    Ingegneristica.
+12. L'identità di un oggetto deriva da evidenze tecniche osservabili.
+13. I nomi assegnati dall'utente sono alias descrittivi e non
+    costituiscono identità canonica.
+14. Ogni modifica tecnologica aggiorna la Knowledge nella stessa
+    transazione ingegneristica.

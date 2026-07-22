@@ -4,10 +4,10 @@
     "name": "SANDRA",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
-    "updated_utc": "2026-07-22T16:04:53Z",
+    "updated_utc": "2026-07-22T19:04:58Z",
     "current_certification": {
-      "runbook": "RB-000062R3",
-      "journal": "journal/2026/07/RB-000062R3-20260722T160452Z-796958a1.md"
+      "runbook": "RB-000062K1",
+      "journal": "journal/2026/07/RB-000062K1-20260722T190456Z-bec1e432.md"
     }
   },
   "principles": [
@@ -18,7 +18,10 @@
     "nessun secret nel repository",
     "nessuna complessità senza valore operativo",
     "audit prima dell'implementazione",
-    "nessun cambio di architettura senza requisito concreto"
+    "nessun cambio di architettura senza requisito concreto",
+    "ogni proposta supera il Gate di Necessita Ingegneristica",
+    "identita degli oggetti basata su evidenze osservabili",
+    "Knowledge aggiornata nella stessa transazione tecnologica"
   ],
   "core": {
     "version": "1.1.1",
@@ -314,5 +317,15 @@
       "already_loaded_in_shell": false
     },
     "validator": "knowledge_validate_runbook_file"
+  },
+  "continuity": {
+    "entrypoint": "START-HERE.md",
+    "canonical_state": "STATE.json",
+    "handoff": "CHAT-HANDOFF.md",
+    "restart_instruction": "Leggi START-HERE.md e continua dal gate corrente",
+    "minimum_new_chat_input": [
+      "repository URL",
+      "restart instruction"
+    ]
   }
 }

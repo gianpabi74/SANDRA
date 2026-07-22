@@ -32,6 +32,30 @@ Contiene in forma machine-readable:
 - certificazione corrente;
 - Journal corrente.
 
+## Indice operativo unico
+
+`START-HERE.md` è l'indice operativo unico del progetto.
+
+Deve consentire a una nuova chat di individuare immediatamente:
+
+- repository e branch autorevoli;
+- certificazione e Journal correnti;
+- gate corrente e relativo stato;
+- gate successivi della roadmap;
+- documenti costituzionali;
+- stato corrente;
+- prossimo task;
+- prompt minimale di handoff.
+
+`START-HERE.md` è generato esclusivamente da `STATE.json` e non viene
+modificato manualmente.
+
+La ripartenza standard di una nuova chat richiede soltanto:
+
+1. il link al repository ufficiale;
+2. l'istruzione di leggere `START-HERE.md` e proseguire dal gate
+   corrente.
+
 ## Viste generate
 
 I seguenti file sono generati esclusivamente da `STATE.json`

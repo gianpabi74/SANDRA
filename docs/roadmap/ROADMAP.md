@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-22T16:04:53Z`
+Aggiornato: `2026-07-22T19:04:58Z`
 
 ## Fase corrente
 
@@ -37,6 +37,9 @@ Aggiornato: `2026-07-22T16:04:53Z`
 - nessuna complessità senza valore operativo
 - audit prima dell'implementazione
 - nessun cambio di architettura senza requisito concreto
+- ogni proposta supera il Gate di Necessita Ingegneristica
+- identita degli oggetti basata su evidenze osservabili
+- Knowledge aggiornata nella stessa transazione tecnologica
 
 - `STATE.json` è la sorgente viva canonica.
 - Le viste Markdown sono generate.

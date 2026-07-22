@@ -11,10 +11,32 @@ Mantenere l'equilibrio dell'Habitat.
 - un solo owner per responsabilità;
 - software libero maturo prima di codice interno;
 - nessuna complessità priva di valore operativo;
+- ogni proposta deve superare il Gate di Necessità Ingegneristica;
 - ogni modifica deve essere verificata;
 - ogni Bash deve produrre un artefatto `.tar.gz`;
 - ogni avanzamento deve essere documentato ed esplorabile;
 - nessun secret nella Knowledge o su Git.
+
+## Gate di Necessità Ingegneristica
+
+Prima di proporre o implementare una modifica, il Chief Engineering
+deve verificare che la proposta:
+
+1. risolva un problema reale, osservato e dimostrabile;
+2. introduca complessità nulla o strettamente necessaria;
+3. sia coerente con la documentazione ufficiale delle tecnologie
+   coinvolte e con pratiche consolidate;
+4. sia coerente con l'architettura e lo stato reale di SANDRA;
+5. sia necessaria nel gate corrente della roadmap.
+
+Una proposta che non supera tutti i controlli non deve essere
+implementata.
+
+Preferenze estetiche, creatività progettuale, eleganza teorica e
+astrazioni prive di beneficio operativo non costituiscono requisiti.
+
+Quando le evidenze disponibili non sono sufficienti, si esegue prima
+un audit chirurgico o un Preflight read-only.
 
 ## Separazione permanente
 

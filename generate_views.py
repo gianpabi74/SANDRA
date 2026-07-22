@@ -44,28 +44,78 @@ def markdown_code(value: object) -> str:
 def render_start_here(state: dict) -> str:
     project = state["project"]
     providers = state["providers"]
+    roadmap = state["roadmap"]
     next_task = state["next_task"]
-    journal = project["current_certification"]["journal"]
+    current = project["current_certification"]
+    journal = current["journal"]
+
+    gate_lines = []
+
+    for item in roadmap["gates"]:
+        mode = (
+            f' — modalità `{item["mode"]}`'
+            if "mode" in item
+            else ""
+        )
+
+        gate_lines.append(
+            f'- **{item["runbook"]}** — '
+            f'{item["title"]} — '
+            f'stato `{item["status"]}`'
+            f'{mode}'
+        )
+
+    gates = "\n".join(gate_lines)
 
     return f"""# SANDRA — Start Here
 
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
+## Ripartenza rapida
+
 Repository ufficiale: {project["repository"]}
 
 Branch autorevole: `{project["branch"]}`
 
-Stato aggiornato: `{project["updated_utc"]}`
+Per continuare in una nuova chat:
 
-## Ordine di lettura
+1. fornire il link del repository;
+2. chiedere di leggere `START-HERE.md`;
+3. proseguire esclusivamente dal gate indicato in `NEXT_TASK.md`.
+
+Prompt pronto:
+
+```text
+{project["repository"]}
+
+Leggi START-HERE.md e continua SANDRA dal gate corrente,
+rispettando Costituzione, Knowledge e roadmap.
+```
+
+## Stato canonico
+
+- aggiornato UTC: `{project["updated_utc"]}`;
+- certificazione corrente: `{current["runbook"]}`;
+- [Journal corrente]({journal});
+- gate corrente: `{next_task["runbook"]}` — {next_task["title"]}.
+
+## Indice operativo
 
 1. [Stato canonico machine-readable](STATE.json)
-2. [Baseline globale](BASELINE.md)
-3. [Stato corrente](CURRENT_STATE.md)
-4. [Prossimo task](NEXT_TASK.md)
-5. [Roadmap corrente](docs/roadmap/ROADMAP.md)
-6. Journal corrente: `{journal}`
+2. [Project Charter](PROJECT_CHARTER.md)
+3. [Scheletro costituzionale](docs/constitution/CANONICAL-SKELETON.md)
+4. [Costituzione della continuità](docs/constitution/KNOWLEDGE-CONTINUITY.md)
+5. [Baseline globale](BASELINE.md)
+6. [Stato corrente](CURRENT_STATE.md)
+7. [Prossimo task](NEXT_TASK.md)
+8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
+9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
+10. [Journal corrente]({journal})
+
+## Indice dei gate
+
+{gates}
 
 ## Regole operative
 
@@ -74,11 +124,10 @@ Stato aggiornato: `{project["updated_utc"]}`
 ## Stato sintetico
 
 - Core: {state["core"]["status"]}, versione `{state["core"]["version"]}`.
-- PVE: {providers["pve"]["status"]}, inventario e topologia.
+- PVE: {providers["pve"]["status"]}.
 - PBS: {providers["pbs"]["status"]}, versione `{providers["pbs"]["version"]}`.
 - Windows: `{providers["windows"]["version"]}`, stato `{providers["windows"]["status"]}`.
 - Linux: `{providers["linux"]["version"]}`, stato `{providers["linux"]["status"]}`.
-- Prossimo gate: `{next_task["runbook"]}` — {next_task["title"]}.
 """
 
 
