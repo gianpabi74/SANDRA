@@ -64,3 +64,26 @@ Stato capability:
 
 L'applicazione sarà abilitata soltanto dopo una RB separata che
 certifichi `Invoke-DscResource` e la ricertificazione post-Set.
+
+## Applicazione remota WindowsService
+
+Implementata nel provider Windows 1.6.0.
+
+Sequenza:
+
+1. DSC Test;
+2. DSC Set solo se non conforme;
+3. DSC Test finale.
+
+Il risultato autorevole di Test è esclusivamente
+`InDesiredState`.
+
+Il campo generico `value` non fa parte del contratto normalizzato.
+
+Vincoli:
+
+- risorsa: `WindowsService`;
+- Desired: `Running`;
+- servizio protetto: `WinRM`;
+- LCM non modificato;
+- nessuna modifica con delta vuoto.

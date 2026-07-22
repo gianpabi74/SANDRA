@@ -195,3 +195,18 @@ Non viene modificata da questo aggiornamento.
 WINSRV01|GET=PASS|TEST=PASS|DESIRED_STATE=TRUE|DELTA=0
 WINSRV02|GET=PASS|TEST=PASS|DESIRED_STATE=TRUE|DELTA=0
 SERVICESRV|GET=PASS|TEST=PASS|DESIRED_STATE=TRUE|DELTA=0
+
+## RB-000052R2 — WindowsService DSC Set
+
+- provider Windows `1.6.0` certificato;
+- risultato DSC Test normalizzato sul solo `InDesiredState`;
+- campo generico `value` escluso dal contratto;
+- Get, Test e Set verificati sulle tre VM;
+- delta complessivo: `0`;
+- DSC Test remoto: PASS;
+- Set remoto invocato: no;
+- modifiche Windows: nessuna.
+
+WINSRV01|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DSC_TEST=PASS|DELTA=0
+WINSRV02|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DSC_TEST=PASS|DELTA=0
+SERVICESRV|GET=PASS|TEST=PASS|SET=NO_CHANGES_REQUIRED|DSC_TEST=PASS|DELTA=0

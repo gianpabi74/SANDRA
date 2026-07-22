@@ -116,3 +116,10 @@
 - nessun executor condiviso prematuro;
 - ADR-003 implementata;
 - prossima fase: riuso del trasporto nel Set DSC operativo.
+
+## RB-000052R2 — WindowsService DSC Set
+
+- capability WindowsService certificata;
+- normalizzazione DSC Test corretta;
+- risultato autorevole: `InDesiredState`;
+- nessuna modifica con delta vuoto.

@@ -3,7 +3,7 @@
 source /opt/sandra/core/core.sh
 source /opt/sandra/knowledge/knowledge.sh
 
-SANDRA_WINDOWS_PROVIDER_VERSION="1.5.0"
+SANDRA_WINDOWS_PROVIDER_VERSION="1.6.0"
 SANDRA_WINDOWS_PROVIDER_ROOT="/opt/sandra/provider/windows"
 SANDRA_WINDOWS_PYTHON="${SANDRA_WINDOWS_PROVIDER_ROOT}/.venv/bin/python"
 SANDRA_WINDOWS_GET="${SANDRA_WINDOWS_PROVIDER_ROOT}/get.py"
@@ -77,6 +77,20 @@ provider_test() {
 provider_set() {
     local test_result_file="${1:?File Test obbligatorio}"
     local approved_delta_file="${2:?File approvazione obbligatorio}"
+    local target_ip="${3:-}"
+    local target_user="${4:-$SANDRA_WINDOWS_USER}"
 
-    "$SANDRA_WINDOWS_PYTHON"         "$SANDRA_WINDOWS_SET"         "$test_result_file"         "$approved_delta_file"
+    if test -n "$target_ip"; then
+        "$SANDRA_WINDOWS_PYTHON" \
+            "$SANDRA_WINDOWS_SET" \
+            "$test_result_file" \
+            "$approved_delta_file" \
+            "$target_ip" \
+            "$target_user"
+    else
+        "$SANDRA_WINDOWS_PYTHON" \
+            "$SANDRA_WINDOWS_SET" \
+            "$test_result_file" \
+            "$approved_delta_file"
+    fi
 }

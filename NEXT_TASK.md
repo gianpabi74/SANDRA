@@ -1,16 +1,21 @@
 # Next Task
 
-## WindowsService — Set remoto DSC
+## WindowsService — Primo delta reale
 
-Il provider Windows 1.5.0 dispone di un trasporto PSRP interno e
-certificato.
+Il provider Windows 1.6.0 supporta:
+
+- Get;
+- Test;
+- approvazione esatta del delta;
+- DSC Test;
+- eventuale DSC Set;
+- DSC Test finale.
+
+Il risultato DSC Test autorevole è `InDesiredState`.
+
+Le tre VM sono attualmente conformi.
 
 Prossimo passo:
 
-- usare `transport.py` nel percorso Set;
-- ricevere esclusivamente operazioni validate da `set.py`;
-- eseguire `Invoke-DscResource -Method Test`;
-- chiamare `Set` soltanto con `InDesiredState=False`;
-- ripetere `Test` dopo Set;
-- non modificare il RefreshMode dell'LCM;
-- applicare esclusivamente delta approvati.
+- applicare la capability al primo delta reale approvato;
+- integrare successivamente il secret store SANDRA.
