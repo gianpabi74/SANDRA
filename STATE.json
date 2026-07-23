@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "3.3.0",
+    "state_version": "3.5.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T12:29:27Z",
+    "updated_utc": "2026-07-23T12:53:20Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -45,8 +45,8 @@
     "components": {
       "core": {
         "owner": "core",
-        "version": "1.1.1",
-        "contract": "runtime_and_runbook_lifecycle"
+        "version": "1.2.0",
+        "contract": "runtime_runbook_lifecycle_and_expected_failure_handling"
       },
       "knowledge": {
         "owner": "knowledge",
@@ -200,20 +200,22 @@
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000004A",
-      "run_id": "R3-000004A-20260723T122925Z-5dc0ac34",
-      "journal": "journal/2026/07/R3-000004A-20260723T122925Z-5dc0ac34.md"
+      "runbook": "R3-000006A",
+      "run_id": "R3-000006A-20260723T125319Z-c7879b27",
+      "journal": "journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md"
     },
     "components": {
       "core": {
-        "version": "1.1.1",
+        "version": "1.2.0",
         "status": "stable",
         "capabilities": [
           "Run Bundle",
           "evidence",
           "journaling",
           "Knowledge",
-          "Git synchronization"
+          "Git synchronization",
+          "expected failure isolation",
+          "unhandled error certification guard"
         ]
       },
       "knowledge": {
@@ -573,6 +575,17 @@
       "external_dependencies": "none",
       "remote_habitat_modifications": "none",
       "software_installed": "none"
+    },
+    "core_expected_failure_contract": {
+      "runbook": "R3-000006A",
+      "run_id": "R3-000006A-20260723T125319Z-c7879b27",
+      "status": "implemented",
+      "core_version": "1.2.0",
+      "api": "sandra_expect_failure",
+      "unhandled_error_guard": "enabled",
+      "runtime_source_alignment": "byte_identical",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
     }
   }
 }

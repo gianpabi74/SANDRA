@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T12:29:27Z`
+Aggiornato: `2026-07-23T12:53:20Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `R3-000004A`
+RunBook corrente: `R3-000006A`
 
-Journal corrente: `journal/2026/07/R3-000004A-20260723T122925Z-5dc0ac34.md`
+Journal corrente: `journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md`
 
 ## Principi permanenti
 
@@ -33,7 +33,7 @@ Journal corrente: `journal/2026/07/R3-000004A-20260723T122925Z-5dc0ac34.md`
 
 ## Core
 
-- versione: `1.1.1`;
+- versione: `1.2.0`;
 - stato: `stable`;
 - capability:
 - Run Bundle
@@ -41,6 +41,8 @@ Journal corrente: `journal/2026/07/R3-000004A-20260723T122925Z-5dc0ac34.md`
 - journaling
 - Knowledge
 - Git synchronization
+- expected failure isolation
+- unhandled error certification guard
 
 ## Provider PVE
 

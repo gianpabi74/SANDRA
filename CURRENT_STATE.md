@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T12:29:27Z`
+Aggiornato: `2026-07-23T12:53:20Z`
 
 ## Repository
 
@@ -13,7 +13,7 @@ Aggiornato: `2026-07-23T12:29:27Z`
 
 ## Core
 
-- versione: `1.1.1`
+- versione: `1.2.0`
 - stato: `stable`
 
 ## Provider PVE
@@ -76,8 +76,8 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `R3-000004A`
-- Journal: `journal/2026/07/R3-000004A-20260723T122925Z-5dc0ac34.md`
+- RunBook: `R3-000006A`
+- Journal: `journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md`
 
 ## Prossimo gate
 

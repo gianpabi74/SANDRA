@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 umask 077
 
-SANDRA_CORE_VERSION="1.1.1"
+SANDRA_CORE_VERSION="1.2.0"
 SANDRA_CORE_CONFIG="/opt/sandra/config/habitat.conf"
 
 SANDRA_FINALIZED="${SANDRA_FINALIZED:-NO}"
@@ -49,6 +49,69 @@ sandra_capture() {
     }
 
     "$@" > "${SANDRA_EVIDENCE_DIR}/${name}" 2>&1
+}
+
+sandra_expect_failure() {
+    local evidence_name="$1"
+    local expected_rc="$2"
+    shift 2
+
+    [[ "${evidence_name}" =~ ^[A-Za-z0-9._-]+$ ]] || {
+        sandra_log ERROR             "Nome evidenza non valido: ${evidence_name}"
+        return 1
+    }
+
+    [[ "${expected_rc}" == "ANY" ||
+       "${expected_rc}" =~ ^[1-9][0-9]*$ ]] || {
+        sandra_log ERROR             "Exit code atteso non valido: ${expected_rc}"
+        return 1
+    }
+
+    [[ "$#" -gt 0 ]] || {
+        sandra_log ERROR             "Comando assente per sandra_expect_failure"
+        return 1
+    }
+
+    local output_file
+    local result_file
+    local actual_rc
+
+    output_file="${SANDRA_EVIDENCE_DIR}/${evidence_name}"
+    result_file="${output_file}.result.env"
+
+    # Il comando è deliberatamente eseguito come condizione di un if.
+    # Bash non attiva ERR per comandi usati come test condizionali.
+    if "$@" > "${output_file}" 2>&1; then
+        actual_rc=0
+    else
+        actual_rc=$?
+    fi
+
+    {
+        printf 'EXPECTED_RC=%s\n' "${expected_rc}"
+        printf 'ACTUAL_RC=%s\n' "${actual_rc}"
+    } > "${result_file}"
+
+    if [[ "${actual_rc}" -eq 0 ]]; then
+        printf 'RESULT=UNEXPECTED_SUCCESS\n'             >> "${result_file}"
+
+        sandra_log ERROR             "Il comando doveva fallire ma ha restituito rc=0"
+        return 1
+    fi
+
+    if [[ "${expected_rc}" != "ANY" &&
+          "${actual_rc}" -ne "${expected_rc}" ]]; then
+        printf 'RESULT=UNEXPECTED_EXIT_CODE\n'             >> "${result_file}"
+
+        sandra_log ERROR             "Exit code inatteso: atteso=${expected_rc} reale=${actual_rc}"
+        return 1
+    fi
+
+    printf 'RESULT=EXPECTED_FAILURE\n'         >> "${result_file}"
+
+    sandra_log INFO         "EXPECTED_FAILURE=${evidence_name} rc=${actual_rc}"
+
+    return 0
 }
 
 sandra_error_handler() {
@@ -158,10 +221,22 @@ sandra_finalize() {
     end_epoch="$(date +%s)"
     duration=$((end_epoch - SANDRA_START_EPOCH))
 
-    if [[ "${rc}" -eq 0 && "${SANDRA_STATUS}" == "PASS" ]]; then
+    local unhandled_error="NO"
+
+    if [[ -s "${SANDRA_RUN_DIR}/error.txt" ]]; then
+        unhandled_error="YES"
+    fi
+
+    if [[ "${rc}" -eq 0 &&
+          "${SANDRA_STATUS}" == "PASS" &&
+          "${unhandled_error}" == "NO" ]]; then
         SANDRA_PHASE="COMPLETE"
     else
         SANDRA_STATUS="FAIL"
+
+        if [[ "${unhandled_error}" == "YES" ]]; then
+            SANDRA_PHASE="ERROR"
+        fi
     fi
 
     cat > "${SANDRA_RUN_DIR}/certification.txt" <<EOF
@@ -171,6 +246,7 @@ RUN_ID=${SANDRA_RUN_ID}
 CORE_VERSION=${SANDRA_CORE_VERSION}
 STATUS=${SANDRA_STATUS}
 FINAL_PHASE=${SANDRA_PHASE}
+UNHANDLED_ERROR=${unhandled_error}
 EXIT_CODE=${rc}
 DURATION_SECONDS=${duration}
 HOSTNAME=$(hostname)

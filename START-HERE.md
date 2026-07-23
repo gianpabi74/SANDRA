@@ -26,9 +26,9 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-23T12:29:27Z`;
-- certificazione corrente: `R3-000004A`;
-- [Journal corrente](journal/2026/07/R3-000004A-20260723T122925Z-5dc0ac34.md);
+- aggiornato UTC: `2026-07-23T12:53:20Z`;
+- certificazione corrente: `R3-000006A`;
+- [Journal corrente](journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md);
 - gate corrente: `R3-000004` — Governance Runtime Foundation.
 
 ## Indice operativo
@@ -42,7 +42,7 @@ rispettando Costituzione, Knowledge e roadmap.
 7. [Prossimo task](NEXT_TASK.md)
 8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
 9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
-10. [Journal corrente](journal/2026/07/R3-000004A-20260723T122925Z-5dc0ac34.md)
+10. [Journal corrente](journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md)
 
 ## Indice dei gate
 
@@ -69,7 +69,7 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato sintetico
 
-- Core: stable, versione `1.1.1`.
+- Core: stable, versione `1.2.0`.
 - PVE: operational.
 - PBS: read_only_operational, versione `1.0.0`.
 - Windows: `1.7.0`, stato `frozen_maintenance`.
