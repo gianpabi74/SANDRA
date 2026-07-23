@@ -3,42 +3,41 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000003 — Capability and Policy Contract
+## R3-000004 — Governance Runtime Foundation
 
 ### Tipo
 
-`governance_contract`
+`runtime_implementation`
 
 ### Target
 
 - Knowledge canonica
-- Capability catalog
-- Policy catalog
+- Python runtime source
+- unit tests
 
 ### Target esclusi
 
 - sistemi remoti dell'Habitat
-- runtime operativa
+- runtime installata
 
 ### Obiettivi
 
-- definire Capability
-- definire Governance Policy
-- definire Policy Decision
-- definire Execution Plan
-- definire progressive trust
-- registrare prima capability e prima policy
+- creare package Python governance
+- implementare envelope canonici
+- implementare validazione deterministica
+- implementare CLI headless
+- aggiungere test automatici
 
 ### Divieti
 
 - nessuna modifica remota
 - nessuna installazione software
-- nessuna policy codificata nell'adapter
-- nessun oggetto concreto nella Capability
+- nessuna dipendenza esterna
+- nessun riferimento tecnologico nel dominio
 - nessuna correzione ad intuito
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000004`
+`R3-000005`

@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T12:17:18Z`
+Aggiornato: `2026-07-23T12:29:27Z`
 
 ## Fase corrente
 
-`Capability and Policy Contract`
+`Governance Runtime Foundation`
 
 ## Gate
 
-1. **R3-000003** — Capability and Policy Contract (`complete`)
-2. **R3-000004** — Adapter and Execution Contract (`blocked`)
+1. **R3-000004** — Governance Runtime Foundation (`complete`)
+2. **R3-000005** — Adapter and Execution Contract (`blocked`)
 
 ## Fuori perimetro corrente
 

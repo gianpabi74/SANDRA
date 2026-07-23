@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T12:17:18Z`
+Aggiornato: `2026-07-23T12:29:27Z`
 
 ## Repository
 
@@ -76,9 +76,9 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `R3-000003A`
-- Journal: `journal/2026/07/R3-000003A-20260723T121717Z-296cb2d2.md`
+- RunBook: `R3-000004A`
+- Journal: `journal/2026/07/R3-000004A-20260723T122925Z-5dc0ac34.md`
 
 ## Prossimo gate
 
-`R3-000003` — Capability and Policy Contract
+`R3-000004` — Governance Runtime Foundation

@@ -26,10 +26,10 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-23T12:17:18Z`;
-- certificazione corrente: `R3-000003A`;
-- [Journal corrente](journal/2026/07/R3-000003A-20260723T121717Z-296cb2d2.md);
-- gate corrente: `R3-000003` — Capability and Policy Contract.
+- aggiornato UTC: `2026-07-23T12:29:27Z`;
+- certificazione corrente: `R3-000004A`;
+- [Journal corrente](journal/2026/07/R3-000004A-20260723T122925Z-5dc0ac34.md);
+- gate corrente: `R3-000004` — Governance Runtime Foundation.
 
 ## Indice operativo
 
@@ -42,12 +42,12 @@ rispettando Costituzione, Knowledge e roadmap.
 7. [Prossimo task](NEXT_TASK.md)
 8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
 9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
-10. [Journal corrente](journal/2026/07/R3-000003A-20260723T121717Z-296cb2d2.md)
+10. [Journal corrente](journal/2026/07/R3-000004A-20260723T122925Z-5dc0ac34.md)
 
 ## Indice dei gate
 
-- **R3-000003** — Capability and Policy Contract — stato `complete`
-- **R3-000004** — Adapter and Execution Contract — stato `blocked`
+- **R3-000004** — Governance Runtime Foundation — stato `complete`
+- **R3-000005** — Adapter and Execution Contract — stato `blocked`
 
 ## Regole operative
 

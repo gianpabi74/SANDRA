@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "3.2.0",
+    "state_version": "3.3.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T12:17:18Z",
+    "updated_utc": "2026-07-23T12:29:27Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -133,36 +133,35 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000003",
-        "title": "Capability and Policy Contract",
-        "type": "governance_contract",
+        "runbook": "R3-000004",
+        "title": "Governance Runtime Foundation",
+        "type": "runtime_implementation",
         "targets": [
           "Knowledge canonica",
-          "Capability catalog",
-          "Policy catalog"
+          "Python runtime source",
+          "unit tests"
         ],
         "excluded_targets": [
           "sistemi remoti dell'Habitat",
-          "runtime operativa"
+          "runtime installata"
         ],
         "objectives": [
-          "definire Capability",
-          "definire Governance Policy",
-          "definire Policy Decision",
-          "definire Execution Plan",
-          "definire progressive trust",
-          "registrare prima capability e prima policy"
+          "creare package Python governance",
+          "implementare envelope canonici",
+          "implementare validazione deterministica",
+          "implementare CLI headless",
+          "aggiungere test automatici"
         ],
         "prohibitions": [
           "nessuna modifica remota",
           "nessuna installazione software",
-          "nessuna policy codificata nell'adapter",
-          "nessun oggetto concreto nella Capability",
+          "nessuna dipendenza esterna",
+          "nessun riferimento tecnologico nel dominio",
           "nessuna correzione ad intuito"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000004",
+        "runbook": "R3-000005",
         "title": "Adapter and Execution Contract",
         "status": "blocked"
       },
@@ -201,9 +200,9 @@
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000003A",
-      "run_id": "R3-000003A-20260723T121717Z-296cb2d2",
-      "journal": "journal/2026/07/R3-000003A-20260723T121717Z-296cb2d2.md"
+      "runbook": "R3-000004A",
+      "run_id": "R3-000004A-20260723T122925Z-5dc0ac34",
+      "journal": "journal/2026/07/R3-000004A-20260723T122925Z-5dc0ac34.md"
     },
     "components": {
       "core": {
@@ -427,10 +426,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Capability and Policy Contract",
-      "current_gate": "R3-000003",
+      "phase": "Governance Runtime Foundation",
+      "current_gate": "R3-000004",
       "current_gate_status": "complete",
-      "next_gate": "R3-000004"
+      "next_gate": "R3-000005"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -560,6 +559,18 @@
       "initial_capability": "compute.memory.resize@1",
       "initial_policy": "policy.resource_elasticity@1",
       "initial_trust_state": "observe_only",
+      "remote_habitat_modifications": "none",
+      "software_installed": "none"
+    },
+    "governance_runtime_v1": {
+      "runbook": "R3-000004A",
+      "run_id": "R3-000004A-20260723T122925Z-5dc0ac34",
+      "status": "implemented",
+      "package": "src/runtime/governance",
+      "validation": "deterministic",
+      "cli": "implemented",
+      "unit_tests": "pass",
+      "external_dependencies": "none",
       "remote_habitat_modifications": "none",
       "software_installed": "none"
     }
