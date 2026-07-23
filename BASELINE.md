@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T20:45:38Z`
+Aggiornato: `2026-07-23T20:53:59Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `R3-000009E3`
+RunBook corrente: `R3-000009F`
 
-Journal corrente: `journal/2026/07/R3-000009E3-20260723T204536Z-ef3f21c8.md`
+Journal corrente: `journal/2026/07/R3-000009F-20260723T205356Z-db835633.md`
 
 ## Principi permanenti
 
@@ -101,6 +101,6 @@ Journal corrente: `journal/2026/07/R3-000009E3-20260723T204536Z-ef3f21c8.md`
 
 ## Prossimo gate
 
-`R3-000009E3` — Canonical Capability Map V1 Publication
+`R3-000009F` — Canonical Domain Purification
 
-Tipo: `constitutional_capability_publication`.
+Tipo: `domain_boundary_enforcement`.

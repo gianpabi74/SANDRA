@@ -1,18 +1,19 @@
-"""Command-line interface for canonical resource validation."""
+"""Command-line adapter for canonical governance resource validation."""
 
 from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 from typing import Sequence
 
-from .errors import GovernanceError
-from .validation import load_resource
+from governance.errors import GovernanceError
+from governance.validation import load_resource
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """Build the governance-resource command-line parser."""
+
     parser = argparse.ArgumentParser(
         prog="governance-resource",
         description=(
@@ -31,6 +32,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
+    """Validate resource paths and emit deterministic JSON results."""
+
     parser = build_parser()
     arguments = parser.parse_args(argv)
 
@@ -69,7 +72,3 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
 
     return 1 if failed else 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())

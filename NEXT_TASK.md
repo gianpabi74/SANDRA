@@ -3,41 +3,41 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000009E3 — Canonical Capability Map V1 Publication
+## R3-000009F — Canonical Domain Purification
 
 ### Tipo
 
-`constitutional_capability_publication`
+`domain_boundary_enforcement`
 
 ### Target
 
-- Canonical Capability Map V1
-- capability map validator
-- ADR-0009
+- src/sandra/domain/governance
+- src/sandra/adapters/inbound/governance_resource_cli
 - STATE.json
 - Knowledge canonical history
 
 ### Target esclusi
 
-- domain implementation
+- legacy src/domain
+- legacy src/runtime
 - application implementation
 - controller implementation
-- adapter implementation
+- outbound adapter implementation
 - remote Habitat
 - software installation
 
 ### Obiettivi
 
-- publish the independently validated capability map
-- set immutable constitutional status
-- register capability taxonomy in STATE
-- synchronize canonical Knowledge and Git
+- remove CLI responsibility from canonical domain
+- create the canonical inbound CLI adapter
+- preserve externally observable CLI behavior
+- certify the inward dependency direction
 
 ### Divieti
 
-- no capability content expansion
+- no domain behavior change
+- no legacy source deletion
 - no architecture change
-- no product-specific core capability
 - no Habitat modification
 - no software installation
 
@@ -45,4 +45,4 @@
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000009F`
+`R3-000010`

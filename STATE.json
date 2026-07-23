@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "4.3.0",
+    "state_version": "4.4.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T20:45:38Z",
+    "updated_utc": "2026-07-23T20:53:59Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -163,41 +163,41 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000009E3",
-        "title": "Canonical Capability Map V1 Publication",
-        "type": "constitutional_capability_publication",
+        "runbook": "R3-000009F",
+        "title": "Canonical Domain Purification",
+        "type": "domain_boundary_enforcement",
         "targets": [
-          "Canonical Capability Map V1",
-          "capability map validator",
-          "ADR-0009",
+          "src/sandra/domain/governance",
+          "src/sandra/adapters/inbound/governance_resource_cli",
           "STATE.json",
           "Knowledge canonical history"
         ],
         "excluded_targets": [
-          "domain implementation",
+          "legacy src/domain",
+          "legacy src/runtime",
           "application implementation",
           "controller implementation",
-          "adapter implementation",
+          "outbound adapter implementation",
           "remote Habitat",
           "software installation"
         ],
         "objectives": [
-          "publish the independently validated capability map",
-          "set immutable constitutional status",
-          "register capability taxonomy in STATE",
-          "synchronize canonical Knowledge and Git"
+          "remove CLI responsibility from canonical domain",
+          "create the canonical inbound CLI adapter",
+          "preserve externally observable CLI behavior",
+          "certify the inward dependency direction"
         ],
         "prohibitions": [
-          "no capability content expansion",
+          "no domain behavior change",
+          "no legacy source deletion",
           "no architecture change",
-          "no product-specific core capability",
           "no Habitat modification",
           "no software installation"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000009F",
-        "title": "Canonical Domain Purification",
+        "runbook": "R3-000010",
+        "title": "Application Ports Foundation",
         "status": "blocked"
       },
       "candidates": {
@@ -289,13 +289,27 @@
         "security",
         "policy_engine"
       ]
+    },
+    "domain_purity": {
+      "version": "1.0.0",
+      "status": "certified",
+      "canonical_domain": "src/sandra/domain/governance",
+      "inbound_adapter": "src/sandra/adapters/inbound/governance_resource_cli",
+      "rules": [
+        "domain contains no command-line parsing",
+        "domain contains no process exit behavior",
+        "domain contains no inbound interface implementation",
+        "inbound adapter depends on domain",
+        "domain does not depend on inbound adapter"
+      ],
+      "legacy_sources_preserved": true
     }
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000009E3",
-      "run_id": "R3-000009E3-20260723T204536Z-ef3f21c8",
-      "journal": "journal/2026/07/R3-000009E3-20260723T204536Z-ef3f21c8.md"
+      "runbook": "R3-000009F",
+      "run_id": "R3-000009F-20260723T205356Z-db835633",
+      "journal": "journal/2026/07/R3-000009F-20260723T205356Z-db835633.md"
     },
     "components": {
       "core": {
@@ -521,10 +535,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Canonical Capability Map V1",
-      "current_gate": "R3-000009E3",
+      "phase": "Canonical Domain Purification",
+      "current_gate": "R3-000009F",
       "current_gate_status": "complete",
-      "next_gate": "R3-000009F"
+      "next_gate": "R3-000010"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -739,6 +753,21 @@
       "constitutional_contracts_validation": "pass",
       "capability_map_validation": "pass",
       "publication_consistency": "pass",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "canonical_domain_purification_v1": {
+      "runbook": "R3-000009F",
+      "run_id": "R3-000009F-20260723T205356Z-db835633",
+      "status": "certified",
+      "domain_purity": "pass",
+      "cli_adapter": "pass",
+      "cli_behavior_equivalence": "pass",
+      "negative_cli_test": "pass",
+      "unit_tests": "pass",
+      "architecture_constitution": "pass",
+      "capability_map": "pass",
+      "legacy_sources_preserved": true,
       "software_installed": "none",
       "remote_habitat_modifications": "none"
     }
