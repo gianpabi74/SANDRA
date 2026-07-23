@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "2.0.2",
+    "state_version": "2.0.3",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T08:53:08Z",
+    "updated_utc": "2026-07-23T09:14:53Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -186,9 +186,9 @@
   },
   "status": {
     "current_certification": {
-      "runbook": "RB-000069B2",
-      "run_id": "RB-000069B2-20260723T085306Z-df39ea7e",
-      "journal": "journal/2026/07/RB-000069B2-20260723T085306Z-df39ea7e.md"
+      "runbook": "RB-000069B3A",
+      "run_id": "RB-000069B3A-20260723T091449Z-e114a190",
+      "journal": "journal/2026/07/RB-000069B3A-20260723T091449Z-e114a190.md"
     },
     "components": {
       "core": {
@@ -215,7 +215,9 @@
         "runtime_source_alignment": "partial_complete",
         "gate_contract_canonical": true,
         "principles_canonical": true,
-        "roadmap_scope_canonical": true
+        "roadmap_scope_canonical": true,
+        "manifest_validation": "explicit_deterministic",
+        "python_assert_validation": "absent"
       }
     },
     "providers": {
@@ -491,8 +493,7 @@
         "remote_habitat_modifications": "none"
       },
       "remaining_blockers": [
-        "make empty runbook validation non-passing",
-        "replace manifest assertions with explicit deterministic validation"
+        "make empty runbook validation non-passing"
       ],
       "gate_contract": {
         "runbook": "RB-000069B2",
@@ -500,6 +501,14 @@
         "status": "certified",
         "source": "STATE.json",
         "generator_embedded_operational_contract": false,
+        "remote_habitat_modifications": "none"
+      },
+      "manifest_validation": {
+        "runbook": "RB-000069B3A",
+        "run_id": "RB-000069B3A-20260723T091449Z-e114a190",
+        "status": "certified",
+        "assertions": "removed",
+        "optimized_python_mode": "validated",
         "remote_habitat_modifications": "none"
       }
     }

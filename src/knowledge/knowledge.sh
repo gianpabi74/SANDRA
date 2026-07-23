@@ -13,36 +13,151 @@ knowledge_log() {
 }
 
 knowledge_validate_manifest() {
-    python3 - "${SANDRA_KNOWLEDGE_MANIFEST}" "${SANDRA_KNOWLEDGE_ROOT}" <<'PYTHON'
+    python3 - \
+        "${SANDRA_KNOWLEDGE_MANIFEST}" \
+        "${SANDRA_KNOWLEDGE_ROOT}" <<'PY_MANIFEST'
 import json
 import pathlib
 import sys
 
 manifest_path = pathlib.Path(sys.argv[1])
 root = pathlib.Path(sys.argv[2])
-manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
 
-assert manifest["schema_version"] == 2
-assert pathlib.Path(manifest["knowledge_root"]) == root
-assert manifest["generated_index"] == "START-HERE.md"
+try:
+    manifest = json.loads(
+        manifest_path.read_text(encoding="utf-8")
+    )
+except FileNotFoundError:
+    raise SystemExit(
+        "KNOWLEDGE_MANIFEST_MISSING"
+    )
+except json.JSONDecodeError as exc:
+    raise SystemExit(
+        "KNOWLEDGE_MANIFEST_JSON_INVALID:"
+        f"{exc.lineno}:{exc.colno}"
+    )
 
-for key in ("root_documents", "sections", "source_roots"):
-    assert isinstance(manifest[key], list) and manifest[key]
+if not isinstance(manifest, dict):
+    raise SystemExit(
+        "KNOWLEDGE_MANIFEST_TYPE_INVALID"
+    )
 
-for document in manifest["root_documents"]:
-    assert document["path"]
-    assert document["title"]
-    assert document["owner"]
-    assert isinstance(document["order"], int)
+required_fields = {
+    "schema_version",
+    "knowledge_root",
+    "generated_index",
+    "root_documents",
+    "sections",
+    "source_roots",
+}
 
-for section in manifest["sections"]:
-    assert section["id"]
-    assert section["root"]
-    assert section["owner"]
-    assert isinstance(section["order"], int)
+missing_fields = required_fields - set(manifest)
+
+if missing_fields:
+    raise SystemExit(
+        "KNOWLEDGE_MANIFEST_FIELDS_MISSING:"
+        + ",".join(sorted(missing_fields))
+    )
+
+if manifest["schema_version"] != 2:
+    raise SystemExit(
+        "KNOWLEDGE_MANIFEST_SCHEMA_INVALID"
+    )
+
+if pathlib.Path(
+    manifest["knowledge_root"]
+) != root:
+    raise SystemExit(
+        "KNOWLEDGE_MANIFEST_ROOT_INVALID"
+    )
+
+if manifest["generated_index"] != "START-HERE.md":
+    raise SystemExit(
+        "KNOWLEDGE_MANIFEST_INDEX_INVALID"
+    )
+
+
+def require_nonempty_list(
+    key: str,
+) -> list:
+    value = manifest.get(key)
+
+    if not isinstance(value, list) or not value:
+        raise SystemExit(
+            f"KNOWLEDGE_MANIFEST_{key.upper()}_INVALID"
+        )
+
+    return value
+
+
+def validate_records(
+    values: list,
+    category: str,
+    string_fields: tuple[str, ...],
+    require_order: bool,
+) -> None:
+    for index, record in enumerate(values):
+        if not isinstance(record, dict):
+            raise SystemExit(
+                f"KNOWLEDGE_MANIFEST_{category}_"
+                f"RECORD_INVALID:{index}"
+            )
+
+        for field in string_fields:
+            value = record.get(field)
+
+            if not isinstance(value, str) or not value:
+                raise SystemExit(
+                    f"KNOWLEDGE_MANIFEST_{category}_"
+                    f"{field.upper()}_INVALID:{index}"
+                )
+
+        if require_order and not isinstance(
+            record.get("order"),
+            int,
+        ):
+            raise SystemExit(
+                f"KNOWLEDGE_MANIFEST_{category}_"
+                f"ORDER_INVALID:{index}"
+            )
+
+
+validate_records(
+    require_nonempty_list("root_documents"),
+    "ROOT_DOCUMENT",
+    (
+        "path",
+        "title",
+        "owner",
+    ),
+    True,
+)
+
+validate_records(
+    require_nonempty_list("sections"),
+    "SECTION",
+    (
+        "id",
+        "title",
+        "root",
+        "owner",
+    ),
+    True,
+)
+
+validate_records(
+    require_nonempty_list("source_roots"),
+    "SOURCE_ROOT",
+    (
+        "id",
+        "root",
+        "owner",
+    ),
+    False,
+)
 
 print("KNOWLEDGE_MANIFEST=PASS")
-PYTHON
+PY_MANIFEST
 }
 
 knowledge_validate() {
