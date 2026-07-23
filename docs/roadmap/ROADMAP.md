@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T08:10:50Z`
+Aggiornato: `2026-07-23T08:49:22Z`
 
 ## Fase corrente
 
@@ -11,7 +11,7 @@ Aggiornato: `2026-07-23T08:10:50Z`
 
 ## Gate
 
-1. **RB-000069** — Architecture Baseline V2 (`next`)
+1. **RB-000069** — Architecture Baseline V2 (`in_progress`)
 2. **RB-000070** — Object and Evidence Model (`blocked`)
 
 ## Fuori perimetro corrente

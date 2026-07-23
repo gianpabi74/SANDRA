@@ -55,9 +55,16 @@ operativo dell'Habitat.
 
 ### Continuità
 
-Path:
+Path operativo:
 
 `/opt/sandra/knowledge/continuity.sh`
+
+Sorgente canonica:
+
+`/opt/sandra/knowledge/src/knowledge/continuity.sh`
+
+L'entrypoint operativo è un collegamento simbolico relativo alla
+sorgente canonica. Runtime e sorgente devono essere byte-identici.
 
 Responsabilità:
 
@@ -127,6 +134,11 @@ Root operativo:
 Root sorgente nella Knowledge:
 
 `/opt/sandra/knowledge/src/providers`
+
+Ogni provider dichiarato operativo deve possedere una sorgente
+versionata sotto questa root. Il deployment operativo deve essere
+verificabile rispetto alla sorgente canonica mediante confronto
+byte-per-byte.
 
 I provider adattano SANDRA alle interfacce ufficiali delle tecnologie.
 Raccolgono fatti e implementano capability nel proprio perimetro.

@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "2.0.0",
+    "state_version": "2.0.1",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T08:10:50Z",
+    "updated_utc": "2026-07-23T08:49:22Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -21,7 +21,7 @@
       "document": "PROJECT_CHARTER.md"
     },
     "architecture": {
-      "version": "2.0",
+      "version": "2.0.1",
       "document": "ARCHITECTURE.md"
     },
     "knowledge": {
@@ -145,9 +145,9 @@
   },
   "status": {
     "current_certification": {
-      "runbook": "RB-000068B-06",
-      "run_id": "RB-000068B-06-20260723T081044Z-bea1d77c",
-      "journal": "journal/2026/07/RB-000068B-06-20260723T081044Z-bea1d77c.md"
+      "runbook": "RB-000069B1",
+      "run_id": "RB-000069B1-20260723T084920Z-1ae25b4a",
+      "journal": "journal/2026/07/RB-000069B1-20260723T084920Z-1ae25b4a.md"
     },
     "components": {
       "core": {
@@ -167,7 +167,11 @@
         "architecture_v2": "complete",
         "state_v2": "complete",
         "generator_v2": "complete",
-        "continuity_v2": "complete"
+        "continuity_v2": "complete",
+        "continuity_source_canonical": true,
+        "continuity_runtime_linked": true,
+        "pve_source_canonical": true,
+        "runtime_source_alignment": "partial_complete"
       }
     },
     "providers": {
@@ -184,7 +188,14 @@
         ],
         "exclusions": [
           "internal Linux configuration"
-        ]
+        ],
+        "source": {
+          "root": "src/providers/pve",
+          "runtime": "/opt/sandra/provider/pve",
+          "version_file": "src/providers/pve/VERSION",
+          "implementation": "src/providers/pve/provider.sh",
+          "alignment": "byte_identical"
+        }
       },
       "pbs": {
         "version": "1.0.0",
@@ -357,7 +368,7 @@
     "roadmap": {
       "phase": "Architecture Baseline V2",
       "current_gate": "RB-000069",
-      "current_gate_status": "next",
+      "current_gate_status": "in_progress",
       "next_gate": "RB-000070"
     },
     "deferred_work": {
@@ -425,6 +436,21 @@
         "REMOTE_VERIFICATION"
       ],
       "pending_steps": []
+    },
+    "architecture_baseline_v2": {
+      "source_alignment": {
+        "runbook": "RB-000069B1",
+        "run_id": "RB-000069B1-20260723T084920Z-1ae25b4a",
+        "status": "certified",
+        "continuity": "canonical_source_and_runtime_symlink",
+        "pve": "canonical_source_byte_identical_to_runtime",
+        "remote_habitat_modifications": "none"
+      },
+      "remaining_blockers": [
+        "move current gate operational contract from generate_views.py to STATE.json",
+        "make empty runbook validation non-passing",
+        "replace manifest assertions with explicit deterministic validation"
+      ]
     }
   }
 }

@@ -26,9 +26,9 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-23T08:10:50Z`;
-- certificazione corrente: `RB-000068B-06`;
-- [Journal corrente](journal/2026/07/RB-000068B-06-20260723T081044Z-bea1d77c.md);
+- aggiornato UTC: `2026-07-23T08:49:22Z`;
+- certificazione corrente: `RB-000069B1`;
+- [Journal corrente](journal/2026/07/RB-000069B1-20260723T084920Z-1ae25b4a.md);
 - gate corrente: `RB-000069` — Architecture Baseline V2.
 
 ## Indice operativo
@@ -42,11 +42,11 @@ rispettando Costituzione, Knowledge e roadmap.
 7. [Prossimo task](NEXT_TASK.md)
 8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
 9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
-10. [Journal corrente](journal/2026/07/RB-000068B-06-20260723T081044Z-bea1d77c.md)
+10. [Journal corrente](journal/2026/07/RB-000069B1-20260723T084920Z-1ae25b4a.md)
 
 ## Indice dei gate
 
-- **RB-000069** — Architecture Baseline V2 — stato `next`
+- **RB-000069** — Architecture Baseline V2 — stato `in_progress`
 - **RB-000070** — Object and Evidence Model — stato `blocked`
 
 ## Regole operative
