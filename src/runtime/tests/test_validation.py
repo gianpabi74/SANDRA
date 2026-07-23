@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import copy
 import json
+import os
 import unittest
 from pathlib import Path
 
@@ -21,16 +22,24 @@ from governance.validation import (
 class ResourceValidationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        knowledge_root = (
-            Path(__file__).resolve().parents[3]
+        configured_root = os.environ.get(
+            "SANDRA_TEST_EXAMPLE_ROOT"
         )
-        cls.example_root = (
-            knowledge_root
-            / "docs"
-            / "specs"
-            / "governance-model"
-            / "examples"
-        )
+
+        if not configured_root:
+            raise RuntimeError(
+                "SANDRA_TEST_EXAMPLE_ROOT is required"
+            )
+
+        cls.example_root = Path(
+            configured_root
+        ).resolve()
+
+        if not cls.example_root.is_dir():
+            raise RuntimeError(
+                "SANDRA_TEST_EXAMPLE_ROOT is not a directory: "
+                f"{cls.example_root}"
+            )
 
     def load_example(
         self,
