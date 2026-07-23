@@ -1,8 +1,12 @@
-# ADR-0007 — Architecture GRANITA Freeze V1
+# ADR-0007 — Architecture Constitution V1
 
 ## Stato
 
 Accepted and immutable until project completion.
+
+## Principio
+
+La costituzione applica il principio di **Architettura Granitica**: i confini dei layer restano stabili e non possono cambiare per preferenza, moda o intuizione.
 
 ## Decisione
 

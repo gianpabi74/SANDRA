@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T14:11:14Z`
+Aggiornato: `2026-07-23T18:32:35Z`
 
 ## Repository
 
@@ -76,9 +76,9 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `R3-000009A`
-- Journal: `journal/2026/07/R3-000009A-20260723T141112Z-d3e2a2e9.md`
+- RunBook: `R3-000009C`
+- Journal: `journal/2026/07/R3-000009C-20260723T183234Z-b3dc239d.md`
 
 ## Prossimo gate
 
-`R3-000009` — Canonical Domain Migration
+`R3-000009C` — Architecture Constitution Terminology

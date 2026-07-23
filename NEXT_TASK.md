@@ -3,44 +3,48 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000009 — Canonical Domain Migration
+## R3-000009C — Architecture Constitution Terminology
 
 ### Tipo
 
-`canonical_source_migration`
+`terminology_correction`
 
 ### Target
 
-- src/sandra/domain/governance
-- tests/unit/domain
-- Knowledge canonica
+- architecture document
+- architecture contract
+- architecture validator
+- ADR-0007
+- STATE.json
+- canonical README files
 
 ### Target esclusi
 
-- sistemi remoti dell'Habitat
-- src/domain removal
-- src/runtime removal
-- software installation
+- architecture structure
+- domain behavior
+- application behavior
+- historical journals
+- historical runbooks
+- remote Habitat
 
 ### Obiettivi
 
-- publish certified domain under canonical source root
-- publish portable domain unit tests
-- prove byte identity with certified source
-- preserve historical migration sources
-- preserve Architecture GRANITA Freeze
+- rename the official document to Architecture Constitution V1
+- register Architettura Granitica as the governing principle
+- preserve all frozen architectural boundaries
+- preserve immutable project history
 
 ### Divieti
 
-- no source deletion
-- no behavior modification
-- no dependency addition
-- no Habitat modification
-- no architecture change
-- no intuitive correction
+- no layer changes
+- no path changes under src/sandra
+- no domain behavior changes
+- no historical rewriting
+- no Habitat modifications
+- no software installation
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000010`
+`R3-000009D`

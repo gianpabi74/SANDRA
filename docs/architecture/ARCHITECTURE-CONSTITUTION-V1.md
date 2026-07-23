@@ -1,8 +1,8 @@
-# SANDRA Architecture GRANITA Freeze V1
+# SANDRA Architecture Constitution V1
 
 ## Stato
 
-**IMMUTABILE FINO ALLA FINE DEL PROGETTO**
+**PRINCIPIO DI ARCHITETTURA GRANITICA — IMMUTABILE FINO ALLA FINE DEL PROGETTO**
 
 La struttura canonica di SANDRA è:
 

@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T14:11:14Z`
+Aggiornato: `2026-07-23T18:32:35Z`
 
 ## Fase corrente
 
-`Canonical Domain Migration`
+`Architecture Constitution Terminology`
 
 ## Gate
 
-1. **R3-000009** — Canonical Domain Migration (`complete`)
-2. **R3-000010** — Application Ports Foundation (`blocked`)
+1. **R3-000009C** — Architecture Constitution Terminology (`complete`)
+2. **R3-000009D** — Constitutional Contracts Foundation (`blocked`)
 
 ## Fuori perimetro corrente
 
@@ -38,7 +38,7 @@ Aggiornato: `2026-07-23T14:11:14Z`
 - autonomia delegata dalle policy
 - strumenti maturi orchestrati, non reinventati
 - nessuna correzione ad intuito
-- Architecture GRANITA Freeze V1 immutabile fino alla fine del progetto
+- Architecture Constitution V1 applica il principio di Architettura Granitica ed è immutabile fino alla fine del progetto
 - nessuna rinomina o movimento dei layer per preferenza o intuizione
 - Security è una famiglia funzionale permanente
 

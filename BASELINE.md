@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T14:11:14Z`
+Aggiornato: `2026-07-23T18:32:35Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `R3-000009A`
+RunBook corrente: `R3-000009C`
 
-Journal corrente: `journal/2026/07/R3-000009A-20260723T141112Z-d3e2a2e9.md`
+Journal corrente: `journal/2026/07/R3-000009C-20260723T183234Z-b3dc239d.md`
 
 ## Principi permanenti
 
@@ -30,7 +30,7 @@ Journal corrente: `journal/2026/07/R3-000009A-20260723T141112Z-d3e2a2e9.md`
 - autonomia delegata dalle policy
 - strumenti maturi orchestrati, non reinventati
 - nessuna correzione ad intuito
-- Architecture GRANITA Freeze V1 immutabile fino alla fine del progetto
+- Architecture Constitution V1 applica il principio di Architettura Granitica ed è immutabile fino alla fine del progetto
 - nessuna rinomina o movimento dei layer per preferenza o intuizione
 - Security è una famiglia funzionale permanente
 
@@ -101,6 +101,6 @@ Journal corrente: `journal/2026/07/R3-000009A-20260723T141112Z-d3e2a2e9.md`
 
 ## Prossimo gate
 
-`R3-000009` — Canonical Domain Migration
+`R3-000009C` — Architecture Constitution Terminology
 
-Tipo: `canonical_source_migration`.
+Tipo: `terminology_correction`.

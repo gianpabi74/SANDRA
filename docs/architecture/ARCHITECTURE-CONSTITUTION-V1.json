@@ -1,11 +1,12 @@
 {
   "apiVersion": "architecture.sandra.io/v1",
-  "kind": "ArchitectureFreeze",
+  "kind": "ArchitectureConstitution",
   "metadata": {
-    "id": "architecture-granita-v1",
-    "name": "SANDRA Architecture GRANITA Freeze V1",
+    "id": "architecture-constitution-v1",
+    "name": "SANDRA Architecture Constitution V1",
     "status": "immutable",
-    "scope": "until-project-completion"
+    "scope": "until-project-completion",
+    "principle": "granitic-architecture"
   },
   "spec": {
     "sourceRoot": "src/sandra",
@@ -74,6 +75,11 @@
       "intuitionChangeAllowed": false,
       "renameAllowed": false,
       "layerMovementAllowed": false
+    },
+    "architecturePrinciple": {
+      "name": "Architettura Granitica",
+      "meaning": "confini architetturali stabili, immutabili per preferenza o intuizione",
+      "structuralChange": "none"
     }
   }
 }

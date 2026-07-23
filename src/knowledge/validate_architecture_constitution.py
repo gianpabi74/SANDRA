@@ -9,7 +9,7 @@ import sys
 
 def fail(message: str) -> None:
     raise SystemExit(
-        f"ARCHITECTURE_FREEZE_INVALID:{message}"
+        f"ARCHITECTURE_CONSTITUTION_INVALID:{message}"
     )
 
 
@@ -36,7 +36,7 @@ def main() -> int:
     ):
         fail("API_VERSION")
 
-    if contract.get("kind") != "ArchitectureFreeze":
+    if contract.get("kind") != "ArchitectureConstitution":
         fail("KIND")
 
     metadata = contract.get("metadata")
@@ -44,7 +44,7 @@ def main() -> int:
     if not isinstance(metadata, dict):
         fail("METADATA")
 
-    if metadata.get("id") != "architecture-granita-v1":
+    if metadata.get("id") != "architecture-constitution-v1":
         fail("IDENTIFIER")
 
     if metadata.get("status") != "immutable":
@@ -113,9 +113,9 @@ def main() -> int:
             + ",".join(sorted(unexpected_layers))
         )
 
-    print("ARCHITECTURE_GRANITA_FREEZE=PASS")
-    print("FREEZE_ID=architecture-granita-v1")
-    print("FREEZE_STATUS=IMMUTABLE")
+    print("ARCHITECTURE_CONSTITUTION=PASS")
+    print("CONSTITUTION_ID=architecture-constitution-v1")
+    print("CONSTITUTION_STATUS=IMMUTABLE")
 
     return 0
 

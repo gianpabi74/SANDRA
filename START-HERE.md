@@ -26,10 +26,10 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-23T14:11:14Z`;
-- certificazione corrente: `R3-000009A`;
-- [Journal corrente](journal/2026/07/R3-000009A-20260723T141112Z-d3e2a2e9.md);
-- gate corrente: `R3-000009` — Canonical Domain Migration.
+- aggiornato UTC: `2026-07-23T18:32:35Z`;
+- certificazione corrente: `R3-000009C`;
+- [Journal corrente](journal/2026/07/R3-000009C-20260723T183234Z-b3dc239d.md);
+- gate corrente: `R3-000009C` — Architecture Constitution Terminology.
 
 ## Indice operativo
 
@@ -42,12 +42,12 @@ rispettando Costituzione, Knowledge e roadmap.
 7. [Prossimo task](NEXT_TASK.md)
 8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
 9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
-10. [Journal corrente](journal/2026/07/R3-000009A-20260723T141112Z-d3e2a2e9.md)
+10. [Journal corrente](journal/2026/07/R3-000009C-20260723T183234Z-b3dc239d.md)
 
 ## Indice dei gate
 
-- **R3-000009** — Canonical Domain Migration — stato `complete`
-- **R3-000010** — Application Ports Foundation — stato `blocked`
+- **R3-000009C** — Architecture Constitution Terminology — stato `complete`
+- **R3-000009D** — Constitutional Contracts Foundation — stato `blocked`
 
 ## Regole operative
 
@@ -66,7 +66,7 @@ rispettando Costituzione, Knowledge e roadmap.
 - autonomia delegata dalle policy
 - strumenti maturi orchestrati, non reinventati
 - nessuna correzione ad intuito
-- Architecture GRANITA Freeze V1 immutabile fino alla fine del progetto
+- Architecture Constitution V1 applica il principio di Architettura Granitica ed è immutabile fino alla fine del progetto
 - nessuna rinomina o movimento dei layer per preferenza o intuizione
 - Security è una famiglia funzionale permanente
 

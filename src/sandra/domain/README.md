@@ -1,6 +1,6 @@
 # Domain
 
-Canonical SANDRA domain governed by Architecture GRANITA Freeze V1.
+Canonical SANDRA domain governed by Architecture Constitution V1 — principio di Architettura Granitica.
 
 This layer contains technology-independent:
 
