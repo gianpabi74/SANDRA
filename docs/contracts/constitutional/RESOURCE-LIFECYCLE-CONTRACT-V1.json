@@ -1,0 +1,54 @@
+{
+  "apiVersion": "constitution.sandra.io/v1",
+  "kind": "ResourceLifecycleContract",
+  "metadata": {
+    "id": "resource-lifecycle-v1",
+    "name": "Resource Lifecycle Contract V1",
+    "status": "immutable"
+  },
+  "spec": {
+    "purpose": "govern the birth, evolution, disappearance and retirement of managed resources",
+    "states": [
+      "discovered",
+      "observed",
+      "qualified",
+      "managed",
+      "reconciling",
+      "healthy",
+      "degraded",
+      "unavailable",
+      "retiring",
+      "retired"
+    ],
+    "initialState": "discovered",
+    "terminalStates": [
+      "retired"
+    ],
+    "rules": [
+      "every transition is explicit",
+      "every transition identifies the previous and next state",
+      "every transition records its cause and evidence references",
+      "discovery never implies management authority",
+      "temporary unreachability never implies retirement",
+      "retirement requires policy authority and verification",
+      "retired resources cannot return to managed without a new lifecycle identity"
+    ],
+    "requiredFields": [
+      "lifecycleState",
+      "generation",
+      "resourceVersion",
+      "createdAt",
+      "updatedAt",
+      "lastTransitionAt",
+      "transitionReason",
+      "evidenceRefs"
+    ],
+    "forbiddenBehaviors": [
+      "implicit state transition",
+      "state transition without evidence",
+      "automatic promotion from discovered to managed",
+      "automatic retirement from a single failed observation",
+      "reuse of a retired resource identity"
+    ]
+  }
+}

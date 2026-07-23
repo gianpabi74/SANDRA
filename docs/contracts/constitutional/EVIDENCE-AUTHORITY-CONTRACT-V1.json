@@ -1,0 +1,60 @@
+{
+  "apiVersion": "constitution.sandra.io/v1",
+  "kind": "EvidenceAuthorityContract",
+  "metadata": {
+    "id": "evidence-authority-v1",
+    "name": "Evidence Authority Contract V1",
+    "status": "immutable"
+  },
+  "spec": {
+    "purpose": "qualify observations before they influence authoritative state or execution",
+    "requiredFields": [
+      "source",
+      "sourceType",
+      "subjectRef",
+      "observedAt",
+      "capturedAt",
+      "authority",
+      "confidence",
+      "validUntil",
+      "integrity",
+      "provenance",
+      "rawArtifactRef"
+    ],
+    "authorityLevels": [
+      "unknown",
+      "observational",
+      "corroborated",
+      "authoritative"
+    ],
+    "confidenceRange": {
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "rules": [
+      "an observation never modifies authoritative state directly",
+      "evidence retains its original provenance",
+      "expired evidence cannot authorize execution",
+      "conflicting evidence is preserved and explicitly reconciled",
+      "authority and confidence are separate properties",
+      "confidence alone cannot create authority",
+      "promotion to authoritative state requires an explicit qualification decision",
+      "raw evidence is immutable after capture"
+    ],
+    "qualificationOutcomes": [
+      "accept",
+      "reject",
+      "corroborate",
+      "conflict",
+      "expire",
+      "request_more_evidence"
+    ],
+    "forbiddenBehaviors": [
+      "silent evidence overwrite",
+      "promotion without qualification",
+      "execution based only on expired evidence",
+      "discarding conflicting evidence",
+      "changing provenance after capture"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "apiVersion": "constitution.sandra.io/v1",
+  "kind": "ReconciliationConcurrencyContract",
+  "metadata": {
+    "id": "reconciliation-concurrency-v1",
+    "name": "Reconciliation Concurrency Contract V1",
+    "status": "immutable"
+  },
+  "spec": {
+    "purpose": "prevent stale, duplicate or conflicting reconciliation of the same governed resource",
+    "requiredFields": [
+      "subjectRef",
+      "controllerId",
+      "reconciliationId",
+      "generation",
+      "observedGeneration",
+      "resourceVersion",
+      "startedAt",
+      "deadlineAt",
+      "idempotencyKey"
+    ],
+    "rules": [
+      "a controller acts only on the generation it evaluated",
+      "resourceVersion is checked before committing an authoritative change",
+      "observedGeneration is updated only after successful verification",
+      "one active mutating reconciliation is allowed per subject and capability",
+      "retries reuse the same idempotency key when the intended operation is unchanged",
+      "a stale reconciliation must terminate without execution",
+      "controller ownership is explicit",
+      "lost ownership prevents further mutation"
+    ],
+    "requiredPreExecutionChecks": [
+      "generation_matches",
+      "resource_version_matches",
+      "controller_owns_reconciliation",
+      "no_conflicting_mutation",
+      "evidence_is_current",
+      "policy_decision_is_current"
+    ],
+    "outcomes": [
+      "converged",
+      "requeue",
+      "blocked",
+      "stale",
+      "conflict",
+      "failed",
+      "cancelled"
+    ],
+    "forbiddenBehaviors": [
+      "blind last-write-wins mutation",
+      "parallel mutation of the same subject and capability",
+      "execution after ownership loss",
+      "verification against a newer unassessed generation",
+      "new idempotency key for an unchanged retry"
+    ]
+  }
+}

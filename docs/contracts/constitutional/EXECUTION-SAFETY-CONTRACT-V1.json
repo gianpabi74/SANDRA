@@ -1,0 +1,78 @@
+{
+  "apiVersion": "constitution.sandra.io/v1",
+  "kind": "ExecutionSafetyContract",
+  "metadata": {
+    "id": "execution-safety-v1",
+    "name": "Execution Safety Contract V1",
+    "status": "immutable"
+  },
+  "spec": {
+    "purpose": "permit autonomous action only when authority, risk boundaries and verification are explicit",
+    "requiredFields": [
+      "planId",
+      "subjectRef",
+      "capabilityRef",
+      "decisionRef",
+      "idempotencyKey",
+      "riskClass",
+      "authorityMode",
+      "preconditions",
+      "actions",
+      "postconditions",
+      "verification",
+      "recovery",
+      "timeout",
+      "retryPolicy",
+      "createdAt",
+      "expiresAt"
+    ],
+    "authorityModes": [
+      "automatic",
+      "conditional",
+      "human_approval_required",
+      "prohibited"
+    ],
+    "riskClasses": [
+      "low",
+      "medium",
+      "high",
+      "critical",
+      "protected"
+    ],
+    "rules": [
+      "execution requires a current policy decision",
+      "execution requires current qualified evidence",
+      "all preconditions pass before the first mutation",
+      "every mutation has a verification method",
+      "recovery is defined before execution when reversal is technically possible",
+      "irreversible actions are explicitly classified",
+      "expired plans cannot execute",
+      "retry behavior is bounded",
+      "successful command completion is not successful execution until postconditions pass",
+      "partial execution is recorded explicitly",
+      "automatic execution is allowed only inside policy-delegated limits",
+      "habitat survival constraints override service optimization"
+    ],
+    "requiredResults": [
+      "not_started",
+      "precondition_failed",
+      "executing",
+      "verified",
+      "verification_failed",
+      "partially_applied",
+      "recovered",
+      "recovery_failed",
+      "expired",
+      "prohibited"
+    ],
+    "forbiddenBehaviors": [
+      "execution without policy decision",
+      "execution without preconditions",
+      "execution without verification",
+      "unbounded retry",
+      "silent partial success",
+      "automatic execution outside delegated authority",
+      "treating transport success as verified outcome"
+    ]
+  }
+}

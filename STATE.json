@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "4.1.1",
+    "state_version": "4.2.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T18:32:35Z",
+    "updated_utc": "2026-07-23T18:42:41Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -163,43 +163,40 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000009C",
-        "title": "Architecture Constitution Terminology",
-        "type": "terminology_correction",
+        "runbook": "R3-000009D",
+        "title": "Constitutional Operational Contracts",
+        "type": "constitutional_contract_registration",
         "targets": [
-          "architecture document",
-          "architecture contract",
-          "architecture validator",
-          "ADR-0007",
-          "STATE.json",
-          "canonical README files"
+          "Resource Lifecycle Contract V1",
+          "Evidence Authority Contract V1",
+          "Reconciliation Concurrency Contract V1",
+          "Execution Safety Contract V1",
+          "STATE.json"
         ],
         "excluded_targets": [
-          "architecture structure",
-          "domain behavior",
-          "application behavior",
-          "historical journals",
-          "historical runbooks",
-          "remote Habitat"
+          "domain implementation",
+          "application implementation",
+          "controller implementation",
+          "adapter implementation",
+          "remote Habitat",
+          "software installation"
         ],
         "objectives": [
-          "rename the official document to Architecture Constitution V1",
-          "register Architettura Granitica as the governing principle",
-          "preserve all frozen architectural boundaries",
-          "preserve immutable project history"
+          "define immutable operational invariants",
+          "prevent stale or concurrent mutation",
+          "prevent unqualified evidence promotion",
+          "require safe and verifiable execution"
         ],
         "prohibitions": [
-          "no layer changes",
-          "no path changes under src/sandra",
-          "no domain behavior changes",
-          "no historical rewriting",
+          "no architecture changes",
+          "no product-specific exceptions",
           "no Habitat modifications",
           "no software installation"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000009D",
-        "title": "Constitutional Contracts Foundation",
+        "runbook": "R3-000009E",
+        "title": "Canonical Capability Map V1",
         "status": "blocked"
       },
       "candidates": {
@@ -236,13 +233,25 @@
       "Architecture Constitution V1 applica il principio di Architettura Granitica ed è immutabile fino alla fine del progetto",
       "nessuna rinomina o movimento dei layer per preferenza o intuizione",
       "Security è una famiglia funzionale permanente"
-    ]
+    ],
+    "constitutional_contracts": {
+      "version": "1.0.0",
+      "status": "immutable",
+      "index": "docs/contracts/constitutional/CONSTITUTIONAL-CONTRACTS-V1.json",
+      "validator": "src/knowledge/validate_constitutional_contracts.py",
+      "contracts": {
+        "resource_lifecycle": "docs/contracts/constitutional/RESOURCE-LIFECYCLE-CONTRACT-V1.json",
+        "evidence_authority": "docs/contracts/constitutional/EVIDENCE-AUTHORITY-CONTRACT-V1.json",
+        "reconciliation_concurrency": "docs/contracts/constitutional/RECONCILIATION-CONCURRENCY-CONTRACT-V1.json",
+        "execution_safety": "docs/contracts/constitutional/EXECUTION-SAFETY-CONTRACT-V1.json"
+      }
+    }
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000009C",
-      "run_id": "R3-000009C-20260723T183234Z-b3dc239d",
-      "journal": "journal/2026/07/R3-000009C-20260723T183234Z-b3dc239d.md"
+      "runbook": "R3-000009D",
+      "run_id": "R3-000009D-20260723T184240Z-f5790720",
+      "journal": "journal/2026/07/R3-000009D-20260723T184240Z-f5790720.md"
     },
     "components": {
       "core": {
@@ -468,10 +477,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Architecture Constitution Terminology",
-      "current_gate": "R3-000009C",
+      "phase": "Constitutional Operational Contracts",
+      "current_gate": "R3-000009D",
       "current_gate_status": "complete",
-      "next_gate": "R3-000009D"
+      "next_gate": "R3-000009E"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -659,6 +668,19 @@
       "terminology_corrected": true,
       "structural_change": "none",
       "historical_records_rewritten": false
+    },
+    "constitutional_contracts_v1": {
+      "runbook": "R3-000009D",
+      "run_id": "R3-000009D-20260723T184240Z-f5790720",
+      "status": "certified_immutable",
+      "contract_count": 4,
+      "resource_lifecycle": "pass",
+      "evidence_authority": "pass",
+      "reconciliation_concurrency": "pass",
+      "execution_safety": "pass",
+      "architecture_constitution_validation": "pass",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
     }
   }
 }

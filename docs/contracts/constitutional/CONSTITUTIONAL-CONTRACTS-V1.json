@@ -1,0 +1,38 @@
+{
+  "apiVersion": "constitution.sandra.io/v1",
+  "kind": "ConstitutionalContracts",
+  "metadata": {
+    "id": "constitutional-operational-contracts-v1",
+    "name": "SANDRA Constitutional Operational Contracts V1",
+    "status": "immutable"
+  },
+  "spec": {
+    "architectureConstitution": "architecture-constitution-v1",
+    "contracts": [
+      {
+        "id": "resource-lifecycle-v1",
+        "path": "docs/contracts/constitutional/RESOURCE-LIFECYCLE-CONTRACT-V1.json"
+      },
+      {
+        "id": "evidence-authority-v1",
+        "path": "docs/contracts/constitutional/EVIDENCE-AUTHORITY-CONTRACT-V1.json"
+      },
+      {
+        "id": "reconciliation-concurrency-v1",
+        "path": "docs/contracts/constitutional/RECONCILIATION-CONCURRENCY-CONTRACT-V1.json"
+      },
+      {
+        "id": "execution-safety-v1",
+        "path": "docs/contracts/constitutional/EXECUTION-SAFETY-CONTRACT-V1.json"
+      }
+    ],
+    "changePolicy": {
+      "ordinaryChangeAllowed": false,
+      "intuitionChangeAllowed": false,
+      "productSpecificChangeAllowed": false,
+      "requiresSupersedingADR": true,
+      "requiresExplicitUserApproval": true,
+      "requiresMigrationAndRollbackPlan": true
+    }
+  }
+}

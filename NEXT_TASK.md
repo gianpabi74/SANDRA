@@ -3,43 +3,40 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000009C — Architecture Constitution Terminology
+## R3-000009D — Constitutional Operational Contracts
 
 ### Tipo
 
-`terminology_correction`
+`constitutional_contract_registration`
 
 ### Target
 
-- architecture document
-- architecture contract
-- architecture validator
-- ADR-0007
+- Resource Lifecycle Contract V1
+- Evidence Authority Contract V1
+- Reconciliation Concurrency Contract V1
+- Execution Safety Contract V1
 - STATE.json
-- canonical README files
 
 ### Target esclusi
 
-- architecture structure
-- domain behavior
-- application behavior
-- historical journals
-- historical runbooks
+- domain implementation
+- application implementation
+- controller implementation
+- adapter implementation
 - remote Habitat
+- software installation
 
 ### Obiettivi
 
-- rename the official document to Architecture Constitution V1
-- register Architettura Granitica as the governing principle
-- preserve all frozen architectural boundaries
-- preserve immutable project history
+- define immutable operational invariants
+- prevent stale or concurrent mutation
+- prevent unqualified evidence promotion
+- require safe and verifiable execution
 
 ### Divieti
 
-- no layer changes
-- no path changes under src/sandra
-- no domain behavior changes
-- no historical rewriting
+- no architecture changes
+- no product-specific exceptions
 - no Habitat modifications
 - no software installation
 
@@ -47,4 +44,4 @@
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000009D`
+`R3-000009E`

@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T18:32:35Z`
+Aggiornato: `2026-07-23T18:42:41Z`
 
 ## Fase corrente
 
-`Architecture Constitution Terminology`
+`Constitutional Operational Contracts`
 
 ## Gate
 
-1. **R3-000009C** — Architecture Constitution Terminology (`complete`)
-2. **R3-000009D** — Constitutional Contracts Foundation (`blocked`)
+1. **R3-000009D** — Constitutional Operational Contracts (`complete`)
+2. **R3-000009E** — Canonical Capability Map V1 (`blocked`)
 
 ## Fuori perimetro corrente
 

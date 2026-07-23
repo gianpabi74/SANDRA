@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T18:32:35Z`
+Aggiornato: `2026-07-23T18:42:41Z`
 
 ## Repository
 
@@ -76,9 +76,9 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `R3-000009C`
-- Journal: `journal/2026/07/R3-000009C-20260723T183234Z-b3dc239d.md`
+- RunBook: `R3-000009D`
+- Journal: `journal/2026/07/R3-000009D-20260723T184240Z-f5790720.md`
 
 ## Prossimo gate
 
-`R3-000009C` — Architecture Constitution Terminology
+`R3-000009D` — Constitutional Operational Contracts
