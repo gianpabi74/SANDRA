@@ -26,7 +26,7 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-23T08:10:45Z`;
+- aggiornato UTC: `2026-07-23T08:10:50Z`;
 - certificazione corrente: `RB-000068B-06`;
 - [Journal corrente](journal/2026/07/RB-000068B-06-20260723T081044Z-bea1d77c.md);
 - gate corrente: `RB-000069` — Architecture Baseline V2.
