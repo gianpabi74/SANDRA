@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T14:04:57Z`
+Aggiornato: `2026-07-23T14:11:14Z`
 
 ## Fase corrente
 
-`Architecture GRANITA Freeze V1`
+`Canonical Domain Migration`
 
 ## Gate
 
-1. **R3-000008** — Architecture GRANITA Freeze V1 (`complete`)
-2. **R3-000009** — Canonical Domain Migration (`blocked`)
+1. **R3-000009** — Canonical Domain Migration (`complete`)
+2. **R3-000010** — Application Ports Foundation (`blocked`)
 
 ## Fuori perimetro corrente
 

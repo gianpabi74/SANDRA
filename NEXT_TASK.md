@@ -3,43 +3,44 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000008 — Architecture GRANITA Freeze V1
+## R3-000009 — Canonical Domain Migration
 
 ### Tipo
 
-`constitutional_architecture_freeze`
+`canonical_source_migration`
 
 ### Target
 
+- src/sandra/domain/governance
+- tests/unit/domain
 - Knowledge canonica
-- struttura sorgente definitiva
-- contratto architetturale
-- validatore architetturale
 
 ### Target esclusi
 
 - sistemi remoti dell'Habitat
-- installazione software
+- src/domain removal
+- src/runtime removal
+- software installation
 
 ### Obiettivi
 
-- congelare i confini architetturali
-- creare lo scheletro definitivo
-- rendere Security permanente
-- registrare la validazione deterministica
+- publish certified domain under canonical source root
+- publish portable domain unit tests
+- prove byte identity with certified source
+- preserve historical migration sources
+- preserve Architecture GRANITA Freeze
 
 ### Divieti
 
-- nessuna rinomina dei layer
-- nessuno spostamento delle responsabilità
-- nessun ritorno al modello provider
-- nessun layer interfaces
-- nessun layer runtime generico
-- nessun layer policy separato
-- nessuna modifica ad intuito
+- no source deletion
+- no behavior modification
+- no dependency addition
+- no Habitat modification
+- no architecture change
+- no intuitive correction
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000009`
+`R3-000010`

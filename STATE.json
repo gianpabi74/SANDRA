@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "4.0.0",
+    "state_version": "4.1.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T14:04:57Z",
+    "updated_utc": "2026-07-23T14:11:14Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -161,38 +161,39 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000008",
-        "title": "Architecture GRANITA Freeze V1",
-        "type": "constitutional_architecture_freeze",
+        "runbook": "R3-000009",
+        "title": "Canonical Domain Migration",
+        "type": "canonical_source_migration",
         "targets": [
-          "Knowledge canonica",
-          "struttura sorgente definitiva",
-          "contratto architetturale",
-          "validatore architetturale"
+          "src/sandra/domain/governance",
+          "tests/unit/domain",
+          "Knowledge canonica"
         ],
         "excluded_targets": [
           "sistemi remoti dell'Habitat",
-          "installazione software"
+          "src/domain removal",
+          "src/runtime removal",
+          "software installation"
         ],
         "objectives": [
-          "congelare i confini architetturali",
-          "creare lo scheletro definitivo",
-          "rendere Security permanente",
-          "registrare la validazione deterministica"
+          "publish certified domain under canonical source root",
+          "publish portable domain unit tests",
+          "prove byte identity with certified source",
+          "preserve historical migration sources",
+          "preserve Architecture GRANITA Freeze"
         ],
         "prohibitions": [
-          "nessuna rinomina dei layer",
-          "nessuno spostamento delle responsabilità",
-          "nessun ritorno al modello provider",
-          "nessun layer interfaces",
-          "nessun layer runtime generico",
-          "nessun layer policy separato",
-          "nessuna modifica ad intuito"
+          "no source deletion",
+          "no behavior modification",
+          "no dependency addition",
+          "no Habitat modification",
+          "no architecture change",
+          "no intuitive correction"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000009",
-        "title": "Canonical Domain Migration",
+        "runbook": "R3-000010",
+        "title": "Application Ports Foundation",
         "status": "blocked"
       },
       "candidates": {
@@ -233,9 +234,9 @@
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000008A",
-      "run_id": "R3-000008A-20260723T140456Z-5feca815",
-      "journal": "journal/2026/07/R3-000008A-20260723T140456Z-5feca815.md"
+      "runbook": "R3-000009A",
+      "run_id": "R3-000009A-20260723T141112Z-d3e2a2e9",
+      "journal": "journal/2026/07/R3-000009A-20260723T141112Z-d3e2a2e9.md"
     },
     "components": {
       "core": {
@@ -461,10 +462,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Architecture GRANITA Freeze V1",
-      "current_gate": "R3-000008",
+      "phase": "Canonical Domain Migration",
+      "current_gate": "R3-000009",
       "current_gate_status": "complete",
-      "next_gate": "R3-000009"
+      "next_gate": "R3-000010"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -627,6 +628,23 @@
       "contract_validation": "pass",
       "canonical_source_root": "src/sandra",
       "security_family": "permanent",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "canonical_domain_migration_v1": {
+      "runbook": "R3-000009A",
+      "run_id": "R3-000009A-20260723T141112Z-d3e2a2e9",
+      "status": "certified",
+      "source": "src/domain/governance",
+      "canonical": "src/sandra/domain/governance",
+      "source_tests": "src/domain/tests",
+      "canonical_tests": "tests/unit/domain",
+      "migration_method": "verified_copy",
+      "byte_identity": "pass",
+      "unit_tests": "pass",
+      "resource_validation": "pass",
+      "architecture_freeze_validation": "pass",
+      "legacy_sources_preserved": true,
       "software_installed": "none",
       "remote_habitat_modifications": "none"
     }

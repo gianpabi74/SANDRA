@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T14:04:57Z`
+Aggiornato: `2026-07-23T14:11:14Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `R3-000008A`
+RunBook corrente: `R3-000009A`
 
-Journal corrente: `journal/2026/07/R3-000008A-20260723T140456Z-5feca815.md`
+Journal corrente: `journal/2026/07/R3-000009A-20260723T141112Z-d3e2a2e9.md`
 
 ## Principi permanenti
 
@@ -101,6 +101,6 @@ Journal corrente: `journal/2026/07/R3-000008A-20260723T140456Z-5feca815.md`
 
 ## Prossimo gate
 
-`R3-000008` — Architecture GRANITA Freeze V1
+`R3-000009` — Canonical Domain Migration
 
-Tipo: `constitutional_architecture_freeze`.
+Tipo: `canonical_source_migration`.

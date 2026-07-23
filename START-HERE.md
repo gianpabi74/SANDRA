@@ -26,10 +26,10 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-23T14:04:57Z`;
-- certificazione corrente: `R3-000008A`;
-- [Journal corrente](journal/2026/07/R3-000008A-20260723T140456Z-5feca815.md);
-- gate corrente: `R3-000008` — Architecture GRANITA Freeze V1.
+- aggiornato UTC: `2026-07-23T14:11:14Z`;
+- certificazione corrente: `R3-000009A`;
+- [Journal corrente](journal/2026/07/R3-000009A-20260723T141112Z-d3e2a2e9.md);
+- gate corrente: `R3-000009` — Canonical Domain Migration.
 
 ## Indice operativo
 
@@ -42,12 +42,12 @@ rispettando Costituzione, Knowledge e roadmap.
 7. [Prossimo task](NEXT_TASK.md)
 8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
 9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
-10. [Journal corrente](journal/2026/07/R3-000008A-20260723T140456Z-5feca815.md)
+10. [Journal corrente](journal/2026/07/R3-000009A-20260723T141112Z-d3e2a2e9.md)
 
 ## Indice dei gate
 
-- **R3-000008** — Architecture GRANITA Freeze V1 — stato `complete`
-- **R3-000009** — Canonical Domain Migration — stato `blocked`
+- **R3-000009** — Canonical Domain Migration — stato `complete`
+- **R3-000010** — Application Ports Foundation — stato `blocked`
 
 ## Regole operative
 
