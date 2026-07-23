@@ -1,0 +1,15 @@
+{
+  "apiVersion": "governance.sandra.io/v1",
+  "kind": "Relationship",
+  "metadata": {
+    "id": "rel_01k0example000001"
+  },
+  "sourceRef": "obj_01k0example000001",
+  "type": "hostedOn",
+  "targetRef": "obj_01k0example000002",
+  "evidenceRefs": [
+    "evd_01k0example000001"
+  ],
+  "validFrom": "2026-07-23T12:31:01Z",
+  "validUntil": null
+}

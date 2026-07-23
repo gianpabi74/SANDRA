@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "3.0.0",
+    "state_version": "3.1.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T12:05:53Z",
+    "updated_utc": "2026-07-23T12:11:44Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -21,8 +21,12 @@
       "document": "PROJECT_CHARTER.md"
     },
     "architecture": {
-      "version": "2.0.1",
-      "document": "ARCHITECTURE.md"
+      "version": "3.1.0",
+      "document": "ARCHITECTURE.md",
+      "model": "controller_reconciliation",
+      "resource_envelope": "kubernetes_api_conventions",
+      "semantic_attributes": "opentelemetry_guided",
+      "schema_standard": "json_schema_2020_12"
     },
     "knowledge": {
       "canonical_state": "STATE.json",
@@ -129,34 +133,35 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000001",
-        "title": "Governance Architecture Baseline",
-        "type": "architecture_knowledge_transition",
+        "runbook": "R3-000002",
+        "title": "Object and Evidence Model",
+        "type": "domain_contract",
         "targets": [
-          "repository SANDRA",
-          "Knowledge canonica"
+          "Knowledge canonica",
+          "schemi del dominio"
         ],
         "excluded_targets": [
-          "sistemi remoti dell'Habitat"
+          "sistemi remoti dell'Habitat",
+          "runtime operativa"
         ],
         "objectives": [
-          "adottare controller e reconciliation pattern",
-          "separare policy decision ed enforcement",
-          "definire confini degli strumenti esterni",
-          "riparare la struttura Knowledge dichiarata",
-          "preparare Object and Evidence Model"
+          "definire Managed Object",
+          "separare spec e status",
+          "definire Observation",
+          "definire Evidence",
+          "definire Relationship",
+          "fornire schemi machine-readable"
         ],
         "prohibitions": [
-          "nessuna modifica ai target remoti",
+          "nessuna modifica remota",
           "nessuna installazione software",
-          "nessuna AI decisionale",
-          "nessuna vista generata modificata manualmente",
+          "nessuna identità derivata da un solo segnale debole",
           "nessuna correzione ad intuito"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000002",
-        "title": "Object and Evidence Model",
+        "runbook": "R3-000003",
+        "title": "Capability and Policy Contract",
         "status": "blocked"
       },
       "candidates": {
@@ -194,9 +199,9 @@
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000001A",
-      "run_id": "R3-000001A-20260723T120553Z-dec97d29",
-      "journal": "journal/2026/07/R3-000001A-20260723T120553Z-dec97d29.md"
+      "runbook": "R3-000002A",
+      "run_id": "R3-000002A-20260723T121144Z-19aad428",
+      "journal": "journal/2026/07/R3-000002A-20260723T121144Z-19aad428.md"
     },
     "components": {
       "core": {
@@ -420,10 +425,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Governance Architecture Baseline",
-      "current_gate": "R3-000001",
-      "current_gate_status": "in_progress",
-      "next_gate": "R3-000002"
+      "phase": "Object and Evidence Model",
+      "current_gate": "R3-000002",
+      "current_gate_status": "complete",
+      "next_gate": "R3-000003"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -527,6 +532,18 @@
       "controller_pattern": "accepted",
       "policy_decision_point": "opa_candidate",
       "execution_engine": "ansible_core_candidate",
+      "remote_habitat_modifications": "none",
+      "software_installed": "none"
+    },
+    "object_evidence_model_v1": {
+      "runbook": "R3-000002A",
+      "run_id": "R3-000002A-20260723T121144Z-19aad428",
+      "status": "certified",
+      "managed_object": "defined",
+      "observation": "defined",
+      "evidence": "defined",
+      "relationship": "defined",
+      "schemas": "json_schema_2020_12",
       "remote_habitat_modifications": "none",
       "software_installed": "none"
     }

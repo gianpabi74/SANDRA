@@ -1,0 +1,22 @@
+{
+  "apiVersion": "governance.sandra.io/v1",
+  "kind": "Evidence",
+  "metadata": {
+    "id": "evd_01k0example000001"
+  },
+  "subjectRef": "obj_01k0example000001",
+  "observationRefs": [
+    "obs_01k0example000001"
+  ],
+  "authority": "authoritative",
+  "provenance": {
+    "collector": "linux",
+    "interface": "openssh",
+    "authenticated": true
+  },
+  "integrity": {
+    "algorithm": "sha256",
+    "digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "capturedAt": "2026-07-23T12:31:01Z"
+}

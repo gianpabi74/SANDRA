@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sandra.local/schemas/observation.schema.json",
+  "title": "Observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "subjectRef",
+    "source",
+    "observedAt",
+    "attribute",
+    "value",
+    "quality",
+    "rawArtifactRef"
+  ],
+  "properties": {
+    "apiVersion": {
+      "const": "governance.sandra.io/v1"
+    },
+    "kind": {
+      "const": "Observation"
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^obs_[a-z0-9]{16,64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "subjectRef": {
+      "type": "string",
+      "pattern": "^obj_[a-z0-9]{16,64}$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "adapter",
+        "tool",
+        "version",
+        "method"
+      ],
+      "properties": {
+        "adapter": {
+          "type": "string"
+        },
+        "tool": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        }
+      }
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "attribute": {
+      "type": "string",
+      "minLength": 1
+    },
+    "value": {},
+    "unit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "quality": {
+      "enum": [
+        "authoritative",
+        "corroborated",
+        "candidate",
+        "conflicting"
+      ]
+    },
+    "rawArtifactRef": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

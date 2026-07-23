@@ -1,0 +1,20 @@
+{
+  "apiVersion": "governance.sandra.io/v1",
+  "kind": "Observation",
+  "metadata": {
+    "id": "obs_01k0example000001"
+  },
+  "subjectRef": "obj_01k0example000001",
+  "source": {
+    "adapter": "linux",
+    "tool": "openssh",
+    "version": "unknown",
+    "method": "authenticated-command"
+  },
+  "observedAt": "2026-07-23T12:31:00Z",
+  "attribute": "system.memory.available",
+  "value": 4096,
+  "unit": "MiBy",
+  "quality": "authoritative",
+  "rawArtifactRef": "artifact://example/memory.txt"
+}

@@ -1,0 +1,48 @@
+{
+  "apiVersion": "governance.sandra.io/v1",
+  "kind": "ManagedObject",
+  "metadata": {
+    "id": "obj_01k0example000001",
+    "name": "example-workload",
+    "labels": {
+      "environment": "managed",
+      "class": "compute-workload"
+    },
+    "annotations": {},
+    "createdAt": "2026-07-23T12:30:00Z",
+    "updatedAt": "2026-07-23T12:30:00Z"
+  },
+  "spec": {
+    "classifications": [
+      "compute",
+      "virtual"
+    ],
+    "roles": [
+      "application-workload"
+    ],
+    "protectionProfile": "standard",
+    "declaredIdentifiers": [
+      {
+        "scheme": "administrative-name",
+        "value": "example-workload",
+        "authority": "declared"
+      }
+    ],
+    "requiredCapabilities": [
+      "compute.state.read"
+    ],
+    "policyBindings": []
+  },
+  "status": {
+    "phase": "candidate",
+    "technology": {
+      "id": null,
+      "status": "unknown",
+      "evidenceIds": []
+    },
+    "availableCapabilities": [],
+    "conditions": [],
+    "latestObservationAt": null,
+    "reconciliationRevision": 0
+  }
+}

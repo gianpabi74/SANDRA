@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sandra.local/schemas/evidence.schema.json",
+  "title": "Evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "subjectRef",
+    "observationRefs",
+    "authority",
+    "provenance",
+    "integrity",
+    "capturedAt"
+  ],
+  "properties": {
+    "apiVersion": {
+      "const": "governance.sandra.io/v1"
+    },
+    "kind": {
+      "const": "Evidence"
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^evd_[a-z0-9]{16,64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "subjectRef": {
+      "type": "string",
+      "pattern": "^obj_[a-z0-9]{16,64}$"
+    },
+    "observationRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^obs_[a-z0-9]{16,64}$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "authority": {
+      "enum": [
+        "authoritative",
+        "corroborated",
+        "candidate",
+        "conflicting"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "collector",
+        "interface",
+        "authenticated"
+      ],
+      "properties": {
+        "collector": {
+          "type": "string"
+        },
+        "interface": {
+          "type": "string"
+        },
+        "authenticated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "algorithm",
+        "digest"
+      ],
+      "properties": {
+        "algorithm": {
+          "const": "sha256"
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "capturedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

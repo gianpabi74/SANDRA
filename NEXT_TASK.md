@@ -3,39 +3,40 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000001 — Governance Architecture Baseline
+## R3-000002 — Object and Evidence Model
 
 ### Tipo
 
-`architecture_knowledge_transition`
+`domain_contract`
 
 ### Target
 
-- repository SANDRA
 - Knowledge canonica
+- schemi del dominio
 
 ### Target esclusi
 
 - sistemi remoti dell'Habitat
+- runtime operativa
 
 ### Obiettivi
 
-- adottare controller e reconciliation pattern
-- separare policy decision ed enforcement
-- definire confini degli strumenti esterni
-- riparare la struttura Knowledge dichiarata
-- preparare Object and Evidence Model
+- definire Managed Object
+- separare spec e status
+- definire Observation
+- definire Evidence
+- definire Relationship
+- fornire schemi machine-readable
 
 ### Divieti
 
-- nessuna modifica ai target remoti
+- nessuna modifica remota
 - nessuna installazione software
-- nessuna AI decisionale
-- nessuna vista generata modificata manualmente
+- nessuna identità derivata da un solo segnale debole
 - nessuna correzione ad intuito
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000002`
+`R3-000003`

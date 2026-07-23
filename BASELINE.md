@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T12:05:53Z`
+Aggiornato: `2026-07-23T12:11:44Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `R3-000001A`
+RunBook corrente: `R3-000002A`
 
-Journal corrente: `journal/2026/07/R3-000001A-20260723T120553Z-dec97d29.md`
+Journal corrente: `journal/2026/07/R3-000002A-20260723T121144Z-19aad428.md`
 
 ## Principi permanenti
 
@@ -96,6 +96,6 @@ Journal corrente: `journal/2026/07/R3-000001A-20260723T120553Z-dec97d29.md`
 
 ## Prossimo gate
 
-`R3-000001` — Governance Architecture Baseline
+`R3-000002` — Object and Evidence Model
 
-Tipo: `architecture_knowledge_transition`.
+Tipo: `domain_contract`.

@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T12:05:53Z`
+Aggiornato: `2026-07-23T12:11:44Z`
 
 ## Repository
 
@@ -76,9 +76,9 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `R3-000001A`
-- Journal: `journal/2026/07/R3-000001A-20260723T120553Z-dec97d29.md`
+- RunBook: `R3-000002A`
+- Journal: `journal/2026/07/R3-000002A-20260723T121144Z-19aad428.md`
 
 ## Prossimo gate
 
-`R3-000001` — Governance Architecture Baseline
+`R3-000002` — Object and Evidence Model

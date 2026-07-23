@@ -26,10 +26,10 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-23T12:05:53Z`;
-- certificazione corrente: `R3-000001A`;
-- [Journal corrente](journal/2026/07/R3-000001A-20260723T120553Z-dec97d29.md);
-- gate corrente: `R3-000001` — Governance Architecture Baseline.
+- aggiornato UTC: `2026-07-23T12:11:44Z`;
+- certificazione corrente: `R3-000002A`;
+- [Journal corrente](journal/2026/07/R3-000002A-20260723T121144Z-19aad428.md);
+- gate corrente: `R3-000002` — Object and Evidence Model.
 
 ## Indice operativo
 
@@ -42,12 +42,12 @@ rispettando Costituzione, Knowledge e roadmap.
 7. [Prossimo task](NEXT_TASK.md)
 8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
 9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
-10. [Journal corrente](journal/2026/07/R3-000001A-20260723T120553Z-dec97d29.md)
+10. [Journal corrente](journal/2026/07/R3-000002A-20260723T121144Z-19aad428.md)
 
 ## Indice dei gate
 
-- **R3-000001** — Governance Architecture Baseline — stato `in_progress`
-- **R3-000002** — Object and Evidence Model — stato `blocked`
+- **R3-000002** — Object and Evidence Model — stato `complete`
+- **R3-000003** — Capability and Policy Contract — stato `blocked`
 
 ## Regole operative
 

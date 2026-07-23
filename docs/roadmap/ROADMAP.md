@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T12:05:53Z`
+Aggiornato: `2026-07-23T12:11:44Z`
 
 ## Fase corrente
 
-`Governance Architecture Baseline`
+`Object and Evidence Model`
 
 ## Gate
 
-1. **R3-000001** — Governance Architecture Baseline (`in_progress`)
-2. **R3-000002** — Object and Evidence Model (`blocked`)
+1. **R3-000002** — Object and Evidence Model (`complete`)
+2. **R3-000003** — Capability and Policy Contract (`blocked`)
 
 ## Fuori perimetro corrente
 
