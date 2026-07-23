@@ -3,23 +3,23 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T09:14:53Z`
+Aggiornato: `2026-07-23T12:05:53Z`
 
 ## Fase corrente
 
-`Architecture Baseline V2`
+`Governance Architecture Baseline`
 
 ## Gate
 
-1. **RB-000069** — Architecture Baseline V2 (`in_progress`)
-2. **RB-000070** — Object and Evidence Model (`blocked`)
+1. **R3-000001** — Governance Architecture Baseline (`in_progress`)
+2. **R3-000002** — Object and Evidence Model (`blocked`)
 
 ## Fuori perimetro corrente
 
-- nuove tecnologie prima della Architecture Baseline V2
 - interfaccia grafica
 - AI decisionale
-- modifiche remote durante la migrazione Knowledge
+- modifiche remote durante il gate
+- installazione strumenti prima dei contratti
 
 ## Vincoli permanenti
 
@@ -33,6 +33,11 @@ Aggiornato: `2026-07-23T09:14:53Z`
 - SANDRA finalizzata al governo autonomo dell'Habitat
 - stato corrente riscritto e storia separata
 - Knowledge e GitHub aggiornati nella stessa transazione
+- controller e reconciliation loop come modello operativo
+- policy decision separata dall'enforcement
+- autonomia delegata dalle policy
+- strumenti maturi orchestrati, non reinventati
+- nessuna correzione ad intuito
 
 - `STATE.json` è la sorgente viva canonica.
 - Le viste Markdown sono generate.

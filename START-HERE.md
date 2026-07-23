@@ -26,10 +26,10 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-23T09:14:53Z`;
-- certificazione corrente: `RB-000069B3A`;
-- [Journal corrente](journal/2026/07/RB-000069B3A-20260723T091449Z-e114a190.md);
-- gate corrente: `RB-000069` — Architecture Baseline V2.
+- aggiornato UTC: `2026-07-23T12:05:53Z`;
+- certificazione corrente: `R3-000001A`;
+- [Journal corrente](journal/2026/07/R3-000001A-20260723T120553Z-dec97d29.md);
+- gate corrente: `R3-000001` — Governance Architecture Baseline.
 
 ## Indice operativo
 
@@ -42,12 +42,12 @@ rispettando Costituzione, Knowledge e roadmap.
 7. [Prossimo task](NEXT_TASK.md)
 8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
 9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
-10. [Journal corrente](journal/2026/07/RB-000069B3A-20260723T091449Z-e114a190.md)
+10. [Journal corrente](journal/2026/07/R3-000001A-20260723T120553Z-dec97d29.md)
 
 ## Indice dei gate
 
-- **RB-000069** — Architecture Baseline V2 — stato `in_progress`
-- **RB-000070** — Object and Evidence Model — stato `blocked`
+- **R3-000001** — Governance Architecture Baseline — stato `in_progress`
+- **R3-000002** — Object and Evidence Model — stato `blocked`
 
 ## Regole operative
 
@@ -61,6 +61,11 @@ rispettando Costituzione, Knowledge e roadmap.
 - SANDRA finalizzata al governo autonomo dell'Habitat
 - stato corrente riscritto e storia separata
 - Knowledge e GitHub aggiornati nella stessa transazione
+- controller e reconciliation loop come modello operativo
+- policy decision separata dall'enforcement
+- autonomia delegata dalle policy
+- strumenti maturi orchestrati, non reinventati
+- nessuna correzione ad intuito
 
 ## Stato sintetico
 

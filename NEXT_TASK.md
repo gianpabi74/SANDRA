@@ -3,11 +3,11 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## RB-000069 — Architecture Baseline V2
+## R3-000001 — Governance Architecture Baseline
 
 ### Tipo
 
-`engineering_knowledge_migration`
+`architecture_knowledge_transition`
 
 ### Target
 
@@ -20,20 +20,22 @@
 
 ### Obiettivi
 
-- completare la Knowledge V2
-- rigenerare tutte le viste canoniche
-- validare la continuità fra sessioni
-- sincronizzare e verificare GitHub
+- adottare controller e reconciliation pattern
+- separare policy decision ed enforcement
+- definire confini degli strumenti esterni
+- riparare la struttura Knowledge dichiarata
+- preparare Object and Evidence Model
 
 ### Divieti
 
 - nessuna modifica ai target remoti
-- nessuna nuova tecnologia
-- nessuna vista canonica modificata manualmente
-- nessuna informazione critica lasciata soltanto in chat
+- nessuna installazione software
+- nessuna AI decisionale
+- nessuna vista generata modificata manualmente
+- nessuna correzione ad intuito
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`RB-000070`
+`R3-000002`

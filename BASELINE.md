@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T09:14:53Z`
+Aggiornato: `2026-07-23T12:05:53Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `RB-000069B3A`
+RunBook corrente: `R3-000001A`
 
-Journal corrente: `journal/2026/07/RB-000069B3A-20260723T091449Z-e114a190.md`
+Journal corrente: `journal/2026/07/R3-000001A-20260723T120553Z-dec97d29.md`
 
 ## Principi permanenti
 
@@ -25,6 +25,11 @@ Journal corrente: `journal/2026/07/RB-000069B3A-20260723T091449Z-e114a190.md`
 - SANDRA finalizzata al governo autonomo dell'Habitat
 - stato corrente riscritto e storia separata
 - Knowledge e GitHub aggiornati nella stessa transazione
+- controller e reconciliation loop come modello operativo
+- policy decision separata dall'enforcement
+- autonomia delegata dalle policy
+- strumenti maturi orchestrati, non reinventati
+- nessuna correzione ad intuito
 
 ## Core
 
@@ -91,6 +96,6 @@ Journal corrente: `journal/2026/07/RB-000069B3A-20260723T091449Z-e114a190.md`
 
 ## Prossimo gate
 
-`RB-000069` — Architecture Baseline V2
+`R3-000001` — Governance Architecture Baseline
 
-Tipo: `engineering_knowledge_migration`.
+Tipo: `architecture_knowledge_transition`.
