@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T20:53:59Z`
+Aggiornato: `2026-07-23T21:07:48Z`
 
 ## Fase corrente
 
-`Canonical Domain Purification`
+`Application Ports Foundation`
 
 ## Gate
 
-1. **R3-000009F** — Canonical Domain Purification (`complete`)
-2. **R3-000010** — Application Ports Foundation (`blocked`)
+1. **R3-000010** — Application Ports Foundation (`complete`)
+2. **R3-000011** — Observation Use Case Foundation (`blocked`)
 
 ## Fuori perimetro corrente
 

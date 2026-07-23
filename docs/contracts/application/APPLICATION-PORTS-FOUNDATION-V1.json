@@ -1,0 +1,56 @@
+{
+  "apiVersion": "application.sandra.io/v1",
+  "kind": "ApplicationPortsFoundation",
+  "metadata": {
+    "id": "application-ports-foundation-v1",
+    "name": "SANDRA Application Ports Foundation V1",
+    "status": "immutable"
+  },
+  "spec": {
+    "root": "src/sandra/application",
+    "inboundPorts": [
+      "CommandHandler",
+      "QueryHandler"
+    ],
+    "outboundPorts": [
+      "Repository",
+      "EventBus",
+      "UnitOfWork"
+    ],
+    "applicationTypes": [
+      "ApplicationMessage",
+      "Command",
+      "Query",
+      "ApplicationResult",
+      "ApplicationError"
+    ],
+    "useCaseContract": "UseCase",
+    "rules": [
+      "application ports are technology-independent",
+      "inbound ports drive use cases",
+      "outbound ports are implemented by adapters",
+      "the application layer may depend on domain contracts",
+      "the application layer must not import controllers adapters or bootstrap",
+      "concrete products and transports are forbidden",
+      "concrete use cases are outside the scope of this foundation gate"
+    ],
+    "forbiddenTerms": [
+      "proxmox",
+      "pve",
+      "vmware",
+      "linux",
+      "windows",
+      "pbs",
+      "openvas",
+      "greenbone",
+      "opa",
+      "ssh",
+      "winrm",
+      "telegram",
+      "prometheus",
+      "alertmanager",
+      "nmap",
+      "ansible"
+    ]
+  }
+}

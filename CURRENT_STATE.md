@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T20:53:59Z`
+Aggiornato: `2026-07-23T21:07:48Z`
 
 ## Repository
 
@@ -76,9 +76,9 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `R3-000009F`
-- Journal: `journal/2026/07/R3-000009F-20260723T205356Z-db835633.md`
+- RunBook: `R3-000010`
+- Journal: `journal/2026/07/R3-000010-20260723T210747Z-89294ddf.md`
 
 ## Prossimo gate
 
-`R3-000009F` — Canonical Domain Purification
+`R3-000010` — Application Ports Foundation

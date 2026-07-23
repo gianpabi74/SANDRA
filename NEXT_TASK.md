@@ -3,41 +3,40 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000009F — Canonical Domain Purification
+## R3-000010 — Application Ports Foundation
 
 ### Tipo
 
-`domain_boundary_enforcement`
+`application_contract_foundation`
 
 ### Target
 
-- src/sandra/domain/governance
-- src/sandra/adapters/inbound/governance_resource_cli
+- src/sandra/application
+- tests/contract/application
+- docs/contracts/application/APPLICATION-PORTS-FOUNDATION-V1.json
 - STATE.json
-- Knowledge canonical history
 
 ### Target esclusi
 
-- legacy src/domain
-- legacy src/runtime
-- application implementation
-- controller implementation
-- outbound adapter implementation
+- concrete use cases
+- controllers
+- outbound adapters
 - remote Habitat
 - software installation
 
 ### Obiettivi
 
-- remove CLI responsibility from canonical domain
-- create the canonical inbound CLI adapter
-- preserve externally observable CLI behavior
-- certify the inward dependency direction
+- establish technology-independent application messages
+- establish inbound command and query ports
+- establish outbound persistence event and unit-of-work ports
+- certify dependency direction
 
 ### Divieti
 
-- no domain behavior change
-- no legacy source deletion
-- no architecture change
+- no product-specific application contract
+- no controller dependency
+- no adapter dependency
+- no bootstrap dependency
 - no Habitat modification
 - no software installation
 
@@ -45,4 +44,4 @@
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000010`
+`R3-000011`

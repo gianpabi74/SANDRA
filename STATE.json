@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "4.4.0",
+    "state_version": "5.0.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T20:53:59Z",
+    "updated_utc": "2026-07-23T21:07:48Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -163,41 +163,40 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000009F",
-        "title": "Canonical Domain Purification",
-        "type": "domain_boundary_enforcement",
+        "runbook": "R3-000010",
+        "title": "Application Ports Foundation",
+        "type": "application_contract_foundation",
         "targets": [
-          "src/sandra/domain/governance",
-          "src/sandra/adapters/inbound/governance_resource_cli",
-          "STATE.json",
-          "Knowledge canonical history"
+          "src/sandra/application",
+          "tests/contract/application",
+          "docs/contracts/application/APPLICATION-PORTS-FOUNDATION-V1.json",
+          "STATE.json"
         ],
         "excluded_targets": [
-          "legacy src/domain",
-          "legacy src/runtime",
-          "application implementation",
-          "controller implementation",
-          "outbound adapter implementation",
+          "concrete use cases",
+          "controllers",
+          "outbound adapters",
           "remote Habitat",
           "software installation"
         ],
         "objectives": [
-          "remove CLI responsibility from canonical domain",
-          "create the canonical inbound CLI adapter",
-          "preserve externally observable CLI behavior",
-          "certify the inward dependency direction"
+          "establish technology-independent application messages",
+          "establish inbound command and query ports",
+          "establish outbound persistence event and unit-of-work ports",
+          "certify dependency direction"
         ],
         "prohibitions": [
-          "no domain behavior change",
-          "no legacy source deletion",
-          "no architecture change",
+          "no product-specific application contract",
+          "no controller dependency",
+          "no adapter dependency",
+          "no bootstrap dependency",
           "no Habitat modification",
           "no software installation"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000010",
-        "title": "Application Ports Foundation",
+        "runbook": "R3-000011",
+        "title": "Observation Use Case Foundation",
         "status": "blocked"
       },
       "candidates": {
@@ -303,13 +302,39 @@
         "domain does not depend on inbound adapter"
       ],
       "legacy_sources_preserved": true
+    },
+    "application_foundation": {
+      "version": "1.0.0",
+      "id": "application-ports-foundation-v1",
+      "status": "certified_immutable",
+      "root": "src/sandra/application",
+      "contract": "docs/contracts/application/APPLICATION-PORTS-FOUNDATION-V1.json",
+      "validator": "src/knowledge/validate_application_foundation.py",
+      "inbound_ports": [
+        "CommandHandler",
+        "QueryHandler"
+      ],
+      "outbound_ports": [
+        "Repository",
+        "EventBus",
+        "UnitOfWork"
+      ],
+      "application_types": [
+        "ApplicationMessage",
+        "Command",
+        "Query",
+        "ApplicationResult",
+        "ApplicationError"
+      ],
+      "use_case_contract": "UseCase",
+      "concrete_use_cases": 0
     }
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000009F",
-      "run_id": "R3-000009F-20260723T205356Z-db835633",
-      "journal": "journal/2026/07/R3-000009F-20260723T205356Z-db835633.md"
+      "runbook": "R3-000010",
+      "run_id": "R3-000010-20260723T210747Z-89294ddf",
+      "journal": "journal/2026/07/R3-000010-20260723T210747Z-89294ddf.md"
     },
     "components": {
       "core": {
@@ -535,10 +560,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Canonical Domain Purification",
-      "current_gate": "R3-000009F",
+      "phase": "Application Ports Foundation",
+      "current_gate": "R3-000010",
       "current_gate_status": "complete",
-      "next_gate": "R3-000010"
+      "next_gate": "R3-000011"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -768,6 +793,22 @@
       "architecture_constitution": "pass",
       "capability_map": "pass",
       "legacy_sources_preserved": true,
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "application_ports_foundation_v1": {
+      "runbook": "R3-000010",
+      "run_id": "R3-000010-20260723T210747Z-89294ddf",
+      "status": "certified_immutable",
+      "python_file_count": 14,
+      "inbound_port_count": 2,
+      "outbound_port_count": 3,
+      "concrete_use_case_count": 0,
+      "contract_tests": "pass",
+      "architecture_validation": "pass",
+      "capability_map_validation": "pass",
+      "outer_layer_imports": "none",
+      "product_terms": "none",
       "software_installed": "none",
       "remote_habitat_modifications": "none"
     }
