@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SANDRA_KNOWLEDGE_VERSION="1.0.0"
+SANDRA_KNOWLEDGE_VERSION="2.0.0"
 SANDRA_KNOWLEDGE_ROOT="/opt/sandra/knowledge"
 SANDRA_KNOWLEDGE_MANIFEST="${SANDRA_KNOWLEDGE_ROOT}/manifest/KNOWLEDGE_MANIFEST.json"
 
@@ -22,9 +22,9 @@ manifest_path = pathlib.Path(sys.argv[1])
 root = pathlib.Path(sys.argv[2])
 manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
 
-assert manifest["schema_version"] == 1
+assert manifest["schema_version"] == 2
 assert pathlib.Path(manifest["knowledge_root"]) == root
-assert manifest["generated_index"] == "START_HERE.md"
+assert manifest["generated_index"] == "START-HERE.md"
 
 for key in ("root_documents", "sections", "source_roots"):
     assert isinstance(manifest[key], list) and manifest[key]
@@ -111,85 +111,7 @@ PYTHON
 }
 
 knowledge_generate_index() {
-    knowledge_validate_manifest
-
-    python3 - "${SANDRA_KNOWLEDGE_MANIFEST}" "${SANDRA_KNOWLEDGE_ROOT}" <<'PYTHON'
-import json
-import pathlib
-import sys
-from datetime import datetime, timezone
-
-manifest_path = pathlib.Path(sys.argv[1])
-root = pathlib.Path(sys.argv[2])
-manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-
-def document_title(path):
-    try:
-        for line in path.read_text(encoding="utf-8").splitlines():
-            if line.startswith("# "):
-                return line[2:].strip()
-    except OSError:
-        pass
-    return path.stem.replace("_", " ").replace("-", " ").title()
-
-lines = [
-    "# Start Here",
-    "",
-    "Indice generato automaticamente dal modulo Knowledge.",
-    "",
-    f"Generato UTC: {datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}",
-    "",
-    "## Ordine di lettura",
-    "",
-]
-
-for item in sorted(manifest["root_documents"], key=lambda x: x["order"]):
-    path = root / item["path"]
-    if path.is_file():
-        lines.append(f"{item['order']}. [{item['title']}]({item['path']})")
-
-lines.extend(["", "## Documentazione canonica", ""])
-
-for section in sorted(manifest["sections"], key=lambda x: x["order"]):
-    section_root = root / section["root"]
-    lines.extend([
-        f"### {section['title']}",
-        "",
-        f"Owner: `{section['owner']}`  ",
-        f"Path: `{section['root']}`",
-        "",
-    ])
-
-    documents = sorted(section_root.rglob("*.md"))
-
-    if not documents:
-        lines.append("_Nessun documento pubblicato._")
-    else:
-        for document in documents:
-            relative = document.relative_to(root).as_posix()
-            lines.append(f"- [{document_title(document)}]({relative})")
-
-    lines.append("")
-
-lines.extend([
-    "## Regola di pubblicazione",
-    "",
-    "1. Inserire il documento nella directory canonica.",
-    "2. Eseguire `knowledge_generate_index`.",
-    "3. Eseguire `knowledge_validate`.",
-    "4. Eseguire `knowledge_sync \"messaggio commit\"`.",
-    "",
-    "Non modificare manualmente questo indice.",
-    "",
-])
-
-target = root / manifest["generated_index"]
-temporary = target.with_suffix(".tmp")
-temporary.write_text("\n".join(lines), encoding="utf-8")
-temporary.replace(target)
-
-print(f"KNOWLEDGE_INDEX={target}")
-PYTHON
+    knowledge_generate_views
 }
 
 knowledge_assert_clean() {

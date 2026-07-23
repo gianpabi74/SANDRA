@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "knowledge_root": "/opt/sandra/knowledge",
-  "generated_index": "START_HERE.md",
+  "generated_index": "START-HERE.md",
   "root_documents": [
     {
       "path": "README.md",
@@ -34,8 +34,8 @@
       "order": 50
     },
     {
-      "path": "ROADMAP.md",
-      "title": "Project Roadmap",
+      "path": "docs/roadmap/ROADMAP.md",
+      "title": "Strategic Roadmap",
       "owner": "governance",
       "order": 60
     }

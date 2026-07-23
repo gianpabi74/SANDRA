@@ -3,53 +3,37 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## RB-000062 — Risoluzione deterministica oggetto-servizio Linux
+## RB-000069 — Architecture Baseline V2
 
 ### Tipo
 
-`remote_read_only_resolution`
+`engineering_knowledge_migration`
 
 ### Target
 
-- PBS
-- TRANSMISSION
-- PIHOLE
-- PIHOLE2
-- PLEX
-- NAVIDROME
-- SERVARR
-- PASSBOLT
-- NGINX
+- repository SANDRA
+- Knowledge canonica
 
 ### Target esclusi
 
-- PVE
-- SANDRA
-- Windows systems
+- sistemi remoti dell'Habitat
 
 ### Obiettivi
 
-- associare deterministicamente ogni oggetto applicativo alla relativa unita systemd
-- usare il nome oggetto, il profilo e l'inventario systemd certificato
-- produrre esclusivamente RESOLVED, NOT_FOUND o AMBIGUOUS
-- proseguire esclusivamente quando tutti gli oggetti applicativi risultano RESOLVED
-- registrare la mappa oggetto-servizio come evidenza machine-readable
+- completare la Knowledge V2
+- rigenerare tutte le viste canoniche
+- validare la continuità fra sessioni
+- sincronizzare e verificare GitHub
 
 ### Divieti
 
-- nessuna approvazione manuale dei servizi
-- nessuna modifica ai target
-- nessun systemctl start
-- nessun systemctl stop
-- nessun systemctl restart
-- nessun systemctl enable
-- nessun systemctl disable
-- nessuna modifica ai profili
-- nessuna implementazione LinuxService
-- nessuna scelta in caso di ambiguita
+- nessuna modifica ai target remoti
+- nessuna nuova tecnologia
+- nessuna vista canonica modificata manualmente
+- nessuna informazione critica lasciata soltanto in chat
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`RB-000063`
+`RB-000070`

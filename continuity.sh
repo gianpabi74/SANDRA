@@ -2,149 +2,90 @@
 
 knowledge_generate_views() {
     local root="${SANDRA_KNOWLEDGE_ROOT:-/opt/sandra/knowledge}"
-
-    python3 \
-        "${root}/generate_views.py"
+    python3 "${root}/generate_views.py"
 }
 
 knowledge_generated_views_check() {
     local root="${SANDRA_KNOWLEDGE_ROOT:-/opt/sandra/knowledge}"
-
-    python3 \
-        "${root}/generate_views.py" \
-        --check
+    python3 "${root}/generate_views.py" --check
 }
 
 knowledge_continuity_validate() {
     local root="${SANDRA_KNOWLEDGE_ROOT:-/opt/sandra/knowledge}"
     local state="${root}/STATE.json"
-    local constitution="${root}/docs/constitution/KNOWLEDGE-CONTINUITY.md"
-    local windows_version_file="${root}/src/providers/windows/VERSION"
-    local linux_version_file="${root}/src/providers/linux/VERSION"
+    local windows_version="${root}/src/providers/windows/VERSION"
+    local linux_version="${root}/src/providers/linux/VERSION"
 
     for file in \
-        "$state" \
-        "$constitution" \
-        "$windows_version_file" \
-        "$linux_version_file" \
-        "${root}/generate_views.py"; do
-
-        test -s "$file" || {
-            printf 'CONTINUITY_FILE_INVALID=%s\n' \
-                "$file" >&2
+        "${state}" \
+        "${root}/PROJECT_CHARTER.md" \
+        "${root}/ARCHITECTURE.md" \
+        "${root}/generate_views.py" \
+        "${windows_version}" \
+        "${linux_version}"; do
+        test -s "${file}" || {
+            printf 'CONTINUITY_FILE_INVALID=%s\n' "${file}" >&2
             return 1
         }
     done
 
     python3 - \
-        "$state" \
-        "$root" \
-        "$windows_version_file" \
-        "$linux_version_file" <<'PY'
+        "${state}" \
+        "${root}" \
+        "${windows_version}" \
+        "${linux_version}" <<'PYTHON'
 import json
 import pathlib
 import sys
 
 state_path = pathlib.Path(sys.argv[1])
 root = pathlib.Path(sys.argv[2])
-windows_version_path = pathlib.Path(sys.argv[3])
-linux_version_path = pathlib.Path(sys.argv[4])
+windows_version = pathlib.Path(sys.argv[3]).read_text(
+    encoding="utf-8"
+).strip()
+linux_version = pathlib.Path(sys.argv[4]).read_text(
+    encoding="utf-8"
+).strip()
 
-state = json.loads(
-    state_path.read_text(encoding="utf-8")
-)
+state = json.loads(state_path.read_text(encoding="utf-8"))
 
-if state.get("schema_version") != 2:
-    raise SystemExit(
-        "CONTINUITY_SCHEMA_VERSION_INVALID"
-    )
+if set(state) != {"metadata", "spec", "status"}:
+    raise SystemExit("CONTINUITY_TOP_LEVEL_MODEL_INVALID")
 
-project = state.get("project", {})
+metadata = state["metadata"]
+spec = state["spec"]
+status = state["status"]
 
-if project.get("repository") != (
+if metadata.get("api_version") != "sandra.io/v2":
+    raise SystemExit("CONTINUITY_API_VERSION_INVALID")
+
+if metadata.get("repository") != (
     "https://github.com/gianpabi74/SANDRA"
 ):
-    raise SystemExit(
-        "CONTINUITY_REPOSITORY_INVALID"
-    )
+    raise SystemExit("CONTINUITY_REPOSITORY_INVALID")
 
-if project.get("branch") != "main":
-    raise SystemExit(
-        "CONTINUITY_BRANCH_INVALID"
-    )
+if metadata.get("branch") != "main":
+    raise SystemExit("CONTINUITY_BRANCH_INVALID")
 
-windows_version = windows_version_path.read_text(
-    encoding="utf-8"
-).strip()
+providers = status.get("providers", {})
 
-linux_version = linux_version_path.read_text(
-    encoding="utf-8"
-).strip()
+if providers.get("windows", {}).get("version") != windows_version:
+    raise SystemExit("CONTINUITY_WINDOWS_VERSION_MISMATCH")
 
-providers = state.get("providers", {})
+if providers.get("linux", {}).get("version") != linux_version:
+    raise SystemExit("CONTINUITY_LINUX_VERSION_MISMATCH")
 
-if (
-    providers.get("windows", {}).get("version")
-    != windows_version
-):
-    raise SystemExit(
-        "CONTINUITY_WINDOWS_VERSION_MISMATCH"
-    )
-
-if (
-    providers.get("linux", {}).get("version")
-    != linux_version
-):
-    raise SystemExit(
-        "CONTINUITY_LINUX_VERSION_MISMATCH"
-    )
-
-certification = project.get(
-    "current_certification",
-    {},
-)
-
+certification = status.get("current_certification", {})
 journal = certification.get("journal")
 runbook = certification.get("runbook")
 
 if not journal or not runbook:
-    raise SystemExit(
-        "CONTINUITY_CERTIFICATION_INVALID"
-    )
+    raise SystemExit("CONTINUITY_CERTIFICATION_INVALID")
 
-journal_path = root / journal
+if not (root / journal).is_file():
+    raise SystemExit("CONTINUITY_JOURNAL_INVALID")
 
-if (
-    not journal_path.is_file()
-    or journal_path.stat().st_size == 0
-):
-    raise SystemExit(
-        "CONTINUITY_JOURNAL_INVALID:"
-        + str(journal)
-    )
-
-next_task = state.get("next_task", {})
-
-if next_task.get("runbook") != "RB-000062":
-    raise SystemExit(
-        "CONTINUITY_NEXT_RUNBOOK_INVALID"
-    )
-
-if (
-    state.get("roadmap", {})
-    .get("gates", [{}])[0]
-    .get("runbook")
-    != next_task.get("runbook")
-):
-    raise SystemExit(
-        "CONTINUITY_ROADMAP_NEXT_MISMATCH"
-    )
-
-generated = (
-    state.get("knowledge", {})
-    .get("generated_views", [])
-)
-
+knowledge = spec.get("knowledge", {})
 required_views = {
     "START-HERE.md",
     "BASELINE.md",
@@ -154,13 +95,25 @@ required_views = {
     "CHAT-HANDOFF.md",
 }
 
-if set(generated) != required_views:
-    raise SystemExit(
-        "CONTINUITY_GENERATED_VIEWS_INVALID"
-    )
+declared_views = {
+    knowledge["entrypoint"],
+    "BASELINE.md",
+    knowledge["current_state_view"],
+    knowledge["next_task_view"],
+    knowledge["roadmap_view"],
+    knowledge["handoff"],
+}
+
+if declared_views != required_views:
+    raise SystemExit("CONTINUITY_GENERATED_VIEWS_INVALID")
+
+if spec["roadmap"]["current_gate"]["runbook"] != (
+    status["roadmap"]["current_gate"]
+):
+    raise SystemExit("CONTINUITY_CURRENT_GATE_MISMATCH")
 
 print("KNOWLEDGE_STATE_VALIDATION=PASS")
-PY
+PYTHON
 
     knowledge_generated_views_check
 }

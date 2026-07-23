@@ -1,331 +1,431 @@
 {
-  "schema_version": 2,
-  "project": {
-    "name": "SANDRA",
+  "metadata": {
+    "api_version": "sandra.io/v2",
+    "kind": "ProjectState",
+    "schema_version": 2,
+    "state_version": "2.0.0",
+    "project": "SANDRA",
+    "updated_utc": "2026-07-23T08:10:45Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
-    "updated_utc": "2026-07-22T19:04:58Z",
+    "migrated_from_legacy_schema": 2
+  },
+  "spec": {
+    "mission": {
+      "version": "2.0",
+      "document": "PROJECT_CHARTER.md",
+      "goal": "governo deterministico e autonomo dell'Habitat"
+    },
+    "constitution": {
+      "version": "2.0",
+      "document": "PROJECT_CHARTER.md"
+    },
+    "architecture": {
+      "version": "2.0",
+      "document": "ARCHITECTURE.md"
+    },
+    "knowledge": {
+      "canonical_state": "STATE.json",
+      "entrypoint": "START-HERE.md",
+      "generator": "generate_views.py",
+      "current_state_view": "CURRENT_STATE.md",
+      "next_task_view": "NEXT_TASK.md",
+      "roadmap_view": "docs/roadmap/ROADMAP.md",
+      "handoff": "CHAT-HANDOFF.md",
+      "immutable_history": "journal/",
+      "manual_editing_generated_views": false
+    },
+    "components": {
+      "core": {
+        "owner": "core",
+        "version": "1.1.1",
+        "contract": "runtime_and_runbook_lifecycle"
+      },
+      "knowledge": {
+        "owner": "knowledge",
+        "contract": "validation_publication_and_sync"
+      },
+      "continuity": {
+        "owner": "knowledge",
+        "contract": "state_views_and_session_continuity"
+      },
+      "generator": {
+        "owner": "knowledge",
+        "contract": "canonical_view_generation"
+      },
+      "runbook": {
+        "owner": "runbooks",
+        "contract": {
+          "status": "constitutional_mandatory",
+          "scope": "all_operational_bash",
+          "required_preamble": [
+            "source /opt/sandra/core/core.sh",
+            "source /opt/sandra/knowledge/knowledge.sh",
+            "",
+            "set -Eeuo pipefail"
+          ],
+          "required_order": [
+            "core_source",
+            "knowledge_source",
+            "strict_shell_mode",
+            "operational_commands"
+          ],
+          "exceptions": {
+            "read_only": false,
+            "brevity": false,
+            "already_loaded_in_shell": false
+          },
+          "validator": "knowledge_validate_runbook_file"
+        }
+      }
+    },
+    "providers": {
+      "pve": {
+        "owner": "provider.pve",
+        "contract": "provider_specific",
+        "desired_state": "governed_within_certified_scope",
+        "declared_capabilities": [
+          "inventory",
+          "topology",
+          "VMID",
+          "VM",
+          "LXC",
+          "resource state"
+        ]
+      },
+      "pbs": {
+        "owner": "provider.pbs",
+        "contract": "provider_specific",
+        "desired_state": "governed_within_certified_scope",
+        "declared_capabilities": []
+      },
+      "windows": {
+        "owner": "provider.windows",
+        "contract": "provider_specific",
+        "desired_state": "governed_within_certified_scope",
+        "declared_capabilities": [
+          "Get",
+          "Test",
+          "Approval",
+          "Set",
+          "WindowsService",
+          "WindowsFeature"
+        ]
+      },
+      "linux": {
+        "owner": "provider.linux",
+        "contract": "provider_specific",
+        "desired_state": "governed_within_certified_scope",
+        "declared_capabilities": {
+          "Get": "certified",
+          "Test": "certified_offline",
+          "Set": "absent"
+        }
+      }
+    },
+    "roadmap": {
+      "goal": "SANDRA V2",
+      "current_gate": {
+        "runbook": "RB-000069",
+        "title": "Architecture Baseline V2"
+      },
+      "next_gate": {
+        "runbook": "RB-000070",
+        "title": "Object and Evidence Model",
+        "status": "blocked"
+      },
+      "candidates": {
+        "nmap": "candidate",
+        "postgresql_or_sqlite": "candidate",
+        "object_registry": "candidate",
+        "correlation_engine": "candidate",
+        "secret_management": "candidate"
+      }
+    }
+  },
+  "status": {
     "current_certification": {
-      "runbook": "RB-000062K1",
-      "journal": "journal/2026/07/RB-000062K1-20260722T190456Z-bec1e432.md"
-    }
-  },
-  "principles": [
-    "motore deterministico",
-    "nessuna AI decisionale",
-    "un solo owner per responsabilità",
-    "provider indipendenti",
-    "nessun secret nel repository",
-    "nessuna complessità senza valore operativo",
-    "audit prima dell'implementazione",
-    "nessun cambio di architettura senza requisito concreto",
-    "ogni proposta supera il Gate di Necessita Ingegneristica",
-    "identita degli oggetti basata su evidenze osservabili",
-    "Knowledge aggiornata nella stessa transazione tecnologica"
-  ],
-  "core": {
-    "version": "1.1.1",
-    "status": "stable",
-    "capabilities": [
-      "Run Bundle",
-      "evidence",
-      "journaling",
-      "Knowledge",
-      "Git synchronization"
-    ]
-  },
-  "providers": {
-    "pve": {
-      "version": "1.7.0",
-      "status": "operational",
-      "scope": [
-        "inventory",
-        "topology",
-        "VMID",
-        "VM",
-        "LXC",
-        "resource state"
-      ],
-      "exclusions": [
-        "internal Linux configuration"
-      ]
+      "runbook": "RB-000068B-06",
+      "run_id": "RB-000068B-06-20260723T081044Z-bea1d77c",
+      "journal": "journal/2026/07/RB-000068B-06-20260723T081044Z-bea1d77c.md"
     },
-    "pbs": {
-      "version": "1.0.0",
-      "status": "read_only_operational",
-      "target": "192.168.1.194"
-    },
-    "windows": {
-      "version": "1.7.0",
-      "status": "frozen_maintenance",
-      "baseline": "docs/providers/windows/BASELINE-1.7.0.md",
-      "capabilities": [
-        "Get",
-        "Test",
-        "Approval",
-        "Set",
-        "WindowsService",
-        "WindowsFeature"
-      ],
-      "targets": [
-        "WINSRV01",
-        "WINSRV02",
-        "SERVICESRV"
-      ]
-    },
-    "linux": {
-      "version": "1.1.1",
-      "status": "capability_development",
-      "transport": {
-        "protocol": "OpenSSH",
-        "authentication": "PublicKey",
-        "strict_host_key_checking": true
+    "components": {
+      "core": {
+        "version": "1.1.1",
+        "status": "stable",
+        "capabilities": [
+          "Run Bundle",
+          "evidence",
+          "journaling",
+          "Knowledge",
+          "Git synchronization"
+        ]
       },
-      "capabilities": {
-        "Get": "certified",
-        "Test": "certified_offline",
-        "Set": "absent"
-      },
-      "targets": [
-        {
-          "name": "PBS",
-          "ip": "192.168.1.194"
-        },
-        {
-          "name": "TRANSMISSION",
-          "ip": "192.168.1.192"
-        },
-        {
-          "name": "PIHOLE",
-          "ip": "192.168.1.254"
-        },
-        {
-          "name": "PIHOLE2",
-          "ip": "192.168.1.253"
-        },
-        {
-          "name": "PLEX",
-          "ip": "192.168.1.199"
-        },
-        {
-          "name": "NAVIDROME",
-          "ip": "192.168.1.198"
-        },
-        {
-          "name": "SERVARR",
-          "ip": "192.168.1.195"
-        },
-        {
-          "name": "PASSBOLT",
-          "ip": "192.168.1.196"
-        },
-        {
-          "name": "NGINX",
-          "ip": "192.168.1.193"
-        }
-      ],
-      "excluded_targets": [
-        "PVE",
-        "SANDRA",
-        "Windows systems"
-      ],
-      "observed_state": {
-        "invariant_delta": 0,
-        "systemd_degraded": {
-          "PLEX": [
-            "motd-news.service"
-          ],
-          "NAVIDROME": [
-            "motd-news.service"
-          ],
-          "SERVARR": [
-            "motd-news.service"
-          ]
-        }
-      },
-      "service_baseline_audit": {
-        "runbook": "RB-000062",
-        "run_id": "RB-000062-20260722T152004Z-ec5f3393",
-        "status": "inventory_certified",
-        "mode": "remote_read_only_audit",
-        "host_count": 9,
-        "unit_count": 1095,
-        "failed_unit_count": 2,
-        "candidate_count": 9,
-        "collection_error_count": 0,
-        "candidate_document": "docs/providers/linux/SERVICE-BASELINE-CANDIDATES-RB-000062.md",
-        "artifact_local_path": "/opt/sandra/artifacts/sandra-RB-000062-20260722T152004Z-ec5f3393.tar.gz",
-        "remote_modifications": "none",
-        "human_approval_required": false,
-        "next_operation": "deterministic_object_service_resolution"
-      },
-      "service_inventory": {
-        "implementation": "src/providers/linux/service_inventory.py",
-        "status": "certified",
-        "operation": "remote_read_only_audit",
-        "semantic_reference": "RB-000062",
-        "host_count": 9,
-        "unit_count": 1095,
-        "failed_unit_count": 2,
-        "candidate_count": 9,
-        "collection_error_count": 0,
-        "remote_modifications": "none"
-      },
-      "local_maintenance": {
-        "runbook": "RB-000062C2",
-        "run_id": "RB-000062C2-20260722T153452Z-7ae8d783",
-        "status": "certified",
-        "scope": "python_bytecode_cleanup",
-        "removed_item_count": 4,
-        "gitignore_rules": [
-          "__pycache__/",
-          "*.py[cod]"
-        ],
-        "remote_connections": 0,
-        "remote_modifications": "none",
-        "provider_version_changed": false
-      },
-      "service_resolution_contract": {
-        "status": "next",
-        "decision_mode": "deterministic",
-        "human_approval_required": false,
-        "inputs": [
-          "target object name",
-          "target profile",
-          "observed systemd service inventory"
-        ],
-        "allowed_results": [
-          "RESOLVED",
-          "NOT_FOUND",
-          "AMBIGUOUS"
-        ],
-        "progression_rule": "all application objects must be RESOLVED",
-        "failure_rule": "NOT_FOUND or AMBIGUOUS stops without modification"
+      "knowledge": {
+        "migration_status": "complete",
+        "charter_v2": "complete",
+        "architecture_v2": "complete",
+        "state_v2": "complete",
+        "generator_v2": "complete",
+        "continuity_v2": "complete"
       }
-    }
-  },
-  "roadmap": {
-    "phase": "Linux provider closure",
-    "gates": [
-      {
-        "runbook": "RB-000062",
-        "title": "Inventario e risoluzione deterministica dei servizi Linux",
-        "status": "next",
-        "mode": "read_only"
-      },
-      {
-        "runbook": "RB-000063",
-        "title": "LinuxService Get/Test",
-        "status": "blocked"
-      },
-      {
-        "runbook": "RB-000064",
-        "title": "LinuxService Set",
-        "status": "blocked"
-      },
-      {
-        "runbook": "RB-000065",
-        "title": "Ricertificazione e baseline Linux",
-        "status": "blocked"
-      }
-    ],
-    "out_of_scope": [
-      "Package management",
-      "File management",
-      "User and group management",
-      "Firewall",
-      "Cron",
-      "Generic fstab management",
-      "New Windows capabilities",
-      "Cross-provider Secret Manager"
-    ]
-  },
-  "next_task": {
-    "runbook": "RB-000062",
-    "title": "Risoluzione deterministica oggetto-servizio Linux",
-    "type": "remote_read_only_resolution",
-    "status": "next",
-    "targets": [
-      "PBS",
-      "TRANSMISSION",
-      "PIHOLE",
-      "PIHOLE2",
-      "PLEX",
-      "NAVIDROME",
-      "SERVARR",
-      "PASSBOLT",
-      "NGINX"
-    ],
-    "excluded_targets": [
-      "PVE",
-      "SANDRA",
-      "Windows systems"
-    ],
-    "objectives": [
-      "associare deterministicamente ogni oggetto applicativo alla relativa unita systemd",
-      "usare il nome oggetto, il profilo e l'inventario systemd certificato",
-      "produrre esclusivamente RESOLVED, NOT_FOUND o AMBIGUOUS",
-      "proseguire esclusivamente quando tutti gli oggetti applicativi risultano RESOLVED",
-      "registrare la mappa oggetto-servizio come evidenza machine-readable"
-    ],
-    "prohibitions": [
-      "nessuna approvazione manuale dei servizi",
-      "nessuna modifica ai target",
-      "nessun systemctl start",
-      "nessun systemctl stop",
-      "nessun systemctl restart",
-      "nessun systemctl enable",
-      "nessun systemctl disable",
-      "nessuna modifica ai profili",
-      "nessuna implementazione LinuxService",
-      "nessuna scelta in caso di ambiguita"
-    ],
-    "next_gate_after_approval": "RB-000063"
-  },
-  "knowledge": {
-    "canonical_state": "STATE.json",
-    "generator": "generate_views.py",
-    "generated_views": [
-      "START-HERE.md",
-      "BASELINE.md",
-      "CURRENT_STATE.md",
-      "NEXT_TASK.md",
-      "docs/roadmap/ROADMAP.md",
-      "CHAT-HANDOFF.md"
-    ],
-    "immutable_history": "journal/",
-    "manual_editing_generated_views": false
-  },
-  "runbook_contract": {
-    "status": "constitutional_mandatory",
-    "scope": "all_operational_bash",
-    "required_preamble": [
-      "source /opt/sandra/core/core.sh",
-      "source /opt/sandra/knowledge/knowledge.sh",
-      "",
-      "set -Eeuo pipefail"
-    ],
-    "required_order": [
-      "core_source",
-      "knowledge_source",
-      "strict_shell_mode",
-      "operational_commands"
-    ],
-    "exceptions": {
-      "read_only": false,
-      "brevity": false,
-      "already_loaded_in_shell": false
     },
-    "validator": "knowledge_validate_runbook_file"
-  },
-  "continuity": {
-    "entrypoint": "START-HERE.md",
-    "canonical_state": "STATE.json",
-    "handoff": "CHAT-HANDOFF.md",
-    "restart_instruction": "Leggi START-HERE.md e continua dal gate corrente",
-    "minimum_new_chat_input": [
-      "repository URL",
-      "restart instruction"
-    ]
+    "providers": {
+      "pve": {
+        "version": "1.7.0",
+        "status": "operational",
+        "scope": [
+          "inventory",
+          "topology",
+          "VMID",
+          "VM",
+          "LXC",
+          "resource state"
+        ],
+        "exclusions": [
+          "internal Linux configuration"
+        ]
+      },
+      "pbs": {
+        "version": "1.0.0",
+        "status": "read_only_operational",
+        "target": "192.168.1.194"
+      },
+      "windows": {
+        "version": "1.7.0",
+        "status": "frozen_maintenance",
+        "baseline": "docs/providers/windows/BASELINE-1.7.0.md",
+        "capabilities": [
+          "Get",
+          "Test",
+          "Approval",
+          "Set",
+          "WindowsService",
+          "WindowsFeature"
+        ],
+        "targets": [
+          "WINSRV01",
+          "WINSRV02",
+          "SERVICESRV"
+        ]
+      },
+      "linux": {
+        "version": "1.1.1",
+        "status": "capability_development",
+        "transport": {
+          "protocol": "OpenSSH",
+          "authentication": "PublicKey",
+          "strict_host_key_checking": true
+        },
+        "capabilities": {
+          "Get": "certified",
+          "Test": "certified_offline",
+          "Set": "absent"
+        },
+        "targets": [
+          {
+            "name": "PBS",
+            "ip": "192.168.1.194"
+          },
+          {
+            "name": "TRANSMISSION",
+            "ip": "192.168.1.192"
+          },
+          {
+            "name": "PIHOLE",
+            "ip": "192.168.1.254"
+          },
+          {
+            "name": "PIHOLE2",
+            "ip": "192.168.1.253"
+          },
+          {
+            "name": "PLEX",
+            "ip": "192.168.1.199"
+          },
+          {
+            "name": "NAVIDROME",
+            "ip": "192.168.1.198"
+          },
+          {
+            "name": "SERVARR",
+            "ip": "192.168.1.195"
+          },
+          {
+            "name": "PASSBOLT",
+            "ip": "192.168.1.196"
+          },
+          {
+            "name": "NGINX",
+            "ip": "192.168.1.193"
+          }
+        ],
+        "excluded_targets": [
+          "PVE",
+          "SANDRA",
+          "Windows systems"
+        ],
+        "observed_state": {
+          "invariant_delta": 0,
+          "systemd_degraded": {
+            "PLEX": [
+              "motd-news.service"
+            ],
+            "NAVIDROME": [
+              "motd-news.service"
+            ],
+            "SERVARR": [
+              "motd-news.service"
+            ]
+          }
+        },
+        "service_baseline_audit": {
+          "runbook": "RB-000062",
+          "run_id": "RB-000062-20260722T152004Z-ec5f3393",
+          "status": "inventory_certified",
+          "mode": "remote_read_only_audit",
+          "host_count": 9,
+          "unit_count": 1095,
+          "failed_unit_count": 2,
+          "candidate_count": 9,
+          "collection_error_count": 0,
+          "candidate_document": "docs/providers/linux/SERVICE-BASELINE-CANDIDATES-RB-000062.md",
+          "artifact_local_path": "/opt/sandra/artifacts/sandra-RB-000062-20260722T152004Z-ec5f3393.tar.gz",
+          "remote_modifications": "none",
+          "human_approval_required": false,
+          "next_operation": "deterministic_object_service_resolution"
+        },
+        "service_inventory": {
+          "implementation": "src/providers/linux/service_inventory.py",
+          "status": "certified",
+          "operation": "remote_read_only_audit",
+          "semantic_reference": "RB-000062",
+          "host_count": 9,
+          "unit_count": 1095,
+          "failed_unit_count": 2,
+          "candidate_count": 9,
+          "collection_error_count": 0,
+          "remote_modifications": "none"
+        },
+        "local_maintenance": {
+          "runbook": "RB-000062C2",
+          "run_id": "RB-000062C2-20260722T153452Z-7ae8d783",
+          "status": "certified",
+          "scope": "python_bytecode_cleanup",
+          "removed_item_count": 4,
+          "gitignore_rules": [
+            "__pycache__/",
+            "*.py[cod]"
+          ],
+          "remote_connections": 0,
+          "remote_modifications": "none",
+          "provider_version_changed": false
+        },
+        "service_resolution_contract": {
+          "status": "next",
+          "decision_mode": "deterministic",
+          "human_approval_required": false,
+          "inputs": [
+            "target object name",
+            "target profile",
+            "observed systemd service inventory"
+          ],
+          "allowed_results": [
+            "RESOLVED",
+            "NOT_FOUND",
+            "AMBIGUOUS"
+          ],
+          "progression_rule": "all application objects must be RESOLVED",
+          "failure_rule": "NOT_FOUND or AMBIGUOUS stops without modification"
+        }
+      }
+    },
+    "knowledge": {
+      "validated": true,
+      "continuity_validated": true,
+      "single_generator": true,
+      "single_entrypoint": true,
+      "single_canonical_state": true,
+      "generated_views_current": true,
+      "repository_ready": false
+    },
+    "repository": {
+      "working_tree_clean": false,
+      "github_synced": false,
+      "repository_ready": false
+    },
+    "roadmap": {
+      "phase": "Architecture Baseline V2",
+      "current_gate": "RB-000069",
+      "current_gate_status": "next",
+      "next_gate": "RB-000070"
+    },
+    "deferred_work": {
+      "linux_provider_closure": {
+        "status": "suspended_pending_v2_baseline",
+        "previous_phase": "Linux provider closure",
+        "previous_next_task": {
+          "runbook": "RB-000062",
+          "title": "Risoluzione deterministica oggetto-servizio Linux",
+          "type": "remote_read_only_resolution",
+          "status": "next",
+          "targets": [
+            "PBS",
+            "TRANSMISSION",
+            "PIHOLE",
+            "PIHOLE2",
+            "PLEX",
+            "NAVIDROME",
+            "SERVARR",
+            "PASSBOLT",
+            "NGINX"
+          ],
+          "excluded_targets": [
+            "PVE",
+            "SANDRA",
+            "Windows systems"
+          ],
+          "objectives": [
+            "associare deterministicamente ogni oggetto applicativo alla relativa unita systemd",
+            "usare il nome oggetto, il profilo e l'inventario systemd certificato",
+            "produrre esclusivamente RESOLVED, NOT_FOUND o AMBIGUOUS",
+            "proseguire esclusivamente quando tutti gli oggetti applicativi risultano RESOLVED",
+            "registrare la mappa oggetto-servizio come evidenza machine-readable"
+          ],
+          "prohibitions": [
+            "nessuna approvazione manuale dei servizi",
+            "nessuna modifica ai target",
+            "nessun systemctl start",
+            "nessun systemctl stop",
+            "nessun systemctl restart",
+            "nessun systemctl enable",
+            "nessun systemctl disable",
+            "nessuna modifica ai profili",
+            "nessuna implementazione LinuxService",
+            "nessuna scelta in caso di ambiguita"
+          ],
+          "next_gate_after_approval": "RB-000063"
+        }
+      }
+    },
+    "migration": {
+      "runbook": "RB-000068B-06",
+      "phase": "repository_sync",
+      "completed_steps": [
+        "PROJECT_CHARTER_V2",
+        "ARCHITECTURE_V2",
+        "STATE_SCHEMA_V2",
+        "GENERATOR_V2",
+        "CONTINUITY_V2",
+        "GENERATED_VIEWS",
+        "FINAL_VALIDATION",
+        "JOURNAL"
+      ],
+      "pending_steps": [
+        "GIT_COMMIT",
+        "GITHUB_PUSH",
+        "REMOTE_VERIFICATION"
+      ]
+    }
   }
 }

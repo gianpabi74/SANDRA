@@ -1,29 +1,31 @@
 # Prompt minimale per una nuova chat
 
-> GENERATED FILE — DO NOT EDIT MANUALLY  
+> GENERATED FILE — DO NOT EDIT MANUALLY
 > Source: `STATE.json`
 
-Prosegui SANDRA dal repository ufficiale:
+Repository ufficiale:
 
 https://github.com/gianpabi74/SANDRA
 
-Branch: `main`.
+Branch autorevole: `main`.
 
-Leggi prima `START-HERE.md` e segui l'ordine indicato.
+Leggi `START-HERE.md` prima di proporre o modificare qualsiasi cosa.
 
-Considera:
+La nuova sessione deve:
 
-- `STATE.json` la fonte viva canonica;
-- GitHub la fonte autorevole dello stato certificato;
-- i Journal la cronologia immutabile.
+1. basarsi sullo stato corrente del repository;
+2. consultare frequentemente le documentazioni ufficiali;
+3. usare soltanto dati oggettivi e contratti certificati;
+4. richiedere export o audit chirurgici quando mancano dati;
+5. evitare codice lungo, creativo o fondato su assunzioni;
+6. rispettare Costituzione, architettura e roadmap approvate;
+7. non riaprire decisioni senza nuove evidenze reali;
+8. aggiornare con precisione Knowledge, viste e Journal;
+9. eseguire commit, push e verifica di `origin/main`;
+10. lasciare il repository pronto per la sessione successiva.
 
-Verifica che le viste generate siano coerenti con `STATE.json` e
-prosegui esattamente dal gate dichiarato in `NEXT_TASK.md`.
+Quando l'utente dice “procedi”, continua dal singolo gate dichiarato
+in `NEXT_TASK.md`.
 
-Non cambiare architettura, non introdurre nuovi layer e non
-scrivere codice oltre il gate approvato senza una motivazione
-tecnica concreta.
-
-Quando dico “procedi”, continua con il passo successivo della
-roadmap. Produci un Bash soltanto quando è necessario eseguirlo
-su SANDRA.
+Nessuna informazione necessaria alla prosecuzione deve rimanere
+esclusivamente nella conversazione.

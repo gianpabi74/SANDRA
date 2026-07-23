@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-22T19:04:58Z`
+Aggiornato: `2026-07-23T08:10:45Z`
 
 ## Repository
 
@@ -76,9 +76,9 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `RB-000062K1`
-- Journal: `journal/2026/07/RB-000062K1-20260722T190456Z-bec1e432.md`
+- RunBook: `RB-000068B-06`
+- Journal: `journal/2026/07/RB-000068B-06-20260723T081044Z-bea1d77c.md`
 
 ## Prossimo gate
 
-`RB-000062` — Risoluzione deterministica oggetto-servizio Linux
+`RB-000069` — Architecture Baseline V2

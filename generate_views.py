@@ -23,15 +23,92 @@ VIEW_PATHS = {
 
 
 def load_state() -> dict:
-    data = json.loads(
+    raw = json.loads(
         STATE_PATH.read_text(encoding="utf-8")
     )
 
-    if data.get("schema_version") != 2:
-        raise SystemExit("STATE_SCHEMA_VERSION_INVALID")
+    if set(raw) != {"metadata", "spec", "status"}:
+        raise SystemExit("STATE_TOP_LEVEL_MODEL_INVALID")
 
-    return data
+    metadata = raw["metadata"]
+    spec = raw["spec"]
+    status = raw["status"]
+    providers = status["providers"]
+    current = status["current_certification"]
+    roadmap_spec = spec["roadmap"]
+    roadmap_status = status["roadmap"]
 
+    principles = [
+        "documentazione ufficiale come fonte primaria",
+        "dati oggettivi prima del codice",
+        "audit chirurgico prima delle assunzioni",
+        "motore deterministico e nessuna AI decisionale",
+        "Bash piccoli, accurati e con un solo obiettivo",
+        "briefing proporzionati e roadmap stabile",
+        "nessuna complessità senza valore operativo",
+        "SANDRA finalizzata al governo autonomo dell'Habitat",
+        "stato corrente riscritto e storia separata",
+        "Knowledge e GitHub aggiornati nella stessa transazione",
+    ]
+
+    current_gate = roadmap_spec["current_gate"]
+    next_gate = roadmap_spec["next_gate"]
+
+    return {
+        "project": {
+            "name": metadata["project"],
+            "repository": metadata["repository"],
+            "branch": metadata["branch"],
+            "updated_utc": metadata["updated_utc"],
+            "current_certification": current,
+        },
+        "principles": principles,
+        "core": status["components"]["core"],
+        "providers": providers,
+        "roadmap": {
+            "phase": roadmap_status["phase"],
+            "gates": [
+                {
+                    "runbook": current_gate["runbook"],
+                    "title": current_gate["title"],
+                    "status": roadmap_status[
+                        "current_gate_status"
+                    ],
+                },
+                {
+                    "runbook": next_gate["runbook"],
+                    "title": next_gate["title"],
+                    "status": next_gate["status"],
+                },
+            ],
+            "out_of_scope": [
+                "nuove tecnologie prima della Architecture Baseline V2",
+                "interfaccia grafica",
+                "AI decisionale",
+                "modifiche remote durante la migrazione Knowledge",
+            ],
+        },
+        "next_task": {
+            "runbook": current_gate["runbook"],
+            "title": current_gate["title"],
+            "type": "engineering_knowledge_migration",
+            "targets": ["repository SANDRA", "Knowledge canonica"],
+            "excluded_targets": ["sistemi remoti dell'Habitat"],
+            "objectives": [
+                "completare la Knowledge V2",
+                "rigenerare tutte le viste canoniche",
+                "validare la continuità fra sessioni",
+                "sincronizzare e verificare GitHub",
+            ],
+            "prohibitions": [
+                "nessuna modifica ai target remoti",
+                "nessuna nuova tecnologia",
+                "nessuna vista canonica modificata manualmente",
+                "nessuna informazione critica lasciata soltanto in chat",
+            ],
+            "next_gate_after_approval": next_gate["runbook"],
+        },
+    }
 
 def bullets(values: list[str]) -> str:
     return "\n".join(f"- {value}" for value in values)
@@ -398,35 +475,36 @@ def render_handoff(state: dict) -> str:
 
     return f"""# Prompt minimale per una nuova chat
 
-> GENERATED FILE — DO NOT EDIT MANUALLY  
+> GENERATED FILE — DO NOT EDIT MANUALLY
 > Source: `STATE.json`
 
-Prosegui SANDRA dal repository ufficiale:
+Repository ufficiale:
 
 {project["repository"]}
 
-Branch: `{project["branch"]}`.
+Branch autorevole: `{project["branch"]}`.
 
-Leggi prima `START-HERE.md` e segui l'ordine indicato.
+Leggi `START-HERE.md` prima di proporre o modificare qualsiasi cosa.
 
-Considera:
+La nuova sessione deve:
 
-- `STATE.json` la fonte viva canonica;
-- GitHub la fonte autorevole dello stato certificato;
-- i Journal la cronologia immutabile.
+1. basarsi sullo stato corrente del repository;
+2. consultare frequentemente le documentazioni ufficiali;
+3. usare soltanto dati oggettivi e contratti certificati;
+4. richiedere export o audit chirurgici quando mancano dati;
+5. evitare codice lungo, creativo o fondato su assunzioni;
+6. rispettare Costituzione, architettura e roadmap approvate;
+7. non riaprire decisioni senza nuove evidenze reali;
+8. aggiornare con precisione Knowledge, viste e Journal;
+9. eseguire commit, push e verifica di `origin/main`;
+10. lasciare il repository pronto per la sessione successiva.
 
-Verifica che le viste generate siano coerenti con `STATE.json` e
-prosegui esattamente dal gate dichiarato in `NEXT_TASK.md`.
+Quando l'utente dice “procedi”, continua dal singolo gate dichiarato
+in `NEXT_TASK.md`.
 
-Non cambiare architettura, non introdurre nuovi layer e non
-scrivere codice oltre il gate approvato senza una motivazione
-tecnica concreta.
-
-Quando dico “procedi”, continua con il passo successivo della
-roadmap. Produci un Bash soltanto quando è necessario eseguirlo
-su SANDRA.
+Nessuna informazione necessaria alla prosecuzione deve rimanere
+esclusivamente nella conversazione.
 """
-
 
 def render_all(state: dict) -> dict[str, str]:
     return {

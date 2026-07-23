@@ -3,29 +3,28 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-22T19:04:58Z`
+Aggiornato: `2026-07-23T08:10:45Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `RB-000062K1`
+RunBook corrente: `RB-000068B-06`
 
-Journal corrente: `journal/2026/07/RB-000062K1-20260722T190456Z-bec1e432.md`
+Journal corrente: `journal/2026/07/RB-000068B-06-20260723T081044Z-bea1d77c.md`
 
 ## Principi permanenti
 
-- motore deterministico
-- nessuna AI decisionale
-- un solo owner per responsabilità
-- provider indipendenti
-- nessun secret nel repository
+- documentazione ufficiale come fonte primaria
+- dati oggettivi prima del codice
+- audit chirurgico prima delle assunzioni
+- motore deterministico e nessuna AI decisionale
+- Bash piccoli, accurati e con un solo obiettivo
+- briefing proporzionati e roadmap stabile
 - nessuna complessità senza valore operativo
-- audit prima dell'implementazione
-- nessun cambio di architettura senza requisito concreto
-- ogni proposta supera il Gate di Necessita Ingegneristica
-- identita degli oggetti basata su evidenze osservabili
-- Knowledge aggiornata nella stessa transazione tecnologica
+- SANDRA finalizzata al governo autonomo dell'Habitat
+- stato corrente riscritto e storia separata
+- Knowledge e GitHub aggiornati nella stessa transazione
 
 ## Core
 
@@ -92,6 +91,6 @@ Journal corrente: `journal/2026/07/RB-000062K1-20260722T190456Z-bec1e432.md`
 
 ## Prossimo gate
 
-`RB-000062` — Risoluzione deterministica oggetto-servizio Linux
+`RB-000069` — Architecture Baseline V2
 
-Tipo: `remote_read_only_resolution`.
+Tipo: `engineering_knowledge_migration`.
