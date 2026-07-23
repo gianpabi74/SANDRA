@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T12:11:44Z`
+Aggiornato: `2026-07-23T12:17:18Z`
 
 ## Fase corrente
 
-`Object and Evidence Model`
+`Capability and Policy Contract`
 
 ## Gate
 
-1. **R3-000002** — Object and Evidence Model (`complete`)
-2. **R3-000003** — Capability and Policy Contract (`blocked`)
+1. **R3-000003** — Capability and Policy Contract (`complete`)
+2. **R3-000004** — Adapter and Execution Contract (`blocked`)
 
 ## Fuori perimetro corrente
 

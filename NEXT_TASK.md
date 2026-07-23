@@ -3,16 +3,17 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000002 — Object and Evidence Model
+## R3-000003 — Capability and Policy Contract
 
 ### Tipo
 
-`domain_contract`
+`governance_contract`
 
 ### Target
 
 - Knowledge canonica
-- schemi del dominio
+- Capability catalog
+- Policy catalog
 
 ### Target esclusi
 
@@ -21,22 +22,23 @@
 
 ### Obiettivi
 
-- definire Managed Object
-- separare spec e status
-- definire Observation
-- definire Evidence
-- definire Relationship
-- fornire schemi machine-readable
+- definire Capability
+- definire Governance Policy
+- definire Policy Decision
+- definire Execution Plan
+- definire progressive trust
+- registrare prima capability e prima policy
 
 ### Divieti
 
 - nessuna modifica remota
 - nessuna installazione software
-- nessuna identità derivata da un solo segnale debole
+- nessuna policy codificata nell'adapter
+- nessun oggetto concreto nella Capability
 - nessuna correzione ad intuito
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000003`
+`R3-000004`

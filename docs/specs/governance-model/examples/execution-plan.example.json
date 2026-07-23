@@ -1,0 +1,40 @@
+{
+  "apiVersion": "governance.sandra.io/v1",
+  "kind": "ExecutionPlan",
+  "metadata": {
+    "id": "plan_01k0example000001",
+    "revision": 1
+  },
+  "decisionRef": "dec_01k0example000001",
+  "subjectRef": "obj_01k0example000001",
+  "capabilityRef": "compute.memory.resize@1",
+  "adapter": {
+    "id": "example-compute-adapter",
+    "version": "1.0.0"
+  },
+  "prechecks": [
+    "verify object identity",
+    "verify habitat reserve",
+    "verify adapter compatibility"
+  ],
+  "actions": [
+    "apply approved memory increment"
+  ],
+  "postchecks": [
+    "verify platform allocation",
+    "verify workload availability",
+    "verify habitat reserve"
+  ],
+  "recovery": [
+    "restore previous allocation if verification fails and recovery is safe"
+  ],
+  "limits": {
+    "maximumFractionOfCurrentlyAvailable": 0.30
+  },
+  "createdAt": "2026-07-23T12:40:01Z",
+  "expiresAt": "2026-07-23T12:45:00Z",
+  "digest": {
+    "algorithm": "sha256",
+    "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+}

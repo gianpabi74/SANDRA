@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sandra.local/schemas/policy.schema.json",
+  "title": "GovernancePolicy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "const": "governance.sandra.io/v1"
+    },
+    "kind": {
+      "const": "GovernancePolicy"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "title"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^policy\\.[a-z][a-z0-9_.]*$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "spec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capability",
+        "selector",
+        "outcomes",
+        "conditions",
+        "limits",
+        "evidenceRequirements",
+        "verificationRequirements"
+      ],
+      "properties": {
+        "capability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "minimumVersion"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "minimumVersion": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "selector": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "matchLabels",
+            "roles",
+            "protectionProfiles"
+          ],
+          "properties": {
+            "matchLabels": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "roles": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            },
+            "protectionProfiles": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "protected",
+                  "critical",
+                  "standard",
+                  "disposable"
+                ]
+              },
+              "uniqueItems": true
+            }
+          }
+        },
+        "outcomes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "autonomous",
+              "conditional_autonomous",
+              "escalate",
+              "denied"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "expression",
+              "onFalse"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "expression": {
+                "type": "string",
+                "minLength": 1
+              },
+              "onFalse": {
+                "enum": [
+                  "escalate",
+                  "denied"
+                ]
+              }
+            }
+          }
+        },
+        "limits": {
+          "type": "object"
+        },
+        "evidenceRequirements": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "minimumAuthority",
+            "maximumAgeSeconds",
+            "conflictsAllowed"
+          ],
+          "properties": {
+            "minimumAuthority": {
+              "enum": [
+                "authoritative",
+                "corroborated",
+                "candidate"
+              ]
+            },
+            "maximumAgeSeconds": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "conflictsAllowed": {
+              "const": false
+            }
+          }
+        },
+        "verificationRequirements": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mandatory",
+            "independent"
+          ],
+          "properties": {
+            "mandatory": {
+              "const": true
+            },
+            "independent": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}

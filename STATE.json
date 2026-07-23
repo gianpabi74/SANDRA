@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "3.1.0",
+    "state_version": "3.2.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T12:11:44Z",
+    "updated_utc": "2026-07-23T12:17:18Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -133,35 +133,37 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000002",
-        "title": "Object and Evidence Model",
-        "type": "domain_contract",
+        "runbook": "R3-000003",
+        "title": "Capability and Policy Contract",
+        "type": "governance_contract",
         "targets": [
           "Knowledge canonica",
-          "schemi del dominio"
+          "Capability catalog",
+          "Policy catalog"
         ],
         "excluded_targets": [
           "sistemi remoti dell'Habitat",
           "runtime operativa"
         ],
         "objectives": [
-          "definire Managed Object",
-          "separare spec e status",
-          "definire Observation",
-          "definire Evidence",
-          "definire Relationship",
-          "fornire schemi machine-readable"
+          "definire Capability",
+          "definire Governance Policy",
+          "definire Policy Decision",
+          "definire Execution Plan",
+          "definire progressive trust",
+          "registrare prima capability e prima policy"
         ],
         "prohibitions": [
           "nessuna modifica remota",
           "nessuna installazione software",
-          "nessuna identità derivata da un solo segnale debole",
+          "nessuna policy codificata nell'adapter",
+          "nessun oggetto concreto nella Capability",
           "nessuna correzione ad intuito"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000003",
-        "title": "Capability and Policy Contract",
+        "runbook": "R3-000004",
+        "title": "Adapter and Execution Contract",
         "status": "blocked"
       },
       "candidates": {
@@ -199,9 +201,9 @@
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000002A",
-      "run_id": "R3-000002A-20260723T121144Z-19aad428",
-      "journal": "journal/2026/07/R3-000002A-20260723T121144Z-19aad428.md"
+      "runbook": "R3-000003A",
+      "run_id": "R3-000003A-20260723T121717Z-296cb2d2",
+      "journal": "journal/2026/07/R3-000003A-20260723T121717Z-296cb2d2.md"
     },
     "components": {
       "core": {
@@ -425,10 +427,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Object and Evidence Model",
-      "current_gate": "R3-000002",
+      "phase": "Capability and Policy Contract",
+      "current_gate": "R3-000003",
       "current_gate_status": "complete",
-      "next_gate": "R3-000003"
+      "next_gate": "R3-000004"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -544,6 +546,20 @@
       "evidence": "defined",
       "relationship": "defined",
       "schemas": "json_schema_2020_12",
+      "remote_habitat_modifications": "none",
+      "software_installed": "none"
+    },
+    "capability_policy_contract_v1": {
+      "runbook": "R3-000003A",
+      "run_id": "R3-000003A-20260723T121717Z-296cb2d2",
+      "status": "certified",
+      "capability_schema": "defined",
+      "policy_schema": "defined",
+      "policy_decision_schema": "defined",
+      "execution_plan_schema": "defined",
+      "initial_capability": "compute.memory.resize@1",
+      "initial_policy": "policy.resource_elasticity@1",
+      "initial_trust_state": "observe_only",
       "remote_habitat_modifications": "none",
       "software_installed": "none"
     }

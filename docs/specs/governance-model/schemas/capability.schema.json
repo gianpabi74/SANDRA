@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sandra.local/schemas/capability.schema.json",
+  "title": "Capability",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "const": "governance.sandra.io/v1"
+    },
+    "kind": {
+      "const": "Capability"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "title"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(\\.[a-z][a-z0-9_]*)+$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "spec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "description",
+        "inputSchema",
+        "outputSchema",
+        "riskClass",
+        "reversibility",
+        "preconditions",
+        "postconditions",
+        "verification",
+        "recovery",
+        "trustState"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inputSchema": {
+          "type": "object"
+        },
+        "outputSchema": {
+          "type": "object"
+        },
+        "riskClass": {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "critical"
+          ]
+        },
+        "reversibility": {
+          "enum": [
+            "automatic",
+            "conditional",
+            "recovery_only",
+            "irreversible"
+          ]
+        },
+        "preconditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "postconditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "verification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "required",
+            "independent",
+            "contract"
+          ],
+          "properties": {
+            "required": {
+              "const": true
+            },
+            "independent": {
+              "type": "boolean"
+            },
+            "contract": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "recovery": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "required",
+            "strategy"
+          ],
+          "properties": {
+            "required": {
+              "type": "boolean"
+            },
+            "strategy": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "trustState": {
+          "enum": [
+            "disabled",
+            "observe_only",
+            "recommend",
+            "approval_required",
+            "autonomous_canary",
+            "autonomous",
+            "suspended"
+          ]
+        }
+      }
+    }
+  }
+}

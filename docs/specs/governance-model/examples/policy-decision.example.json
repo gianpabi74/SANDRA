@@ -1,0 +1,30 @@
+{
+  "apiVersion": "governance.sandra.io/v1",
+  "kind": "PolicyDecision",
+  "metadata": {
+    "id": "dec_01k0example000001",
+    "revision": 1
+  },
+  "subjectRef": "obj_01k0example000001",
+  "capabilityRef": "compute.memory.resize@1",
+  "policyRefs": [
+    "policy.resource_elasticity@1"
+  ],
+  "evidenceRefs": [
+    "evd_01k0example000001"
+  ],
+  "outcome": "conditional_autonomous",
+  "conditions": [
+    "habitat reserve remains satisfied",
+    "adapter supports online resize"
+  ],
+  "limits": {
+    "maximumFractionOfCurrentlyAvailable": 0.30
+  },
+  "reasons": [
+    "persistent memory pressure",
+    "resource elasticity delegated by policy"
+  ],
+  "decidedAt": "2026-07-23T12:40:00Z",
+  "expiresAt": "2026-07-23T12:45:00Z"
+}

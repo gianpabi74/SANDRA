@@ -1,0 +1,62 @@
+{
+  "apiVersion": "governance.sandra.io/v1",
+  "kind": "GovernancePolicy",
+  "metadata": {
+    "id": "policy.resource_elasticity",
+    "version": 1,
+    "title": "Temporary resource elasticity"
+  },
+  "spec": {
+    "capability": {
+      "id": "compute.memory.resize",
+      "minimumVersion": 1
+    },
+    "selector": {
+      "matchLabels": {
+        "resource-elasticity": "enabled"
+      },
+      "roles": [
+        "application-workload"
+      ],
+      "protectionProfiles": [
+        "standard"
+      ]
+    },
+    "outcomes": [
+      "conditional_autonomous",
+      "escalate",
+      "denied"
+    ],
+    "conditions": [
+      {
+        "id": "pressure_confirmed",
+        "expression": "memory pressure is persistent and corroborated",
+        "onFalse": "denied"
+      },
+      {
+        "id": "habitat_reserve",
+        "expression": "post-allocation habitat reserve remains satisfied",
+        "onFalse": "denied"
+      },
+      {
+        "id": "operation_supported",
+        "expression": "adapter supports online resize and verification",
+        "onFalse": "escalate"
+      }
+    ],
+    "limits": {
+      "maximumFractionOfCurrentlyAvailable": 0.30,
+      "temporaryLeaseRequired": true,
+      "rollbackOnNoImprovement": true
+    },
+    "evidenceRequirements": {
+      "minimumAuthority": "corroborated",
+      "maximumAgeSeconds": 300,
+      "conflictsAllowed": false
+    },
+    "verificationRequirements": {
+      "mandatory": true,
+      "independent": true
+    }
+  }
+}

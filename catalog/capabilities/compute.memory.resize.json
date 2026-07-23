@@ -1,0 +1,65 @@
+{
+  "apiVersion": "governance.sandra.io/v1",
+  "kind": "Capability",
+  "metadata": {
+    "id": "compute.memory.resize",
+    "version": 1,
+    "title": "Resize compute workload memory"
+  },
+  "spec": {
+    "description": "Change the assigned memory of a managed compute workload.",
+    "inputSchema": {
+      "type": "object",
+      "required": [
+        "currentMiB",
+        "requestedMiB"
+      ],
+      "properties": {
+        "currentMiB": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "requestedMiB": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "assignedMiB"
+      ],
+      "properties": {
+        "assignedMiB": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "riskClass": "high",
+    "reversibility": "conditional",
+    "preconditions": [
+      "subject identity confirmed",
+      "adapter supports requested operation",
+      "habitat reserve remains satisfied",
+      "no conflicting execution exists"
+    ],
+    "postconditions": [
+      "platform reports requested allocation",
+      "guest reports expected allocation when applicable",
+      "subject remains available",
+      "habitat reserve remains satisfied"
+    ],
+    "verification": {
+      "required": true,
+      "independent": true,
+      "contract": "compute.memory.assignment.verify"
+    },
+    "recovery": {
+      "required": true,
+      "strategy": "restore previous allocation when supported and safe"
+    },
+    "trustState": "observe_only"
+  }
+}
