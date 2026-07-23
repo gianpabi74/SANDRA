@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "4.2.0",
+    "state_version": "4.3.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T18:42:41Z",
+    "updated_utc": "2026-07-23T20:45:38Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -163,15 +163,15 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000009D",
-        "title": "Constitutional Operational Contracts",
-        "type": "constitutional_contract_registration",
+        "runbook": "R3-000009E3",
+        "title": "Canonical Capability Map V1 Publication",
+        "type": "constitutional_capability_publication",
         "targets": [
-          "Resource Lifecycle Contract V1",
-          "Evidence Authority Contract V1",
-          "Reconciliation Concurrency Contract V1",
-          "Execution Safety Contract V1",
-          "STATE.json"
+          "Canonical Capability Map V1",
+          "capability map validator",
+          "ADR-0009",
+          "STATE.json",
+          "Knowledge canonical history"
         ],
         "excluded_targets": [
           "domain implementation",
@@ -182,21 +182,22 @@
           "software installation"
         ],
         "objectives": [
-          "define immutable operational invariants",
-          "prevent stale or concurrent mutation",
-          "prevent unqualified evidence promotion",
-          "require safe and verifiable execution"
+          "publish the independently validated capability map",
+          "set immutable constitutional status",
+          "register capability taxonomy in STATE",
+          "synchronize canonical Knowledge and Git"
         ],
         "prohibitions": [
-          "no architecture changes",
-          "no product-specific exceptions",
-          "no Habitat modifications",
+          "no capability content expansion",
+          "no architecture change",
+          "no product-specific core capability",
+          "no Habitat modification",
           "no software installation"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000009E",
-        "title": "Canonical Capability Map V1",
+        "runbook": "R3-000009F",
+        "title": "Canonical Domain Purification",
         "status": "blocked"
       },
       "candidates": {
@@ -245,13 +246,56 @@
         "reconciliation_concurrency": "docs/contracts/constitutional/RECONCILIATION-CONCURRENCY-CONTRACT-V1.json",
         "execution_safety": "docs/contracts/constitutional/EXECUTION-SAFETY-CONTRACT-V1.json"
       }
+    },
+    "capability_map": {
+      "version": "1.0.0",
+      "id": "canonical-capability-map-v1",
+      "status": "immutable",
+      "document": "docs/capabilities/CANONICAL-CAPABILITY-MAP-V1.md",
+      "contract": "docs/capabilities/CANONICAL-CAPABILITY-MAP-V1.json",
+      "validator": "src/knowledge/validate_capability_map.py",
+      "publication": {
+        "content_gate": "R3-000009E1",
+        "validation_gate": "R3-000009E2R",
+        "publication_gate": "R3-000009E3"
+      },
+      "core_capability_count": 16,
+      "operational_family_count": 8,
+      "core_capabilities": [
+        "identity",
+        "resource_lifecycle",
+        "observation",
+        "evidence_qualification",
+        "resource_graph",
+        "capability_declaration",
+        "desired_state",
+        "policy_decision",
+        "planning",
+        "execution",
+        "verification",
+        "persistence",
+        "audit",
+        "notification",
+        "security_governance",
+        "experience_learning"
+      ],
+      "operational_families": [
+        "compute",
+        "operating_system",
+        "storage",
+        "backup",
+        "network",
+        "observability",
+        "security",
+        "policy_engine"
+      ]
     }
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000009D",
-      "run_id": "R3-000009D-20260723T184240Z-f5790720",
-      "journal": "journal/2026/07/R3-000009D-20260723T184240Z-f5790720.md"
+      "runbook": "R3-000009E3",
+      "run_id": "R3-000009E3-20260723T204536Z-ef3f21c8",
+      "journal": "journal/2026/07/R3-000009E3-20260723T204536Z-ef3f21c8.md"
     },
     "components": {
       "core": {
@@ -477,10 +521,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Constitutional Operational Contracts",
-      "current_gate": "R3-000009D",
+      "phase": "Canonical Capability Map V1",
+      "current_gate": "R3-000009E3",
       "current_gate_status": "complete",
-      "next_gate": "R3-000009E"
+      "next_gate": "R3-000009F"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -679,6 +723,22 @@
       "reconciliation_concurrency": "pass",
       "execution_safety": "pass",
       "architecture_constitution_validation": "pass",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "canonical_capability_map_v1": {
+      "runbook": "R3-000009E3",
+      "run_id": "R3-000009E3-20260723T204536Z-ef3f21c8",
+      "status": "certified_immutable",
+      "content_gate": "R3-000009E1",
+      "validation_gate": "R3-000009E2R",
+      "publication_gate": "R3-000009E3",
+      "core_capability_count": 16,
+      "operational_family_count": 8,
+      "architecture_constitution_validation": "pass",
+      "constitutional_contracts_validation": "pass",
+      "capability_map_validation": "pass",
+      "publication_consistency": "pass",
       "software_installed": "none",
       "remote_habitat_modifications": "none"
     }

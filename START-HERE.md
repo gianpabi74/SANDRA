@@ -26,10 +26,10 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-23T18:42:41Z`;
-- certificazione corrente: `R3-000009D`;
-- [Journal corrente](journal/2026/07/R3-000009D-20260723T184240Z-f5790720.md);
-- gate corrente: `R3-000009D` — Constitutional Operational Contracts.
+- aggiornato UTC: `2026-07-23T20:45:38Z`;
+- certificazione corrente: `R3-000009E3`;
+- [Journal corrente](journal/2026/07/R3-000009E3-20260723T204536Z-ef3f21c8.md);
+- gate corrente: `R3-000009E3` — Canonical Capability Map V1 Publication.
 
 ## Indice operativo
 
@@ -42,12 +42,12 @@ rispettando Costituzione, Knowledge e roadmap.
 7. [Prossimo task](NEXT_TASK.md)
 8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
 9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
-10. [Journal corrente](journal/2026/07/R3-000009D-20260723T184240Z-f5790720.md)
+10. [Journal corrente](journal/2026/07/R3-000009E3-20260723T204536Z-ef3f21c8.md)
 
 ## Indice dei gate
 
-- **R3-000009D** — Constitutional Operational Contracts — stato `complete`
-- **R3-000009E** — Canonical Capability Map V1 — stato `blocked`
+- **R3-000009E3** — Canonical Capability Map V1 Publication — stato `complete`
+- **R3-000009F** — Canonical Domain Purification — stato `blocked`
 
 ## Regole operative
 

@@ -3,19 +3,19 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000009D — Constitutional Operational Contracts
+## R3-000009E3 — Canonical Capability Map V1 Publication
 
 ### Tipo
 
-`constitutional_contract_registration`
+`constitutional_capability_publication`
 
 ### Target
 
-- Resource Lifecycle Contract V1
-- Evidence Authority Contract V1
-- Reconciliation Concurrency Contract V1
-- Execution Safety Contract V1
+- Canonical Capability Map V1
+- capability map validator
+- ADR-0009
 - STATE.json
+- Knowledge canonical history
 
 ### Target esclusi
 
@@ -28,20 +28,21 @@
 
 ### Obiettivi
 
-- define immutable operational invariants
-- prevent stale or concurrent mutation
-- prevent unqualified evidence promotion
-- require safe and verifiable execution
+- publish the independently validated capability map
+- set immutable constitutional status
+- register capability taxonomy in STATE
+- synchronize canonical Knowledge and Git
 
 ### Divieti
 
-- no architecture changes
-- no product-specific exceptions
-- no Habitat modifications
+- no capability content expansion
+- no architecture change
+- no product-specific core capability
+- no Habitat modification
 - no software installation
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000009E`
+`R3-000009F`

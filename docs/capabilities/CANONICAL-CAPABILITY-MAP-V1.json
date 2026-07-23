@@ -1,0 +1,327 @@
+{
+  "apiVersion": "capability.sandra.io/v1",
+  "kind": "CanonicalCapabilityMap",
+  "metadata": {
+    "id": "canonical-capability-map-v1",
+    "name": "SANDRA Canonical Capability Map V1",
+    "status": "immutable",
+    "scope": "technology-independent-governance",
+    "publishedBy": "R3-000009E3"
+  },
+  "spec": {
+    "architectureConstitution": "architecture-constitution-v1",
+    "constitutionalContracts": "constitutional-operational-contracts-v1",
+    "principles": [
+      "capabilities describe stable governance responsibilities",
+      "core capabilities never identify products or transports",
+      "products implement capabilities through outbound adapters",
+      "controllers reconcile one bounded governance concern",
+      "policy decision remains separate from enforcement",
+      "observed data becomes authoritative only after qualification",
+      "execution succeeds only after postcondition verification",
+      "learning cannot bypass policy authority or safety contracts",
+      "Habitat survival overrides local service optimization"
+    ],
+    "coreCapabilities": [
+      {
+        "id": "identity",
+        "purpose": "establish stable identity ownership and references for governed resources",
+        "owns": [
+          "resource identity",
+          "subject references",
+          "controller ownership",
+          "identity continuity"
+        ],
+        "excludes": [
+          "credential transport",
+          "technology-specific identifiers",
+          "discovery implementation"
+        ]
+      },
+      {
+        "id": "resource_lifecycle",
+        "purpose": "govern resource birth evolution disappearance retirement and terminal state",
+        "owns": [
+          "lifecycle state",
+          "generation",
+          "resource version",
+          "transition rules",
+          "retirement"
+        ],
+        "excludes": [
+          "technology-specific deletion",
+          "observation collection"
+        ]
+      },
+      {
+        "id": "observation",
+        "purpose": "collect current facts without promoting them to authoritative truth",
+        "owns": [
+          "observation requests",
+          "observed values",
+          "observation timestamps",
+          "source references"
+        ],
+        "excludes": [
+          "policy decisions",
+          "authoritative mutation",
+          "remediation"
+        ]
+      },
+      {
+        "id": "evidence_qualification",
+        "purpose": "qualify observations by provenance authority confidence integrity and validity",
+        "owns": [
+          "authority",
+          "confidence",
+          "provenance",
+          "integrity",
+          "validity",
+          "conflict handling"
+        ],
+        "excludes": [
+          "raw observation collection",
+          "execution authorization"
+        ]
+      },
+      {
+        "id": "resource_graph",
+        "purpose": "represent the Habitat through managed resources and explicit relationships",
+        "owns": [
+          "relationships",
+          "dependency edges",
+          "peer relations",
+          "containment",
+          "impact traversal"
+        ],
+        "excludes": [
+          "single Habitat transaction",
+          "technology-specific topology calls"
+        ]
+      },
+      {
+        "id": "capability_declaration",
+        "purpose": "declare supported observations and actions for a governed subject",
+        "owns": [
+          "capability identifiers",
+          "constraints",
+          "adapter eligibility",
+          "availability"
+        ],
+        "excludes": [
+          "product identity",
+          "adapter implementation",
+          "policy authorization"
+        ]
+      },
+      {
+        "id": "desired_state",
+        "purpose": "represent approved intent independently from observed state",
+        "owns": [
+          "desired configuration",
+          "desired service state",
+          "declared limits",
+          "intent generation"
+        ],
+        "excludes": [
+          "live telemetry",
+          "imperative commands",
+          "adapter configuration"
+        ]
+      },
+      {
+        "id": "policy_decision",
+        "purpose": "evaluate authority risk limits and conditions for proposed actions",
+        "owns": [
+          "allow",
+          "deny",
+          "conditional outcome",
+          "approval requirement",
+          "limits",
+          "reasons",
+          "decision expiry"
+        ],
+        "excludes": [
+          "execution",
+          "transport",
+          "verification"
+        ]
+      },
+      {
+        "id": "planning",
+        "purpose": "transform intent and policy decisions into deterministic execution plans",
+        "owns": [
+          "preconditions",
+          "ordered actions",
+          "postconditions",
+          "recovery",
+          "execution limits"
+        ],
+        "excludes": [
+          "action execution",
+          "technology calls",
+          "policy evaluation"
+        ]
+      },
+      {
+        "id": "execution",
+        "purpose": "apply an authorized plan through a compatible adapter",
+        "owns": [
+          "execution lifecycle",
+          "idempotency",
+          "bounded retry",
+          "partial results",
+          "recovery invocation"
+        ],
+        "excludes": [
+          "policy decision",
+          "plan creation",
+          "verification conclusion"
+        ]
+      },
+      {
+        "id": "verification",
+        "purpose": "prove whether execution produced the required postconditions",
+        "owns": [
+          "postcondition evaluation",
+          "outcome classification",
+          "verification evidence",
+          "convergence result"
+        ],
+        "excludes": [
+          "transport success as sole proof",
+          "policy decision",
+          "action execution"
+        ]
+      },
+      {
+        "id": "persistence",
+        "purpose": "store authoritative observed and historical records without merging their semantics",
+        "owns": [
+          "authoritative state storage",
+          "observed state storage",
+          "evidence storage",
+          "versioned retrieval"
+        ],
+        "excludes": [
+          "business decisions",
+          "storage-product logic"
+        ]
+      },
+      {
+        "id": "audit",
+        "purpose": "record immutable causal history for decisions plans executions and verification",
+        "owns": [
+          "decision records",
+          "execution records",
+          "causal references",
+          "integrity digests",
+          "replay context"
+        ],
+        "excludes": [
+          "telemetry aggregation",
+          "mutable current state"
+        ]
+      },
+      {
+        "id": "notification",
+        "purpose": "deliver policy-governed notifications and approval requests",
+        "owns": [
+          "notification intent",
+          "recipient routing",
+          "approval request",
+          "delivery result",
+          "noise suppression"
+        ],
+        "excludes": [
+          "policy decision",
+          "channel-specific implementation",
+          "execution authority"
+        ]
+      },
+      {
+        "id": "security_governance",
+        "purpose": "coordinate vulnerability exposure and remediation governance",
+        "owns": [
+          "finding normalization",
+          "finding correlation",
+          "remediation intent",
+          "security verification cycle"
+        ],
+        "excludes": [
+          "scanner implementation",
+          "scanner-specific data",
+          "remediation commands"
+        ]
+      },
+      {
+        "id": "experience_learning",
+        "purpose": "derive bounded experience from verified outcomes without overriding constitutional controls",
+        "owns": [
+          "outcome-derived experience",
+          "confidence adjustment proposals",
+          "recommendation improvement",
+          "repeated-failure recognition"
+        ],
+        "excludes": [
+          "autonomous policy rewriting",
+          "authority escalation",
+          "safety bypass",
+          "unverified learning"
+        ]
+      }
+    ],
+    "operationalFamilies": [
+      {
+        "id": "compute",
+        "purpose": "virtual physical and cloud compute adapters"
+      },
+      {
+        "id": "operating_system",
+        "purpose": "operating-system observation and execution adapters"
+      },
+      {
+        "id": "storage",
+        "purpose": "block filesystem volume and capacity adapters"
+      },
+      {
+        "id": "backup",
+        "purpose": "backup observation protection and recovery adapters"
+      },
+      {
+        "id": "network",
+        "purpose": "name resolution routing switching and filtering adapters"
+      },
+      {
+        "id": "observability",
+        "purpose": "metrics probes alerts and telemetry adapters"
+      },
+      {
+        "id": "security",
+        "purpose": "vulnerability exposure and security-tool adapters"
+      },
+      {
+        "id": "policy_engine",
+        "purpose": "external policy decision engine adapters"
+      }
+    ],
+    "derivedTerms": {
+      "discovery": "observation",
+      "inventory": "resource_graph plus persistence",
+      "remediation": "security_governance plus planning plus execution plus verification",
+      "approval": "policy_decision plus notification",
+      "health": "qualified observed status",
+      "rollback": "execution recovery",
+      "provider": "forbidden canonical term; use adapter",
+      "Habitat": "governance boundary represented by the resource graph"
+    },
+    "extensionRules": [
+      "a new product adds an adapter and not a core capability",
+      "a new transport adds an adapter implementation and not a domain concept",
+      "a new core capability requires a superseding ADR and explicit approval",
+      "operational families may gain products without changing the core map",
+      "core capabilities cannot name concrete products",
+      "learning remains subject to policy authority and execution safety"
+    ]
+  }
+}

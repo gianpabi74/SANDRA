@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T18:42:41Z`
+Aggiornato: `2026-07-23T20:45:38Z`
 
 ## Repository
 
@@ -76,9 +76,9 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `R3-000009D`
-- Journal: `journal/2026/07/R3-000009D-20260723T184240Z-f5790720.md`
+- RunBook: `R3-000009E3`
+- Journal: `journal/2026/07/R3-000009E3-20260723T204536Z-ef3f21c8.md`
 
 ## Prossimo gate
 
-`R3-000009D` — Constitutional Operational Contracts
+`R3-000009E3` — Canonical Capability Map V1 Publication

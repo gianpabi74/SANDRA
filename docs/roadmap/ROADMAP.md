@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T18:42:41Z`
+Aggiornato: `2026-07-23T20:45:38Z`
 
 ## Fase corrente
 
-`Constitutional Operational Contracts`
+`Canonical Capability Map V1`
 
 ## Gate
 
-1. **R3-000009D** — Constitutional Operational Contracts (`complete`)
-2. **R3-000009E** — Canonical Capability Map V1 (`blocked`)
+1. **R3-000009E3** — Canonical Capability Map V1 Publication (`complete`)
+2. **R3-000009F** — Canonical Domain Purification (`blocked`)
 
 ## Fuori perimetro corrente
 
