@@ -7,6 +7,11 @@ from .errors import (
     ApplicationValidationError,
 )
 from .messages import ApplicationMessage, Command, Query
+from .observation import (
+    ObservationBatch,
+    ObservationRequest,
+    ObservedFact,
+)
 from .result import ApplicationResult
 
 __all__ = [
@@ -17,5 +22,8 @@ __all__ = [
     "ApplicationResult",
     "ApplicationValidationError",
     "Command",
+    "ObservationBatch",
+    "ObservationRequest",
+    "ObservedFact",
     "Query",
 ]

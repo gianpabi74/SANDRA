@@ -26,10 +26,10 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-23T21:07:48Z`;
-- certificazione corrente: `R3-000010`;
-- [Journal corrente](journal/2026/07/R3-000010-20260723T210747Z-89294ddf.md);
-- gate corrente: `R3-000010` — Application Ports Foundation.
+- aggiornato UTC: `2026-07-23T21:26:08Z`;
+- certificazione corrente: `R3-000011R`;
+- [Journal corrente](journal/2026/07/R3-000011R-20260723T212605Z-a2b3eb30.md);
+- gate corrente: `R3-000011R` — Observation Use Case Foundation Recovery.
 
 ## Indice operativo
 
@@ -42,12 +42,12 @@ rispettando Costituzione, Knowledge e roadmap.
 7. [Prossimo task](NEXT_TASK.md)
 8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
 9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
-10. [Journal corrente](journal/2026/07/R3-000010-20260723T210747Z-89294ddf.md)
+10. [Journal corrente](journal/2026/07/R3-000011R-20260723T212605Z-a2b3eb30.md)
 
 ## Indice dei gate
 
-- **R3-000010** — Application Ports Foundation — stato `complete`
-- **R3-000011** — Observation Use Case Foundation — stato `blocked`
+- **R3-000011R** — Observation Use Case Foundation Recovery — stato `complete`
+- **R3-000012** — Evidence Qualification Use Case Foundation — stato `blocked`
 
 ## Regole operative
 

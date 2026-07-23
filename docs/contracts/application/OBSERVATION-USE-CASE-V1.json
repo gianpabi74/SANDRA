@@ -1,0 +1,39 @@
+{
+  "apiVersion": "application.sandra.io/v1",
+  "kind": "ObservationUseCase",
+  "metadata": {
+    "id": "observation-use-case-v1",
+    "name": "SANDRA Observation Use Case V1",
+    "status": "immutable"
+  },
+  "spec": {
+    "capability": "observation",
+    "inboundPort": "ObserveSubjectPort",
+    "outboundPort": "ObservationSource",
+    "useCase": "ObserveSubject",
+    "request": "ObservationRequest",
+    "result": "ApplicationResult[ObservationBatch]",
+    "produces": [
+      "ObservedFact",
+      "ObservationBatch"
+    ],
+    "rules": [
+      "observation collects raw current facts",
+      "observation does not qualify evidence",
+      "observation does not change authoritative state",
+      "observation does not evaluate policy",
+      "observation does not create execution plans",
+      "observation does not execute remediation",
+      "every fact identifies subject capability source and timestamps",
+      "a returned batch must match its originating request"
+    ],
+    "forbiddenDependencies": [
+      "controllers",
+      "adapters",
+      "bootstrap",
+      "policy engines",
+      "persistence implementations",
+      "technology products"
+    ]
+  }
+}

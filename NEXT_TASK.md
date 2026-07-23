@@ -3,45 +3,47 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000010 — Application Ports Foundation
+## R3-000011R — Observation Use Case Foundation Recovery
 
 ### Tipo
 
-`application_contract_foundation`
+`application_vertical_contract_recovery`
 
 ### Target
 
-- src/sandra/application
-- tests/contract/application
-- docs/contracts/application/APPLICATION-PORTS-FOUNDATION-V1.json
+- ObservationRequest runtime correction
+- Observation application contracts
+- Observation contract tests
 - STATE.json
 
 ### Target esclusi
 
-- concrete use cases
-- controllers
-- outbound adapters
+- evidence qualification
+- authoritative persistence
+- policy evaluation
+- planning
+- execution
+- concrete technology adapters
 - remote Habitat
-- software installation
 
 ### Obiettivi
 
-- establish technology-independent application messages
-- establish inbound command and query ports
-- establish outbound persistence event and unit-of-work ports
-- certify dependency direction
+- recover the failed Observation candidate
+- correct the dataclass inheritance runtime defect
+- pass all application contract tests
+- publish the certified Observation use case
 
 ### Divieti
 
-- no product-specific application contract
-- no controller dependency
-- no adapter dependency
-- no bootstrap dependency
+- no Observation model expansion
+- no product-specific logic
+- no authoritative state mutation
+- no policy decision
+- no execution
 - no Habitat modification
-- no software installation
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000011`
+`R3-000012`

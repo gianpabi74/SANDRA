@@ -4,18 +4,21 @@
   "metadata": {
     "id": "application-ports-foundation-v1",
     "name": "SANDRA Application Ports Foundation V1",
-    "status": "immutable"
+    "status": "immutable",
+    "revision": 2
   },
   "spec": {
     "root": "src/sandra/application",
     "inboundPorts": [
       "CommandHandler",
-      "QueryHandler"
+      "QueryHandler",
+      "ObserveSubjectPort"
     ],
     "outboundPorts": [
       "Repository",
       "EventBus",
-      "UnitOfWork"
+      "UnitOfWork",
+      "ObservationSource"
     ],
     "applicationTypes": [
       "ApplicationMessage",
@@ -51,6 +54,9 @@
       "alertmanager",
       "nmap",
       "ansible"
+    ],
+    "concreteUseCases": [
+      "ObserveSubject"
     ]
   }
 }

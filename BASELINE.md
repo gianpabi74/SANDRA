@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T21:07:48Z`
+Aggiornato: `2026-07-23T21:26:08Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `R3-000010`
+RunBook corrente: `R3-000011R`
 
-Journal corrente: `journal/2026/07/R3-000010-20260723T210747Z-89294ddf.md`
+Journal corrente: `journal/2026/07/R3-000011R-20260723T212605Z-a2b3eb30.md`
 
 ## Principi permanenti
 
@@ -101,6 +101,6 @@ Journal corrente: `journal/2026/07/R3-000010-20260723T210747Z-89294ddf.md`
 
 ## Prossimo gate
 
-`R3-000010` — Application Ports Foundation
+`R3-000011R` — Observation Use Case Foundation Recovery
 
-Tipo: `application_contract_foundation`.
+Tipo: `application_vertical_contract_recovery`.

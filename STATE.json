@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "5.0.0",
+    "state_version": "5.1.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T21:07:48Z",
+    "updated_utc": "2026-07-23T21:26:08Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -163,40 +163,42 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000010",
-        "title": "Application Ports Foundation",
-        "type": "application_contract_foundation",
+        "runbook": "R3-000011R",
+        "title": "Observation Use Case Foundation Recovery",
+        "type": "application_vertical_contract_recovery",
         "targets": [
-          "src/sandra/application",
-          "tests/contract/application",
-          "docs/contracts/application/APPLICATION-PORTS-FOUNDATION-V1.json",
+          "ObservationRequest runtime correction",
+          "Observation application contracts",
+          "Observation contract tests",
           "STATE.json"
         ],
         "excluded_targets": [
-          "concrete use cases",
-          "controllers",
-          "outbound adapters",
-          "remote Habitat",
-          "software installation"
+          "evidence qualification",
+          "authoritative persistence",
+          "policy evaluation",
+          "planning",
+          "execution",
+          "concrete technology adapters",
+          "remote Habitat"
         ],
         "objectives": [
-          "establish technology-independent application messages",
-          "establish inbound command and query ports",
-          "establish outbound persistence event and unit-of-work ports",
-          "certify dependency direction"
+          "recover the failed Observation candidate",
+          "correct the dataclass inheritance runtime defect",
+          "pass all application contract tests",
+          "publish the certified Observation use case"
         ],
         "prohibitions": [
-          "no product-specific application contract",
-          "no controller dependency",
-          "no adapter dependency",
-          "no bootstrap dependency",
-          "no Habitat modification",
-          "no software installation"
+          "no Observation model expansion",
+          "no product-specific logic",
+          "no authoritative state mutation",
+          "no policy decision",
+          "no execution",
+          "no Habitat modification"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000011",
-        "title": "Observation Use Case Foundation",
+        "runbook": "R3-000012",
+        "title": "Evidence Qualification Use Case Foundation",
         "status": "blocked"
       },
       "candidates": {
@@ -312,12 +314,14 @@
       "validator": "src/knowledge/validate_application_foundation.py",
       "inbound_ports": [
         "CommandHandler",
-        "QueryHandler"
+        "QueryHandler",
+        "ObserveSubjectPort"
       ],
       "outbound_ports": [
         "Repository",
         "EventBus",
-        "UnitOfWork"
+        "UnitOfWork",
+        "ObservationSource"
       ],
       "application_types": [
         "ApplicationMessage",
@@ -327,14 +331,33 @@
         "ApplicationError"
       ],
       "use_case_contract": "UseCase",
-      "concrete_use_cases": 0
+      "concrete_use_cases": 1,
+      "revision": 2
+    },
+    "observation_use_case": {
+      "version": "1.0.0",
+      "id": "observation-use-case-v1",
+      "status": "certified_immutable",
+      "capability": "observation",
+      "inbound_port": "ObserveSubjectPort",
+      "outbound_port": "ObservationSource",
+      "use_case": "ObserveSubject",
+      "request": "ObservationRequest",
+      "result": "ApplicationResult[ObservationBatch]",
+      "contract": "docs/contracts/application/OBSERVATION-USE-CASE-V1.json",
+      "validator": "src/knowledge/validate_observation_use_case.py",
+      "authoritative_state_mutation": "none",
+      "evidence_qualification": "none",
+      "policy_evaluation": "none",
+      "planning": "none",
+      "execution": "none"
     }
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000010",
-      "run_id": "R3-000010-20260723T210747Z-89294ddf",
-      "journal": "journal/2026/07/R3-000010-20260723T210747Z-89294ddf.md"
+      "runbook": "R3-000011R",
+      "run_id": "R3-000011R-20260723T212605Z-a2b3eb30",
+      "journal": "journal/2026/07/R3-000011R-20260723T212605Z-a2b3eb30.md"
     },
     "components": {
       "core": {
@@ -560,10 +583,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Application Ports Foundation",
-      "current_gate": "R3-000010",
+      "phase": "Observation Use Case Foundation",
+      "current_gate": "R3-000011R",
       "current_gate_status": "complete",
-      "next_gate": "R3-000011"
+      "next_gate": "R3-000012"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -809,6 +832,25 @@
       "capability_map_validation": "pass",
       "outer_layer_imports": "none",
       "product_terms": "none",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "observation_use_case_v1": {
+      "runbook": "R3-000011R",
+      "run_id": "R3-000011R-20260723T212605Z-a2b3eb30",
+      "status": "certified_immutable",
+      "recovered_from": "R3-000011",
+      "runtime_defect": "zero_argument_super_with_frozen_slots_dataclass",
+      "runtime_correction": "Query.__post_init__(self)",
+      "contract_test_count": 10,
+      "contract_tests": "pass",
+      "runtime_regression": "pass",
+      "application_foundation": "pass",
+      "architecture_constitution": "pass",
+      "capability_map": "pass",
+      "authoritative_state_mutation": "none",
+      "policy_evaluation": "none",
+      "execution": "none",
       "software_installed": "none",
       "remote_habitat_modifications": "none"
     }

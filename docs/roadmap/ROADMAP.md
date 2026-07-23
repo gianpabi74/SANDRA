@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T21:07:48Z`
+Aggiornato: `2026-07-23T21:26:08Z`
 
 ## Fase corrente
 
-`Application Ports Foundation`
+`Observation Use Case Foundation`
 
 ## Gate
 
-1. **R3-000010** — Application Ports Foundation (`complete`)
-2. **R3-000011** — Observation Use Case Foundation (`blocked`)
+1. **R3-000011R** — Observation Use Case Foundation Recovery (`complete`)
+2. **R3-000012** — Evidence Qualification Use Case Foundation (`blocked`)
 
 ## Fuori perimetro corrente
 

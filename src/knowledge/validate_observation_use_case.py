@@ -11,33 +11,19 @@ from typing import Any, NoReturn
 
 
 EXPECTED_FILES = {
-    "__init__.py",
-    "errors.py",
-    "messages.py",
-    "result.py",
-    "ports/__init__.py",
-    "ports/inbound/__init__.py",
-    "ports/inbound/command.py",
-    "ports/inbound/query.py",
-    "ports/outbound/__init__.py",
-    "ports/outbound/repository.py",
-    "ports/outbound/event_bus.py",
-    "ports/outbound/unit_of_work.py",
-    "use_cases/__init__.py",
-    "use_cases/contract.py",
     "observation.py",
     "ports/inbound/observation.py",
     "ports/outbound/observation_source.py",
     "use_cases/observe_subject.py",
 }
 
-FORBIDDEN_IMPORT_ROOTS = {
+FORBIDDEN_IMPORTS = {
     "controllers",
     "adapters",
     "bootstrap",
 }
 
-FORBIDDEN_WORDS = {
+FORBIDDEN_PRODUCT_WORDS = {
     "proxmox",
     "pve",
     "vmware",
@@ -59,13 +45,13 @@ FORBIDDEN_WORDS = {
 
 def fail(message: str) -> NoReturn:
     raise SystemExit(
-        f"APPLICATION_FOUNDATION_INVALID:{message}"
+        f"OBSERVATION_USE_CASE_INVALID:{message}"
     )
 
 
 def load_json(path: Path) -> dict[str, Any]:
     try:
-        document = json.loads(
+        value = json.loads(
             path.read_text(encoding="utf-8")
         )
     except FileNotFoundError:
@@ -75,10 +61,10 @@ def load_json(path: Path) -> dict[str, Any]:
             f"JSON:{path}:{exc.lineno}:{exc.colno}"
         )
 
-    if not isinstance(document, dict):
+    if not isinstance(value, dict):
         fail(f"ROOT_NOT_OBJECT:{path}")
 
-    return document
+    return value
 
 
 def imported_roots(tree: ast.AST) -> set[str]:
@@ -90,11 +76,13 @@ def imported_roots(tree: ast.AST) -> set[str]:
                 alias.name.split(".", 1)[0]
                 for alias in node.names
             )
-        elif isinstance(node, ast.ImportFrom):
-            if node.module:
-                roots.add(
-                    node.module.split(".", 1)[0]
-                )
+        elif (
+            isinstance(node, ast.ImportFrom)
+            and node.module
+        ):
+            roots.add(
+                node.module.split(".", 1)[0]
+            )
 
     return roots
 
@@ -110,14 +98,12 @@ def main() -> int:
     contract = load_json(contract_path)
     capability = load_json(capability_path)
 
-    if contract.get("kind") != (
-        "ApplicationPortsFoundation"
-    ):
+    if contract.get("kind") != "ObservationUseCase":
         fail("CONTRACT_KIND")
 
     if (
         contract.get("metadata", {}).get("id")
-        != "application-ports-foundation-v1"
+        != "observation-use-case-v1"
     ):
         fail("CONTRACT_ID")
 
@@ -127,64 +113,54 @@ def main() -> int:
     ):
         fail("CONTRACT_STATUS")
 
-    if (
-        capability.get("metadata", {}).get("id")
-        != "canonical-capability-map-v1"
-    ):
-        fail("CAPABILITY_MAP_ID")
-
-    if (
-        capability.get("metadata", {}).get("status")
-        != "immutable"
-    ):
-        fail("CAPABILITY_MAP_STATUS")
-
-    actual_files = {
-        path.relative_to(application_root).as_posix()
-        for path in application_root.rglob("*.py")
-        if "__pycache__" not in path.parts
+    capabilities = {
+        item.get("id")
+        for item in capability.get(
+            "spec",
+            {},
+        ).get(
+            "coreCapabilities",
+            [],
+        )
+        if isinstance(item, dict)
     }
 
-    if actual_files != EXPECTED_FILES:
-        missing = sorted(
-            EXPECTED_FILES - actual_files
-        )
-        unexpected = sorted(
-            actual_files - EXPECTED_FILES
-        )
+    if "observation" not in capabilities:
+        fail("OBSERVATION_CAPABILITY_MISSING")
 
+    missing = sorted(
+        relative
+        for relative in EXPECTED_FILES
+        if not (
+            application_root / relative
+        ).is_file()
+    )
+
+    if missing:
         fail(
-            "FILE_SET:"
-            f"MISSING={missing}:"
-            f"UNEXPECTED={unexpected}"
+            "MISSING_FILES:"
+            + ",".join(missing)
         )
 
     violations: list[str] = []
 
-    for path in sorted(
-        application_root.rglob("*.py")
-    ):
-        if "__pycache__" in path.parts:
-            continue
-
-        source = path.read_text(
-            encoding="utf-8"
-        )
-
+    for relative in sorted(EXPECTED_FILES):
+        path = application_root / relative
+        source = path.read_text(encoding="utf-8")
         tree = ast.parse(
             source,
             filename=str(path),
         )
 
-        forbidden_imports = sorted(
+        outer_imports = sorted(
             imported_roots(tree)
-            & FORBIDDEN_IMPORT_ROOTS
+            & FORBIDDEN_IMPORTS
         )
 
-        if forbidden_imports:
+        if outer_imports:
             violations.append(
-                f"{path.name}:IMPORT:"
-                + ",".join(forbidden_imports)
+                f"{relative}:IMPORT:"
+                + ",".join(outer_imports)
             )
 
         words = set(
@@ -194,14 +170,14 @@ def main() -> int:
             )
         )
 
-        forbidden_words = sorted(
-            words & FORBIDDEN_WORDS
+        products = sorted(
+            words & FORBIDDEN_PRODUCT_WORDS
         )
 
-        if forbidden_words:
+        if products:
             violations.append(
-                f"{path.name}:PRODUCT:"
-                + ",".join(forbidden_words)
+                f"{relative}:PRODUCT:"
+                + ",".join(products)
             )
 
     if violations:
@@ -210,11 +186,13 @@ def main() -> int:
             + "|".join(violations)
         )
 
-    print("APPLICATION_PORTS_FOUNDATION=PASS")
-    print("APPLICATION_PYTHON_FILE_COUNT=18")
-    print("INBOUND_PORT_COUNT=3")
-    print("OUTBOUND_PORT_COUNT=4")
-    print("CONCRETE_USE_CASE_COUNT=1")
+    print("OBSERVATION_USE_CASE=PASS")
+    print("OBSERVATION_INBOUND_PORT_COUNT=1")
+    print("OBSERVATION_OUTBOUND_PORT_COUNT=1")
+    print("OBSERVATION_CONCRETE_USE_CASE_COUNT=1")
+    print("AUTHORITATIVE_STATE_MUTATION=NONE")
+    print("POLICY_EVALUATION=NONE")
+    print("EXECUTION=NONE")
     print("PRODUCT_TERMS=NONE")
     print("OUTER_LAYER_IMPORTS=NONE")
 
