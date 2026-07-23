@@ -3,41 +3,43 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000004 — Governance Runtime Foundation
+## R3-000008 — Architecture GRANITA Freeze V1
 
 ### Tipo
 
-`runtime_implementation`
+`constitutional_architecture_freeze`
 
 ### Target
 
 - Knowledge canonica
-- Python runtime source
-- unit tests
+- struttura sorgente definitiva
+- contratto architetturale
+- validatore architetturale
 
 ### Target esclusi
 
 - sistemi remoti dell'Habitat
-- runtime installata
+- installazione software
 
 ### Obiettivi
 
-- creare package Python governance
-- implementare envelope canonici
-- implementare validazione deterministica
-- implementare CLI headless
-- aggiungere test automatici
+- congelare i confini architetturali
+- creare lo scheletro definitivo
+- rendere Security permanente
+- registrare la validazione deterministica
 
 ### Divieti
 
-- nessuna modifica remota
-- nessuna installazione software
-- nessuna dipendenza esterna
-- nessun riferimento tecnologico nel dominio
-- nessuna correzione ad intuito
+- nessuna rinomina dei layer
+- nessuno spostamento delle responsabilità
+- nessun ritorno al modello provider
+- nessun layer interfaces
+- nessun layer runtime generico
+- nessun layer policy separato
+- nessuna modifica ad intuito
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000005`
+`R3-000009`

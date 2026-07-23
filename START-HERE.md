@@ -26,10 +26,10 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-23T12:53:20Z`;
-- certificazione corrente: `R3-000006A`;
-- [Journal corrente](journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md);
-- gate corrente: `R3-000004` — Governance Runtime Foundation.
+- aggiornato UTC: `2026-07-23T14:04:57Z`;
+- certificazione corrente: `R3-000008A`;
+- [Journal corrente](journal/2026/07/R3-000008A-20260723T140456Z-5feca815.md);
+- gate corrente: `R3-000008` — Architecture GRANITA Freeze V1.
 
 ## Indice operativo
 
@@ -42,12 +42,12 @@ rispettando Costituzione, Knowledge e roadmap.
 7. [Prossimo task](NEXT_TASK.md)
 8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
 9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
-10. [Journal corrente](journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md)
+10. [Journal corrente](journal/2026/07/R3-000008A-20260723T140456Z-5feca815.md)
 
 ## Indice dei gate
 
-- **R3-000004** — Governance Runtime Foundation — stato `complete`
-- **R3-000005** — Adapter and Execution Contract — stato `blocked`
+- **R3-000008** — Architecture GRANITA Freeze V1 — stato `complete`
+- **R3-000009** — Canonical Domain Migration — stato `blocked`
 
 ## Regole operative
 
@@ -66,6 +66,9 @@ rispettando Costituzione, Knowledge e roadmap.
 - autonomia delegata dalle policy
 - strumenti maturi orchestrati, non reinventati
 - nessuna correzione ad intuito
+- Architecture GRANITA Freeze V1 immutabile fino alla fine del progetto
+- nessuna rinomina o movimento dei layer per preferenza o intuizione
+- Security è una famiglia funzionale permanente
 
 ## Stato sintetico
 

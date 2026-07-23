@@ -123,6 +123,16 @@
       "id": "runtime",
       "root": "src/runtime",
       "owner": "runtime"
+    },
+    {
+      "id": "sandra",
+      "root": "src/sandra",
+      "owner": "architecture"
+    },
+    {
+      "id": "tests",
+      "root": "tests",
+      "owner": "engineering"
     }
   ],
   "journal_root": "journal",

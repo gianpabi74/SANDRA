@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T12:53:20Z`
+Aggiornato: `2026-07-23T14:04:57Z`
 
 ## Fase corrente
 
-`Governance Runtime Foundation`
+`Architecture GRANITA Freeze V1`
 
 ## Gate
 
-1. **R3-000004** — Governance Runtime Foundation (`complete`)
-2. **R3-000005** — Adapter and Execution Contract (`blocked`)
+1. **R3-000008** — Architecture GRANITA Freeze V1 (`complete`)
+2. **R3-000009** — Canonical Domain Migration (`blocked`)
 
 ## Fuori perimetro corrente
 
@@ -38,6 +38,9 @@ Aggiornato: `2026-07-23T12:53:20Z`
 - autonomia delegata dalle policy
 - strumenti maturi orchestrati, non reinventati
 - nessuna correzione ad intuito
+- Architecture GRANITA Freeze V1 immutabile fino alla fine del progetto
+- nessuna rinomina o movimento dei layer per preferenza o intuizione
+- Security è una famiglia funzionale permanente
 
 - `STATE.json` è la sorgente viva canonica.
 - Le viste Markdown sono generate.

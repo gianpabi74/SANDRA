@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T12:53:20Z`
+Aggiornato: `2026-07-23T14:04:57Z`
 
 ## Repository
 
@@ -76,9 +76,9 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `R3-000006A`
-- Journal: `journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md`
+- RunBook: `R3-000008A`
+- Journal: `journal/2026/07/R3-000008A-20260723T140456Z-5feca815.md`
 
 ## Prossimo gate
 
-`R3-000004` — Governance Runtime Foundation
+`R3-000008` — Architecture GRANITA Freeze V1

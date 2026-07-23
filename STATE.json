@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "3.5.0",
+    "state_version": "4.0.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T12:53:20Z",
+    "updated_utc": "2026-07-23T14:04:57Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -21,12 +21,40 @@
       "document": "PROJECT_CHARTER.md"
     },
     "architecture": {
-      "version": "3.1.0",
-      "document": "ARCHITECTURE.md",
+      "version": "4.0.0",
+      "document": "docs/architecture/ARCHITECTURE-FREEZE-V1.md",
+      "contract": "docs/architecture/ARCHITECTURE-FREEZE-V1.json",
+      "validator": "src/knowledge/validate_architecture_freeze.py",
+      "freeze": {
+        "id": "architecture-granita-v1",
+        "name": "Architecture GRANITA Freeze V1",
+        "status": "immutable",
+        "scope": "until_project_completion",
+        "ordinary_change_allowed": false,
+        "preference_change_allowed": false,
+        "intuition_change_allowed": false,
+        "rename_allowed": false,
+        "layer_movement_allowed": false
+      },
       "model": "controller_reconciliation",
+      "architecture_style": "ports_and_adapters",
       "resource_envelope": "kubernetes_api_conventions",
-      "semantic_attributes": "opentelemetry_guided",
-      "schema_standard": "json_schema_2020_12"
+      "policy_model": "decision_enforcement_separation",
+      "canonical_source_root": "src/sandra",
+      "test_root": "tests",
+      "immutable_layers": [
+        "domain",
+        "application",
+        "controllers",
+        "adapters",
+        "bootstrap"
+      ],
+      "security": {
+        "status": "permanent_functional_family",
+        "controller": "src/sandra/controllers/security",
+        "adapter_root": "src/sandra/adapters/outbound/security",
+        "first_product_candidate": "openvas_greenbone"
+      }
     },
     "knowledge": {
       "canonical_state": "STATE.json",
@@ -133,36 +161,38 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000004",
-        "title": "Governance Runtime Foundation",
-        "type": "runtime_implementation",
+        "runbook": "R3-000008",
+        "title": "Architecture GRANITA Freeze V1",
+        "type": "constitutional_architecture_freeze",
         "targets": [
           "Knowledge canonica",
-          "Python runtime source",
-          "unit tests"
+          "struttura sorgente definitiva",
+          "contratto architetturale",
+          "validatore architetturale"
         ],
         "excluded_targets": [
           "sistemi remoti dell'Habitat",
-          "runtime installata"
+          "installazione software"
         ],
         "objectives": [
-          "creare package Python governance",
-          "implementare envelope canonici",
-          "implementare validazione deterministica",
-          "implementare CLI headless",
-          "aggiungere test automatici"
+          "congelare i confini architetturali",
+          "creare lo scheletro definitivo",
+          "rendere Security permanente",
+          "registrare la validazione deterministica"
         ],
         "prohibitions": [
-          "nessuna modifica remota",
-          "nessuna installazione software",
-          "nessuna dipendenza esterna",
-          "nessun riferimento tecnologico nel dominio",
-          "nessuna correzione ad intuito"
+          "nessuna rinomina dei layer",
+          "nessuno spostamento delle responsabilità",
+          "nessun ritorno al modello provider",
+          "nessun layer interfaces",
+          "nessun layer runtime generico",
+          "nessun layer policy separato",
+          "nessuna modifica ad intuito"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000005",
-        "title": "Adapter and Execution Contract",
+        "runbook": "R3-000009",
+        "title": "Canonical Domain Migration",
         "status": "blocked"
       },
       "candidates": {
@@ -195,14 +225,17 @@
       "policy decision separata dall'enforcement",
       "autonomia delegata dalle policy",
       "strumenti maturi orchestrati, non reinventati",
-      "nessuna correzione ad intuito"
+      "nessuna correzione ad intuito",
+      "Architecture GRANITA Freeze V1 immutabile fino alla fine del progetto",
+      "nessuna rinomina o movimento dei layer per preferenza o intuizione",
+      "Security è una famiglia funzionale permanente"
     ]
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000006A",
-      "run_id": "R3-000006A-20260723T125319Z-c7879b27",
-      "journal": "journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md"
+      "runbook": "R3-000008A",
+      "run_id": "R3-000008A-20260723T140456Z-5feca815",
+      "journal": "journal/2026/07/R3-000008A-20260723T140456Z-5feca815.md"
     },
     "components": {
       "core": {
@@ -428,10 +461,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Governance Runtime Foundation",
-      "current_gate": "R3-000004",
+      "phase": "Architecture GRANITA Freeze V1",
+      "current_gate": "R3-000008",
       "current_gate_status": "complete",
-      "next_gate": "R3-000005"
+      "next_gate": "R3-000009"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -584,6 +617,16 @@
       "api": "sandra_expect_failure",
       "unhandled_error_guard": "enabled",
       "runtime_source_alignment": "byte_identical",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "architecture_granita_freeze_v1": {
+      "runbook": "R3-000008A",
+      "run_id": "R3-000008A-20260723T140456Z-5feca815",
+      "status": "certified_immutable",
+      "contract_validation": "pass",
+      "canonical_source_root": "src/sandra",
+      "security_family": "permanent",
       "software_installed": "none",
       "remote_habitat_modifications": "none"
     }

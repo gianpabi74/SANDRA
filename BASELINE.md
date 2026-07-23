@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T12:53:20Z`
+Aggiornato: `2026-07-23T14:04:57Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `R3-000006A`
+RunBook corrente: `R3-000008A`
 
-Journal corrente: `journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md`
+Journal corrente: `journal/2026/07/R3-000008A-20260723T140456Z-5feca815.md`
 
 ## Principi permanenti
 
@@ -30,6 +30,9 @@ Journal corrente: `journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md`
 - autonomia delegata dalle policy
 - strumenti maturi orchestrati, non reinventati
 - nessuna correzione ad intuito
+- Architecture GRANITA Freeze V1 immutabile fino alla fine del progetto
+- nessuna rinomina o movimento dei layer per preferenza o intuizione
+- Security è una famiglia funzionale permanente
 
 ## Core
 
@@ -98,6 +101,6 @@ Journal corrente: `journal/2026/07/R3-000006A-20260723T125319Z-c7879b27.md`
 
 ## Prossimo gate
 
-`R3-000004` — Governance Runtime Foundation
+`R3-000008` — Architecture GRANITA Freeze V1
 
-Tipo: `runtime_implementation`.
+Tipo: `constitutional_architecture_freeze`.

@@ -1,0 +1,79 @@
+{
+  "apiVersion": "architecture.sandra.io/v1",
+  "kind": "ArchitectureFreeze",
+  "metadata": {
+    "id": "architecture-granita-v1",
+    "name": "SANDRA Architecture GRANITA Freeze V1",
+    "status": "immutable",
+    "scope": "until-project-completion"
+  },
+  "spec": {
+    "sourceRoot": "src/sandra",
+    "testRoot": "tests",
+    "immutableLayers": [
+      "domain",
+      "application",
+      "controllers",
+      "adapters",
+      "bootstrap"
+    ],
+    "requiredPaths": [
+      "src/sandra/domain",
+      "src/sandra/application/ports/inbound",
+      "src/sandra/application/ports/outbound",
+      "src/sandra/application/use_cases",
+      "src/sandra/controllers",
+      "src/sandra/controllers/security",
+      "src/sandra/adapters/inbound",
+      "src/sandra/adapters/outbound/compute",
+      "src/sandra/adapters/outbound/operating_system",
+      "src/sandra/adapters/outbound/backup",
+      "src/sandra/adapters/outbound/network",
+      "src/sandra/adapters/outbound/observability",
+      "src/sandra/adapters/outbound/persistence",
+      "src/sandra/adapters/outbound/policy_engine",
+      "src/sandra/adapters/outbound/security",
+      "src/sandra/bootstrap",
+      "tests/unit",
+      "tests/contract",
+      "tests/integration",
+      "src/runbooks"
+    ],
+    "forbiddenPaths": [
+      "src/sandra/interfaces",
+      "src/sandra/runtime",
+      "src/sandra/provider",
+      "src/sandra/providers",
+      "src/sandra/policy"
+    ],
+    "operationalCycle": [
+      "observe",
+      "reconcile",
+      "evaluate_policy",
+      "plan",
+      "execute",
+      "verify",
+      "record"
+    ],
+    "resourceEnvelope": [
+      "apiVersion",
+      "kind",
+      "metadata",
+      "spec",
+      "status"
+    ],
+    "security": {
+      "permanentFunctionalFamily": true,
+      "controllerPath": "src/sandra/controllers/security",
+      "adapterPath": "src/sandra/adapters/outbound/security",
+      "firstCandidate": "openvas-greenbone"
+    },
+    "changePolicy": {
+      "ordinaryChangeAllowed": false,
+      "preferenceChangeAllowed": false,
+      "intuitionChangeAllowed": false,
+      "renameAllowed": false,
+      "layerMovementAllowed": false
+    }
+  }
+}
