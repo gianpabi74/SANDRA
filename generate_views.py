@@ -33,26 +33,75 @@ def load_state() -> dict:
     metadata = raw["metadata"]
     spec = raw["spec"]
     status = raw["status"]
+
     providers = status["providers"]
     current = status["current_certification"]
     roadmap_spec = spec["roadmap"]
     roadmap_status = status["roadmap"]
 
-    principles = [
-        "documentazione ufficiale come fonte primaria",
-        "dati oggettivi prima del codice",
-        "audit chirurgico prima delle assunzioni",
-        "motore deterministico e nessuna AI decisionale",
-        "Bash piccoli, accurati e con un solo obiettivo",
-        "briefing proporzionati e roadmap stabile",
-        "nessuna complessità senza valore operativo",
-        "SANDRA finalizzata al governo autonomo dell'Habitat",
-        "stato corrente riscritto e storia separata",
-        "Knowledge e GitHub aggiornati nella stessa transazione",
-    ]
+    principles = spec.get("principles")
+    current_gate = roadmap_spec.get("current_gate")
+    next_gate = roadmap_spec.get("next_gate")
+    out_of_scope = roadmap_spec.get("out_of_scope")
 
-    current_gate = roadmap_spec["current_gate"]
-    next_gate = roadmap_spec["next_gate"]
+    if not isinstance(principles, list) or not principles:
+        raise SystemExit("STATE_PRINCIPLES_INVALID")
+
+    if not all(
+        isinstance(item, str) and item
+        for item in principles
+    ):
+        raise SystemExit("STATE_PRINCIPLES_ITEM_INVALID")
+
+    if not isinstance(current_gate, dict):
+        raise SystemExit("STATE_CURRENT_GATE_INVALID")
+
+    if not isinstance(next_gate, dict):
+        raise SystemExit("STATE_NEXT_GATE_INVALID")
+
+    if not isinstance(out_of_scope, list):
+        raise SystemExit("STATE_OUT_OF_SCOPE_INVALID")
+
+    required_gate_fields = {
+        "runbook",
+        "title",
+        "type",
+        "targets",
+        "excluded_targets",
+        "objectives",
+        "prohibitions",
+    }
+
+    missing_gate_fields = (
+        required_gate_fields - set(current_gate)
+    )
+
+    if missing_gate_fields:
+        raise SystemExit(
+            "STATE_CURRENT_GATE_FIELDS_MISSING:"
+            + ",".join(sorted(missing_gate_fields))
+        )
+
+    for field in (
+        "targets",
+        "excluded_targets",
+        "objectives",
+        "prohibitions",
+    ):
+        value = current_gate[field]
+
+        if not isinstance(value, list):
+            raise SystemExit(
+                f"STATE_CURRENT_GATE_{field.upper()}_INVALID"
+            )
+
+        if not all(
+            isinstance(item, str) and item
+            for item in value
+        ):
+            raise SystemExit(
+                f"STATE_CURRENT_GATE_{field.upper()}_ITEM_INVALID"
+            )
 
     return {
         "project": {
@@ -81,32 +130,23 @@ def load_state() -> dict:
                     "status": next_gate["status"],
                 },
             ],
-            "out_of_scope": [
-                "nuove tecnologie prima della Architecture Baseline V2",
-                "interfaccia grafica",
-                "AI decisionale",
-                "modifiche remote durante la migrazione Knowledge",
-            ],
+            "out_of_scope": out_of_scope,
         },
         "next_task": {
             "runbook": current_gate["runbook"],
             "title": current_gate["title"],
-            "type": "engineering_knowledge_migration",
-            "targets": ["repository SANDRA", "Knowledge canonica"],
-            "excluded_targets": ["sistemi remoti dell'Habitat"],
-            "objectives": [
-                "completare la Knowledge V2",
-                "rigenerare tutte le viste canoniche",
-                "validare la continuità fra sessioni",
-                "sincronizzare e verificare GitHub",
+            "type": current_gate["type"],
+            "targets": current_gate["targets"],
+            "excluded_targets": current_gate[
+                "excluded_targets"
             ],
-            "prohibitions": [
-                "nessuna modifica ai target remoti",
-                "nessuna nuova tecnologia",
-                "nessuna vista canonica modificata manualmente",
-                "nessuna informazione critica lasciata soltanto in chat",
+            "objectives": current_gate["objectives"],
+            "prohibitions": current_gate[
+                "prohibitions"
             ],
-            "next_gate_after_approval": next_gate["runbook"],
+            "next_gate_after_approval": next_gate[
+                "runbook"
+            ],
         },
     }
 

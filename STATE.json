@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "2.0.1",
+    "state_version": "2.0.2",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T08:49:22Z",
+    "updated_utc": "2026-07-23T08:53:08Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -33,7 +33,10 @@
       "roadmap_view": "docs/roadmap/ROADMAP.md",
       "handoff": "CHAT-HANDOFF.md",
       "immutable_history": "journal/",
-      "manual_editing_generated_views": false
+      "manual_editing_generated_views": false,
+      "gate_contract_source": "STATE.json",
+      "principles_source": "STATE.json",
+      "roadmap_scope_source": "STATE.json"
     },
     "components": {
       "core": {
@@ -127,7 +130,27 @@
       "goal": "SANDRA V2",
       "current_gate": {
         "runbook": "RB-000069",
-        "title": "Architecture Baseline V2"
+        "title": "Architecture Baseline V2",
+        "type": "engineering_knowledge_migration",
+        "targets": [
+          "repository SANDRA",
+          "Knowledge canonica"
+        ],
+        "excluded_targets": [
+          "sistemi remoti dell'Habitat"
+        ],
+        "objectives": [
+          "completare la Knowledge V2",
+          "rigenerare tutte le viste canoniche",
+          "validare la continuità fra sessioni",
+          "sincronizzare e verificare GitHub"
+        ],
+        "prohibitions": [
+          "nessuna modifica ai target remoti",
+          "nessuna nuova tecnologia",
+          "nessuna vista canonica modificata manualmente",
+          "nessuna informazione critica lasciata soltanto in chat"
+        ]
       },
       "next_gate": {
         "runbook": "RB-000070",
@@ -140,14 +163,32 @@
         "object_registry": "candidate",
         "correlation_engine": "candidate",
         "secret_management": "candidate"
-      }
-    }
+      },
+      "out_of_scope": [
+        "nuove tecnologie prima della Architecture Baseline V2",
+        "interfaccia grafica",
+        "AI decisionale",
+        "modifiche remote durante la migrazione Knowledge"
+      ]
+    },
+    "principles": [
+      "documentazione ufficiale come fonte primaria",
+      "dati oggettivi prima del codice",
+      "audit chirurgico prima delle assunzioni",
+      "motore deterministico e nessuna AI decisionale",
+      "Bash piccoli, accurati e con un solo obiettivo",
+      "briefing proporzionati e roadmap stabile",
+      "nessuna complessità senza valore operativo",
+      "SANDRA finalizzata al governo autonomo dell'Habitat",
+      "stato corrente riscritto e storia separata",
+      "Knowledge e GitHub aggiornati nella stessa transazione"
+    ]
   },
   "status": {
     "current_certification": {
-      "runbook": "RB-000069B1",
-      "run_id": "RB-000069B1-20260723T084920Z-1ae25b4a",
-      "journal": "journal/2026/07/RB-000069B1-20260723T084920Z-1ae25b4a.md"
+      "runbook": "RB-000069B2",
+      "run_id": "RB-000069B2-20260723T085306Z-df39ea7e",
+      "journal": "journal/2026/07/RB-000069B2-20260723T085306Z-df39ea7e.md"
     },
     "components": {
       "core": {
@@ -166,12 +207,15 @@
         "charter_v2": "complete",
         "architecture_v2": "complete",
         "state_v2": "complete",
-        "generator_v2": "complete",
+        "generator_v2": "data_driven",
         "continuity_v2": "complete",
         "continuity_source_canonical": true,
         "continuity_runtime_linked": true,
         "pve_source_canonical": true,
-        "runtime_source_alignment": "partial_complete"
+        "runtime_source_alignment": "partial_complete",
+        "gate_contract_canonical": true,
+        "principles_canonical": true,
+        "roadmap_scope_canonical": true
       }
     },
     "providers": {
@@ -447,10 +491,17 @@
         "remote_habitat_modifications": "none"
       },
       "remaining_blockers": [
-        "move current gate operational contract from generate_views.py to STATE.json",
         "make empty runbook validation non-passing",
         "replace manifest assertions with explicit deterministic validation"
-      ]
+      ],
+      "gate_contract": {
+        "runbook": "RB-000069B2",
+        "run_id": "RB-000069B2-20260723T085306Z-df39ea7e",
+        "status": "certified",
+        "source": "STATE.json",
+        "generator_embedded_operational_contract": false,
+        "remote_habitat_modifications": "none"
+      }
     }
   }
 }
