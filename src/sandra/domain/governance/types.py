@@ -28,10 +28,10 @@ class ProtectionProfile(StrEnum):
 
 
 class AuthorityLevel(StrEnum):
-    AUTHORITATIVE = "authoritative"
+    UNKNOWN = "unknown"
+    OBSERVATIONAL = "observational"
     CORROBORATED = "corroborated"
-    CANDIDATE = "candidate"
-    CONFLICTING = "conflicting"
+    AUTHORITATIVE = "authoritative"
 
 
 class PolicyOutcome(StrEnum):

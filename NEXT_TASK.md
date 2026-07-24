@@ -3,47 +3,52 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000011R — Observation Use Case Foundation Recovery
+## R3-000012B — Evidence Qualification Use Case Foundation Publication
 
 ### Tipo
 
-`application_vertical_contract_recovery`
+`application_vertical_contract_publication`
 
 ### Target
 
-- ObservationRequest runtime correction
-- Observation application contracts
-- Observation contract tests
+- AuthorityLevel constitutional alignment
+- Evidence Qualification application types
+- QualifyEvidencePort
+- EvidenceQualifier
+- QualifyEvidence
+- Application Ports Foundation revision 3
 - STATE.json
+- Knowledge canonical history
 
 ### Target esclusi
 
-- evidence qualification
 - authoritative persistence
 - policy evaluation
 - planning
 - execution
-- concrete technology adapters
+- technology adapters
 - remote Habitat
+- software installation
 
 ### Obiettivi
 
-- recover the failed Observation candidate
-- correct the dataclass inheritance runtime defect
-- pass all application contract tests
-- publish the certified Observation use case
+- verify the exact exported candidate state
+- publish immutable Evidence Qualification contracts
+- separate authority levels from qualification outcomes
+- preserve constitutional Evidence Authority semantics
+- register the use case in canonical STATE
 
 ### Divieti
 
-- no Observation model expansion
-- no product-specific logic
+- no unexported candidate substitution
 - no authoritative state mutation
 - no policy decision
 - no execution
+- no product-specific application logic
 - no Habitat modification
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000012`
+`R3-000013`

@@ -1,0 +1,44 @@
+{
+  "apiVersion": "application.sandra.io/v1",
+  "kind": "EvidenceQualificationUseCase",
+  "metadata": {
+    "id": "evidence-qualification-use-case-v1",
+    "name": "SANDRA Evidence Qualification Use Case V1",
+    "status": "immutable",
+    "publishedBy": "R3-000012B"
+  },
+  "spec": {
+    "capability": "evidence_qualification",
+    "inboundPort": "QualifyEvidencePort",
+    "outboundPort": "EvidenceQualifier",
+    "useCase": "QualifyEvidence",
+    "request": "QualificationRequest",
+    "result": "ApplicationResult[QualifiedEvidence]",
+    "authorityLevels": [
+      "unknown",
+      "observational",
+      "corroborated",
+      "authoritative"
+    ],
+    "qualificationOutcomes": [
+      "accept",
+      "reject",
+      "corroborate",
+      "conflict",
+      "expire",
+      "request_more_evidence"
+    ],
+    "rules": [
+      "observation never modifies authoritative state directly",
+      "qualification is an explicit decision",
+      "authority and confidence are separate properties",
+      "confidence alone cannot create authority",
+      "expired evidence cannot authorize execution",
+      "conflicting evidence is retained",
+      "raw evidence provenance remains immutable",
+      "qualification does not evaluate execution policy",
+      "qualification does not execute actions",
+      "qualification does not persist authoritative state"
+    ]
+  }
+}

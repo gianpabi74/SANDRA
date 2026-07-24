@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-23T21:26:08Z`
+Aggiornato: `2026-07-24T06:34:09Z`
 
 ## Repository
 
@@ -76,9 +76,9 @@ Esclusi:
 
 ## Certificazione corrente
 
-- RunBook: `R3-000011R`
-- Journal: `journal/2026/07/R3-000011R-20260723T212605Z-a2b3eb30.md`
+- RunBook: `R3-000012B`
+- Journal: `journal/2026/07/R3-000012B-20260724T063405Z-3be7388a.md`
 
 ## Prossimo gate
 
-`R3-000011R` — Observation Use Case Foundation Recovery
+`R3-000012B` — Evidence Qualification Use Case Foundation Publication

@@ -29,6 +29,10 @@ EXPECTED_FILES = {
     "ports/inbound/observation.py",
     "ports/outbound/observation_source.py",
     "use_cases/observe_subject.py",
+    "evidence.py",
+    "ports/inbound/evidence_qualification.py",
+    "ports/outbound/evidence_qualifier.py",
+    "use_cases/qualify_evidence.py",
 }
 
 FORBIDDEN_IMPORT_ROOTS = {
@@ -211,10 +215,10 @@ def main() -> int:
         )
 
     print("APPLICATION_PORTS_FOUNDATION=PASS")
-    print("APPLICATION_PYTHON_FILE_COUNT=18")
-    print("INBOUND_PORT_COUNT=3")
-    print("OUTBOUND_PORT_COUNT=4")
-    print("CONCRETE_USE_CASE_COUNT=1")
+    print("APPLICATION_PYTHON_FILE_COUNT=22")
+    print("INBOUND_PORT_COUNT=4")
+    print("OUTBOUND_PORT_COUNT=5")
+    print("CONCRETE_USE_CASE_COUNT=2")
     print("PRODUCT_TERMS=NONE")
     print("OUTER_LAYER_IMPORTS=NONE")
 

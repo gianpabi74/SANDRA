@@ -6,6 +6,11 @@ from .errors import (
     ApplicationPreconditionError,
     ApplicationValidationError,
 )
+from .evidence import (
+    QualificationOutcome,
+    QualificationRequest,
+    QualifiedEvidence,
+)
 from .messages import ApplicationMessage, Command, Query
 from .observation import (
     ObservationBatch,
@@ -25,5 +30,8 @@ __all__ = [
     "ObservationBatch",
     "ObservationRequest",
     "ObservedFact",
+    "QualificationOutcome",
+    "QualificationRequest",
+    "QualifiedEvidence",
     "Query",
 ]

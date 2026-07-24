@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "5.1.0",
+    "state_version": "5.2.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-23T21:26:08Z",
+    "updated_utc": "2026-07-24T06:34:09Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -163,42 +163,47 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000011R",
-        "title": "Observation Use Case Foundation Recovery",
-        "type": "application_vertical_contract_recovery",
+        "runbook": "R3-000012B",
+        "title": "Evidence Qualification Use Case Foundation Publication",
+        "type": "application_vertical_contract_publication",
         "targets": [
-          "ObservationRequest runtime correction",
-          "Observation application contracts",
-          "Observation contract tests",
-          "STATE.json"
+          "AuthorityLevel constitutional alignment",
+          "Evidence Qualification application types",
+          "QualifyEvidencePort",
+          "EvidenceQualifier",
+          "QualifyEvidence",
+          "Application Ports Foundation revision 3",
+          "STATE.json",
+          "Knowledge canonical history"
         ],
         "excluded_targets": [
-          "evidence qualification",
           "authoritative persistence",
           "policy evaluation",
           "planning",
           "execution",
-          "concrete technology adapters",
-          "remote Habitat"
+          "technology adapters",
+          "remote Habitat",
+          "software installation"
         ],
         "objectives": [
-          "recover the failed Observation candidate",
-          "correct the dataclass inheritance runtime defect",
-          "pass all application contract tests",
-          "publish the certified Observation use case"
+          "verify the exact exported candidate state",
+          "publish immutable Evidence Qualification contracts",
+          "separate authority levels from qualification outcomes",
+          "preserve constitutional Evidence Authority semantics",
+          "register the use case in canonical STATE"
         ],
         "prohibitions": [
-          "no Observation model expansion",
-          "no product-specific logic",
+          "no unexported candidate substitution",
           "no authoritative state mutation",
           "no policy decision",
           "no execution",
+          "no product-specific application logic",
           "no Habitat modification"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000012",
-        "title": "Evidence Qualification Use Case Foundation",
+        "runbook": "R3-000013",
+        "title": "Resource Graph Use Case Foundation",
         "status": "blocked"
       },
       "candidates": {
@@ -315,13 +320,15 @@
       "inbound_ports": [
         "CommandHandler",
         "QueryHandler",
-        "ObserveSubjectPort"
+        "ObserveSubjectPort",
+        "QualifyEvidencePort"
       ],
       "outbound_ports": [
         "Repository",
         "EventBus",
         "UnitOfWork",
-        "ObservationSource"
+        "ObservationSource",
+        "EvidenceQualifier"
       ],
       "application_types": [
         "ApplicationMessage",
@@ -331,8 +338,8 @@
         "ApplicationError"
       ],
       "use_case_contract": "UseCase",
-      "concrete_use_cases": 1,
-      "revision": 2
+      "concrete_use_cases": 2,
+      "revision": 3
     },
     "observation_use_case": {
       "version": "1.0.0",
@@ -351,13 +358,47 @@
       "policy_evaluation": "none",
       "planning": "none",
       "execution": "none"
+    },
+    "evidence_qualification_use_case": {
+      "version": "1.0.0",
+      "id": "evidence-qualification-use-case-v1",
+      "status": "certified_immutable",
+      "capability": "evidence_qualification",
+      "inbound_port": "QualifyEvidencePort",
+      "outbound_port": "EvidenceQualifier",
+      "use_case": "QualifyEvidence",
+      "request": "QualificationRequest",
+      "result": "ApplicationResult[QualifiedEvidence]",
+      "contract": "docs/contracts/application/EVIDENCE-QUALIFICATION-USE-CASE-V1.json",
+      "validator": "src/knowledge/validate_evidence_qualification.py",
+      "authority_levels": [
+        "unknown",
+        "observational",
+        "corroborated",
+        "authoritative"
+      ],
+      "qualification_outcomes": [
+        "accept",
+        "reject",
+        "corroborate",
+        "conflict",
+        "expire",
+        "request_more_evidence"
+      ],
+      "candidate_gate": "R3-000012A",
+      "candidate_export_gate": "R3-000012B-AUDIT-EXPORT",
+      "publication_gate": "R3-000012B",
+      "authoritative_state_mutation": "none",
+      "policy_evaluation": "none",
+      "planning": "none",
+      "execution": "none"
     }
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000011R",
-      "run_id": "R3-000011R-20260723T212605Z-a2b3eb30",
-      "journal": "journal/2026/07/R3-000011R-20260723T212605Z-a2b3eb30.md"
+      "runbook": "R3-000012B",
+      "run_id": "R3-000012B-20260724T063405Z-3be7388a",
+      "journal": "journal/2026/07/R3-000012B-20260724T063405Z-3be7388a.md"
     },
     "components": {
       "core": {
@@ -583,10 +624,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Observation Use Case Foundation",
-      "current_gate": "R3-000011R",
+      "phase": "Evidence Qualification Use Case Foundation",
+      "current_gate": "R3-000012B",
       "current_gate_status": "complete",
-      "next_gate": "R3-000012"
+      "next_gate": "R3-000013"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -848,6 +889,26 @@
       "application_foundation": "pass",
       "architecture_constitution": "pass",
       "capability_map": "pass",
+      "authoritative_state_mutation": "none",
+      "policy_evaluation": "none",
+      "execution": "none",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "evidence_qualification_use_case_v1": {
+      "runbook": "R3-000012B",
+      "run_id": "R3-000012B-20260724T063405Z-3be7388a",
+      "status": "certified_immutable",
+      "candidate_gate": "R3-000012A",
+      "candidate_export_gate": "R3-000012B-AUDIT-EXPORT",
+      "publication_gate": "R3-000012B",
+      "candidate_manifest": "pass",
+      "candidate_hash_count": 15,
+      "constitutional_alignment": "pass",
+      "domain_authority_migration": "pass",
+      "application_contract_tests": "pass",
+      "domain_unit_tests": "pass",
+      "application_foundation_revision": 3,
       "authoritative_state_mutation": "none",
       "policy_evaluation": "none",
       "execution": "none",
