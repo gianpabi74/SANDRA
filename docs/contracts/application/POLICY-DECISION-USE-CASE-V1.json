@@ -1,0 +1,52 @@
+{
+  "apiVersion": "application.sandra.io/v1",
+  "kind": "PolicyDecisionUseCase",
+  "metadata": {
+    "id": "policy-decision-use-case-v1",
+    "name": "SANDRA Policy Decision Use Case V1",
+    "status": "immutable",
+    "publishedBy": "R3-000015B"
+  },
+  "spec": {
+    "capability": "policy_decision",
+    "inboundPort": "EvaluatePolicyDecisionPort",
+    "outboundPort": "PolicyDecisionEvaluator",
+    "useCase": "EvaluatePolicyDecision",
+    "request": "PolicyDecisionRequest",
+    "result": "ApplicationResult[PolicyDecisionResult]",
+    "effects": [
+      "allow",
+      "deny",
+      "conditional"
+    ],
+    "owns": [
+      "allow",
+      "deny",
+      "conditional outcome",
+      "approval requirement",
+      "limits",
+      "reasons",
+      "decision expiry"
+    ],
+    "excludes": [
+      "execution",
+      "transport",
+      "verification"
+    ],
+    "rules": [
+      "Policy Decision evaluates authority risk limits and conditions for proposed actions",
+      "every decision refers to exactly one originating request",
+      "every decision refers to exactly one proposed action",
+      "every decision has at least one reason",
+      "every decision has an explicit expiry",
+      "conditional decisions require approval or explicit limits",
+      "deny decisions cannot request approval",
+      "request context and limits are deeply immutable",
+      "Policy Decision does not execute actions",
+      "Policy Decision does not perform transport",
+      "Policy Decision does not conclude verification",
+      "Policy Decision does not modify Desired State",
+      "Policy Decision does not create execution plans"
+    ]
+  }
+}

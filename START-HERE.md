@@ -26,10 +26,10 @@ rispettando Costituzione, Knowledge e roadmap.
 
 ## Stato canonico
 
-- aggiornato UTC: `2026-07-24T08:41:52Z`;
-- certificazione corrente: `R3-000014B`;
-- [Journal corrente](journal/2026/07/R3-000014B-20260724T084149Z-168b31fe.md);
-- gate corrente: `R3-000014B` — Desired State Use Case Foundation Publication.
+- aggiornato UTC: `2026-07-24T09:59:41Z`;
+- certificazione corrente: `R3-000015B`;
+- [Journal corrente](journal/2026/07/R3-000015B-20260724T095937Z-dbd96432.md);
+- gate corrente: `R3-000015B` — Policy Decision Use Case Foundation Publication.
 
 ## Indice operativo
 
@@ -42,12 +42,12 @@ rispettando Costituzione, Knowledge e roadmap.
 7. [Prossimo task](NEXT_TASK.md)
 8. [Roadmap corrente](docs/roadmap/ROADMAP.md)
 9. [Prompt minimale di handoff](CHAT-HANDOFF.md)
-10. [Journal corrente](journal/2026/07/R3-000014B-20260724T084149Z-168b31fe.md)
+10. [Journal corrente](journal/2026/07/R3-000015B-20260724T095937Z-dbd96432.md)
 
 ## Indice dei gate
 
-- **R3-000014B** — Desired State Use Case Foundation Publication — stato `complete`
-- **R3-000015** — Policy Evaluation Use Case Foundation — stato `blocked`
+- **R3-000015B** — Policy Decision Use Case Foundation Publication — stato `complete`
+- **R3-000016** — Planning Use Case Foundation — stato `blocked`
 
 ## Regole operative
 

@@ -21,6 +21,11 @@ from .observation import (
     ObservationRequest,
     ObservedFact,
 )
+from .policy_decision import (
+    PolicyDecisionEffect,
+    PolicyDecisionRequest,
+    PolicyDecisionResult,
+)
 from .resource_graph import (
     GraphDirection,
     ResourceGraphRequest,
@@ -44,6 +49,9 @@ __all__ = [
     "QualificationOutcome",
     "QualificationRequest",
     "QualifiedEvidence",
+    "PolicyDecisionEffect",
+    "PolicyDecisionRequest",
+    "PolicyDecisionResult",
     "Query",
     "GraphDirection",
     "ResourceGraphRequest",

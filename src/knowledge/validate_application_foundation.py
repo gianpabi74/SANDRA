@@ -41,6 +41,10 @@ EXPECTED_FILES = {
     "ports/inbound/desired_state.py",
     "ports/outbound/desired_state_repository.py",
     "use_cases/declare_desired_state.py",
+    "policy_decision.py",
+    "ports/inbound/policy_decision.py",
+    "ports/outbound/policy_decision_evaluator.py",
+    "use_cases/evaluate_policy_decision.py",
 }
 
 FORBIDDEN_IMPORT_ROOTS = {
@@ -223,10 +227,10 @@ def main() -> int:
         )
 
     print("APPLICATION_PORTS_FOUNDATION=PASS")
-    print("APPLICATION_PYTHON_FILE_COUNT=30")
-    print("INBOUND_PORT_COUNT=6")
-    print("OUTBOUND_PORT_COUNT=7")
-    print("CONCRETE_USE_CASE_COUNT=4")
+    print("APPLICATION_PYTHON_FILE_COUNT=34")
+    print("INBOUND_PORT_COUNT=7")
+    print("OUTBOUND_PORT_COUNT=8")
+    print("CONCRETE_USE_CASE_COUNT=5")
     print("PRODUCT_TERMS=NONE")
     print("OUTER_LAYER_IMPORTS=NONE")
 

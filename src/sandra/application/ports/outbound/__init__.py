@@ -14,6 +14,10 @@ from .observation_source import (
     ObservationSource,
     ObservationSourceError,
 )
+from .policy_decision_evaluator import (
+    PolicyDecisionEvaluator,
+    PolicyDecisionEvaluatorError,
+)
 from .repository import Repository
 from .resource_graph_reader import (
     ResourceGraphReader,
@@ -30,6 +34,8 @@ __all__ = [
     "EventBus",
     "ObservationSource",
     "ObservationSourceError",
+    "PolicyDecisionEvaluator",
+    "PolicyDecisionEvaluatorError",
     "Repository",
     "ResourceGraphReader",
     "ResourceGraphReaderError",

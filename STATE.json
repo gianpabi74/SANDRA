@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "5.4.0",
+    "state_version": "5.5.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-24T08:41:52Z",
+    "updated_utc": "2026-07-24T09:59:41Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -163,48 +163,47 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000014B",
-        "title": "Desired State Use Case Foundation Publication",
+        "runbook": "R3-000015B",
+        "title": "Policy Decision Use Case Foundation Publication",
         "type": "application_vertical_contract_publication",
         "targets": [
-          "DesiredStateDeclaration",
-          "DesiredStateRecord",
-          "DeclareDesiredStatePort",
-          "DesiredStateRepository",
-          "DeclareDesiredState",
-          "Application Ports Foundation revision 5",
+          "PolicyDecisionEffect",
+          "PolicyDecisionRequest",
+          "PolicyDecisionResult",
+          "EvaluatePolicyDecisionPort",
+          "PolicyDecisionEvaluator",
+          "EvaluatePolicyDecision",
+          "Application Ports Foundation revision 6",
+          "ROADMAP_STATE.json",
           "STATE.json",
           "Knowledge canonical history"
         ],
         "excluded_targets": [
-          "live telemetry",
-          "imperative commands",
-          "adapter configuration",
-          "policy evaluation",
-          "planning",
           "execution",
+          "transport",
+          "verification",
+          "planning",
           "remote Habitat",
           "software installation"
         ],
         "objectives": [
-          "verify the exact R3-000014A candidate",
-          "publish immutable Desired State contracts",
-          "preserve approved intent independently from observed state",
-          "enforce monotonic optimistic generation control",
-          "register the use case in canonical STATE"
+          "verify the exact R3-000015A candidate",
+          "publish immutable Policy Decision contracts",
+          "preserve canonical capability policy_decision",
+          "register explicit allow deny and conditional outcomes",
+          "create persistent cross-chat roadmap handover"
         ],
         "prohibitions": [
-          "no unapproved desired intent",
-          "no live telemetry in Desired State",
-          "no imperative command execution",
-          "no adapter-specific configuration",
-          "no policy decision",
+          "no execution",
+          "no transport",
+          "no postcondition verification",
+          "no execution-plan creation",
           "no Habitat modification"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000015",
-        "title": "Policy Evaluation Use Case Foundation",
+        "runbook": "R3-000016",
+        "title": "Planning Use Case Foundation",
         "status": "blocked"
       },
       "candidates": {
@@ -324,7 +323,8 @@
         "ObserveSubjectPort",
         "QualifyEvidencePort",
         "QueryResourceGraphPort",
-        "DeclareDesiredStatePort"
+        "DeclareDesiredStatePort",
+        "EvaluatePolicyDecisionPort"
       ],
       "outbound_ports": [
         "Repository",
@@ -333,7 +333,8 @@
         "ObservationSource",
         "EvidenceQualifier",
         "ResourceGraphReader",
-        "DesiredStateRepository"
+        "DesiredStateRepository",
+        "PolicyDecisionEvaluator"
       ],
       "application_types": [
         "ApplicationMessage",
@@ -343,8 +344,8 @@
         "ApplicationError"
       ],
       "use_case_contract": "UseCase",
-      "concrete_use_cases": 4,
-      "revision": 5
+      "concrete_use_cases": 5,
+      "revision": 6
     },
     "observation_use_case": {
       "version": "1.0.0",
@@ -457,13 +458,41 @@
       "policy_evaluation": "none",
       "planning": "none",
       "execution": "none"
+    },
+    "policy_decision_use_case": {
+      "version": "1.0.0",
+      "id": "policy-decision-use-case-v1",
+      "status": "certified_immutable",
+      "capability": "policy_decision",
+      "inbound_port": "EvaluatePolicyDecisionPort",
+      "outbound_port": "PolicyDecisionEvaluator",
+      "use_case": "EvaluatePolicyDecision",
+      "request": "PolicyDecisionRequest",
+      "result": "ApplicationResult[PolicyDecisionResult]",
+      "contract": "docs/contracts/application/POLICY-DECISION-USE-CASE-V1.json",
+      "validator": "src/knowledge/validate_policy_decision_use_case.py",
+      "effects": [
+        "allow",
+        "deny",
+        "conditional"
+      ],
+      "candidate_gate": "R3-000015A",
+      "publication_gate": "R3-000015B",
+      "candidate_hash_count": 12,
+      "approval_requirement": "explicit",
+      "decision_expiry": "required",
+      "deep_immutability": "pass",
+      "execution": "none",
+      "transport": "none",
+      "verification": "none",
+      "planning": "none"
     }
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000014B",
-      "run_id": "R3-000014B-20260724T084149Z-168b31fe",
-      "journal": "journal/2026/07/R3-000014B-20260724T084149Z-168b31fe.md"
+      "runbook": "R3-000015B",
+      "run_id": "R3-000015B-20260724T095937Z-dbd96432",
+      "journal": "journal/2026/07/R3-000015B-20260724T095937Z-dbd96432.md"
     },
     "components": {
       "core": {
@@ -689,10 +718,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Desired State Use Case Foundation",
-      "current_gate": "R3-000014B",
+      "phase": "Policy Decision Use Case Foundation",
+      "current_gate": "R3-000015B",
       "current_gate_status": "complete",
-      "next_gate": "R3-000015"
+      "next_gate": "R3-000016"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -1017,6 +1046,27 @@
       "adapter_configuration": "none",
       "policy_evaluation": "none",
       "execution": "none",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "policy_decision_use_case_v1": {
+      "runbook": "R3-000015B",
+      "run_id": "R3-000015B-20260724T095937Z-dbd96432",
+      "status": "certified_immutable",
+      "candidate_gate": "R3-000015A",
+      "publication_gate": "R3-000015B",
+      "candidate_manifest": "pass",
+      "candidate_hash_count": 12,
+      "application_contract_tests": "pass",
+      "domain_unit_tests": "pass",
+      "application_foundation_revision": 6,
+      "approval_requirement": "explicit",
+      "decision_expiry": "required",
+      "deep_immutability": "pass",
+      "execution": "none",
+      "transport": "none",
+      "verification": "none",
+      "planning": "none",
       "software_installed": "none",
       "remote_habitat_modifications": "none"
     }

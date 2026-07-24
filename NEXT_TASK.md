@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000014B — Desired State Use Case Foundation Publication
+## R3-000015B — Policy Decision Use Case Foundation Publication
 
 ### Tipo
 
@@ -11,45 +11,44 @@
 
 ### Target
 
-- DesiredStateDeclaration
-- DesiredStateRecord
-- DeclareDesiredStatePort
-- DesiredStateRepository
-- DeclareDesiredState
-- Application Ports Foundation revision 5
+- PolicyDecisionEffect
+- PolicyDecisionRequest
+- PolicyDecisionResult
+- EvaluatePolicyDecisionPort
+- PolicyDecisionEvaluator
+- EvaluatePolicyDecision
+- Application Ports Foundation revision 6
+- ROADMAP_STATE.json
 - STATE.json
 - Knowledge canonical history
 
 ### Target esclusi
 
-- live telemetry
-- imperative commands
-- adapter configuration
-- policy evaluation
-- planning
 - execution
+- transport
+- verification
+- planning
 - remote Habitat
 - software installation
 
 ### Obiettivi
 
-- verify the exact R3-000014A candidate
-- publish immutable Desired State contracts
-- preserve approved intent independently from observed state
-- enforce monotonic optimistic generation control
-- register the use case in canonical STATE
+- verify the exact R3-000015A candidate
+- publish immutable Policy Decision contracts
+- preserve canonical capability policy_decision
+- register explicit allow deny and conditional outcomes
+- create persistent cross-chat roadmap handover
 
 ### Divieti
 
-- no unapproved desired intent
-- no live telemetry in Desired State
-- no imperative command execution
-- no adapter-specific configuration
-- no policy decision
+- no execution
+- no transport
+- no postcondition verification
+- no execution-plan creation
 - no Habitat modification
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000015`
+`R3-000016`

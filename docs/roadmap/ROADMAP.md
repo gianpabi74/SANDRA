@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-24T08:41:52Z`
+Aggiornato: `2026-07-24T09:59:41Z`
 
 ## Fase corrente
 
-`Desired State Use Case Foundation`
+`Policy Decision Use Case Foundation`
 
 ## Gate
 
-1. **R3-000014B** — Desired State Use Case Foundation Publication (`complete`)
-2. **R3-000015** — Policy Evaluation Use Case Foundation (`blocked`)
+1. **R3-000015B** — Policy Decision Use Case Foundation Publication (`complete`)
+2. **R3-000016** — Planning Use Case Foundation (`blocked`)
 
 ## Fuori perimetro corrente
 
