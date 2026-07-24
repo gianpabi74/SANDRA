@@ -21,6 +21,11 @@ from .observation import (
     ObservationRequest,
     ObservedFact,
 )
+from .planning import (
+    PlanStep,
+    PlanningRequest,
+    PlanningResult,
+)
 from .policy_decision import (
     PolicyDecisionEffect,
     PolicyDecisionRequest,
@@ -49,6 +54,9 @@ __all__ = [
     "QualificationOutcome",
     "QualificationRequest",
     "QualifiedEvidence",
+    "PlanStep",
+    "PlanningRequest",
+    "PlanningResult",
     "PolicyDecisionEffect",
     "PolicyDecisionRequest",
     "PolicyDecisionResult",

@@ -1,0 +1,43 @@
+{
+  "apiVersion": "application.sandra.io/v1",
+  "kind": "PlanningUseCase",
+  "metadata": {
+    "id": "planning-use-case-v1",
+    "name": "SANDRA Planning Use Case V1",
+    "status": "immutable",
+    "publishedBy": "R3-000016B"
+  },
+  "spec": {
+    "capability": "planning",
+    "inboundPort": "BuildExecutionPlanPort",
+    "outboundPort": "PlanComposer",
+    "useCase": "BuildExecutionPlan",
+    "request": "PlanningRequest",
+    "result": "ApplicationResult[PlanningResult]",
+    "domainResource": "ExecutionPlan",
+    "owns": [
+      "preconditions",
+      "ordered actions",
+      "postconditions",
+      "recovery",
+      "execution limits"
+    ],
+    "excludes": [
+      "action execution",
+      "technology calls",
+      "policy evaluation"
+    ],
+    "rules": [
+      "Planning consumes an existing Policy Decision and never reevaluates policy",
+      "Planning produces an existing canonical ExecutionPlan resource",
+      "ordered steps are contiguous and start at one",
+      "step dependencies reference only earlier steps",
+      "every step declares preconditions and postconditions",
+      "recovery references are declarative and are not executed",
+      "execution limits are immutable",
+      "Planning does not execute actions",
+      "Planning does not call technology adapters",
+      "Planning does not verify postconditions"
+    ]
+  }
+}

@@ -14,6 +14,10 @@ from .observation_source import (
     ObservationSource,
     ObservationSourceError,
 )
+from .plan_composer import (
+    PlanComposer,
+    PlanComposerError,
+)
 from .policy_decision_evaluator import (
     PolicyDecisionEvaluator,
     PolicyDecisionEvaluatorError,
@@ -34,6 +38,8 @@ __all__ = [
     "EventBus",
     "ObservationSource",
     "ObservationSourceError",
+    "PlanComposer",
+    "PlanComposerError",
     "PolicyDecisionEvaluator",
     "PolicyDecisionEvaluatorError",
     "Repository",

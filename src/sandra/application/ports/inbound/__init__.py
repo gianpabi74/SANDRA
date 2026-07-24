@@ -4,6 +4,7 @@ from .command import CommandHandler
 from .desired_state import DeclareDesiredStatePort
 from .observation import ObserveSubjectPort
 from .evidence_qualification import QualifyEvidencePort
+from .planning import BuildExecutionPlanPort
 from .policy_decision import EvaluatePolicyDecisionPort
 from .query import QueryHandler
 from .resource_graph import QueryResourceGraphPort
@@ -13,6 +14,7 @@ __all__ = [
     "DeclareDesiredStatePort",
     "ObserveSubjectPort",
     "QualifyEvidencePort",
+    "BuildExecutionPlanPort",
     "EvaluatePolicyDecisionPort",
     "QueryHandler",
     "QueryResourceGraphPort",

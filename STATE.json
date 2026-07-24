@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "5.5.0",
+    "state_version": "5.6.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-24T09:59:41Z",
+    "updated_utc": "2026-07-24T10:48:58Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -163,47 +163,47 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000015B",
-        "title": "Policy Decision Use Case Foundation Publication",
+        "runbook": "R3-000016B",
+        "title": "Planning Use Case Foundation Publication",
         "type": "application_vertical_contract_publication",
         "targets": [
-          "PolicyDecisionEffect",
-          "PolicyDecisionRequest",
-          "PolicyDecisionResult",
-          "EvaluatePolicyDecisionPort",
-          "PolicyDecisionEvaluator",
-          "EvaluatePolicyDecision",
-          "Application Ports Foundation revision 6",
+          "PlanningRequest",
+          "PlanStep",
+          "PlanningResult",
+          "BuildExecutionPlanPort",
+          "PlanComposer",
+          "BuildExecutionPlan",
+          "Application Ports Foundation revision 7",
           "ROADMAP_STATE.json",
           "STATE.json",
           "Knowledge canonical history"
         ],
         "excluded_targets": [
-          "execution",
-          "transport",
+          "action execution",
+          "technology calls",
+          "policy evaluation",
           "verification",
-          "planning",
           "remote Habitat",
           "software installation"
         ],
         "objectives": [
-          "verify the exact R3-000015A candidate",
-          "publish immutable Policy Decision contracts",
-          "preserve canonical capability policy_decision",
-          "register explicit allow deny and conditional outcomes",
-          "create persistent cross-chat roadmap handover"
+          "verify the exact R3-000016A candidate",
+          "publish immutable Planning contracts",
+          "reuse the canonical ExecutionPlan Domain resource",
+          "preserve ordered actions and dependency constraints",
+          "advance the autonomy roadmap to Execution"
         ],
         "prohibitions": [
-          "no execution",
-          "no transport",
+          "no action execution",
+          "no technology adapter calls",
+          "no policy reevaluation",
           "no postcondition verification",
-          "no execution-plan creation",
           "no Habitat modification"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000016",
-        "title": "Planning Use Case Foundation",
+        "runbook": "R3-000017",
+        "title": "Execution Use Case Foundation",
         "status": "blocked"
       },
       "candidates": {
@@ -324,7 +324,8 @@
         "QualifyEvidencePort",
         "QueryResourceGraphPort",
         "DeclareDesiredStatePort",
-        "EvaluatePolicyDecisionPort"
+        "EvaluatePolicyDecisionPort",
+        "BuildExecutionPlanPort"
       ],
       "outbound_ports": [
         "Repository",
@@ -334,7 +335,8 @@
         "EvidenceQualifier",
         "ResourceGraphReader",
         "DesiredStateRepository",
-        "PolicyDecisionEvaluator"
+        "PolicyDecisionEvaluator",
+        "PlanComposer"
       ],
       "application_types": [
         "ApplicationMessage",
@@ -344,8 +346,8 @@
         "ApplicationError"
       ],
       "use_case_contract": "UseCase",
-      "concrete_use_cases": 5,
-      "revision": 6
+      "concrete_use_cases": 6,
+      "revision": 7
     },
     "observation_use_case": {
       "version": "1.0.0",
@@ -486,13 +488,46 @@
       "transport": "none",
       "verification": "none",
       "planning": "none"
+    },
+    "planning_use_case": {
+      "version": "1.0.0",
+      "id": "planning-use-case-v1",
+      "status": "certified_immutable",
+      "capability": "planning",
+      "inbound_port": "BuildExecutionPlanPort",
+      "outbound_port": "PlanComposer",
+      "use_case": "BuildExecutionPlan",
+      "request": "PlanningRequest",
+      "result": "ApplicationResult[PlanningResult]",
+      "domain_resource": "ExecutionPlan",
+      "contract": "docs/contracts/application/PLANNING-USE-CASE-V1.json",
+      "validator": "src/knowledge/validate_planning_use_case.py",
+      "owns": [
+        "preconditions",
+        "ordered actions",
+        "postconditions",
+        "recovery",
+        "execution limits"
+      ],
+      "excludes": [
+        "action execution",
+        "technology calls",
+        "policy evaluation"
+      ],
+      "candidate_gate": "R3-000016A",
+      "publication_gate": "R3-000016B",
+      "candidate_hash_count": 12,
+      "domain_execution_plan_reuse": "pass",
+      "action_execution": "none",
+      "technology_calls": "none",
+      "policy_evaluation": "none"
     }
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000015B",
-      "run_id": "R3-000015B-20260724T095937Z-dbd96432",
-      "journal": "journal/2026/07/R3-000015B-20260724T095937Z-dbd96432.md"
+      "runbook": "R3-000016B",
+      "run_id": "R3-000016B-20260724T104855Z-df82507c",
+      "journal": "journal/2026/07/R3-000016B-20260724T104855Z-df82507c.md"
     },
     "components": {
       "core": {
@@ -718,10 +753,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Policy Decision Use Case Foundation",
-      "current_gate": "R3-000015B",
+      "phase": "Planning Use Case Foundation",
+      "current_gate": "R3-000016B",
       "current_gate_status": "complete",
-      "next_gate": "R3-000016"
+      "next_gate": "R3-000017"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -1067,6 +1102,25 @@
       "transport": "none",
       "verification": "none",
       "planning": "none",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "planning_use_case_v1": {
+      "runbook": "R3-000016B",
+      "run_id": "R3-000016B-20260724T104855Z-df82507c",
+      "status": "certified_immutable",
+      "candidate_gate": "R3-000016A",
+      "publication_gate": "R3-000016B",
+      "candidate_manifest": "pass",
+      "candidate_hash_count": 12,
+      "application_contract_tests": "pass",
+      "domain_unit_tests": "pass",
+      "application_foundation_revision": 7,
+      "domain_execution_plan_reuse": "pass",
+      "action_execution": "none",
+      "technology_calls": "none",
+      "policy_evaluation": "none",
+      "verification": "none",
       "software_installed": "none",
       "remote_habitat_modifications": "none"
     }

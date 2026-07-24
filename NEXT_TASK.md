@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000015B — Policy Decision Use Case Foundation Publication
+## R3-000016B — Planning Use Case Foundation Publication
 
 ### Tipo
 
@@ -11,44 +11,44 @@
 
 ### Target
 
-- PolicyDecisionEffect
-- PolicyDecisionRequest
-- PolicyDecisionResult
-- EvaluatePolicyDecisionPort
-- PolicyDecisionEvaluator
-- EvaluatePolicyDecision
-- Application Ports Foundation revision 6
+- PlanningRequest
+- PlanStep
+- PlanningResult
+- BuildExecutionPlanPort
+- PlanComposer
+- BuildExecutionPlan
+- Application Ports Foundation revision 7
 - ROADMAP_STATE.json
 - STATE.json
 - Knowledge canonical history
 
 ### Target esclusi
 
-- execution
-- transport
+- action execution
+- technology calls
+- policy evaluation
 - verification
-- planning
 - remote Habitat
 - software installation
 
 ### Obiettivi
 
-- verify the exact R3-000015A candidate
-- publish immutable Policy Decision contracts
-- preserve canonical capability policy_decision
-- register explicit allow deny and conditional outcomes
-- create persistent cross-chat roadmap handover
+- verify the exact R3-000016A candidate
+- publish immutable Planning contracts
+- reuse the canonical ExecutionPlan Domain resource
+- preserve ordered actions and dependency constraints
+- advance the autonomy roadmap to Execution
 
 ### Divieti
 
-- no execution
-- no transport
+- no action execution
+- no technology adapter calls
+- no policy reevaluation
 - no postcondition verification
-- no execution-plan creation
 - no Habitat modification
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000016`
+`R3-000017`
