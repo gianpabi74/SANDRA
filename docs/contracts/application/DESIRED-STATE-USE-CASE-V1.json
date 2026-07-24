@@ -1,0 +1,43 @@
+{
+  "apiVersion": "application.sandra.io/v1",
+  "kind": "DesiredStateUseCase",
+  "metadata": {
+    "id": "desired-state-use-case-v1",
+    "name": "SANDRA Desired State Use Case V1",
+    "status": "immutable",
+    "publishedBy": "R3-000014B"
+  },
+  "spec": {
+    "capability": "desired_state",
+    "inboundPort": "DeclareDesiredStatePort",
+    "outboundPort": "DesiredStateRepository",
+    "useCase": "DeclareDesiredState",
+    "request": "DesiredStateDeclaration",
+    "result": "ApplicationResult[DesiredStateRecord]",
+    "owns": [
+      "desired configuration",
+      "desired service state",
+      "declared limits",
+      "intent generation"
+    ],
+    "excludes": [
+      "live telemetry",
+      "imperative commands",
+      "adapter configuration"
+    ],
+    "rules": [
+      "Desired State represents approved intent independently from observed state",
+      "every declaration requires an approval reference",
+      "every subject has a monotonic Desired State generation",
+      "generation zero represents absence of an existing Desired State record",
+      "new declarations use optimistic generation checks",
+      "Desired State configuration and limits are deeply immutable",
+      "Desired State does not contain live telemetry",
+      "Desired State does not issue imperative commands",
+      "Desired State does not contain adapter configuration",
+      "Desired State declaration does not evaluate policy",
+      "Desired State declaration does not create execution plans",
+      "Desired State declaration does not execute actions"
+    ]
+  }
+}

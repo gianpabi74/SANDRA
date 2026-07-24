@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000013B — Resource Graph Use Case Foundation Publication
+## R3-000014B — Desired State Use Case Foundation Publication
 
 ### Tipo
 
@@ -11,44 +11,45 @@
 
 ### Target
 
-- ResourceGraphRequest
-- ResourceGraphSnapshot
-- QueryResourceGraphPort
-- ResourceGraphReader
-- QueryResourceGraph
-- Application Ports Foundation revision 4
+- DesiredStateDeclaration
+- DesiredStateRecord
+- DeclareDesiredStatePort
+- DesiredStateRepository
+- DeclareDesiredState
+- Application Ports Foundation revision 5
 - STATE.json
 - Knowledge canonical history
 
 ### Target esclusi
 
-- authoritative state mutation
+- live telemetry
+- imperative commands
+- adapter configuration
 - policy evaluation
 - planning
 - execution
-- technology-specific topology adapters
 - remote Habitat
 - software installation
 
 ### Obiettivi
 
-- verify the exact R3-000013A candidate
-- publish the Resource Graph use case
-- reuse canonical Domain graph resources
-- support bounded relationship and impact traversal
+- verify the exact R3-000014A candidate
+- publish immutable Desired State contracts
+- preserve approved intent independently from observed state
+- enforce monotonic optimistic generation control
 - register the use case in canonical STATE
 
 ### Divieti
 
-- no duplicate ManagedObject model
-- no duplicate Relationship model
-- no atomic whole-Habitat aggregate
+- no unapproved desired intent
+- no live telemetry in Desired State
+- no imperative command execution
+- no adapter-specific configuration
 - no policy decision
-- no execution
 - no Habitat modification
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000014`
+`R3-000015`

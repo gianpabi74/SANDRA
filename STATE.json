@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "5.3.0",
+    "state_version": "5.4.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-24T07:09:16Z",
+    "updated_utc": "2026-07-24T08:41:52Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -163,47 +163,48 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000013B",
-        "title": "Resource Graph Use Case Foundation Publication",
+        "runbook": "R3-000014B",
+        "title": "Desired State Use Case Foundation Publication",
         "type": "application_vertical_contract_publication",
         "targets": [
-          "ResourceGraphRequest",
-          "ResourceGraphSnapshot",
-          "QueryResourceGraphPort",
-          "ResourceGraphReader",
-          "QueryResourceGraph",
-          "Application Ports Foundation revision 4",
+          "DesiredStateDeclaration",
+          "DesiredStateRecord",
+          "DeclareDesiredStatePort",
+          "DesiredStateRepository",
+          "DeclareDesiredState",
+          "Application Ports Foundation revision 5",
           "STATE.json",
           "Knowledge canonical history"
         ],
         "excluded_targets": [
-          "authoritative state mutation",
+          "live telemetry",
+          "imperative commands",
+          "adapter configuration",
           "policy evaluation",
           "planning",
           "execution",
-          "technology-specific topology adapters",
           "remote Habitat",
           "software installation"
         ],
         "objectives": [
-          "verify the exact R3-000013A candidate",
-          "publish the Resource Graph use case",
-          "reuse canonical Domain graph resources",
-          "support bounded relationship and impact traversal",
+          "verify the exact R3-000014A candidate",
+          "publish immutable Desired State contracts",
+          "preserve approved intent independently from observed state",
+          "enforce monotonic optimistic generation control",
           "register the use case in canonical STATE"
         ],
         "prohibitions": [
-          "no duplicate ManagedObject model",
-          "no duplicate Relationship model",
-          "no atomic whole-Habitat aggregate",
+          "no unapproved desired intent",
+          "no live telemetry in Desired State",
+          "no imperative command execution",
+          "no adapter-specific configuration",
           "no policy decision",
-          "no execution",
           "no Habitat modification"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000014",
-        "title": "Desired State Use Case Foundation",
+        "runbook": "R3-000015",
+        "title": "Policy Evaluation Use Case Foundation",
         "status": "blocked"
       },
       "candidates": {
@@ -322,7 +323,8 @@
         "QueryHandler",
         "ObserveSubjectPort",
         "QualifyEvidencePort",
-        "QueryResourceGraphPort"
+        "QueryResourceGraphPort",
+        "DeclareDesiredStatePort"
       ],
       "outbound_ports": [
         "Repository",
@@ -330,7 +332,8 @@
         "UnitOfWork",
         "ObservationSource",
         "EvidenceQualifier",
-        "ResourceGraphReader"
+        "ResourceGraphReader",
+        "DesiredStateRepository"
       ],
       "application_types": [
         "ApplicationMessage",
@@ -340,8 +343,8 @@
         "ApplicationError"
       ],
       "use_case_contract": "UseCase",
-      "concrete_use_cases": 3,
-      "revision": 4
+      "concrete_use_cases": 4,
+      "revision": 5
     },
     "observation_use_case": {
       "version": "1.0.0",
@@ -421,13 +424,46 @@
       "policy_evaluation": "none",
       "planning": "none",
       "execution": "none"
+    },
+    "desired_state_use_case": {
+      "version": "1.0.0",
+      "id": "desired-state-use-case-v1",
+      "status": "certified_immutable",
+      "capability": "desired_state",
+      "inbound_port": "DeclareDesiredStatePort",
+      "outbound_port": "DesiredStateRepository",
+      "use_case": "DeclareDesiredState",
+      "request": "DesiredStateDeclaration",
+      "result": "ApplicationResult[DesiredStateRecord]",
+      "contract": "docs/contracts/application/DESIRED-STATE-USE-CASE-V1.json",
+      "validator": "src/knowledge/validate_desired_state_use_case.py",
+      "owns": [
+        "desired configuration",
+        "desired service state",
+        "declared limits",
+        "intent generation"
+      ],
+      "excludes": [
+        "live telemetry",
+        "imperative commands",
+        "adapter configuration"
+      ],
+      "candidate_gate": "R3-000014A",
+      "publication_gate": "R3-000014B",
+      "candidate_hash_count": 12,
+      "generation_control": "optimistic",
+      "approval_reference": "required",
+      "deep_immutability": "pass",
+      "policy_evaluation": "none",
+      "planning": "none",
+      "execution": "none"
     }
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000013B",
-      "run_id": "R3-000013B-20260724T070913Z-8b6b6770",
-      "journal": "journal/2026/07/R3-000013B-20260724T070913Z-8b6b6770.md"
+      "runbook": "R3-000014B",
+      "run_id": "R3-000014B-20260724T084149Z-168b31fe",
+      "journal": "journal/2026/07/R3-000014B-20260724T084149Z-168b31fe.md"
     },
     "components": {
       "core": {
@@ -653,10 +689,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Resource Graph Use Case Foundation",
-      "current_gate": "R3-000013B",
+      "phase": "Desired State Use Case Foundation",
+      "current_gate": "R3-000014B",
       "current_gate_status": "complete",
-      "next_gate": "R3-000014"
+      "next_gate": "R3-000015"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -957,6 +993,28 @@
       "application_foundation_revision": 4,
       "domain_resource_duplication": "none",
       "authoritative_state_mutation": "none",
+      "policy_evaluation": "none",
+      "execution": "none",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "desired_state_use_case_v1": {
+      "runbook": "R3-000014B",
+      "run_id": "R3-000014B-20260724T084149Z-168b31fe",
+      "status": "certified_immutable",
+      "candidate_gate": "R3-000014A",
+      "publication_gate": "R3-000014B",
+      "candidate_manifest": "pass",
+      "candidate_hash_count": 12,
+      "application_contract_tests": "pass",
+      "domain_unit_tests": "pass",
+      "application_foundation_revision": 5,
+      "generation_control": "optimistic",
+      "approval_reference": "required",
+      "deep_immutability": "pass",
+      "live_telemetry": "none",
+      "imperative_commands": "none",
+      "adapter_configuration": "none",
       "policy_evaluation": "none",
       "execution": "none",
       "software_installed": "none",

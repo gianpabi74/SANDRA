@@ -1,5 +1,10 @@
 """Outbound ports implemented by technology adapters."""
 
+from .desired_state_repository import (
+    DesiredStateConflictError,
+    DesiredStateRepository,
+    DesiredStateRepositoryError,
+)
 from .evidence_qualifier import (
     EvidenceQualifier,
     EvidenceQualifierError,
@@ -17,6 +22,9 @@ from .resource_graph_reader import (
 from .unit_of_work import UnitOfWork
 
 __all__ = [
+    "DesiredStateConflictError",
+    "DesiredStateRepository",
+    "DesiredStateRepositoryError",
     "EvidenceQualifier",
     "EvidenceQualifierError",
     "EventBus",

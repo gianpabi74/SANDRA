@@ -1,5 +1,9 @@
 """Canonical SANDRA Application Layer."""
 
+from .desired_state import (
+    DesiredStateDeclaration,
+    DesiredStateRecord,
+)
 from .errors import (
     ApplicationConflictError,
     ApplicationError,
@@ -32,6 +36,8 @@ __all__ = [
     "ApplicationResult",
     "ApplicationValidationError",
     "Command",
+    "DesiredStateDeclaration",
+    "DesiredStateRecord",
     "ObservationBatch",
     "ObservationRequest",
     "ObservedFact",

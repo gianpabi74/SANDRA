@@ -3,15 +3,15 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-24T07:09:16Z`
+Aggiornato: `2026-07-24T08:41:52Z`
 
 Repository: https://github.com/gianpabi74/SANDRA
 
 Branch: `main`
 
-RunBook corrente: `R3-000013B`
+RunBook corrente: `R3-000014B`
 
-Journal corrente: `journal/2026/07/R3-000013B-20260724T070913Z-8b6b6770.md`
+Journal corrente: `journal/2026/07/R3-000014B-20260724T084149Z-168b31fe.md`
 
 ## Principi permanenti
 
@@ -101,6 +101,6 @@ Journal corrente: `journal/2026/07/R3-000013B-20260724T070913Z-8b6b6770.md`
 
 ## Prossimo gate
 
-`R3-000013B` — Resource Graph Use Case Foundation Publication
+`R3-000014B` — Desired State Use Case Foundation Publication
 
 Tipo: `application_vertical_contract_publication`.
