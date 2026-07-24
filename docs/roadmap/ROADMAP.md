@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-24T06:34:09Z`
+Aggiornato: `2026-07-24T07:09:16Z`
 
 ## Fase corrente
 
-`Evidence Qualification Use Case Foundation`
+`Resource Graph Use Case Foundation`
 
 ## Gate
 
-1. **R3-000012B** — Evidence Qualification Use Case Foundation Publication (`complete`)
-2. **R3-000013** — Resource Graph Use Case Foundation (`blocked`)
+1. **R3-000013B** — Resource Graph Use Case Foundation Publication (`complete`)
+2. **R3-000014** — Desired State Use Case Foundation (`blocked`)
 
 ## Fuori perimetro corrente
 

@@ -10,6 +10,10 @@ from .observation_source import (
     ObservationSourceError,
 )
 from .repository import Repository
+from .resource_graph_reader import (
+    ResourceGraphReader,
+    ResourceGraphReaderError,
+)
 from .unit_of_work import UnitOfWork
 
 __all__ = [
@@ -19,5 +23,7 @@ __all__ = [
     "ObservationSource",
     "ObservationSourceError",
     "Repository",
+    "ResourceGraphReader",
+    "ResourceGraphReaderError",
     "UnitOfWork",
 ]

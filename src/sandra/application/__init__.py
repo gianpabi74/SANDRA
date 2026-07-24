@@ -17,6 +17,11 @@ from .observation import (
     ObservationRequest,
     ObservedFact,
 )
+from .resource_graph import (
+    GraphDirection,
+    ResourceGraphRequest,
+    ResourceGraphSnapshot,
+)
 from .result import ApplicationResult
 
 __all__ = [
@@ -34,4 +39,7 @@ __all__ = [
     "QualificationRequest",
     "QualifiedEvidence",
     "Query",
+    "GraphDirection",
+    "ResourceGraphRequest",
+    "ResourceGraphSnapshot",
 ]

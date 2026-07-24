@@ -5,7 +5,7 @@
     "id": "application-ports-foundation-v1",
     "name": "SANDRA Application Ports Foundation V1",
     "status": "immutable",
-    "revision": 3
+    "revision": 4
   },
   "spec": {
     "root": "src/sandra/application",
@@ -13,14 +13,16 @@
       "CommandHandler",
       "QueryHandler",
       "ObserveSubjectPort",
-      "QualifyEvidencePort"
+      "QualifyEvidencePort",
+      "QueryResourceGraphPort"
     ],
     "outboundPorts": [
       "Repository",
       "EventBus",
       "UnitOfWork",
       "ObservationSource",
-      "EvidenceQualifier"
+      "EvidenceQualifier",
+      "ResourceGraphReader"
     ],
     "applicationTypes": [
       "ApplicationMessage",
@@ -59,7 +61,8 @@
     ],
     "concreteUseCases": [
       "ObserveSubject",
-      "QualifyEvidence"
+      "QualifyEvidence",
+      "QueryResourceGraph"
     ]
   }
 }

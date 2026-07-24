@@ -3,7 +3,7 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-## R3-000012B — Evidence Qualification Use Case Foundation Publication
+## R3-000013B — Resource Graph Use Case Foundation Publication
 
 ### Tipo
 
@@ -11,44 +11,44 @@
 
 ### Target
 
-- AuthorityLevel constitutional alignment
-- Evidence Qualification application types
-- QualifyEvidencePort
-- EvidenceQualifier
-- QualifyEvidence
-- Application Ports Foundation revision 3
+- ResourceGraphRequest
+- ResourceGraphSnapshot
+- QueryResourceGraphPort
+- ResourceGraphReader
+- QueryResourceGraph
+- Application Ports Foundation revision 4
 - STATE.json
 - Knowledge canonical history
 
 ### Target esclusi
 
-- authoritative persistence
+- authoritative state mutation
 - policy evaluation
 - planning
 - execution
-- technology adapters
+- technology-specific topology adapters
 - remote Habitat
 - software installation
 
 ### Obiettivi
 
-- verify the exact exported candidate state
-- publish immutable Evidence Qualification contracts
-- separate authority levels from qualification outcomes
-- preserve constitutional Evidence Authority semantics
+- verify the exact R3-000013A candidate
+- publish the Resource Graph use case
+- reuse canonical Domain graph resources
+- support bounded relationship and impact traversal
 - register the use case in canonical STATE
 
 ### Divieti
 
-- no unexported candidate substitution
-- no authoritative state mutation
+- no duplicate ManagedObject model
+- no duplicate Relationship model
+- no atomic whole-Habitat aggregate
 - no policy decision
 - no execution
-- no product-specific application logic
 - no Habitat modification
 
 ### Gate successivo
 
 Solo dopo il completamento deterministico del gate corrente:
 
-`R3-000013`
+`R3-000014`

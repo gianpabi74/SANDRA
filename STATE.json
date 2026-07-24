@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "5.2.0",
+    "state_version": "5.3.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-24T06:34:09Z",
+    "updated_utc": "2026-07-24T07:09:16Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -163,47 +163,47 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000012B",
-        "title": "Evidence Qualification Use Case Foundation Publication",
+        "runbook": "R3-000013B",
+        "title": "Resource Graph Use Case Foundation Publication",
         "type": "application_vertical_contract_publication",
         "targets": [
-          "AuthorityLevel constitutional alignment",
-          "Evidence Qualification application types",
-          "QualifyEvidencePort",
-          "EvidenceQualifier",
-          "QualifyEvidence",
-          "Application Ports Foundation revision 3",
+          "ResourceGraphRequest",
+          "ResourceGraphSnapshot",
+          "QueryResourceGraphPort",
+          "ResourceGraphReader",
+          "QueryResourceGraph",
+          "Application Ports Foundation revision 4",
           "STATE.json",
           "Knowledge canonical history"
         ],
         "excluded_targets": [
-          "authoritative persistence",
+          "authoritative state mutation",
           "policy evaluation",
           "planning",
           "execution",
-          "technology adapters",
+          "technology-specific topology adapters",
           "remote Habitat",
           "software installation"
         ],
         "objectives": [
-          "verify the exact exported candidate state",
-          "publish immutable Evidence Qualification contracts",
-          "separate authority levels from qualification outcomes",
-          "preserve constitutional Evidence Authority semantics",
+          "verify the exact R3-000013A candidate",
+          "publish the Resource Graph use case",
+          "reuse canonical Domain graph resources",
+          "support bounded relationship and impact traversal",
           "register the use case in canonical STATE"
         ],
         "prohibitions": [
-          "no unexported candidate substitution",
-          "no authoritative state mutation",
+          "no duplicate ManagedObject model",
+          "no duplicate Relationship model",
+          "no atomic whole-Habitat aggregate",
           "no policy decision",
           "no execution",
-          "no product-specific application logic",
           "no Habitat modification"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000013",
-        "title": "Resource Graph Use Case Foundation",
+        "runbook": "R3-000014",
+        "title": "Desired State Use Case Foundation",
         "status": "blocked"
       },
       "candidates": {
@@ -321,14 +321,16 @@
         "CommandHandler",
         "QueryHandler",
         "ObserveSubjectPort",
-        "QualifyEvidencePort"
+        "QualifyEvidencePort",
+        "QueryResourceGraphPort"
       ],
       "outbound_ports": [
         "Repository",
         "EventBus",
         "UnitOfWork",
         "ObservationSource",
-        "EvidenceQualifier"
+        "EvidenceQualifier",
+        "ResourceGraphReader"
       ],
       "application_types": [
         "ApplicationMessage",
@@ -338,8 +340,8 @@
         "ApplicationError"
       ],
       "use_case_contract": "UseCase",
-      "concrete_use_cases": 2,
-      "revision": 3
+      "concrete_use_cases": 3,
+      "revision": 4
     },
     "observation_use_case": {
       "version": "1.0.0",
@@ -392,13 +394,40 @@
       "policy_evaluation": "none",
       "planning": "none",
       "execution": "none"
+    },
+    "resource_graph_use_case": {
+      "version": "1.0.0",
+      "id": "resource-graph-use-case-v1",
+      "status": "certified_immutable",
+      "capability": "resource_graph",
+      "inbound_port": "QueryResourceGraphPort",
+      "outbound_port": "ResourceGraphReader",
+      "use_case": "QueryResourceGraph",
+      "request": "ResourceGraphRequest",
+      "result": "ApplicationResult[ResourceGraphSnapshot]",
+      "contract": "docs/contracts/application/RESOURCE-GRAPH-USE-CASE-V1.json",
+      "validator": "src/knowledge/validate_resource_graph_use_case.py",
+      "domain_resources": [
+        "ManagedObject",
+        "Relationship",
+        "ResourceEnvelope",
+        "ResourceKind"
+      ],
+      "candidate_gate": "R3-000013A",
+      "publication_gate": "R3-000013B",
+      "candidate_hash_count": 12,
+      "domain_resource_duplication": "none",
+      "authoritative_state_mutation": "none",
+      "policy_evaluation": "none",
+      "planning": "none",
+      "execution": "none"
     }
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000012B",
-      "run_id": "R3-000012B-20260724T063405Z-3be7388a",
-      "journal": "journal/2026/07/R3-000012B-20260724T063405Z-3be7388a.md"
+      "runbook": "R3-000013B",
+      "run_id": "R3-000013B-20260724T070913Z-8b6b6770",
+      "journal": "journal/2026/07/R3-000013B-20260724T070913Z-8b6b6770.md"
     },
     "components": {
       "core": {
@@ -624,10 +653,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Evidence Qualification Use Case Foundation",
-      "current_gate": "R3-000012B",
+      "phase": "Resource Graph Use Case Foundation",
+      "current_gate": "R3-000013B",
       "current_gate_status": "complete",
-      "next_gate": "R3-000013"
+      "next_gate": "R3-000014"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -909,6 +938,24 @@
       "application_contract_tests": "pass",
       "domain_unit_tests": "pass",
       "application_foundation_revision": 3,
+      "authoritative_state_mutation": "none",
+      "policy_evaluation": "none",
+      "execution": "none",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "resource_graph_use_case_v1": {
+      "runbook": "R3-000013B",
+      "run_id": "R3-000013B-20260724T070913Z-8b6b6770",
+      "status": "certified_immutable",
+      "candidate_gate": "R3-000013A",
+      "publication_gate": "R3-000013B",
+      "candidate_manifest": "pass",
+      "candidate_hash_count": 12,
+      "application_contract_tests": "pass",
+      "domain_unit_tests": "pass",
+      "application_foundation_revision": 4,
+      "domain_resource_duplication": "none",
       "authoritative_state_mutation": "none",
       "policy_evaluation": "none",
       "execution": "none",

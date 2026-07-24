@@ -1,0 +1,48 @@
+{
+  "apiVersion": "application.sandra.io/v1",
+  "kind": "ResourceGraphUseCase",
+  "metadata": {
+    "id": "resource-graph-use-case-v1",
+    "name": "SANDRA Resource Graph Use Case V1",
+    "status": "immutable",
+    "publishedBy": "R3-000013B"
+  },
+  "spec": {
+    "capability": "resource_graph",
+    "inboundPort": "QueryResourceGraphPort",
+    "outboundPort": "ResourceGraphReader",
+    "useCase": "QueryResourceGraph",
+    "request": "ResourceGraphRequest",
+    "result": "ApplicationResult[ResourceGraphSnapshot]",
+    "domainResources": [
+      "ManagedObject",
+      "Relationship",
+      "ResourceEnvelope",
+      "ResourceKind"
+    ],
+    "directions": [
+      "outbound",
+      "inbound",
+      "both"
+    ],
+    "owns": [
+      "relationships",
+      "dependency edges",
+      "peer relations",
+      "containment",
+      "impact traversal"
+    ],
+    "rules": [
+      "the Resource Graph is composed of existing canonical ManagedObject and Relationship resources",
+      "the Application Layer does not redefine canonical graph resources",
+      "graph retrieval is bounded by root direction relationship types and maximum depth",
+      "the root resource must be present in every returned snapshot",
+      "impact references must identify resources returned in the same snapshot",
+      "graph retrieval does not mutate authoritative state",
+      "graph retrieval does not evaluate policy",
+      "graph retrieval does not create execution plans",
+      "technology-specific topology calls belong to outbound adapters",
+      "the Habitat is not treated as one atomic aggregate"
+    ]
+  }
+}
