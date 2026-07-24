@@ -29,6 +29,11 @@ from .resource_graph_reader import (
 )
 from .unit_of_work import UnitOfWork
 
+from .execution_engine import (
+    ExecutionEngine,
+    ExecutionEngineError,
+)
+
 __all__ = [
     "DesiredStateConflictError",
     "DesiredStateRepository",
@@ -46,4 +51,6 @@ __all__ = [
     "ResourceGraphReader",
     "ResourceGraphReaderError",
     "UnitOfWork",
+    "ExecutionEngine",
+    "ExecutionEngineError",
 ]

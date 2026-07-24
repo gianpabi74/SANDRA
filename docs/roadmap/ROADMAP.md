@@ -3,16 +3,16 @@
 > GENERATED FILE — DO NOT EDIT MANUALLY  
 > Source: `STATE.json`
 
-Aggiornato: `2026-07-24T10:48:58Z`
+Aggiornato: `2026-07-24T14:46:59Z`
 
 ## Fase corrente
 
-`Planning Use Case Foundation`
+`Execution Use Case Foundation`
 
 ## Gate
 
-1. **R3-000016B** — Planning Use Case Foundation Publication (`complete`)
-2. **R3-000017** — Execution Use Case Foundation (`blocked`)
+1. **R3-000017B-2** — Execution Use Case Foundation Publication (`complete`)
+2. **R3-000018** — Verification Use Case Foundation (`blocked`)
 
 ## Fuori perimetro corrente
 

@@ -5,7 +5,7 @@
     "id": "application-ports-foundation-v1",
     "name": "SANDRA Application Ports Foundation V1",
     "status": "immutable",
-    "revision": 7
+    "revision": 8
   },
   "spec": {
     "root": "src/sandra/application",
@@ -17,7 +17,8 @@
       "QueryResourceGraphPort",
       "DeclareDesiredStatePort",
       "EvaluatePolicyDecisionPort",
-      "BuildExecutionPlanPort"
+      "BuildExecutionPlanPort",
+      "ExecutePlanPort"
     ],
     "outboundPorts": [
       "Repository",
@@ -28,7 +29,8 @@
       "ResourceGraphReader",
       "DesiredStateRepository",
       "PolicyDecisionEvaluator",
-      "PlanComposer"
+      "PlanComposer",
+      "ExecutionEngine"
     ],
     "applicationTypes": [
       "ApplicationMessage",
@@ -71,7 +73,8 @@
       "QueryResourceGraph",
       "DeclareDesiredState",
       "EvaluatePolicyDecision",
-      "BuildExecutionPlan"
+      "BuildExecutionPlan",
+      "ExecutePlan"
     ]
   }
 }

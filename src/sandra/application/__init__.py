@@ -38,6 +38,14 @@ from .resource_graph import (
 )
 from .result import ApplicationResult
 
+from .execution import (
+    ExecutionLifecycle,
+    ExecutionRequest,
+    ExecutionResult,
+    ExecutionStepLifecycle,
+    ExecutionStepOutcome,
+)
+
 __all__ = [
     "ApplicationConflictError",
     "ApplicationError",
@@ -64,4 +72,9 @@ __all__ = [
     "GraphDirection",
     "ResourceGraphRequest",
     "ResourceGraphSnapshot",
+    "ExecutionLifecycle",
+    "ExecutionRequest",
+    "ExecutionResult",
+    "ExecutionStepLifecycle",
+    "ExecutionStepOutcome",
 ]

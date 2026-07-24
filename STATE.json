@@ -3,9 +3,9 @@
     "api_version": "sandra.io/v2",
     "kind": "ProjectState",
     "schema_version": 2,
-    "state_version": "5.6.0",
+    "state_version": "5.7.0",
     "project": "SANDRA",
-    "updated_utc": "2026-07-24T10:48:58Z",
+    "updated_utc": "2026-07-24T14:46:59Z",
     "repository": "https://github.com/gianpabi74/SANDRA",
     "branch": "main",
     "migrated_from_legacy_schema": 2
@@ -163,47 +163,48 @@
     "roadmap": {
       "goal": "SANDRA V3",
       "current_gate": {
-        "runbook": "R3-000016B",
-        "title": "Planning Use Case Foundation Publication",
+        "runbook": "R3-000017B-2",
+        "title": "Execution Use Case Foundation Publication",
         "type": "application_vertical_contract_publication",
         "targets": [
-          "PlanningRequest",
-          "PlanStep",
-          "PlanningResult",
-          "BuildExecutionPlanPort",
-          "PlanComposer",
-          "BuildExecutionPlan",
-          "Application Ports Foundation revision 7",
+          "ExecutionLifecycle",
+          "ExecutionStepLifecycle",
+          "ExecutionRequest",
+          "ExecutionStepOutcome",
+          "ExecutionResult",
+          "ExecutePlanPort",
+          "ExecutionEngine",
+          "ExecutePlan",
+          "Application Ports Foundation revision 8",
           "ROADMAP_STATE.json",
           "STATE.json",
           "Knowledge canonical history"
         ],
         "excluded_targets": [
-          "action execution",
-          "technology calls",
-          "policy evaluation",
-          "verification",
+          "policy decision",
+          "plan creation",
+          "verification conclusion",
           "remote Habitat",
           "software installation"
         ],
         "objectives": [
-          "verify the exact R3-000016A candidate",
-          "publish immutable Planning contracts",
-          "reuse the canonical ExecutionPlan Domain resource",
-          "preserve ordered actions and dependency constraints",
-          "advance the autonomy roadmap to Execution"
+          "verify the exact frozen R3-000017A candidate",
+          "publish immutable Execution contracts",
+          "preserve bounded retry and idempotency",
+          "preserve partial outcomes for Verification",
+          "advance the autonomy roadmap to Verification"
         ],
         "prohibitions": [
-          "no action execution",
-          "no technology adapter calls",
           "no policy reevaluation",
-          "no postcondition verification",
-          "no Habitat modification"
+          "no execution-plan creation",
+          "no verification conclusion",
+          "no direct technology-specific Application logic",
+          "no uncontrolled retry"
         ]
       },
       "next_gate": {
-        "runbook": "R3-000017",
-        "title": "Execution Use Case Foundation",
+        "runbook": "R3-000018",
+        "title": "Verification Use Case Foundation",
         "status": "blocked"
       },
       "candidates": {
@@ -325,7 +326,8 @@
         "QueryResourceGraphPort",
         "DeclareDesiredStatePort",
         "EvaluatePolicyDecisionPort",
-        "BuildExecutionPlanPort"
+        "BuildExecutionPlanPort",
+        "ExecutePlanPort"
       ],
       "outbound_ports": [
         "Repository",
@@ -336,7 +338,8 @@
         "ResourceGraphReader",
         "DesiredStateRepository",
         "PolicyDecisionEvaluator",
-        "PlanComposer"
+        "PlanComposer",
+        "ExecutionEngine"
       ],
       "application_types": [
         "ApplicationMessage",
@@ -346,8 +349,8 @@
         "ApplicationError"
       ],
       "use_case_contract": "UseCase",
-      "concrete_use_cases": 6,
-      "revision": 7
+      "concrete_use_cases": 7,
+      "revision": 8
     },
     "observation_use_case": {
       "version": "1.0.0",
@@ -521,13 +524,52 @@
       "action_execution": "none",
       "technology_calls": "none",
       "policy_evaluation": "none"
+    },
+    "execution_use_case": {
+      "version": "1.0.0",
+      "id": "execution-use-case-v1",
+      "status": "certified_immutable",
+      "capability": "execution",
+      "inbound_port": "ExecutePlanPort",
+      "outbound_port": "ExecutionEngine",
+      "use_case": "ExecutePlan",
+      "request": "ExecutionRequest",
+      "result": "ApplicationResult[ExecutionResult]",
+      "input_resource": "ExecutionPlan",
+      "safety_contract": "docs/contracts/constitutional/EXECUTION-SAFETY-CONTRACT-V1.json",
+      "contract": "docs/contracts/application/EXECUTION-USE-CASE-V1.json",
+      "validator": "src/knowledge/validate_execution_use_case.py",
+      "owns": [
+        "execution lifecycle",
+        "idempotency",
+        "bounded retry",
+        "partial results",
+        "recovery invocation"
+      ],
+      "excludes": [
+        "policy decision",
+        "plan creation",
+        "verification conclusion"
+      ],
+      "candidate_gate": "R3-000017A",
+      "freeze_gate": "R3-000017B-1",
+      "publication_gate": "R3-000017B-2",
+      "candidate_hash_count": 12,
+      "execution_plan_reuse": "pass",
+      "idempotency": "explicit",
+      "bounded_retry": "pass",
+      "partial_results": "explicit",
+      "recovery_invocation": "explicit",
+      "policy_decision": "not_evaluated",
+      "plan_creation": "none",
+      "verification_conclusion": "none"
     }
   },
   "status": {
     "current_certification": {
-      "runbook": "R3-000016B",
-      "run_id": "R3-000016B-20260724T104855Z-df82507c",
-      "journal": "journal/2026/07/R3-000016B-20260724T104855Z-df82507c.md"
+      "runbook": "R3-000017B-2",
+      "run_id": "R3-000017B-2-20260724T144656Z-20c41263",
+      "journal": "journal/2026/07/R3-000017B-2-20260724T144656Z-20c41263.md"
     },
     "components": {
       "core": {
@@ -753,10 +795,10 @@
       "repository_ready": true
     },
     "roadmap": {
-      "phase": "Planning Use Case Foundation",
-      "current_gate": "R3-000016B",
+      "phase": "Execution Use Case Foundation",
+      "current_gate": "R3-000017B-2",
       "current_gate_status": "complete",
-      "next_gate": "R3-000017"
+      "next_gate": "R3-000018"
     },
     "deferred_work": {
       "linux_provider_closure": {
@@ -1121,6 +1163,29 @@
       "technology_calls": "none",
       "policy_evaluation": "none",
       "verification": "none",
+      "software_installed": "none",
+      "remote_habitat_modifications": "none"
+    },
+    "execution_use_case_v1": {
+      "runbook": "R3-000017B-2",
+      "run_id": "R3-000017B-2-20260724T144656Z-20c41263",
+      "status": "certified_immutable",
+      "candidate_gate": "R3-000017A",
+      "freeze_gate": "R3-000017B-1",
+      "publication_gate": "R3-000017B-2",
+      "candidate_manifest": "pass",
+      "candidate_hash_count": 12,
+      "application_contract_tests": "pass",
+      "domain_unit_tests": "pass",
+      "application_foundation_revision": 8,
+      "execution_plan_reuse": "pass",
+      "idempotency": "explicit",
+      "bounded_retry": "pass",
+      "partial_results": "explicit",
+      "recovery_invocation": "explicit",
+      "policy_decision": "not_evaluated",
+      "plan_creation": "none",
+      "verification_conclusion": "none",
       "software_installed": "none",
       "remote_habitat_modifications": "none"
     }

@@ -1,0 +1,47 @@
+{
+  "apiVersion": "application.sandra.io/v1",
+  "kind": "ExecutionUseCase",
+  "metadata": {
+    "id": "execution-use-case-v1",
+    "name": "SANDRA Execution Use Case V1",
+    "status": "immutable",
+    "publishedBy": "R3-000017B-2"
+  },
+  "spec": {
+    "capability": "execution",
+    "inboundPort": "ExecutePlanPort",
+    "outboundPort": "ExecutionEngine",
+    "useCase": "ExecutePlan",
+    "request": "ExecutionRequest",
+    "result": "ApplicationResult[ExecutionResult]",
+    "inputResource": "ExecutionPlan",
+    "safetyContract": "execution-safety-v1",
+    "owns": [
+      "execution lifecycle",
+      "idempotency",
+      "bounded retry",
+      "partial results",
+      "recovery invocation"
+    ],
+    "excludes": [
+      "policy decision",
+      "plan creation",
+      "verification conclusion"
+    ],
+    "rules": [
+      "Execution consumes an existing canonical ExecutionPlan",
+      "Execution requires an existing Policy Decision reference",
+      "Execution requires an explicit idempotency key",
+      "retry attempts are explicitly bounded",
+      "partial results are preserved explicitly",
+      "recovery is invoked only through the execution engine boundary",
+      "execution results remain correlated to request plan policy decision and idempotency key",
+      "Execution does not create or alter plans",
+      "Execution does not evaluate policy",
+      "Execution does not conclude verification",
+      "command completion is not a verification conclusion",
+      "postcondition evidence is handed to the Verification capability",
+      "technology-specific behavior remains behind ExecutionEngine"
+    ]
+  }
+}

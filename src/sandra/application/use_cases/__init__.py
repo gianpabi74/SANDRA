@@ -11,6 +11,8 @@ from .observe_subject import ObserveSubject
 from .qualify_evidence import QualifyEvidence
 from .query_resource_graph import QueryResourceGraph
 
+from .execute_plan import ExecutePlan
+
 __all__ = [
     "BuildExecutionPlan",
     "DeclareDesiredState",
@@ -19,4 +21,5 @@ __all__ = [
     "QualifyEvidence",
     "QueryResourceGraph",
     "UseCase",
+    "ExecutePlan",
 ]

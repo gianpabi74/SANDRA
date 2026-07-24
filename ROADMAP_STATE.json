@@ -2,19 +2,19 @@
   "apiVersion": "roadmap.sandra.io/v1",
   "kind": "RoadmapState",
   "metadata": {
-    "updatedUtc": "2026-07-24T10:48:58Z",
-    "sourceStateVersion": "5.6.0",
-    "publishedBy": "R3-000016B"
+    "updatedUtc": "2026-07-24T14:46:59Z",
+    "sourceStateVersion": "5.7.0",
+    "publishedBy": "R3-000017B-2"
   },
   "spec": {
     "project": "SANDRA",
     "mode": "FAST_SAFE_MODE",
-    "lastPublishedGate": "R3-000016B",
-    "currentGate": "R3-000016B",
+    "lastPublishedGate": "R3-000017B-2",
+    "currentGate": "R3-000017B-2",
     "currentGateStatus": "complete",
-    "nextGate": "R3-000017",
-    "nextGateTitle": "Execution Use Case Foundation",
-    "applicationFoundationRevision": 7,
+    "nextGate": "R3-000018",
+    "nextGateTitle": "Verification Use Case Foundation",
+    "applicationFoundationRevision": 8,
     "workflow": [
       "audit when uncertainty exists",
       "discovery when canonical identity is unknown",
@@ -39,16 +39,16 @@
       "resource_graph",
       "desired_state",
       "policy_decision",
-      "planning"
+      "planning",
+      "execution"
     ],
     "remainingVerticals": [
-      "execution",
       "verification"
     ],
     "completion": {
       "perceptionDecisionBlockPercent": 100.0,
-      "extendedAutonomyRoadmapPercent": 75.0
+      "extendedAutonomyRoadmapPercent": 87.5
     },
-    "nextChatInstruction": "Read ROADMAP_STATE.json and STATE.json, verify repository HEAD and continue from R3-000017."
+    "nextChatInstruction": "Read ROADMAP_STATE.json and STATE.json, verify repository HEAD and continue from R3-000018."
   }
 }

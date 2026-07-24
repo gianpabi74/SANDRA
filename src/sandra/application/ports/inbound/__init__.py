@@ -9,6 +9,8 @@ from .policy_decision import EvaluatePolicyDecisionPort
 from .query import QueryHandler
 from .resource_graph import QueryResourceGraphPort
 
+from .execution import ExecutePlanPort
+
 __all__ = [
     "CommandHandler",
     "DeclareDesiredStatePort",
@@ -18,4 +20,5 @@ __all__ = [
     "EvaluatePolicyDecisionPort",
     "QueryHandler",
     "QueryResourceGraphPort",
+    "ExecutePlanPort",
 ]
